@@ -1,0 +1,81 @@
+
+/* Default settings for body */
+body{
+    font-family: "mabry-regular",Arial,Sans-Serif;
+    text-align: center;
+
+}
+
+#container_signin{
+    margin: auto;
+    margin-top: 5em;
+    border-width: 1px;
+    border-radius: 10px;
+    width: 25em;
+    padding: 10px 10px;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+}
+
+h1.signin{
+    color: black;
+    font-size: xxx-large;
+    text-align:center;
+}
+
+.container_user_credentials{
+    text-align: center;
+    margin-top: 3em;
+}
+
+
+input.user_credentials {
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    width: 18em;
+    height: 2em;
+    border-color: transparent;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+    outline: none;
+    font-size: medium;
+}
+
+/*Link style*/
+a:link{color:black;}
+a:visited{color:black;}
+
+.submission{
+    margin: auto;
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 20px;
+
+}
+
+input.login_text{
+    color: white;
+    text-align:center;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    width: 10em;
+    height: 2em;
+    border-color: transparent;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+    cursor: pointer;
+    font-size: larger;
+}
+
+input.signup_text{
+    color: black;
+    text-align:center;
+    background-color: white;
+    border-radius: 5px;
+    width: 10em;
+    height: 2em;
+    border-color: transparent;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+    cursor: pointer;
+    font-size: larger;
+}
+
+
