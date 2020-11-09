@@ -195,12 +195,27 @@ signup_button.onclick=function(){
     }
       else{
          
-          if(!emailvalid)
+          if(!emailvalid){
+               passinput.value="";
+               emailinput.value="";
+               document.getElementById("repeatpassword").value="";
+               checkbox.checked=false;
               alert("Email address is not valid!");
-           else if(!passvalid)
+          }
+           else if(!passvalid){
+                passinput.value="";
+                emailinput.value="";
+                document.getElementById("repeatpassword").value="";
+                checkbox.checked=false;
               alert("Password is not valid!");
-          else if (!repeatvalid)
+           }
+          else if (!repeatvalid){
+               passinput.value="";
+               emailinput.value="";
+               document.getElementById("repeatpassword").value="";
+              checkbox.checked=false;
               alert("Two passwords you entered are not same!");
+          }
       }
   }
     else{
