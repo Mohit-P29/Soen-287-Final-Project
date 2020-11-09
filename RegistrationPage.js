@@ -177,7 +177,7 @@ document.getElementById("repeatpassword").onkeyup = function () {
 }
 signup_button.onclick=function(){
   if(signup_button.innerHTML!="Sign in"){
-    if(passinput.value=="" || emailinput.value=="" || repeatinput.value==""){
+    if(passinput.value=="" || emailinput.value=="" || document.getElementById("repeatpassword").value==""){
         alert("Input field cannot be empty");
         passinput.value="";
         emailinput.value="";
