@@ -75,10 +75,17 @@ window.onclick = function (event) {
 
 passinput.onfocus = function () {
     if(signup_button.innerHTML!="Sign in"){
-    document.getElementById("passvalidate1").style.display = "block";
+     
+     document.getElementById("passvalidate1").style.display = "block";
     }
 }
 passinput.onblur = function () {
+     if(!passvalid){
+        passinput.style.borderColor="red";
+    }
+    else{
+        passinput.style.borderColor="green";
+    }
     document.getElementById("passvalidate1").style.display = "none";
 }
 passinput.onkeyup = function () {
@@ -140,18 +147,27 @@ emailinput.onfocus = function () {
     }
 }
 emailinput.onblur = function () {
+    if(!emailvalid){
+        emailinput.style.borderColor="red";
+    }
+    else{
+        emailinput.style.borderColor="green";
+    }
+        
     document.getElementById("emailvalidate").style.display = "none";
 }
 
 emailinput.onkeyup = function () {
   if(signup_button.innerHTML!="Sign in"){
     if (emailinput.value.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/g)) {
+        
         v5.classList.remove("v1");
         v5.classList.add("v2");
         emailvalid=true;
     } else {
+       
          v5.classList.remove("v2");
-        v5.classList.add("v1");
+         v5.classList.add("v1");
         emailvalid=false;
     }
   }
@@ -162,14 +178,22 @@ document.getElementById("repeatpassword").onfocus = function () {
     }
 }
 document.getElementById("repeatpassword").onblur = function () {
+     if(!repeatvalid){
+        document.getElementById("repeatpassword").style.borderColor="red";
+    }
+    else{
+        document.getElementById("repeatpassword").style.borderColor="green";
+    }
     document.getElementById("repeatvalidate").style.display = "none";
 }
 document.getElementById("repeatpassword").onkeyup = function () {
     if (document.getElementById("repeatpassword").value.length != 0 && document.getElementById("repeatpassword").value==passinput.value) {
+        
         v6.classList.remove("v1");
         v6.classList.add("v2");
         repeatvalid=true;
     } else {
+       
          v6.classList.remove("v2");
         v6.classList.add("v1");
         repeatvalid=false;
