@@ -81,10 +81,10 @@ passinput.onfocus = function () {
 }
 passinput.onblur = function () {
      if(!passvalid){
-        passinput.style.borderColor="red";
+        passinput.style.boxShadow="0 0 7px red";
     }
     else{
-        passinput.style.borderColor="green";
+        passinput.style.boxShadow="0 0 7px forestgreen";
     }
     document.getElementById("passvalidate1").style.display = "none";
 }
@@ -148,10 +148,10 @@ emailinput.onfocus = function () {
 }
 emailinput.onblur = function () {
     if(!emailvalid){
-        emailinput.style.borderColor="red";
+        emailinput.style.boxShadow="0 0 7px red";
     }
     else{
-        emailinput.style.borderColor="green";
+        emailinput.style.boxShadow="0 0 7px forestgreen";
     }
         
     document.getElementById("emailvalidate").style.display = "none";
@@ -179,10 +179,10 @@ document.getElementById("repeatpassword").onfocus = function () {
 }
 document.getElementById("repeatpassword").onblur = function () {
      if(!repeatvalid){
-        document.getElementById("repeatpassword").style.borderColor="red";
+        document.getElementById("repeatpassword").style.boxShadow="0 0 7px red";
     }
     else{
-        document.getElementById("repeatpassword").style.borderColor="green";
+        document.getElementById("repeatpassword").style.boxShadow="0 0 7px forestgreen";
     }
     document.getElementById("repeatvalidate").style.display = "none";
 }
