@@ -32,6 +32,8 @@ signin_button.onclick = function () {
     checkbox.style.display = "none";
     formlabel.innerHTML = "Sign In";
     repeatinput.style.display="none";
+    passinput.style.boxShadow="";
+    emailinput.style.boxShadow="";
     var temp = document.createElement("div");
     signup_button.parentNode.insertBefore(temp, signup_button);
     repeatinput.parentNode.insertBefore(signup_button, repeatinput);
