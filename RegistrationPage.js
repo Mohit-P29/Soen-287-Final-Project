@@ -146,10 +146,12 @@ emailinput.onblur = function () {
 emailinput.onkeyup = function () {
   if(signup_button.innerHTML!="Sign in"){
     if (emailinput.value.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/g)) {
-        v5.style.color = "forestgreen";
+        v5.classList.remove("v1");
+        v5.classList.add("v2");
         emailvalid=true;
     } else {
-        v5.style.color = "red";
+         v5.classList.remove("v2");
+        v5.classList.add("v1");
         emailvalid=false;
     }
   }
@@ -164,10 +166,12 @@ document.getElementById("repeatpassword").onblur = function () {
 }
 document.getElementById("repeatpassword").onkeyup = function () {
     if (document.getElementById("repeatpassword").value.length != 0 && document.getElementById("repeatpassword").value==passinput.value) {
-        v6.style.color = "forestgreen";
+        v6.classList.remove("v1");
+        v6.classList.add("v2");
         repeatvalid=true;
     } else {
-        v6.style.color = "red";
+         v6.classList.remove("v2");
+        v6.classList.add("v1");
         repeatvalid=false;
     }
 }
@@ -182,13 +186,22 @@ signup_button.onclick=function(){
     else if(checkbox.checked==false){
         passinput.value="";
         emailinput.value="";
-        repeatinput.value="";
+        document.getElementById("repeatpassword").value="";
         alert("Must agree term and privacy to continue!");
     }
     
     else if(passvalid && emailvalid && repeatvalid){
         alert("All done!");
     }
+      else{
+         
+          if(!emailvalid)
+              alert("Email address is not valid!");
+           else if(!passvalid)
+              alert("Password is not valid!");
+          else if (!repeatvalid)
+              alert("Two passwords you entered are not same!");
+      }
   }
     else{
         alert("Sign In!");
