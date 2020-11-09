@@ -154,13 +154,15 @@ emailinput.onkeyup = function () {
     }
   }
 }
-repeatinput.onfocus = function () {
+document.getElementById("repeatpassword").onfocus = function () {
+    if(passinput.value!=""){
     document.getElementById("repeatvalidate").style.display = "block";
+    }
 }
-repeatinput.onblur = function () {
+document.getElementById("repeatpassword").onblur = function () {
     document.getElementById("repeatvalidate").style.display = "none";
 }
-repeatinput.onkeyup = function () {
+document.getElementById("repeatpassword").onkeyup = function () {
     if (document.getElementById("repeatpassword").value.length != 0 && document.getElementById("repeatpassword").value==passinput.value) {
         v6.style.color = "forestgreen";
         repeatvalid=true;
@@ -171,23 +173,24 @@ repeatinput.onkeyup = function () {
 }
 signup_button.onclick=function(){
   if(signup_button.innerHTML!="Sign in"){
-    if(checkbox.checked==false){
+    if(passinput.value=="" || emailinput.value=="" || repeatinput.value==""){
+        alert("Input field cannot be empty");
+        passinput.value="";
+        emailinput.value="";
+        document.getElementById("repeatpassword").value="";
+    }
+    else if(checkbox.checked==false){
         passinput.value="";
         emailinput.value="";
         repeatinput.value="";
         alert("Must agree term and privacy to continue!");
     }
-    if(passinput.value=="" || emailinput.value=="" || repeatinput.value==""){
-        alert("Input field cannot be empty");
-        passinput.value="";
-        emailinput.value="";
-        repeatinput.value="";
-    }
+    
     else if(passvalid && emailvalid && repeatvalid){
         alert("All done!");
     }
   }
     else{
-        alert("yes");
+        alert("Sign In!");
     }
 }

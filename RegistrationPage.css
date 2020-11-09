@@ -196,9 +196,15 @@ div.passvalidate1{
 .v1{
     color:red
 }
+.v1:after{
+     content: '   \00D7';
+}
 
 .v2{
     color:forestgreen;
+}
+.v2:after{
+    content: '   \2713';
 }
 
 
