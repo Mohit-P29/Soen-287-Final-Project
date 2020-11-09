@@ -32,8 +32,7 @@ signin_button.onclick = function () {
     checkbox.style.display = "none";
     formlabel.innerHTML = "Sign In";
     repeatinput.style.display="none";
-    passinput.style.boxShadow="";
-    emailinput.style.boxShadow="";
+    clearBoxShadow();
     passinput.value="";
     emailinput.value="";
     var temp = document.createElement("div");
@@ -210,12 +209,14 @@ signup_button.onclick=function(){
         passinput.value="";
         emailinput.value="";
         document.getElementById("repeatpassword").value="";
+        clearBoxShadow();
         checkbox.checked=false;
     }
     else if(checkbox.checked==false){
         passinput.value="";
         emailinput.value="";
         document.getElementById("repeatpassword").value="";
+        clearBoxShadow();
         alert("Must agree term and privacy to continue!");
     }
     
@@ -229,6 +230,7 @@ signup_button.onclick=function(){
                emailinput.value="";
                document.getElementById("repeatpassword").value="";
                checkbox.checked=false;
+              clearBoxShadow();
               alert("Email address is not valid!");
           }
            else if(!passvalid){
@@ -236,6 +238,7 @@ signup_button.onclick=function(){
                 emailinput.value="";
                 document.getElementById("repeatpassword").value="";
                 checkbox.checked=false;
+               clearBoxShadow();
               alert("Password is not valid!");
            }
           else if (!repeatvalid){
@@ -243,6 +246,7 @@ signup_button.onclick=function(){
                emailinput.value="";
                document.getElementById("repeatpassword").value="";
               checkbox.checked=false;
+              clearBoxShadow();
               alert("Two passwords you entered are not same!");
           }
       }
@@ -250,4 +254,9 @@ signup_button.onclick=function(){
     else{
         alert("Sign In!");
     }
+}
+function clearBoxShadow(){
+    emailinput.style.boxShadow="";
+    passinput.style.boxShadow="";
+    document.getElementById("repeatpassword").style.boxShadow="";
 }
