@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="RegistrationPage.css" />
+    <script type="text/javascript" src="RegistrationPage.js"></script>
+
+</head>
+
+<body>
+
+    <button id="myBtn"> Registration Form </button>
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">x</span>
+            <form class="userform">
+                <label id="formlabel" class="formtitle">Sign Up<br /></label>
+                <fieldset class="userform" id="fieldset_userform">
+
+
+                    <label for="email">Email<br /><input class="userinput" type="text" id="email" placeholder="Enter email" /></label>
+                    <br />
+                    <br />
+                    <label for="password">Password<br /><input class="userinput" type="password" id="password" placeholder="Enter password" /></label>
+                    <br /><br />
+                    <label id="repeatinput" for="repeatpassword">Repeat Password<input type="password" class="userinput" id="repeatpassword" placeholder="Re-enter password" /></label>
+                    <br /><br />
+                    <input type="checkbox" id="checkbox" />
+                    <label id="notification2">By check this, you agree to our<span class="checkterm" id="checkterm"> Terms &amp; Privacy</span></label>
+                    <div id="mymodal2" class="modal2">
+                        <div class="modal2-content">
+                            <span class="close2">x</span>
+                            <p><span style="font-size: 2em; font-weight: bold">Terms &amp; Privacy<br /></span>paragraphs</p>
+                            <table style="margin: 30px;padding: 10px;">
+                                <tr>
+                                    <td style="padding-right: 100px;"><span class="termform1" id="termformconfirm">Agree
+                                        </span></td>
+
+                                    <td><span class="termform2" id="termformcancel">
+                                            Disagree
+                                        </span></td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                    </div>
+                    <br /><br />
+                    <span class="signup" id="signup">Sign Up</span>
+                    <br />
+                    <label id="notification1" style="margin-left: 70px;">Already have accounts?<span class="signin" id="signin"> Sign in</span></label>
+
+
+
+                </fieldset>
+
+
+            </form>
+
+            <div class="passvalidate1" id="passvalidate1">
+                <p>Password Must Follow:</p>
+
+
+                <span class="v1" id="v1">Contains minimum 6 characters
+                </span>
+                <br />
+                <span class="v1" id="v2">Contains at least 1 digit
+                </span>
+                <br />
+                <span class="v1" id="v3">Contains at least 1 upper character
+                </span>
+                <br />
+                <span class="v1" id="v4">Contains at least 1 lower character
+                </span>
+
+            </div>
+            <div class="passvalidate1" id="emailvalidate">
+                <p>Email Address Validation:</p>
+                <span class="v1" id="v5">Email address is valid</span>
+
+            </div>
+            <div class="passvalidate1" id="repeatvalidate">
+            <p>Repeat Password Validation:</p>
+            <span class="v1" id="v6">Two passwords are same</span>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script type="text/javascript" src="RegistrationPage.js"></script>
+
+</body>
+
+</html>
