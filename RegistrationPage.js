@@ -34,6 +34,8 @@ signin_button.onclick = function () {
     repeatinput.style.display="none";
     passinput.style.boxShadow="";
     emailinput.style.boxShadow="";
+    passinput.value="";
+    emailinput.value="";
     var temp = document.createElement("div");
     signup_button.parentNode.insertBefore(temp, signup_button);
     repeatinput.parentNode.insertBefore(signup_button, repeatinput);
@@ -208,6 +210,7 @@ signup_button.onclick=function(){
         passinput.value="";
         emailinput.value="";
         document.getElementById("repeatpassword").value="";
+        checkbox.checked=false;
     }
     else if(checkbox.checked==false){
         passinput.value="";
