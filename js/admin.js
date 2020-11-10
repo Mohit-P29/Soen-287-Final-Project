@@ -10,6 +10,7 @@ function showMenu(toggleId, navbarId, bodyId){
             bodypadding.classList.toggle('body-id');
         })
     }
+
 }
 
 showMenu('nav-toggle', 'navbar', 'body-id');
@@ -25,7 +26,7 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink));
 function showSubMenu(toggleId, sublistId){
     var toggle = document.getElementsByClassName(toggleId);
     var sublist = document.getElementsByClassName(sublistId);
-
+    
     if (toggle && navbar) {
         toggle[0].addEventListener('click', () => {
             sublist[0].classList.toggle('showCollapse');

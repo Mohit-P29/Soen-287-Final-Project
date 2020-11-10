@@ -4,9 +4,10 @@ body{
     font-family: "mabry-regular",Arial,Sans-Serif;
     text-align: center;
 
+
 }
 
-#container_signin{
+.container_signin{
     margin: auto;
     margin-top: 5em;
     border-width: 1px;
@@ -14,6 +15,8 @@ body{
     width: 25em;
     padding: 10px 10px;
     box-shadow: 0 0 5px rgb(37, 37, 37);
+    background-color: white;
+
 }
 
 h1.signin{
@@ -65,7 +68,7 @@ input.login_text{
     font-size: larger;
 }
 
-input.signup_text{
+.signup_text{
     color: black;
     text-align:center;
     background-color: white;

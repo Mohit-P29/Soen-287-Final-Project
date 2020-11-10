@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="stylesheet" type="text/css" href="css/admin1.css" />
+    <link rel="stylesheet" type="text/css" href="css/admin.css" />
 </head>
 
 <body id="body-id">
@@ -32,23 +32,20 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-list-link collapse">
-                                <ion-icon name="globe-outline" class="nav-list-icon"></ion-icon>
+                            <div class="nav-list-link collapse">
+                                <a href="#">
+                                    <ion-icon name="globe-outline" class="nav-list-icon"></ion-icon>
+                                </a>
                                 <span class="nav-list-name">Webpages</span>
                                 <ion-icon name="chevron-down-outline" class="collapse-link"></ion-icon>
-                            </a>
+                            </div>
                             <ul class="sublist">
+                                <li><a href="#" class="sublink">All Products</a></li>
                                 <li><a href="#" class="sublink">Mask</a></li>
                                 <li><a href="#" class="sublink">Sanitizer</a></li>
                                 <li><a href="#" class="sublink">Lysol</a></li>
 
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-list-link">
-                                <ion-icon name="storefront-outline" class="nav-list-icon"></ion-icon>
-                                <span class="nav-list-name">Inventory</span>
-                            </a>
                         </li>
                         <li>
                             <a href="#" class="nav-list-link">
@@ -66,7 +63,7 @@
                 </div>
             </div>
 
-            <a href="#" class="nav-list-link">
+            <a href="Homepage.html" class="nav-list-link">
                 <ion-icon name="log-out-outline" class="nav-list-icon"></ion-icon>
                 <span class="nav-list-name">Log Out</span>
             </a>
@@ -76,7 +73,16 @@
     <main class="main_content">
         <header class="header">HOME</header>
         <div class="info">
-            Info here
+            <div class="product-table">
+                <table>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Description</th>
+                        <th>Inventory</th>
+                        <th>Popularity</th>
+                    </tr>
+                </table>
+            </div>
         </div>
     </main>
 
@@ -85,7 +91,7 @@
 
     <!-- JS script-->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-    <script src="js/admin1.js"></script>
+    <script src="js/admin.js"></script>
 </body>
 
 </html>
