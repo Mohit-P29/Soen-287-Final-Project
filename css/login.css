@@ -302,7 +302,7 @@ input.user_credentials_signup {
     cursor: pointer;
     font-size: 0.9em;
     position: relative;
-    top: 3em;
+    top: 0.5em;
 }
 
 
@@ -319,6 +319,7 @@ input.user_credentials_signup {
     outline: none;
     font-size: medium;
     margin-top: 0;
+    margin-bottom: 4em;
 }
 
 .popup_resetpw_desc {
@@ -339,6 +340,9 @@ input.user_credentials_signup {
 /*Terms and conditions*/
 
 .popup_tANDp_desc {
+    overflow: auto;
+    height: 12em;
     font-size: small;
     color: black;
+    margin-bottom: 0;
 }
