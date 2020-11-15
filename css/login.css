@@ -35,7 +35,7 @@ br {
 }
 
 .flip-card-3D-wrapper {
-    width: 18em;
+    width: 20em;
     height: 22em;
     position: relative;
     -o-perspective: 900px;
@@ -101,7 +101,7 @@ br {
 }
 
 
-/*Change Style*/
+/*Sign in CSS*/
 
 h1.signin {
     color: black;
@@ -127,17 +127,12 @@ input.user_credentials {
     margin-top: 0;
 }
 
-a.forgotpw {
+p#forgotpw {
     font-size: medium;
     margin-top: 5em;
-}
-
-a.forgotpw:link {
-    color: black;
-}
-
-a.forgotpw:visited {
-    color: black;
+    cursor: pointer;
+    margin: 1em 0 0 0;
+    text-decoration: underline;
 }
 
 .submission {
@@ -160,6 +155,7 @@ a.forgotpw:visited {
     border-color: transparent;
     width: 10em;
     height: 2em;
+    outline: none;
 }
 
 .login_text {
@@ -213,6 +209,8 @@ input.user_credentials_signup {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+    font-size: small;
+    margin-bottom: 0.5em;
 }
 
 #validation1,
@@ -232,4 +230,115 @@ input.user_credentials_signup {
     margin: auto;
     text-align: center;
     margin-top: 1em;
+}
+
+
+/*Popup window*/
+
+.popup .overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popup .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 22em;
+    height: 18em;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+.popup #close-btn1,
+.popup #close-btn2,
+.popup #close-btn3 {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popup.active .overlay {
+    display: block;
+}
+
+.popup.active .content {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#popup_button1,
+#popup_button2,
+#popup_button3 {
+    color: white;
+    text-align: center;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    width: 13em;
+    height: 3em;
+    border-color: transparent;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+    cursor: pointer;
+    font-size: 0.9em;
+    position: relative;
+    top: 3em;
+}
+
+
+/*Forget password*/
+
+#popup_email_input {
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    width: 18em;
+    height: 2.5em;
+    border-color: transparent;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+    outline: none;
+    font-size: medium;
+    margin-top: 0;
+}
+
+.popup_resetpw_desc {
+    font-size: large;
+    color: black;
+}
+
+
+/*Successful reset password confirmation*/
+
+#popup_successRest_desc {
+    margin-top: 3em;
+    font-size: large;
+    color: black;
+}
+
+
+/*Terms and conditions*/
+
+.popup_tANDp_desc {
+    font-size: small;
+    color: black;
 }

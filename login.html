@@ -23,7 +23,7 @@
                     <img src="image/password_icon.JPG" alt="password_icon" width="25px" height="15px" />
                     <input class="user_credentials" type="password" name="password" id="password" placeholder="Password" /><br />
 
-                    <a class="forgotpw" href="#">Forgot password?</a>
+                    <p id="forgotpw" href="#">Forgot password?</p>
                 </div>
 
                 <div class="submission">
@@ -48,8 +48,8 @@
 
                         <label id="notification2" style="display: inline-block;"> 
                             <input type="checkbox" id="termPrivacy" />By check this, you agree to our
-                            <span class="checkterm" id="checkterm"> Terms &amp; Privacy</span>
                         </label>
+                        <span class="checkterm" id="checkterm"> Terms &amp; Privacy</span>
                     </div>
                     <p id="validation1"></p>
                     <p id="validation2"></p>
@@ -70,7 +70,44 @@
         </div>
     </div>
 
+    <!-- Popup window for reset password -->
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content" id="popup_box">
+            <div id="close-btn1">&times;</div>
+            <h1>Reset password</h1>
+            <p class="popup_resetpw_desc">Please enter your email</p><br />
+            <input type="text" id="popup_email_input" placeholder="Enter your E-mail" />
+            <br /><br /><br />
+            <button id="popup_button1">Reset Password</button>
+        </div>
+    </div>
 
+    <!-- Popup window terms and privacy -->
+    <div class="popup" id="popup-2">
+        <div class="overlay"></div>
+        <div class="content" id="popup_box">
+            <div id="close-btn2">&times;</div>
+            <h1>Terms & Privacy</h1>
+            <p class="popup_tANDp_desc">Paragraph</p><br /><br /><br /><br />
+            <button id="popup_button2">I agree</button>
+        </div>
+    </div>
+
+    <!-- Popup window for successful sending email-->
+    <div class="popup" id="popup-3">
+        <div class="overlay"></div>
+        <div class="content" id="popup_box">
+            <div id="close-btn3">&times;</div>
+            <h1>Successful!</h1>
+            <p id="popup_successRest_desc"></p><br /><br /><br /><br />
+        </div>
+    </div>
+
+
+
+
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <script src="js/login.js"></script>
 
 </body>
