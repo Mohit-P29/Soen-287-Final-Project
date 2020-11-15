@@ -36,7 +36,7 @@ var emailvalid2 = false;
 var repeatvalid = false;
 var label = document.createElement("label");
 
-signin_button.onclick = function () {
+signin_button.onclick = function() {
     backarrow.style.display = "block";
     signup_button.innerHTML = "Sign in";
     notification1.style.display = "none";
@@ -56,11 +56,11 @@ signin_button.onclick = function () {
     label.style.display = "block";
     label.innerHTML = "Forget Password?<br/><br/>";
     label.classList.add("signin");
-    label.onclick = function () {
+    label.onclick = function() {
         showResetBox();
 
     }
-    backarrow.onclick = function () {
+    backarrow.onclick = function() {
         location.reload();
     }
     signup_button.parentNode.insertBefore(label, signup_button);
@@ -71,18 +71,18 @@ function showResetBox() {
     modal3.style.display = "block";
 }
 
-checkterm.onclick = function () {
+checkterm.onclick = function() {
     modal2.style.display = "block";
 }
-confirm_button_termform.onclick = function () {
+confirm_button_termform.onclick = function() {
     modal2.style.display = "none";
     checkbox.checked = true;
 }
-cancel_button_termform.onclick = function () {
+cancel_button_termform.onclick = function() {
     modal2.style.display = "none";
     checkbox.checked = false;
 }
-resetinput.onblur = function () {
+resetinput.onblur = function() {
     if (resetinput.value.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/g)) {
         resetinput.style.boxShadow = "0 0 7px forestgreen";
         emailvalid2 = true;
@@ -92,7 +92,7 @@ resetinput.onblur = function () {
     }
 
 }
-reset_button.onclick = function () {
+reset_button.onclick = function() {
     if (emailvalid2) {
         successful_reset();
     } else {
@@ -109,36 +109,36 @@ function successful_reset() {
 
 }
 
-span.onclick = function () {
+span.onclick = function() {
     modal.style.display = "none";
     if (repeatinput.style.display == "none") {
         location.reload();
     }
 }
-span2.onclick = function () {
+span2.onclick = function() {
     modal2.style.display = "none";
 }
 
-span3.onclick = function () {
+span3.onclick = function() {
     resetinput.value = "";
     resetinput.style.boxShadow = "";
     emailvalid2 = false;
     modal3.style.display = "none";
 }
-span4.onclick = function () {
+span4.onclick = function() {
     resetinput.value = "";
     resetinput.style.boxShadow = "";
     emailvalid2 = false;
     modal4.style.display = "none";
     modal3.style.display = "none";
 }
-window.onclick = function (event) {
+window.onclick = function(event) {
     if (event.target == modal2) {
         modal2.style.display = "none";
     }
 }
 
-passinput.onfocus = function () {
+passinput.onfocus = function() {
     if (signup_button.innerHTML != "Sign in") {
         if (passvalid) {
             v3.classList.remove("v2");
@@ -157,7 +157,7 @@ passinput.onfocus = function () {
         document.getElementById("passvalidate1").style.display = "block";
     }
 }
-passinput.onblur = function () {
+passinput.onblur = function() {
     if (!passvalid) {
         passinput.style.boxShadow = "0 0 7px red";
     } else {
@@ -165,7 +165,7 @@ passinput.onblur = function () {
     }
     document.getElementById("passvalidate1").style.display = "none";
 }
-passinput.onkeyup = function () {
+passinput.onkeyup = function() {
     if (signup_button.innerHTML != "Sign in") {
         var uppercase = false;
         var digit = false;
@@ -218,7 +218,7 @@ passinput.onkeyup = function () {
     }
 
 }
-emailinput.onfocus = function () {
+emailinput.onfocus = function() {
     if (signup_button.innerHTML != "Sign in") {
         if (emailvalid) {
             v5.classList.remove("v2");
@@ -229,7 +229,7 @@ emailinput.onfocus = function () {
         document.getElementById("emailvalidate").style.display = "block";
     }
 }
-emailinput.onblur = function () {
+emailinput.onblur = function() {
     if (!emailvalid) {
         emailinput.style.boxShadow = "0 0 7px red";
     } else {
@@ -239,7 +239,7 @@ emailinput.onblur = function () {
     document.getElementById("emailvalidate").style.display = "none";
 }
 
-emailinput.onkeyup = function () {
+emailinput.onkeyup = function() {
     if (signup_button.innerHTML != "Sign in") {
         if (emailinput.value.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/g)) {
 
@@ -254,7 +254,7 @@ emailinput.onkeyup = function () {
         }
     }
 }
-document.getElementById("repeatpassword").onfocus = function () {
+document.getElementById("repeatpassword").onfocus = function() {
     if (passinput.value != "") {
         if (repeatvalid) {
             v6.classList.remove("v2");
@@ -265,7 +265,7 @@ document.getElementById("repeatpassword").onfocus = function () {
         document.getElementById("repeatvalidate").style.display = "block";
     }
 }
-document.getElementById("repeatpassword").onblur = function () {
+document.getElementById("repeatpassword").onblur = function() {
     if (!repeatvalid) {
         document.getElementById("repeatpassword").style.boxShadow = "0 0 7px red";
     } else {
@@ -273,7 +273,7 @@ document.getElementById("repeatpassword").onblur = function () {
     }
     document.getElementById("repeatvalidate").style.display = "none";
 }
-document.getElementById("repeatpassword").onkeyup = function () {
+document.getElementById("repeatpassword").onkeyup = function() {
     if (document.getElementById("repeatpassword").value.length != 0 && document.getElementById("repeatpassword").value == passinput.value) {
 
         v6.classList.remove("v1");
@@ -286,7 +286,7 @@ document.getElementById("repeatpassword").onkeyup = function () {
         repeatvalid = false;
     }
 }
-signup_button.onclick = function () {
+signup_button.onclick = function() {
     if (signup_button.innerHTML != "Sign in") {
         if (passinput.value == "" || emailinput.value == "" || document.getElementById("repeatpassword").value == "") {
             alert("Input field cannot be empty");

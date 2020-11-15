@@ -2,7 +2,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 /* The Modal (background) */
+
 .modal {
     display: block;
     /* Hidden by default */
@@ -26,7 +28,9 @@ body {
     /* Black w/ opacity */
 }
 
+
 /* Modal Content */
+
 .modal-content {
     background-color: whitesmoke;
     margin: auto;
@@ -59,6 +63,7 @@ body {
     border: 1px solid #888;
     width: 30%;
 }
+
 .modal3 {
     display: none;
     position: fixed;
@@ -83,6 +88,7 @@ body {
     border: 1px solid #888;
     width: 25%;
 }
+
 .modal4 {
     display: none;
     position: fixed;
@@ -106,12 +112,12 @@ body {
     padding: 25px;
     border: 1px solid #888;
     width: 28%;
-    height:350px;
+    height: 350px;
 }
 
 
-
 /* The Close Button */
+
 .close {
     color: grey;
     float: right;
@@ -125,6 +131,7 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
 .close2 {
     color: grey;
     float: right;
@@ -139,45 +146,44 @@ body {
     cursor: pointer;
 }
 
-.back{
+.back {
     display: none;
     float: left;
     color: grey;
     font-size: 23px;
 }
-.back:before{
- content: '\27F5';
+
+.back:before {
+    content: '\27F5';
 }
-.back:hover{
+
+.back:hover {
     cursor: pointer;
 }
 
 form.userform {
     margin-left: 20px;
-
 }
 
 label.formtitle {
     position: relative;
     text-align: center;
     align-content: center;
-    left:220px;
+    left: 220px;
     font-size: 2em;
     font-weight: 300;
-
 }
 
 input[type="text"].userinput {
     position: relative;
     width: 350px;
     height: 30px;
-
 }
+
 input[type="password"].userinput {
     position: relative;
     width: 350px;
     height: 30px;
-
 }
 
 fieldset.userform {
@@ -202,80 +208,84 @@ span.checkterm:hover {
     cursor: pointer;
     vertical-align: bottom;
 }
-span.termform1{
+
+span.termform1 {
     display: block;
     font-size: 1em;
     padding: 5px 30px;
-    width:55px;
+    width: 55px;
     height: 20px;
     position: relative;
     font-weight: bold;
-    background-color:dodgerblue;
+    background-color: dodgerblue;
     border-color: dodgerblue;
 }
-span.termform1:hover{
+
+span.termform1:hover {
     cursor: pointer;
 }
-span.termform2{
-    padding:5px 27px;
+
+span.termform2 {
+    padding: 5px 27px;
     display: block;
     font-size: 1em;
-    width:60px;
+    width: 60px;
     height: 20px;
     font-weight: bold;
     position: relative;
-    background-color:lightgray;
+    background-color: lightgray;
     border-color: lightgray;
 }
-span.termform2:hover{
+
+span.termform2:hover {
     cursor: pointer;
 }
-.signin{
-    color:dodgerblue;
+
+.signin {
+    color: dodgerblue;
     text-decoration: underline;
 }
-.signin:hover{
-    color:darkviolet;
+
+.signin:hover {
+    color: darkviolet;
     cursor: pointer;
 }
-span.signup{
+
+span.signup {
     display: block;
-    background-color:dodgerblue;
+    background-color: dodgerblue;
     border-radius: 2em;
-    width:200px;
+    width: 200px;
     margin-left: 25px;
-    height:35px;
+    height: 35px;
     padding-left: 125px;
-    padding-top:17px;
+    padding-top: 17px;
     color: white;
     font-weight: bold;
 }
-div.passvalidate1{
+
+div.passvalidate1 {
     display: none;
     background-color: whitesmoke;
-    width:400px;
-    height:200px;
-    padding-top:10px;
+    width: 400px;
+    height: 200px;
+    padding-top: 10px;
     padding-left: 20px;
     margin-left: 130px;
-    
-}
-.v1{
-    color:red;
-        
-}
-.v1:after{
-     content: '   \00D7';
 }
 
-.v2{
-    color:forestgreen;
-
+.v1 {
+    color: red;
 }
-.v2:after{
+
+.v1:after {
+    content: '   \00D7';
+}
+
+.v2 {
+    color: forestgreen;
+}
+
+.v2:after {
     content: '   \2713';
 }
-
-
-
-

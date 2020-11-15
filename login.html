@@ -7,42 +7,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
     <link rel="stylesheet" type="text/css" href="css/login.css" />
-    <script type="text/javascript">
-        function verifCred(){
-            if(document.getElementById("email").value == "admin"){
-                window.open('admin.html', "_self")
-            }else{
-                alert("Please provide valid credentials");
-            }
-        }
-
-    </script>
 
 </head>
 
 <body>
-    <div class="container_signin">
-        <!-- Front Content-->
-        <h1 class="signin">Sign In</h1>
+    <div class="flip-card-3D-wrapper">
+        <div id="flip-card">
+            <div class="container_signin">
+                <h1 class="signin">Login</h1>
 
-        <div class="container_user_credentials">
-            <img src="image/email_icon.JPG" alt="email_icon" width="25px" height="15px" />
-            <input class="user_credentials" type="email" name="email" id="email"
-                placeholder="E-mail" /><br /><br />
+                <div class="container_user_credentials">
+                    <img src="image/email_icon.JPG" alt="email_icon" width="25px" height="15px" />
+                    <input class="user_credentials" type="email" name="email" id="email" placeholder="E-mail" /><br /><br />
 
-            <img src="image/password_icon.JPG" alt="password_icon" width="25px" height="15px" />
-            <input class="user_credentials" type="password" name="password" id="password"
-                placeholder="Password" /><br />
+                    <img src="image/password_icon.JPG" alt="password_icon" width="25px" height="15px" />
+                    <input class="user_credentials" type="password" name="password" id="password" placeholder="Password" /><br />
 
-            <p><a class="forgotpw" href="#">Forgot password?</a></p>
-        </div>
+                    <a class="forgotpw" href="#">Forgot password?</a>
+                </div>
 
-        <div class="submission">
-            <input class="login_text" type="submit" value="Login" onclick="verifCred()"/><br /><br />
-            <input class="signup_text" type="button" value="Sign Up" onclick="window.open('User_RegistrationPage.html')"/><br />
+                <div class="submission">
+                    <input class="login_text" type="submit" value="Login" onclick="verifCred()" /><br /><br />
+                </div>
+
+                <button id="signup">Sign Up</button>
+            </div>
+
+            <div class="countainer_signup">
+                <h1 class="signup">Register</h1>
+                <form onsubmit="return submitSignup(event);">
+                    <div class="container_user_credentials_signup">
+                        <img src="image/email_icon.JPG" alt="email_icon" width="25px" height="15px" />
+                        <input class="user_credentials_signup" type="email" name="email_signup" id="email_signup" placeholder="E-mail" /><br /><br />
+
+                        <img src="image/password_icon.JPG" alt="password_icon" width="25px" height="15px" />
+                        <input class="user_credentials_signup" type="password" name="password_signup" id="password_signup" placeholder="Password" /><br />
+
+                        <img src="image/passcheck_icon.JPG" alt="passcheck_icon" width="25px" height="20px" />
+                        <input class="user_credentials_signup" type="password" name="recheck_password_signup" id="recheck_password_signup" placeholder="Re-enter Password" /><br />
+
+                        <label id="notification2" style="display: inline-block;"> 
+                            <input type="checkbox" id="termPrivacy" />By check this, you agree to our
+                            <span class="checkterm" id="checkterm"> Terms &amp; Privacy</span>
+                        </label>
+                    </div>
+                    <p id="validation1"></p>
+                    <p id="validation2"></p>
+                    <p id="validation3"></p>
+                    <p id="validation4"></p>
+
+
+                    <div class="submission_signup">
+                        <input class="login_text" type="submit" value="Register" /><br /><br />
+                    </div>
+
+                </form>
+
+
+                <button id="signin">Sign In</button>
+
+            </div>
         </div>
     </div>
+
+
+    <script src="js/login.js"></script>
+
 </body>
 
 </html>
-

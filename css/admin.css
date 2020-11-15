@@ -152,7 +152,7 @@ a{
 
 .sublist{
     display: none;
-    padding-left: 3rem;
+    padding-left: 3.25rem;
 }
 
 .sublink{
@@ -186,10 +186,11 @@ a{
     height: 3.5rem;
     background-color: rgb(247, 247, 247);
     color:rgb(54, 54, 54);
-    box-shadow: 0 0 10px rgb(94, 94, 94);
-    font-size: xx-large;
+    box-shadow: 0 0 10px rgb(192, 192, 192);
+    font-size: x-large;
     font-weight: 900;
-    font-family: 'mabry-regular',arial, Sans-Serif;}
+    font-family: 'mabry-regular',arial, Sans-Serif;
+}
 
 .main_content .info{
     margin: 20px;
@@ -200,3 +201,13 @@ a{
 
 }
 
+.header-icon{
+    position: relative;
+    top: 0.65rem;
+}
+
+.header-name{
+    font-family: 'mabry-regular',arial, Sans-Serif;
+    position: relative;
+    top:0.5rem;
+}

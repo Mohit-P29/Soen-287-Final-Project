@@ -1,63 +1,170 @@
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-/* Default settings for body */
-body{
-    font-family: "mabry-regular",Arial,Sans-Serif;
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "mabry-regular", Arial, Sans-Serif;
+    font-size: 20px;
+    font-weight: 300;
+    background: white;
+    overflow: hidden;
+}
+
+
+/*Change height of <br /> */
+
+br {
+    display: block;
+    /* makes it have a width */
+    content: "";
+    /* clears default height */
+    margin-top: 0.5em;
+    /* change this to whatever height you want it */
+}
+
+.flip-card-3D-wrapper {
+    width: 18em;
+    height: 22em;
+    position: relative;
+    -o-perspective: 900px;
+    -webkit-perspective: 900px;
+    -ms-perspective: 900px;
+    perspective: 900px;
+    margin: 0 auto;
+}
+
+#flip-card {
+    width: 100%;
+    height: 100%;
     text-align: center;
-
-
+    margin: 3em auto;
+    position: absolute;
+    /*  */
+    -o-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    -o-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
-.container_signin{
-    margin: auto;
-    margin-top: 5em;
-    border-width: 1px;
-    border-radius: 10px;
-    width: 25em;
-    padding: 10px 10px;
+.do-flip {
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+#flip-card .container_signin,
+#flip-card .countainer_signup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -o-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 2;
+    -webkit-box-shadow: 0 0 5px rgb(37, 37, 37);
+    -moz-box-shadow: 0 0 5px rgb(37, 37, 37);
     box-shadow: 0 0 5px rgb(37, 37, 37);
-    background-color: white;
-
 }
 
-h1.signin{
+#flip-card .container_signin {
+    background: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+#flip-card .countainer_signup {
+    background: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+
+/*Change Style*/
+
+h1.signin {
     color: black;
     font-size: xxx-large;
-    text-align:center;
-}
-
-.container_user_credentials{
     text-align: center;
-    margin-top: 3em;
 }
 
+.container_user_credentials {
+    text-align: center;
+    margin-top: 2em;
+}
 
 input.user_credentials {
     color: black;
     background-color: white;
     border-radius: 5px;
     width: 18em;
-    height: 2em;
+    height: 2.5em;
     border-color: transparent;
     box-shadow: 0 0 5px rgb(37, 37, 37);
     outline: none;
     font-size: medium;
+    margin-top: 0;
 }
 
-/*Link style*/
-a:link{color:black;}
-a:visited{color:black;}
+a.forgotpw {
+    font-size: medium;
+    margin-top: 5em;
+}
 
-.submission{
+a.forgotpw:link {
+    color: black;
+}
+
+a.forgotpw:visited {
+    color: black;
+}
+
+.submission {
     margin: auto;
     text-align: center;
     margin-top: 3em;
-    margin-bottom: 20px;
-
 }
 
-input.login_text{
+#signup,
+#signin {
+    background: white;
+    cursor: pointer;
+    visibility: hidden;
+    font-weight: 600;
+    font-size: 0.9em;
+    padding: 0;
+    color: grey;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+    border-color: transparent;
+    width: 10em;
+    height: 2em;
+}
+
+.login_text {
     color: white;
-    text-align:center;
+    text-align: center;
     background-color: #2a2a2a;
     border-radius: 5px;
     width: 10em;
@@ -65,20 +172,64 @@ input.login_text{
     border-color: transparent;
     box-shadow: 0 0 5px rgb(37, 37, 37);
     cursor: pointer;
-    font-size: larger;
+    font-size: 0.9em;
 }
 
-.signup_text{
+
+/*Sign up CSS*/
+
+h1.signup {
     color: black;
-    text-align:center;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.container_user_credentials_signup {
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+input.user_credentials_signup {
+    color: black;
     background-color: white;
     border-radius: 5px;
-    width: 10em;
-    height: 2em;
+    width: 18em;
+    height: 2.5em;
     border-color: transparent;
     box-shadow: 0 0 5px rgb(37, 37, 37);
-    cursor: pointer;
-    font-size: larger;
+    outline: none;
+    font-size: medium;
+    margin-top: 0;
 }
 
+#notification2 {
+    font-size: small;
+    margin-bottom: 0.5em;
+}
 
+.checkterm {
+    font-size: larger;
+    margin-top: 5em;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#validation1,
+#validation2 {
+    height: 1em;
+    font-size: small;
+    margin: 0;
+}
+
+#validation3,
+#validation4 {
+    font-size: small;
+    margin: 0;
+}
+
+.submission_signup {
+    margin: auto;
+    text-align: center;
+    margin-top: 1em;
+}
