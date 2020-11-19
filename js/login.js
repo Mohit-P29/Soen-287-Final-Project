@@ -183,6 +183,7 @@ document.getElementById("close-btn1").addEventListener("click", function() {
     document.getElementById("popup-1").classList.remove("active");
 });
 
+//Popup window for reset password
 document.getElementById("popup_button1").addEventListener("click", function() {
     var email = document.getElementById("popup_email_input").value;
     if (email.match(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/g)) {
