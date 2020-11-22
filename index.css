@@ -262,7 +262,7 @@ main {
 
 .product {
     margin-left: 63px;
-    background-color: lightslategray;
+    background-color: grey;
     height: 250px;
     width: 150px;
     transition: transform .2s;
