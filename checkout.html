@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Checkout</title>
+        <link rel="stylesheet" type="text/css" href="css/Global.CSS">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    </head>
+    
+    <body> 
+        
+        <div class="shipping">
+            <a href="#"><strong>FREE SHIPPING on $49.99+ orders</strong> </a>
+        </div>
+        
+        <header>
+                <div class="logo">
+                    <a href="Homepage.html">
+                        <img src="image/company%20logo.jpg" alt="Company logo">
+                    </a>
+                </div>
+            
+                <div class="symbols">
+                    <a href="login.html"><img src="image/signin.jpg" alt="myaccount" width="45px"></a>
+                    <div class="cart">
+                        <a href="shoppingCart.html"> <img src="image/cart.jpg" alt="cart" width="45px"></a>
+                        <span>0</span>
+                    </div>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a>
+                            <ul>
+                                <li><a href="#">Desinfectant</a></li>
+                                <li><a href="#">Protective Wear</a></li>
+                                <li><a href="#">Cleaning &amp; Care</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Donate</a></li>
+                    </ul>
+                </nav>
+        </header>
+        <h2>Review your order</h2>
+        <section id="orderReview">
+            <div id="shipAddress">
+                <h3>Shipping Address</h3>
+                <a>change</a>
+                <p>John Doe</p>
+                <p>492 Rue main</p>
+                <p>Montreal. Qc</p>
+                <p>J8T 2H5</p>
+                <p>514-123-4567</p>
+            </div>
+           <div id="methods">
+                <div id="payMethod">
+                    <h3>Payment Method</h3>
+                    <a>change</a>
+                    <img src="" alt="visa">
+                    <p>ending in 1337</p>
+                </div>
+                <div id="shipMethod">
+                    <h3>Shipping Method</h3>
+                    <input type="radio" name="shipping" value="Regular" id="hship1" onchange="shipping()" checked> Regular (Free)<br>
+                    <input type="radio" name="shipping" value="Express" id="hship2" onchange="shipping()"> 2-day shipping ($5)
+                </div>
+            </div>
+            <div id="others">
+                <div id="promo">
+                    <h3>Gift cards & promotional codes</h3>
+                    <input placeholder="Enter code" id="promoCode">
+                    <button onclick="promo()">Apply</button>
+                </div>
+                <p id="addedCode"></p>
+                <div id="arrival">
+                    <h3>Arrival day</h3>
+                    <p>December 4, 2020</p>
+                    <p>9pm</p>
+                </div>
+            </div>
+        </section>
+        <div id="yourItemsHeader">
+            <h2 >Your items</h2>
+            <a href="shoppingCart.html">Modify items</a>
+        </div>
+       
+        <section id="yourItems" class="yourItems">
+
+        </section>
+
+        <section id="donationANDreceipt">
+            <div id="donation">
+                <h3>Please consider a kind donation</h3>
+                <p>As you may know, many lives are impacted by the global pandemic... blablabla
+                    By donating, you are automatically supporting the people in need and you will be given a free discount code for your next purchase!</p>
+                <img src="" alt="heart">
+                <div> 
+                    <h4>Donate now</h4>
+                    <input placehold="Enter amount" id="donoAmount">
+                    <button onclick="dono()">Add donation</button>
+                </div>
+                <p id="thankyouDono"></p>
+            </div>
+            <div id="receipt">
+                <h4>Order summary</h4>
+                <div class="itemsPriceTotal">
+                
+                </div>
+                <p class="item" id="shipMethodSelect"></p>
+                <p class="itemPrice" id="shipMethodSelectPrice"></p>
+
+                <hr>
+
+                <p class="item">Total before tax:</p>
+                <p class="itemPrice" id="pbt1"></p>
+
+                <p class="item" id="enteredCode"></p>
+                <p class="itemPrice" id="enteredCodeDisc"></p>
+                <div id="pbt3">
+                    <hr class="pbt2">
+                    
+                    <p class="item pbt2">Total before tax</p>
+                    <p class="itemPrice pbt2" id="pbt2"></p>
+                </div>
+                <p class="item">Taxes (15%)</p>
+                <p class="itemPrice" id="taxes"></p>
+
+                <hr>
+
+                <p class="item dono">Total after tax:</p>
+                <p class="itemPrice dono" id="pat"></p>
+                
+                <p class="item dono" id="donoText">Additional Donation</p>
+                <p class="itemPrice dono" id="dono">$0</p>
+                <div class="orderTotal">
+                    <p class="item">Order Total:</p>
+                    <p class="itemPrice" id="finalTotal"></p>
+                </div>
+                <form action="orderPlaced.html">
+                    <input type="submit" value="Place Order"/>
+                </form>
+            </div>
+
+        </section>
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <script src="js/cart.js"></script>
+        <script>
+             displayItems();
+            newTotalCost();
+            shipping();
+        </script>
+    </body>
+    
+</html>

@@ -1,0 +1,461 @@
+body
+{
+    font-family: 'Playfair Display', serif;
+    max-width:1500px;
+    margin:0 auto;
+}
+
+nav
+{
+    overflow:hidden;
+    width:700px;
+    margin:auto;
+    margin-top: 20px;
+}
+
+header
+{
+    margin-top: 35px;
+    background-color: white;
+    position:absolute;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    box-shadow: 5px 10px 20px #888888;
+}
+
+.logo
+{
+    margin-top: 10px;
+    float: left;
+    margin-left:50px;
+    width:150px;
+    object-fit:contain;
+}
+
+.logo img {
+    width:150px;
+}
+
+ul
+{
+    padding: 0px;
+    list-style-type: none;
+    overflow:hidden;
+
+}
+
+ul li
+{
+    float:left;
+    width: 20%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+}
+
+ul li a
+{
+    text-decoration: none;
+    color:black;
+    display: block;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+ul li a:hover
+{
+    background-color: none;
+    text-decoration: underline;
+}
+
+ul li ul li
+{
+    display: none;
+}
+
+ul li:hover ul li
+{
+    display: block;
+}
+
+.symbols
+{
+    float: right;
+    margin-top:30px;
+    margin-right:50px;
+}
+
+.symbols a
+{
+    margin-right: 10px;
+}
+
+.shipping
+{
+    background-color: lightgrey;
+    position: absolute;
+    height:35px;
+    top:0px;
+    left: 0px;
+    right:0px;
+    text-align: center;
+    padding: 10px;
+}
+
+.shipping a
+{
+    text-decoration: underline;
+    color:blue;
+    cursor: pointer;
+}
+
+.slideshow_container
+{
+    position: relative;
+    height: 450px;
+    width: 1000px;
+    margin-top: 325px;
+    margin-left: 225px;
+}
+
+.mySlides
+{
+    display: none;
+}
+
+.prev, .next
+{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next
+{
+    right:0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover
+{
+    background-color: grey;
+    opacity: 0.7;
+}
+
+.text 
+{
+  color: red;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.numbertext 
+{
+  color: red;
+  font-size: 12px;
+  padding: 8px 12px;
+  position:absolute;
+  top: 0;
+}
+
+.fade 
+{
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade 
+{
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade 
+{
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.size
+{
+    width: 100%;
+    height: 450px;
+}
+
+.myButton
+{
+    position: absolute;
+    right: 100px;
+    top: 250px;
+}
+
+.slideshow1
+{
+    position: absolute;
+    color: black;
+    top: 80px;
+    left: 100px;
+    width: 400px;
+    font-size: 40px;
+}
+
+#cart {
+    margin-top:150px;
+    margin-left:50px;
+}
+
+#fbt h2{
+    margin-left:50px;
+}
+
+#Subtotal{
+    float:right;
+    width:150px;
+}
+
+#Subtotal h4{
+    width:50%;
+}
+
+#orderReview{
+    width:70%;
+    margin:auto;
+    border:2px solid black;
+    margin-top:150px;
+    overflow:hidden;
+}
+
+#shipAddress{
+    float:left;
+    width:33%;
+    margin-left:20px;
+}
+
+#promo, #arrival{
+    float:right;
+    width:30%;
+}
+
+#methods {
+    width:33%;
+    float:left;
+}
+
+/***ADDED CSS BY SAM***/
+
+#yourItems {
+    width:70%;
+    margin:auto;
+    border:2px solid black;
+    overflow:hidden;
+}
+
+#donationANDreceipt{
+    width:70%;
+    margin:auto;
+    margin-top:50px;
+    overflow:hidden;
+}
+
+#donation{
+    width:60%;
+    border:2px solid black;
+    overflow:hidden;
+    padding:10px;
+    float:left;
+}
+
+#receipt{
+    float:right;
+    width:30%;
+    border:2px solid black;
+    overflow:hidden;
+    padding:10px;
+}
+
+.item{
+    float:left;
+    width:50%;
+    margin-bottom:0px;
+}
+
+.itemPrice{
+    float:right;
+    width:50%;
+    text-align:right;
+    margin-bottom:0px;
+}
+
+#products{
+    margin-top:200px;
+    overflow:hidden;
+}
+
+#leftCol, #rightCol{
+    width:50%;
+    float:left;
+}
+
+#leftCol div, #rightCol div{
+    border:2px solid black;
+    width:75%;
+    margin:auto;
+    margin-top:5%;
+    text-align:center;
+    padding:5%;
+}
+
+#cart-info{
+    float:left;
+}
+
+.container-products {
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.container-products ion-icon {
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.product-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid lightgray;
+    margin: 0 auto;
+}
+
+.product-title {
+    width: 45%;
+    border-bottom: 1px solid lightgray;
+}
+
+.price {
+    width: 15%;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    
+}
+
+.quantity {
+    width: 30%;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+}
+
+.total {
+    width: 10%;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+}
+
+.product {
+    width: 44%;
+    display:flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.product span{
+    float:left;
+    clear:both;
+    
+}
+
+.product ion-icon {
+    cursor: pointer;
+    
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products img {
+    width: 75px;
+}
+
+.basketTotalContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.basketTotalTitle {
+    width: 30%;
+}
+
+.basketTotal {
+    width: 10%;
+}
+
+.left{
+    float:left;
+}
+.nameANDprice{
+    margin:15px 15px;
+}
+
+.productItemDisplay{
+    width:30%;
+    margin:10%;
+    overflow: hidden;
+    float:left;
+}
+
+.productItemDisplay span{
+    float:left;
+    clear:both;
+}
+
+#yourItemsHeader{
+    margin-left:15%;
+}
+
+#pbt3{
+    display:none;
+}
+
+.orderTotal{
+    font-weight:bold;
+    font-size:17px;
+    overflow:hidden;
+    width:100%;
+}
+
+#orderInfo{
+    width:50%;
+    margin:0 auto;
+    margin-top:200px;
+    text-align:center;
+}
