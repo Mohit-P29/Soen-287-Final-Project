@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <!-- Header -->
+    <?php include("includes/header.php"); ?>
+
     <div class="flip-card-3D-wrapper">
         <div id="flip-card">
             <div class="container_signin">
@@ -46,7 +49,7 @@
                         <img src="image/passcheck_icon.JPG" alt="passcheck_icon" width="25px" height="20px" />
                         <input class="user_credentials_signup" type="password" name="recheck_password_signup" id="recheck_password_signup" placeholder="Re-enter Password" /><br />
 
-                        <label id="notification2" style="display: inline-block;"> 
+                        <label id="notification2" style="display: inline-block;">
                             <input type="checkbox" id="termPrivacy" />By check this, you agree to our
                         </label>
                         <span class="checkterm" id="checkterm"> Terms &amp; Privacy</span>

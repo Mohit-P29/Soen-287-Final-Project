@@ -43,9 +43,6 @@ showSubMenu('collapse-link', 'sublist');
 
 /*
     Sorts HTML table
-    @param{HTMLTableElement}
-    @param{number}
-    @param{boolean}
 
 */
 function sortTableByColumn(table, column, asc = true) {

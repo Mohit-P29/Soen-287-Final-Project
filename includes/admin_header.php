@@ -1,16 +1,5 @@
-<!DOCTYPE html>
 
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Home</title>
-    <link rel="stylesheet" type="text/css" href="css/admin.css" />
-</head>
-
-<body id="body-id">
-    <div class="container-nav" id="navbar">
+<div class="container-nav" id="navbar">
         <nav class="nav-sidebar">
             <div>
                 <div class="nav-header">
@@ -20,28 +9,28 @@
                 <div class="nav-list" id="scroll-3">
                     <ul>
                         <li>
-                            <a href="#" class="nav-list-link active">
+                            <a href="admin.php" class="nav-list-link active">
                                 <ion-icon name="home-outline" class="nav-list-icon"></ion-icon>
                                 <span class="nav-list-name">Home</span>
                             </a>
                         </li>
                         <li>
-                            <a href="admin_inbox.html" class="nav-list-link">
+                            <a href="admin_inbox.php" class="nav-list-link">
                                 <ion-icon name="mail-open-outline" class="nav-list-icon"></ion-icon>
                                 <span class="nav-list-name">Inbox</span>
                             </a>
                         </li>
                         <li>
                             <div class="nav-list-link collapse">
-                                <a href="admin_product.html">
+                                <a href="admin_product.php">
                                     <ion-icon name="pricetags-outline" class="nav-list-icon"></ion-icon>
                                 </a>
                                 <span class="nav-list-name">Webpages</span>
                                 <ion-icon name="chevron-down-outline" class="collapse-link"></ion-icon>
                             </div>
                             <ul class="sublist">
-                                <li><a href="admin_product.html" class="sublink">All Products</a></li>
-                                <li><a href="#" class="sublink">Mask</a></li>
+                                <li><a href="admin_product.php" class="sublink">All Products</a></li>
+                                <li><a href="admin_product_mask.php" class="sublink">Mask</a></li>
                                 <li><a href="#" class="sublink">Sanitizer</a></li>
                                 <li><a href="#" class="sublink">Lysol</a></li>
 
@@ -54,7 +43,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-list-link">
+                            <a href="admin_users.php" class="nav-list-link">
                                 <ion-icon name="people-outline" class="nav-list-icon"></ion-icon>
                                 <span class="nav-list-name">User</span>
                             </a>
@@ -63,46 +52,9 @@
                 </div>
             </div>
 
-            <a href="Homepage.html" class="nav-list-link">
+            <a href="index.php" class="nav-list-link">
                 <ion-icon name="log-out-outline" class="nav-list-icon"></ion-icon>
                 <span class="nav-list-name">Log Out</span>
             </a>
         </nav>
     </div>
-
-    <main class="main_content">
-        <header class="header">
-            <ion-icon name="home-outline" class="header-icon"></ion-icon>
-            <span class="header-name">Homepage</span>
-        </header>
-        <div class="wrapper-grid" id=scroll-1>
-            <div class="quarter-page1">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla totam, Lorem ipsum dolor sit
-
-            </div>
-            <div class="quarter-page2">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla totam,
-            </div>
-            <div class="quarter-page3">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla totam,
-            </div>
-            <div class="quarter-page4">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla totam,
-            </div>
-            <div class="full-page">
-
-            </div>
-
-
-        </div>
-    </main>
-
-
-
-
-    <!-- JS script-->
-    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-    <script src="js/admin.js"></script>
-</body>
-
-</html>

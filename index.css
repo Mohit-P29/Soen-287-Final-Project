@@ -19,6 +19,7 @@ header {
 .logo {
     cursor: pointer;
 }
+
 .nav__links a,
 .cta,
 .overlay__content a {
@@ -50,6 +51,7 @@ header {
     cursor: pointer;
     margin-left: -400px;
 }
+
 
 /* Mobile Nav */
 
@@ -92,6 +94,7 @@ header {
 .overlay a:focus {
     color: #0088a9;
 }
+
 .overlay .close {
     position: absolute;
     top: 20px;
@@ -122,11 +125,9 @@ header {
 }
 
 footer {
-   
     background-color: black;
     color: white;
     padding: 20px;
-    
 }
 
 main {
@@ -136,8 +137,7 @@ main {
     min-height: calc(100vw - 154px - 58.4px);
 }
 
-.slideshow_container
-{
+.slideshow_container {
     background-color: black;
     position: relative;
     height: 450px;
@@ -146,13 +146,12 @@ main {
     margin-left: 225px;
 }
 
-.mySlides
-{
+.mySlides {
     display: none;
 }
 
-.prev, .next
-{
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -167,20 +166,18 @@ main {
     user-select: none;
 }
 
-.next
-{
-    right:0;
+.next {
+    right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover
-{
+.prev:hover,
+.next:hover {
     background-color: grey;
     opacity: 0.7;
 }
 
-.text 
-{
+.text {
     color: red;
     font-size: 15px;
     padding: 8px 12px;
@@ -190,51 +187,51 @@ main {
     text-align: center;
 }
 
-
-.numbertext 
-{
+.numbertext {
     color: red;
     font-size: 12px;
     padding: 8px 12px;
-    position:absolute;
+    position: absolute;
     top: 0;
 }
 
-.fade 
-{
+.fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade
-{
-    from {opacity: .4}
-    to {opacity: 1}
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }
 
-@keyframes fade 
-{
-    from {opacity: .4}
-     to {opacity: 1}
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }
 
-.size
-{
+.size {
     width: 100%;
     height: 450px;
 }
 
-.myButton
-{
+.myButton {
     position: absolute;
     right: 100px;
     top: 250px;
 }
 
-.slideshow1
-{
+.slideshow1 {
     position: absolute;
     color: black;
     top: 80px;
@@ -242,6 +239,7 @@ main {
     width: 400px;
     font-size: 40px;
 }
+
 
 /*------------Top Sellers-------------*/
 
@@ -305,6 +303,7 @@ main {
     color: white;
 }
 
+
 /*------------Video Donation------------*/
 
 .video {
@@ -315,7 +314,6 @@ main {
     background-color: lightgray;
     width: 600px;
     height: 400px;
-    
 }
 
 .redcross_text {
@@ -324,7 +322,7 @@ main {
 }
 
 .redcross_video {
-   margin-left: 0px;
+    margin-left: 0px;
 }
 
 .video_button {
@@ -383,7 +381,7 @@ main {
 }
 
 .foot li a {
-    color:white;
+    color: white;
     text-decoration: none;
 }
 
@@ -420,6 +418,7 @@ main {
     top: 600px;
     left: 400px;
 }
+
 .slidebutton {
     margin-top: 10px;
     border-radius: 10px;

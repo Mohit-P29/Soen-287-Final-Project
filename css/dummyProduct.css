@@ -1,0 +1,52 @@
+/*CSS grid for the product page*/
+
+.wrapper-grid {
+    overflow-y: auto;
+    height: 90%;
+    display: grid;
+    padding: 2em 1em 1em 1em;
+    /*Defines width and number of rows and columns*/
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    /*Defines spaces between row and columns*/
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+    /*Defines height of row
+    grid-auto-rows: minmax(3em, auto);
+    */
+    grid-template-areas: "image description" "review review";
+}
+
+
+/*CSS for all div element within .wrapper-grid*/
+
+.wrapper-grid>div {
+    box-shadow: 1px 1px 10px rgb(167, 167, 167);
+    border-radius: 5px;
+    padding: 1em 1em;
+}
+
+.product_image {
+    grid-area: image;
+    border: 1px solid black;
+}
+
+.product_description {
+    grid-area: description;
+    border: 1px solid black;
+}
+
+.product_review {
+    grid-area: review;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width:650px) {
+    .wrapper-grid {
+        overflow-y: auto;
+        /*Defines width and number of rows and columns*/
+        grid-template-columns: 1fr;
+        font-size: smaller;
+        grid-template-areas: "image" "description" "review";
+    }
+}
