@@ -42,10 +42,10 @@
             </div>
             <div class="quarter-page4" style="background: rgb(8,0,154);
             background: linear-gradient(90deg, rgba(8,0,154,1) 0%, rgba(14,14,156,1) 35%, rgba(0,178,214,1) 100%);">
-                <a href="#">
+                <button type="button "id="edit_product">
                     <ion-icon name="add-circle-outline"></ion-icon>
                     <span>Add a product</span>
-                </a>
+                </button>
 
             </div>
             <div class="full-page ">
@@ -123,6 +123,30 @@
 
         </div>
     </main>
+
+        <!-- Popup window for creating new page -->
+        <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content" id="popup_box">
+            <div id="close-btn">&times;</div>
+            <h1>Create a new product</h1>
+            <form action="includes/createProduct.php" method="POST">
+                <div style="text-align: left; padding: 1em; padding-top: 2em; font-size: large;">
+                    <label>Product name: </label>
+                    <input type="text" name="productName" id="productName" style="font-size: large;" />
+                    <br /><br />
+                    <label>Price: </label>
+                    <input type="text" name="productPrice" id="productPrice" style="font-size: large;" />
+                    <br /><br />
+                    <label>Description: </label>
+                    <input type="text" name="productDesc" id="productDesc" style="font-size: large; height: 100px;" />
+                    <br /><br />
+                </div>
+                <button type="submit" name="submit" id="popup_button"> Submit </button>
+            </form>
+        </div>
+
+    </div>
 
 
     <!-- JS script-->

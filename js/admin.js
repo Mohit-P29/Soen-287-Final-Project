@@ -86,7 +86,7 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
 });
 
 
-//popup window for edit product
+//popup window for edit product and create product
 document.getElementById("edit_product").addEventListener("click", function() {
     document.getElementById("popup-1").classList.add("active");
 });

@@ -312,11 +312,17 @@ a {
     text-align: center;
 }
 
-.quarter-page4 a {
+.quarter-page4 button {
     position: relative;
-    top: 15%;
     text-align: center;
     color: white;
+    font-size: 1.3em;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
 
 .quarter-page4 ion-icon {

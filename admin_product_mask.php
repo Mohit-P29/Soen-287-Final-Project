@@ -1,3 +1,28 @@
+<?php 
+    include_once 'includes/product_info.php';
+?>
+
+<!-- Retrieve product information -->
+<?php
+    $product_name;
+    $product_description;
+    $product_price;
+    $total_sales;
+
+    $sql = "SELECT * FROM products WHERE id = 47;"; //ID of mask
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    //Makes sure that the connection was established
+    if($resultCheck > 0){
+        $row = mysqli_fetch_assoc($result);
+        $product_name = $row['name'];
+        $product_description = $row['description'];
+        $product_price = $row['price'];
+        $total_sales = $row['sales'];
+    }
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -17,11 +42,16 @@
     <main class="main_content">
         <header class="header">
             <ion-icon name="pricetags-outline" class="header-icon"></ion-icon>
-            <span class="header-name">Product - Mask</span>
+            <span class="header-name">Product - <?php echo $product_name;?></span>
         </header>
         <div class="wrapper-grid layout2" id=scroll-1>
             <div class="half-page1">
-                Product name: Mask<br /> Price: $20<br /> Total sales: 2243<br /> Total reviews: 209<br /> Average reviews: 3.4<br /><br />
+                Product name: <?php echo $product_name;?><br /> 
+                Price: $<?php echo $product_price;?><br /> 
+                Description: <?php echo $product_description;?><br />
+                Total sales: <?php echo $total_sales;?><br /> 
+                Total reviews: unknown<br /> 
+                Average reviews: unknown<br /><br />
                 <button type="button" id="edit_product">Edit</button>
 
             </div>
@@ -101,16 +131,20 @@
         <div class="content" id="popup_box">
             <div id="close-btn">&times;</div>
             <h1>Product detail</h1>
-            <form action="">
+            <form action="includes/updateProduct.php" method="POST">
                 <div style="text-align: left; padding: 1em; padding-top: 2em; font-size: large;">
                     <label>Product name: </label>
-                    <input type="text" name="productName" id="productName" value="Mask" style="font-size: large;" />
+                    <input type="text" name="productName" id="productName" value="<?php echo $product_name;?>" style="font-size: large;" />
                     <br /><br />
                     <label>Price: </label>
-                    <input type="text" name="productPrice" id="productPrice" value="$20" style="font-size: large;" />
+                    <input type="text" name="productPrice" id="productPrice" value="<?php echo $product_price;?>" style="font-size: large;" />
                     <br /><br />
+                    <label>Description: </label>
+                    <input type="text" name="productDesc" id="productDesc" value="<?php echo $product_description;?>" style="font-size: large; height: 100px;" />
+                    <br /><br />
+                    <input type="hidden" name="productId" value="47">
                 </div>
-                <button type="submit" id="popup_button"> Submit </button>
+                <button type="submit" name="submit" id="popup_button"> Submit </button>
             </form>
         </div>
 
