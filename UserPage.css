@@ -1,21 +1,27 @@
 body {
     font-family: "Times New Roman", Times, serif;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .div0 {
     margin-left: 120px;
     margin-top: 200px;
-    width: 20%;
+    width: 300px;;
     float: left;
+    position: relative;
+    direction: ltr;
+
 }
 
 .div1 {
+     position: relative;
     border: thin solid gray;
+    position: relative;
 
 }
 
 .div1_table {
+      position: relative;
     border-spacing: 20px;
     margin-left: 30px;
 }
@@ -31,30 +37,33 @@ body {
     cursor: pointer;
 }
 
-.EditDiv{
+.EditDiv {
     display: none;
-    position: fixed;
-    margin-top:25px;
+    position: relative;
+    margin-top: 25px;
     margin-left: 240px;
     z-index=1;
-    width: 5%;
-    height: 3.5%;
+    width: 180px;
+    height: 50px;
     border: thin solid lightgray;
     background-color: lavender;
     padding: 5px;
 
 }
 
-.EditDiv-content{
+.EditDiv-content {
     display: inline-block;
-    
+     position: relative;
     font-size: 0.5em;
     color: black;
 }
-.EdivDiv-content:hover{
+
+.EdivDiv-content:hover {
     cursor: pointer;
 }
+
 .ProP {
+    position: relative;
     display: inline-block;
     border-radius: 50%;
     width: 140px;
@@ -86,13 +95,14 @@ body {
 }
 
 .div2 {
-
-       margin-top: 25px;
-        border:thin solid gray;
+    position: relative;
+    margin-top: 25px;
+    border: thin solid gray;
 
 }
 
 .div2_table {
+     position: relative;
     border-spacing: 20px;
     padding: 10px;
     margin-left: 30px;
@@ -102,72 +112,78 @@ body {
     font-size=1.2em;
     color: dimgray;
 }
-.list:hover{
+
+.list:hover {
     cursor: pointer;
 }
 
 .div3 {
     display: block;
-    margin-left: 100px;
+    margin-left: 500px;
     margin-top: 120px;
     width: 50%;
     height: 500px;
-    float:left;
+    float: left;
 }
-.listTitle{
+
+.listTitle {
     font-size: 2em;
     font-weight: bold;
     color: black;
 }
-.MyAccountForm{
+
+.MyAccountForm {
     border-top: thin solid black;
     font-size: 1.2em;
-    padding-top:50px;
+    padding-top: 50px;
 }
-.MyOtherForm{
+
+.MyOtherForm {
     border-top: thin solid black;
     text-align: center;
     font-size: 1.2em;
-    padding-top:150px;
+    padding-top: 150px;
 }
-.MyAccountTable{
+
+.MyAccountTable {
     border-spacing: 40px;
 }
-.UserEmail{
-    color:black;
-    font-size:1em;
+
+.UserEmail {
+    color: black;
+    font-size: 1em;
 }
-.UserEmail:after{
-    content: "    \0021";
-    font-size: 20px;
-    font-weight: bold;
-    color:dimgray;
-    cursor: pointer;
-}
-.UpdateAccount{
+
+
+.UpdateAccount {
+    font-family: "Times New Roman", Times, serif;
     display: inline-block;
     width: 260px;
-    height: 35px;
+    height: 43px;
+    padding-top: 4px;
     text-align: center;
-    padding-top: 10px;
-    background-color:dodgerblue;
+    background-color: dodgerblue;
+    border: thin solid dodgerblue;
     color: white;
     font-size: 1.2em;
 }
-.UpdateAccount:hover{
+
+.UpdateAccount:hover {
     background-color: skyblue;
     cursor: pointer;
 }
-.AddSecondInfo:after{
-     display: none;
+
+.AddSecondInfo:after {
+    display: none;
     content: "\002B";
-    font-size:20px;
+    font-size: 20px;
     font-weight: bold;
     color: dimgray;
     float: right;
 }
-.AddSecondInfo:hover{
-    cursor: pointer;  
+
+.AddSecondInfo:hover {
+    cursor: pointer;
 }
 
 
@@ -175,29 +191,31 @@ body {
 
 .div4 {
     display: none;
-    margin-left: 100px;
+    margin-left: 500px;
     margin-top: 120px;
     width: 50%;
     height: 500px;
-    float:left;
+    float: left;
 }
 
 .div5 {
-     display: none;
-    margin-left: 100px;
+  
+    display: none;
+    margin-left: 500px;
     margin-top: 120px;
     width: 50%;
     height: 500px;
-    float:left;
+    float: left;
 }
 
 .div6 {
+    
     display: none;
-    margin-left: 100px;
+    margin-left: 500px;
     margin-top: 120px;
     width: 50%;
     height: 500px;
-    float:left;
+    float: left;
 }
 
 .div7 {
@@ -229,6 +247,40 @@ body {
     padding: 10px;
     border: 1px solid #888;
     width: 40%;
+    height: 600px;
+    overflow: auto;
+}
+
+.DivForUpdate {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 60px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: black;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.DivForUpdate-content {
+    background-color: white;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 40%;
+    height: 300px;
     overflow: auto;
 }
 
@@ -238,7 +290,8 @@ body {
     font-size: 20px;
     font-weight: thin;
 }
-.close:hover{
+
+.close:hover {
     cursor: pointer;
 }
 
@@ -252,7 +305,7 @@ body {
     border-top: thin solid black;
     border-bottom: thin solid lightgray;
     font-size: 1.1em;
-    padding-top:15px;
+    padding-top: 15px;
     overflow: auto;
 }
 
@@ -264,6 +317,8 @@ body {
     width: 240px;
     height: 30px;
     border: thin solid lightgray;
+    background-color: white;
+    color: black;
 
 }
 
@@ -310,7 +365,8 @@ body {
     color: white;
     font-size: 1.2em
 }
-.button_addA:hover{
+
+.button_addA:hover {
     cursor: pointer;
 }
 
@@ -320,39 +376,181 @@ body {
     color: black;
     margin-left: 10px;
 }
-.AddressFormCancel:hover{
+
+.AddressFormCancel:hover {
     cursor: pointer;
 }
 
-.ExtraPhone{
+.ExtraPhone {
     display: none;
 }
-.ExtraEmail{
+
+.ExtraEmail {
     display: none;
 }
-.AddSecondPhone:after{
+
+.AddSecondPhone:after {
     display: none;
     position: relative;
     content: "\002B";
-    font-size:20px;
+    font-size: 20px;
     font-weight: bold;
     color: dimgray;
     text-align: center;
 }
-.AddSecondEmail:after{
+
+.AddSecondEmail:after {
     display: none;
     position: relative;
     content: "\002B";
-    font-size:20px;
+    font-size: 20px;
     font-weight: bold;
     color: dimgray;
     text-align: center;
+    color: gr
 }
-.remove{
+
+.remove {
     content: "\2716";
-    font-size:20px;
+    font-size: 20px;
     font-weight: bold;
     color: dimgray;
- text-align: center;
+    text-align: center;
     position: relative;
+}
+
+.plus {
+    float: right;
+}
+
+.plus:after {
+    position: relative;
+    content: "\002B";
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+}
+
+.plus:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.minus {
+    float: right;
+
+}
+
+.minus:after {
+    position: relative;
+    content: "\2715";
+    font-size: 16px;
+    font-weight: bold;
+    color: dimgray;
+}
+
+.minus:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.ConfirmSpan {
+    display: none;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+.ConfirmSpan:hover {
+    cursor: pointer;
+}
+
+.CancelSpan {
+    display: none;
+
+    color: darkslategray;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+
+}
+
+.CancelSpan:hover {
+    cursor: pointer;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+   
+}
+
+.popup:after {
+    content: "  \0021";
+     font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+    cursor: pointer;
+}
+
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
