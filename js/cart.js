@@ -132,9 +132,9 @@ function displayCart() {
             </div>
             <div class="price sm-hide"></div>
             <div class="quantity">
-                <ion-icon class="decrease " name="arrow-dropleft-circle"></ion-icon>
+                <ion-icon class="decrease" name="caret-back-outline"></ion-icon>
                     <span>${item.inCart}</span>
-                <ion-icon class="increase" name="arrow-dropright-circle"></ion-icon>   
+                <ion-icon class="increase" name="caret-forward-outline"></ion-icon>
             </div>
             <div class="total">$${item.inCart * item.price},00</div>`;
         });

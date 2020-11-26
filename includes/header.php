@@ -8,6 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/homepage.css">
+        <link rel="stylesheet" type="text/css" href="css/Global.CSS">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
         <script type="text/javascript" src="js/Homepage_Discount_PopUp.js"></script>
         <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
@@ -20,16 +21,19 @@
         
         <!----------- HEADER => The Navigation bar that will be reproduced on all pages of the website ----------------->
         <header id="discount_body_opacity2"> 
-            <a class="logo" href="#"><img src="images/CompanyLogo.jpg" alt="logo" ></a>
+            <a class="logo" href="index.php"><img src="images/CompanyLogo.jpg" alt="logo" ></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="#">Shop</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="#"><img src="images/cart.jpg" alt="My Cart" height="25px" width="25px"></a>
+            <div class="cta cart">
+                        <a href="shoppingCart.php"> <img src="images/cart.jpg" alt="cart" height="25px" width="25px"></a>
+                        <span>0</span>
+            </div>
             <a class="cta" href="#"><img src="images/signin.jpg" alt="Sign In" height="25px" width="25px"></a>
             <p class="menu cta">Menu</p>
             

@@ -1,50 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Checkout</title>
-        <link rel="stylesheet" type="text/css" href="css/Global.CSS">
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    </head>
-    
-    <body> 
-        
-        <div class="shipping">
-            <a href="#"><strong>FREE SHIPPING on $49.99+ orders</strong> </a>
-        </div>
-        
-        <header>
-                <div class="logo">
-                    <a href="Homepage.html">
-                        <img src="image/company%20logo.jpg" alt="Company logo">
-                    </a>
-                </div>
-            
-                <div class="symbols">
-                    <a href="login.html"><img src="image/signin.jpg" alt="myaccount" width="45px"></a>
-                    <div class="cart">
-                        <a href="shoppingCart.html"> <img src="image/cart.jpg" alt="cart" width="45px"></a>
-                        <span>0</span>
-                    </div>
-                </div>
-
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a>
-                            <ul>
-                                <li><a href="#">Desinfectant</a></li>
-                                <li><a href="#">Protective Wear</a></li>
-                                <li><a href="#">Cleaning &amp; Care</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Donate</a></li>
-                    </ul>
-                </nav>
-        </header>
+<?php
+include('includes/header.php')
+    ?>
         <h2>Review your order</h2>
         <section id="orderReview">
             <div id="shipAddress">
@@ -140,7 +96,7 @@
                     <p class="item">Order Total:</p>
                     <p class="itemPrice" id="finalTotal"></p>
                 </div>
-                <form action="orderPlaced.html">
+                <form action="orderPlaced.php">
                     <input type="submit" value="Place Order"/>
                 </form>
             </div>
@@ -155,4 +111,6 @@
         </script>
     </body>
     
-</html>
+    <?php 
+    include('includes/footer.php')
+    ?>
