@@ -1,5 +1,5 @@
 <!-- FOOTER => Social Media links, Contact Info, Emails, address, etc.  which will be reproduced on all pages on the website-->
-        <footer>
+        <footer id="discount_body_opacity3">
             <div class="footers">
                 <div class="about">
                     <h1> About COV-AID </h1>
@@ -25,9 +25,9 @@
                 <div class="social">
                     <h1> Social </h1>
                     <br />
-                    <a href="#"><img src="images/instagramlogo.jpg" alt= "Instagram" width="25px" height="25px"> </a>
-                    <a href="#"> <img src="images/twitterlogo.jpg" alt= "Instagram" width="25px" height="25px"> </a>
-                    <a href="#"> <img src="images/facebooklogo.jpg" alt= "Instagram" width="25px" height="25px"> </a>
+                    <a class ="footer_socials" href="#"> <ion-icon name="logo-instagram"></ion-icon> </a>
+                    <a class ="footer_socials" href="#"> <ion-icon name="logo-twitter"></ion-icon> </a>
+                    <a class ="footer_socials" href="#"> <ion-icon name="logo-facebook"></ion-icon> </a>
                 </div>
 
                 <div class="emailpromos">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             
-            <a href="#"><img src="images/CompLogo.jpg" alt="Company Logo"></a>
+            <a href="#"><img src="images/CompanyLogo.jpg" alt="Company Logo"></a>
             
             <p class="copyright"> © 2020 COV-AID, Inc. All Rights Reserved </p>
         </footer>
