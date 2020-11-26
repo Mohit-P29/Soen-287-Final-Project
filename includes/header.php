@@ -40,8 +40,8 @@
                 <a href="#">Shop</a>
                 <a href="#">About Us</a>
                 <a href="#">Contact Us</a>
-                <a href="#"><img src="" alt="" height="50px" width="50px"></a>
-                <a href="#"><img src="" alt="" height="50px" width="50px"></a>
+                <a href="#"><img src="images/cart.jpg" alt="Cart" height="50px" width="50px"></a>
+                <a href="#"><img src="images/signin.jpg" alt="Sign In" height="50px" width="50px"></a>
             </div>
         </div>
         <script type="text/javascript" src="js/header_mobile_friendly.js"></script>
