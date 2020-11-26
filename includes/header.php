@@ -12,7 +12,7 @@
         <script type="text/javascript" src="js/Homepage_Discount_PopUp.js"></script>
         <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="css/mask_style">
+        <link rel="stylesheet" href="css/mask_style.css">
         
     </head>
     
