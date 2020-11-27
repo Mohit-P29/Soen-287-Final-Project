@@ -30,8 +30,9 @@ include('includes/header.php')
                     <h3>Gift cards & promotional codes</h3>
                     <input placeholder="Enter code" id="promoCode">
                     <button onclick="promo()">Apply</button>
+                    <p id="addedCode"></p>
                 </div>
-                <p id="addedCode"></p>
+                
                 <div id="arrival">
                     <h3>Arrival day</h3>
                     <p>December 4, 2020</p>
@@ -41,7 +42,7 @@ include('includes/header.php')
         </section>
         <div id="yourItemsHeader">
             <h2 >Your items</h2>
-            <a href="shoppingCart.html">Modify items</a>
+            <a href="shoppingCart.php">Modify items</a>
         </div>
        
         <section id="yourItems" class="yourItems">
@@ -105,7 +106,7 @@ include('includes/header.php')
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         <script src="js/cart.js"></script>
         <script>
-             displayItems();
+            displayItems();
             newTotalCost();
             shipping();
         </script>

@@ -33,7 +33,6 @@ include('includes/header.php')
         <script src="js/cart.js"></script>
         <script>
             displayItems();
-            shipping();
         </script>
     </body>
     

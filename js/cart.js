@@ -27,6 +27,7 @@ let products = [
     }
 ];
 
+//Checks for which ".addCart" button got clicked
 for(let i=0; i< carts.length; i++) {
     carts[i].addEventListener('click', () => {
         cartNumbers(products[i]);
@@ -106,6 +107,7 @@ function totalCost( product, action ) {
     }
 }
 
+//Display the items in the shopping cart
 function displayCart() {
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
@@ -151,6 +153,7 @@ function displayCart() {
     }
 }
 
+//Increase the quantity in shopping cart
 function manageQuantity() {
     let decreaseButtons = document.querySelectorAll('.decrease');
     let increaseButtons = document.querySelectorAll('.increase');
@@ -192,6 +195,7 @@ function manageQuantity() {
     }
 }
 
+//Delete the item in shopping cart
 function deleteButtons() {
     let deleteButtons = document.querySelectorAll('.product ion-icon');
     let productNumbers = localStorage.getItem('cartNumbers');
@@ -217,6 +221,7 @@ function deleteButtons() {
     }
 }
 
+//Display the items in the checkout page
 function displayItems() {
     let cartItems = localStorage.getItem('productsInCart');
     let productNumbers = localStorage.getItem('cartNumbers');
@@ -270,7 +275,7 @@ function shipping(){
 
 }
 
-
+//Calculate the cost
 function newTotalCost(){
     var pbt1, pbt2,pat,taxes;
     var shippingCost,promoPercent=1;
@@ -307,10 +312,8 @@ function newTotalCost(){
         pbt2=pbt1;
     }
 
-    pbt2.toFixed(2);
-
     //Print pbt2
-    document.getElementById("pbt2").innerHTML="$"+pbt2;
+    document.getElementById("pbt2").innerHTML="$"+ pbt2.toFixed(2);
 
     //Calculate taxes
     taxes=pbt2*0.15;
@@ -322,7 +325,7 @@ function newTotalCost(){
 
     //Calculates donation
     var dono=document.getElementById("donoAmount").value;
-    dono=parseInt(dono);
+    dono=parseFloat(dono);
     var total;
 
     if(dono>0){
@@ -344,23 +347,34 @@ function promo(){
     if(code=="Fall20"){
         document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
         document.getElementById("enteredCodeDisc").innerHTML="-20%";
-        document.getElementById("addedCode").innerHTML="Promo Code Fall20 has been added!";
-        
+        document.getElementById("addedCode").innerHTML="Promo Code <b>Fall20</b> has been added!";
+        document.getElementById("addedCode").style.color="green";
         document.getElementById("pbt3").style.display="inherit";
+       
     }
 
     else{
         document.getElementById("pbt3").style.display="none";
+        document.getElementById("addedCode").innerHTML="The code you entered is invalid!";
+        document.getElementById("addedCode").style.color="red";
     }
     newTotalCost();
 }
 
 function dono(){
     var dono=document.getElementById("donoAmount").value;
-    document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono+" donation";
-    document.getElementById("dono").innerHTML="$"+dono;
 
-    newTotalCost();
+    if(isNaN(dono)){
+        alert("Please enter a number");
+        return;
+    }
+    else{
+        dono=parseFloat(dono);
+        document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
+        document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
+
+        newTotalCost();
+    }
 }
 
 

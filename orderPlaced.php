@@ -6,7 +6,7 @@ include('includes/header.php')
         <h2>Your Order has been placed!</h2>
         <p>A confirmation email has been sent to you</p>
         <h3>Order #1324143</h3>
-        <form action="Homepage.html">
+        <form action="index.php">
             <input type="submit" value="Continue Shopping"/>
         </form>
         </section>
