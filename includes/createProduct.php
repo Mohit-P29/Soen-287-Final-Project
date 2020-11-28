@@ -42,7 +42,7 @@ fwrite($myfile, $txt);
 fclose($myfile);
 
 //Create a new admin product page
-$myfile = fopen("admin_product_$filename.php", "w") or die("Unable to open file!");
+$myfile = fopen("admin_products_$filename.php", "w") or die("Unable to open file!");
 $txt = <<<END
 <?php 
     \$product_id = $product_id;

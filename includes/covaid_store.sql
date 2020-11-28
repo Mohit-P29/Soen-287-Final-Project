@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2020 at 07:48 AM
+-- Generation Time: Nov 28, 2020 at 08:29 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -37,9 +37,9 @@ CREATE TABLE `products` (
   `inventory` int(11) NOT NULL DEFAULT 0,
   `webpageLink` text NOT NULL,
   `adminpageLink` text NOT NULL,
-  `image1` int(11) NOT NULL,
-  `image2` int(11) NOT NULL,
-  `image3` int(11) NOT NULL,
+  `image1` text DEFAULT NULL,
+  `image2` text DEFAULT NULL,
+  `image3` text DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='products that can be added to cart';
@@ -49,10 +49,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `specialPrice`, `sales`, `inventory`, `webpageLink`, `adminpageLink`, `image1`, `image2`, `image3`, `created`, `modified`) VALUES
-(61, 'Mask', 'Customizable face masks. Create your own design and express your unique style\r\nPremium quality face masks. \r\nReusable, washable, breathable soft cotton fabric.', '25.00', 15, 50, 50, '/Soen-287-Final-Project/dummy_product_mask.php', '/Soen-287-Final-Project/admin_product_mask.php', 0, 0, 0, '2020-11-27 05:29:31', '2020-11-28 06:08:43'),
-(68, 'Disposable gloves', 'Vinyl disposable gloves. Multi-purpose gloves. \r\nPack 100.', '22.99', NULL, 20, 100, '/Soen-287-Final-Project/dummy_product_Disposablegloves.php', '/Soen-287-Final-Project/admin_product_Disposablegloves.php', 0, 0, 0, '2020-11-27 06:39:59', '2020-11-27 11:39:59'),
-(67, 'Disposable mask', 'Disposable face masks (50 pack).\r\nComfortable earloops & adjustable metal nose strip. Ideal for indoor, and outdoor use. ', '28.95', NULL, 10, 30, '/Soen-287-Final-Project/dummy_product_Disposablemask.php', '/Soen-287-Final-Project/admin_product_Disposablemask.php', 0, 0, 0, '2020-11-27 06:34:33', '2020-11-27 11:34:33'),
-(69, 'Faceshield', '10 pack unisex face shield reusable.', '25.00', NULL, 5, 100, '/Soen-287-Final-Project/dummy_product_Faceshield.php', '/Soen-287-Final-Project/admin_product_Faceshield.php', 0, 0, 0, '2020-11-27 06:41:18', '2020-11-27 11:41:18');
+(61, 'Mask', 'Customizable face masks. Create your own design and express your unique style\r\nPremium quality face masks. \r\nReusable, washable, breathable soft cotton fabric.', '25.00', 15, 50, 50, '/Soen-287-Final-Project/dummy_product_mask.php', '/Soen-287-Final-Project/admin_product_mask.php', NULL, NULL, NULL, '2020-11-27 05:29:31', '2020-11-28 06:08:43'),
+(68, 'Disposable gloves', 'Vinyl disposable gloves. Multi-purpose gloves. \r\nPack 100.', '22.99', NULL, 20, 100, '/Soen-287-Final-Project/dummy_product_Disposablegloves.php', '/Soen-287-Final-Project/admin_product_Disposablegloves.php', NULL, NULL, NULL, '2020-11-27 06:39:59', '2020-11-27 11:39:59'),
+(67, 'Disposable mask', 'Disposable face masks (50 pack).\r\nComfortable earloops & adjustable metal nose strip. Ideal for indoor, and outdoor use. ', '28.95', NULL, 10, 30, '/Soen-287-Final-Project/dummy_product_Disposablemask.php', '/Soen-287-Final-Project/admin_product_Disposablemask.php', '/Soen-287-Final-Project/images/mask.jpg', NULL, NULL, '2020-11-27 06:34:33', '2020-11-27 11:34:33'),
+(69, 'Faceshield', '10 pack unisex face shield reusable.', '25.00', NULL, 5, 100, '/Soen-287-Final-Project/dummy_product_Faceshield.php', '/Soen-287-Final-Project/admin_product_Faceshield.php', '/Soen-287-Final-Project/images/faceshield.jpg', NULL, NULL, '2020-11-27 06:41:18', '2020-11-27 11:41:18');
 
 -- --------------------------------------------------------
 

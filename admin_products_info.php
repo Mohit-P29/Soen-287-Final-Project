@@ -15,6 +15,7 @@ $product_specialPrice;
 $total_sales;
 $product_inventory;
 $product_link;
+$product_image1;
 
 $sql = "SELECT * FROM products WHERE id = $product_id;";
 $result = mysqli_query($conn, $sql);
@@ -30,6 +31,7 @@ if ($resultCheck > 0) {
     $total_sales = $row['sales'];
     $product_inventory = $row['inventory'];
     $product_link = $row['webpageLink'];
+    $product_image1 = $row['image1'];
 }
 
 $number_reviews = 0; //Unknown
@@ -82,8 +84,8 @@ if ($number_reviews != 0) {
         </div>
         <div class="half-page2" style="background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%);">
-            <img src="images/faceshield.jpg" alt="Mask graph" width="50%" height="50%" />
-        </div>
+            <img src="<?php echo $product_image1; ?>" alt="No Image of Product Yet" width="50%" height="50%" />
+        </div>product_image1
         <div class="full-page ">
             <table class="review-table table-sortable ">
                 <thead>
