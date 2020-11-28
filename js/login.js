@@ -1,6 +1,6 @@
 function verifCred() {
     if (document.getElementById("email").value == "admin") {
-        window.open('admin.html', "_self")
+        window.open('admin_products.php', "_self")
     } else {
         alert("Please provide valid credentials");
     }

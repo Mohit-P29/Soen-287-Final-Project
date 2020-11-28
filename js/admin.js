@@ -12,7 +12,6 @@ function showMenu(toggleId, navbarId, bodyId) {
 
 }
 
-
 showMenu('nav-toggle', 'navbar', 'body-id');
 
 var linkColor = document.querySelectorAll('.nav-list-link');
@@ -52,13 +51,22 @@ function sortTableByColumn(table, column, asc = true) {
 
     //Sort each row
     const sortedRows = rows.sort((a, b) => {
-        const aColText = a.querySelector(`td:nth-child(${column+1})`).textContent.trim();
-        const bColText = b.querySelector(`td:nth-child(${column+1})`).textContent.trim();
+
+        var aColText = a.querySelector(`td:nth-child(${column+1})`).textContent.trim();
+        var bColText = b.querySelector(`td:nth-child(${column+1})`).textContent.trim();
+
+        if (!isNaN(aColText) || /^\$/.test(aColText)) {
+            aColText = aColText.replace("$", "");
+            bColText = bColText.replace("$", "");
+
+            aColText = parseFloat(aColText);
+            bColText = parseFloat(bColText);
+        }
 
         return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
     });
 
-    //Remove all existing TRs one by onefrom the table
+    //Remove all existing TRs one by one from the table
     while (tBody.firstChild) {
         tBody.removeChild(tBody.firstChild);
     }
@@ -80,14 +88,13 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
         const tableElement = headerCell.parentElement.parentElement.parentElement;
         const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
         const currentIsAscending = headerCell.classList.contains("th-sort-asc");
-
         sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
     });
 });
 
 
 //popup window for edit product and create product
-document.getElementById("edit_product").addEventListener("click", function() {
+document.getElementById("popup_button1").addEventListener("click", function() {
     document.getElementById("popup-1").classList.add("active");
 });
 

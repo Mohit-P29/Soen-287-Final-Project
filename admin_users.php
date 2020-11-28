@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Users</title>
-    <link rel="stylesheet" type="text/css" href="css/admin.css" />
-</head>
-
-<body id="body-id">
-    <!-- Header -->
-    <?php include("includes/admin_header.php"); ?>
+    <?php
+    $page = "Users";
+    include("includes/admin_header.php");
+    ?>
 
     <main class="main_content">
         <header class="header">
@@ -22,7 +12,7 @@
             <div class="quarter-page1" style="background: rgb(115,14,197);
             background: linear-gradient(90deg, rgba(115,14,197,1) 0%, rgba(154,92,205,1) 43%, rgba(200,169,225,1) 100%);">
                 <span>
-                    New users this week:<br /> 2
+                    Number of users:<br /> 2
                 </span>
 
             </div>
@@ -40,10 +30,8 @@
             </div>
             <div class="quarter-page4" style="background: rgb(8,0,154);
             background: linear-gradient(90deg, rgba(8,0,154,1) 0%, rgba(14,14,156,1) 35%, rgba(0,178,214,1) 100%);">
-                <a href="#">
-                    <ion-icon name="add-circle-outline"></ion-icon>
-                    <span>Add a user</span>
-                </a>
+                <span>
+                </span>
 
             </div>
             <div class="full-page ">
@@ -112,6 +100,6 @@
     <!-- JS script-->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js "></script>
     <script src="js/admin.js "></script>
-</body>
+    </body>
 
-</html>
+    </html>
