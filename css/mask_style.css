@@ -2,9 +2,7 @@
 .whole_container{
     
     display: flex;
-    padding-top: 100px;
     
-    border: 3px solid green;
     
     
 }
@@ -15,7 +13,7 @@
 
   margin: right;
   width: 40%;
-  border: 3px solid green;
+
   
     
 }
@@ -26,10 +24,11 @@
 .DIYmask_container{
     
   margin: auto;
-  width: 40%;
-  border: 3px solid green;
+  width: 50%;
+
   padding: 10px;
-padding-top: 100px;
+  padding-top: 40px;
+    
     
     
 }
@@ -42,7 +41,7 @@ padding-top: 100px;
   width: 200px;
   height: 200px;
   border: 3px solid red;
-    
+  
 }
 
 

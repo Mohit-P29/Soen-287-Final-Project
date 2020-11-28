@@ -10,47 +10,13 @@ include('includes/header.php')
  <div class="whole_container">
  
 
- 
-    <label><strong>Images</strong></label>
-<select id="selection_box3" name="images">
    
-    <option value="1" data-picture="animal/elephant.png" >Elephant</option>
-    <option value="2" data-picture="animal/fox.png">Fox</option>
-    <option value="3" data-picture="animal/gecko.png">Gecko</option>
-    <option value="4" data-picture="animal/polarbear.png">Polarbear</option>
-    <option value="5" data-picture="animal/rabbit.png">Rabbit</option>
-    <option value="6" data-picture="elephant.png">More to come</option>
    
+<!---------- script in order to display image------------>
+  
     
-    
-</select>
-   
-   <script>
-     
-     
-     
-     $('#selection_box3').change(function(){ //if the select value gets changed
-   var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
-         alert(imageSource);
-   if(imageSource){ //if it has data
-      $('#image-location').html('<img src="'+imageSource+'" style="width:200px;height:200px;">'); // insert image in div image-location
-   } else {
-      $('#image-location').html(''); //remove content from div image-location, thus removing the image
-   }
-})
-     
-     
-     
-  </script>
-    
-    
-     
+<!---------------- script in order to display image-------------->    
 
-<div id="image-location" class="picture_container">
-    
-   
-    
-</div>
  
   
   
@@ -328,6 +294,7 @@ if(selectedValue == 1){
     
     
 </select>
+<br>
 
 <label><strong>Colors Outline</strong></label>
 <select id="selection_box2" name="mask_secondary_color" onchange="getColorSecondary();">
@@ -343,14 +310,49 @@ if(selectedValue == 1){
     
     
 </select>
+       <br> <br>
+       <label><strong>Images</strong></label>
+<select id="selection_box3" name="images">
+   
+    <option value="1" data-picture="animal/elephant.png" >Elephant</option>
+    <option value="2" data-picture="animal/fox.png">Fox</option>
+    <option value="3" data-picture="animal/gecko.png">Gecko</option>
+    <option value="4" data-picture="animal/polarbear.png">Polarbear</option>
+    <option value="5" data-picture="animal/rabbit.png">Rabbit</option>
+    <option value="6" data-picture="elephant.png">More to come</option>
+   
+    
+    
+</select>
+
+   <script>
+     
+     
+     $('#selection_box3').change(function(){ //if the select value gets changed
+   var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
+         alert(imageSource);
+   if(imageSource){ //if it has data
+      $('#image-location').html('<img src="'+imageSource+'" style="width:200px;height:200px;">'); // insert image in div image-location
+   } else {
+      $('#image-location').html(''); //remove content from div image-location, thus removing the image
+   }
+})
+     
+     
+     
+  </script>
 
 
-
-
+<div id="image-location" class="picture_container">
+    
+   
+    
+</div>
 
 
 </div>
 
+   
 
 </div>
 
