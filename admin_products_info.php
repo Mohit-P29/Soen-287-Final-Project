@@ -85,7 +85,7 @@ if ($number_reviews != 0) {
         <div class="half-page2" style="background: rgb(255,255,255);
 background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%);">
             <img src="<?php echo $product_image1; ?>" alt="No Image of Product Yet" width="50%" height="50%" />
-        </div>product_image1
+        </div>
         <div class="full-page ">
             <table class="review-table table-sortable ">
                 <thead>
