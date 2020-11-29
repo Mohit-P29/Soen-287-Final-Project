@@ -1,4 +1,4 @@
-<?php include "Data3.php"?>
+<?php include "includes/address.php"?>
 
 <!DOCTYPE html>
 <html>
@@ -68,7 +68,7 @@
 
 
 
-                <form class="MyAccountForm" action="Data.php" method="post" id="MyAccountForm">
+                <form class="MyAccountForm" action="includes/myaccount.php" method="post" id="MyAccountForm">
                     <table class="MyAccountTable">
                         <tr>
                             <td><label class="UserEmail" id="UserEmail">Login Email:<br />Preferredcone@gmail.com</label>
@@ -216,7 +216,7 @@
                         <td><span id="dataedit1" style="font-weight:bold;color:black;text-decoration:underline; font-size:1.2em;cursor:pointer;">Edit</span></td>
 
                         <td>
-                            <form action="Data4.php"><input type="submit" id="datadelete1" style="border: 0 none; background-color: white; color:black;text-decoration:underline; font-size:1.1em;" value="Cancel" /></form>
+                            <form action="includes/removeaddress.php"><input type="submit" id="datadelete1" style="border: 0 none; background-color: white; color:black;text-decoration:underline; font-size:1.1em;" value="Cancel" /></form>
                         </td>
                         <script type="text/javascript">
 
@@ -286,7 +286,7 @@
                 <span class="AddressFormTitle">Add New Address</span>
 
                 <!--The form contains the inputfields to add address-->
-                <form class="AddressForm" action="Data2.php" method="post" id="AddressForm">
+                <form class="AddressForm" action="includes/addressform.php" method="post" id="AddressForm">
                     <table class="AddressFormTable">
                         <!--Name section-->
                         <tr>
@@ -399,6 +399,7 @@
     </script>
     <script src="UserPage.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 
 </html>
