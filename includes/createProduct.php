@@ -42,12 +42,12 @@ fwrite($myfile, $txt);
 fclose($myfile);
 
 //Create a new admin product page
-$myfile = fopen("admin_products_$filename.php", "w") or die("Unable to open file!");
+$myfile = fopen("admin_product_$filename.php", "w") or die("Unable to open file!");
 $txt = <<<END
 <?php 
     \$product_id = $product_id;
     //chdir("..");
-    include("admin_product_info.php"); 
+    include("admin_products_info.php"); 
 ?>
 END;
 fwrite($myfile, $txt);
@@ -65,4 +65,4 @@ mysqli_query($conn, $sql);
 
 
 //Go back to the page
-header("Location: ../admin_product.php?creation=$product_id");
+header("Location: ../admin_products.php?creation=success");
