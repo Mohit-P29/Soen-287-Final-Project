@@ -57,11 +57,8 @@ $sql = "SELECT maskId, u1.color_name primary_color_name, u2.color_name secondary
 FROM masks 
 JOIN colors u1 ON masks.primary_color_Id = u1.colorId 
 JOIN colors u2 ON masks.secondary_color_Id = u2.colorId 
-JOIN images ON masks.image_Id = images.image_id
+JOIN images ON masks.image_Id = images.image_id";
 
-
-
-";
 $result = $conn->query($sql);
 
 // 1. attempt ash

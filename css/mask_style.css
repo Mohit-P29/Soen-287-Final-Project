@@ -9,10 +9,16 @@
 
 
 /* -------------Button Table & Button ---------------*/
-.button_container{   
+.options_container{   
 
   margin: right;
+    margin-top: 100px;
   width: 40%;
+  height: 15%;
+  background-color: #b3ffe0;
+  border-radius: 25px;
+  padding-top: 30px;
+  padding-left: 25px;
 
   
     
@@ -25,7 +31,6 @@
     
   margin: auto;
   width: 50%;
-
   padding: 10px;
   padding-top: 40px;
     
@@ -40,7 +45,9 @@
  
   width: 200px;
   height: 200px;
-  border: 3px solid red;
+  border: 5px dashed blue;
+  margin-left: 200px;
+  margin-top: 30px;
   
 }
 
@@ -59,69 +66,77 @@
     
     
 }
-/*-----------------DropDown----------------*/
-
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
-}
-
-.dropdown {
-  float: right;
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown1 {
-  float: right;
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  right: 0;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-
 
 /*-----------------Submit-Button-CSS----------------*/
 
 
 .btn{
 	color:#fff;
-	background-color:skyblue;
+	background-color:cadetblue;
 	outline: none;
     border: 0;
     color: #fff;
 	padding:10px 20px;
 	text-transform:uppercase;
-	margin-top:50px;
+	margin-top:40px;
+    margin-bottom: 40px;
+    margin-left: 235px;
 	border-radius:2px;
 	cursor:pointer;
 	position:relative;
 }
+
+/*-----------------selection_box----------------*/
+
+.primary-select {
+  position: relative;
+  font-family: Arial;
+  width: 85px;
+  height: 60px;
+  font-size: 20px;
+padding-left: 20px;
+}
+
+.image-select {
+  position: relative;
+  font-family: Arial;
+  width: 110px;
+  height: 60px;
+  font-size: 20px;
+}
+
+
+
+
+.label_cp{
+    font-size: 20px;
+    background-color: cadetblue;
+    border-radius: 25px;
+    padding: 15px; 
+    margin: left;
+    
+    
+}
+
+
+.label_op{
+    font-size: 20px;
+    background-color: cadetblue;
+    border-radius: 25px;
+    padding: 15px; 
+    margin-left: 80px;
+    
+    
+}
+
+.label_i{
+    font-size: 20px;
+    background-color: cadetblue;
+    border-radius: 25px;
+    padding: 15px; 
+    margin-left: 185px;
+    
+    
+}
+
+

@@ -65,7 +65,7 @@ include('includes/header.php')
 
 </div>
 
-<div class="button_container">
+<div class="options_container">
 
 <!----------------------- Color Changin SCRIPT -------------------->
 <script>
@@ -280,8 +280,8 @@ if(selectedValue == 1){
     
     <!----------------------- END Color Changin SCRIPT -------------------->
 
-<label><strong>Colors Primary</strong></label>
-<select id="selection_box" name="mask_primary_color" onchange="getColorPrimary();">
+<label class="label_cp"><strong>Colors Primary</strong></label>
+<select class="primary-select" id="selection_box" name="mask_primary_color" onchange="getColorPrimary();">
    
     <option value="1">red</option>
     <option value="2">blue</option>
@@ -294,11 +294,10 @@ if(selectedValue == 1){
     
     
 </select>
-<br>
 
-<label><strong>Colors Outline</strong></label>
-<select id="selection_box2" name="mask_secondary_color" onchange="getColorSecondary();">
-   
+
+ <label class="label_op"><strong>Colors Outline</strong></label> 
+<select class="primary-select" id="selection_box2" name="mask_secondary_color" onchange="getColorSecondary();">
     <option value="1">red</option>
     <option value="2">blue</option>
     <option value="3">green</option>
@@ -311,9 +310,8 @@ if(selectedValue == 1){
     
 </select>
        <br> <br>
-       <label><strong>Images</strong></label>
-<select id="selection_box3" name="images">
-   
+       <label class="label_i"><strong>Images</strong></label>
+<select id="selection_box3" name="images" class="image-select">
     <option value="1" data-picture="animal/elephant.png" >Elephant</option>
     <option value="2" data-picture="animal/fox.png">Fox</option>
     <option value="3" data-picture="animal/gecko.png">Gecko</option>
@@ -349,6 +347,7 @@ if(selectedValue == 1){
     
 </div>
 
+<input class='btn' type="submit" value="Add to Cart">
 
 </div>
 
@@ -357,9 +356,7 @@ if(selectedValue == 1){
 </div>
 
     
-         
-         
-         <input class='btn' type="submit" value="submit">
+        
          
      </form>
 
