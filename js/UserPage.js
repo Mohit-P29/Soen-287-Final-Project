@@ -30,7 +30,7 @@ var lastnamevalid = false;
 var firstnamevalid = false;
 
 showNow.onclick = function () {
-    window.location.href = "https://jiawyao.wixsite.com/website-1";
+    window.location.href = "index.php";
 }
 var Editlock = false;
 editprofile.onclick = function () {
@@ -38,6 +38,7 @@ editprofile.onclick = function () {
         ediprofiediv.style.display = "block";
         ediprofiediv.onclick = function () {
             Editlock = true;
+            
             document.getElementById("ConfirmSpan").style.display = "table-cell";
             document.getElementById("CancelSpan").style.display = "table-cell";
             document.getElementById("ProNameInput").classList.remove("ProNameInput");
@@ -52,9 +53,11 @@ document.getElementById("ConfirmSpan").onclick = function () {
     document.getElementById("CancelSpan").style.display = "none";
     document.getElementById("ProNameInput").classList.remove("ProNameInput2");
     document.getElementById("ProNameInput").classList.add("ProNameInput");
+    
 }
 document.getElementById("CancelSpan").onclick = function () {
     Editlock = false;
+    
     document.getElementById("ConfirmSpan").style.display = "none";
     document.getElementById("CancelSpan").style.display = "none"
     document.getElementById("ProNameInput").classList.remove("ProNameInput2");
@@ -98,6 +101,7 @@ var readyToSubmit2 = false;
 function createNewAddress() {
     if (lastnamevalid & firstnamevalid & phonevalid) {
        alert("Successfully Add Address!");
+       document.getElementById('div7').style.display="none";
         document.getElementById("AddressForm").onsubmit = function () {
             return true;
         }
@@ -220,3 +224,91 @@ document.getElementById("ChangedIcon2").onmouseout = function () {
     var popup = document.getElementById("myPopup3");
     popup.classList.toggle("show");
 }
+//Three variables for the validation of three input values(email, phone number, and postal code)
+var valid1 = false;
+var valid2 = false;
+var valid3 = false;
+var valid4=false;
+//Validate email
+function validate_email(input) {
+    var pass1 = input.value;
+    if(pass1==''){
+       valid1=true;
+    }
+    //at least 6 characters in the prefix
+    else if (pass1.match(/^[a-zA-Z0-9]([\._-]?[A-Za-z0-9]){2,}@gmail\.com$/g)) {
+        valid1 = true;
+        //at least 6 characters in the prefix
+    } else if (pass1.match(/^[A-Za-z0-9]([\._-]?[A-Za-z0-9]){2,}@hotmail\.com$/g)) {
+        valid1 = true;
+        //at least 6 characters in the prefix
+    } else if (pass1.match(/^[A-Za-z0-9]([\._-]?[A-Za-z0-9]){2,}@outlook\.com$/g)) {
+        valid1 = true;
+    } else {
+        valid1 = false;
+    }
+}
+//validate phone number
+function validate_phone(input) {
+    var pass2 = input.value;
+    if (pass2.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g) || pass2=='') {
+        valid2 = true;
+
+    } else {
+        valid2 = false;
+    }
+}
+function validate_phone2(input) {
+    var pass2 = input.value;
+    if (pass2.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g) || pass2=='') {
+        valid4 = true;
+
+    } else {
+        valid4 = false;
+    }
+}
+function validate_email2(input) {
+    var pass1 = input.value;
+    //at least 6 characters in the prefix
+    if (pass1.match(/^[a-zA-Z0-9]([\._-]?[A-Za-z0-9]){2,}@gmail\.com$/g) || pass1=='') {
+        valid3 = true;
+        //at least 6 characters in the prefix
+    } else if (pass1.match(/^[A-Za-z0-9]([\._-]?[A-Za-z0-9]){2,}@hotmail\.com$/g) || pass1=='') {
+        valid3 = true;
+        //at least 6 characters in the prefix
+    } else if (pass1.match(/^[A-Za-z0-9]([\._-]?[A-Za-z0-9]){2,}@outlook\.com$/g) || pass1=='') {
+        valid3 = true;
+    } else {
+        valid3 = false;
+    }
+}
+
+//when submit button is clicked, the submission is determined by results of validation
+document.getElementById('submit').onclick = function () {
+
+     validate_email(document.getElementById('email'));
+     validate_phone(document.getElementById('phonenumber'));
+     validate_phone2(document.getElementById('phonenumber'));
+     validate_email2(document.getElementById(''));
+    if (valid1 && valid2 && valid3 & valid4) {
+        document.getElementById("MyAccountForm").onsubmit = function () {
+            return true;
+        }
+    } else {
+        var error1 = (!valid1) ? "Email Address 1: Invalid\n" : "Email Address 1: valid\n";
+        var error2 = (!valid2) ? "Email Address 2: Invalid\n" : "Email Address: valid\n";
+        var error3 = (!valid2) ? "Phone Number 1: Invalid\n" : "Phone Number 1: valid\n";
+        var error4 = (!valid2) ? "Phone Number 2: Invalid\n" : "Phone Number 2: valid\n";
+        alert(error1 + error2+erro3+error4);
+        document.getElementById("MyAccountForm").onsubmit = function () {
+            return false;
+        }
+    }
+
+
+}
+document.getElementById('logout').onmousemove=function(){
+    document.getElementById('logout').style.background="gray";
+}
+
+

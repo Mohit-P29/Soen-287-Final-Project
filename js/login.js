@@ -1,10 +1,4 @@
-function verifCred() {
-    if (document.getElementById("email").value == "admin") {
-        window.open('admin_products.php', "_self")
-    } else {
-        alert("Please provide valid credentials");
-    }
-}
+
 
 document.addEventListener('DOMContentLoaded', function(event) {
 
@@ -157,7 +151,6 @@ var termPrivacyvalid = document.getElementById("termPrivacy");
 function submitSignup(event) {
     console.log(passcheckvalid);
     if (emailvalid && passwordvalid && passcheckvalid && termPrivacyvalid.checked) {
-        alert("Successful Registration");
         return true;
     } else if (!emailvalid && !passwordvalid && !passcheckvalid) {
         alert("Please enter a valid email address and password");
