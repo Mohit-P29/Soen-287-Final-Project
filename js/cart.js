@@ -343,14 +343,18 @@ function newTotalCost(){
 function promo(){
     var code=document.getElementById("promoCode").value;
 
+    if(localStorage.getItem("promo")!=""){
+        alert("You cannot apply more than 1 promo code!");
+        return;
+    }
 
     if(code=="Fall20"){
         document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
         document.getElementById("enteredCodeDisc").innerHTML="-20%";
-        document.getElementById("addedCode").innerHTML="Promo Code <b>Fall20</b> has been added!";
+        document.getElementById("addedCode").innerHTML="<span class='deletePromo' onclick='removeCode()'>X</span> Promo Code <b>Fall20</b> has been added!";
         document.getElementById("addedCode").style.color="green";
         document.getElementById("pbt3").style.display="inherit";
-       
+        localStorage.setItem("promo", "Fall20");
     }
 
     else{
@@ -372,12 +376,40 @@ function dono(){
         dono=parseFloat(dono);
         document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
-
+        localStorage.setItem("dono",dono);
         newTotalCost();
     }
 }
 
+function load_P_and_D(){
+    if(localStorage.getItem("promo")=="Fall20"){
+        document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
+        document.getElementById("enteredCodeDisc").innerHTML="-20%";
+        document.getElementById("addedCode").innerHTML="<span class='deletePromo' onclick='removeCode()'>X</span> Promo Code <b>Fall20</b> has been added!";
+        document.getElementById("addedCode").style.color="green";
+        document.getElementById("pbt3").style.display="inherit";
+        document.getElementById("promoCode").value="Fall20";
+    }
 
+    if(localStorage.getItem("dono")!=null){
+        var dono=localStorage.getItem("dono");
+        dono=parseFloat(dono);
+        document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
+        document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
+        document.getElementById("donoAmount").value=dono;
+    }
+    newTotalCost();
+}
+
+function removeCode(){
+    document.getElementById("enteredCode").innerHTML="";
+    document.getElementById("enteredCodeDisc").innerHTML="";
+    document.getElementById("addedCode").innerHTML="";
+    document.getElementById("pbt3").style.display="none";
+    document.getElementById("promoCode").value="";
+    localStorage.setItem("promo", "");
+    newTotalCost();
+}
 
 onLoadCartNumbers();
 displayCart();

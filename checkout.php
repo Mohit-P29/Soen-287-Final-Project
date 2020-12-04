@@ -5,7 +5,7 @@ include('includes/header.php')
         <section id="orderReview">
             <div id="shipAddress">
                 <h3>Shipping Address</h3>
-                <a>change</a>
+                <a href="">change</a>
                 <p>John Doe</p>
                 <p>492 Rue main</p>
                 <p>Montreal. Qc</p>
@@ -15,7 +15,7 @@ include('includes/header.php')
            <div id="methods">
                 <div id="payMethod">
                     <h3>Payment Method</h3>
-                    <a>change</a>
+                    <a href="">change</a>
                     <img src="" alt="visa">
                     <p>ending in 1337</p>
                 </div>
@@ -109,6 +109,7 @@ include('includes/header.php')
             displayItems();
             newTotalCost();
             shipping();
+            load_P_and_D();
         </script>
     </body>
     

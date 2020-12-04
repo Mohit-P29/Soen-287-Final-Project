@@ -41,6 +41,12 @@
     border:2px solid black;
     margin-top:150px;
     overflow:hidden;
+    padding-top:20px;
+    margin-bottom:30px;
+}
+
+#orderReview div{
+    margin-bottom:15px;
 }
 
 #shipAddress{
@@ -58,6 +64,7 @@
     width:33%;
     float:left;
 }
+
 
 /***ADDED CSS BY SAM***/
 
@@ -89,6 +96,11 @@
     border:2px solid black;
     overflow:hidden;
     padding:10px;
+    margin-bottom:50px;
+}
+
+#receipt p{
+    margin-bottom:10px;
 }
 
 .item{
@@ -262,3 +274,14 @@
 #addedCode{
     overflow:hidden;
 }
+
+.deletePromo{
+    color:black;
+    font-weight:bold;
+}
+
+.deletePromo:hover{
+    color:red;
+    cursor: pointer;
+}
+
