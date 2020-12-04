@@ -1,6 +1,19 @@
 <?php
+    session_start();
+?>
+
+<?php
 include('includes/header.php')
     ?>
+
+<?php 
+    if(!isset($_SESSION["donation_first_name"]) || !isset($_SESSION["donation_last_name"]))
+    {
+        $_SESSION["donation_first_name"] = "";
+        $_SESSION["donation_last_name"]= "";
+    }
+
+?>
 
 <div id="discount_popup">
         <h1 style="margin-left:10px"> Requirements for Free Shipping </h1>
@@ -105,6 +118,20 @@ include('includes/header.php')
           
     <!------------------ Donate Video Section --------------------->
             
+    <div class="donation_container">
+        <img class="donation_pic" src="images/redcross.jpg" alt="RedCrossBanner"/>
+        <p class="donation_text1"> The Canadian Red Cross </p>
+        <p class="donation_text2"> Help Where it Is Needed Most </p>
+        <p class="donation_text3"> Your gift of any amount will save the day when the next emergency strikes. Whether that be help when a house burns down in your community, when someone needs CPR or a lifesaving blood transfusion, or when a family needs to contact a deployed service member in an emergency. Your gift supports the many urgent needs of the American Red Cross. </p>
+        <form class="donation_buttons" action="DonationPage.php" method="post">
+            <input class="donation_button1" type="text" name="donation_firstname" id="firstname" value="<?php echo $_SESSION["donation_first_name"] ?>" placeholder="First Name" required>
+            <input class="donation_button2" type="text" name="donation_lastname" id="lastname" value="<?php echo $_SESSION["donation_last_name"] ?>" placeholder="Last Name" required>
+            <input class="donation_button3" type="submit" name="submit" id="submit" value="Submit">
+        </form>
+    </div>
+    
+    
+    
            
 </main>
 

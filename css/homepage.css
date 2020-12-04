@@ -221,7 +221,7 @@ header {
 
 .slidetext1 {
     position: absolute;
-    top: 500px;
+    top: 400px;
     left: 400px;
 }
 
@@ -295,7 +295,67 @@ header {
 
 /*------------Video Donation------------*/
 
+.donation_container {
+    position: relative;
+    border-style: solid;
+    border-width: 2px;      
+    border-radius: 20px;
+    border-color: black; 
+    box-shadow: 0 0 10px;
+    margin-top: 400px;
+    height: 400px;
+}
 
+.donation_pic {
+    position: absolute;
+    width: 700px;
+    height: 350px;
+    margin-left: 30px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.donation_text1 {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 750px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.donation_text2 {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 750px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.donation_text3 {
+    position: absolute;
+
+    margin-top: 150px;
+    margin-left: 750px;
+}
+
+.donation_buttons {
+    position: absolute;
+    margin-left: 750px;
+    margin-top: 300px;
+}
+
+input[type=text] {
+    padding: 10px 25px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+input[type=submit] {
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px 25px;
+}
 
 /*-------------Footer---------------*/
 
