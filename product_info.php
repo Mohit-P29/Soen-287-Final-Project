@@ -7,6 +7,11 @@ $product_name;
 $product_description;
 $product_price;
 $product_specialPrice;
+$product_image1;
+$product_image2;
+$product_image3;
+$product_image4;
+
 
 $sql = "SELECT * FROM products WHERE id = $product_id;";
 $result = mysqli_query($conn, $sql);
@@ -19,6 +24,10 @@ if ($resultCheck > 0) {
     $product_description = $row['description'];
     $product_price = $row['price'];
     $product_specialPrice = $row['specialPrice'];
+    $product_image1;
+    $product_image2;
+    $product_image3;
+    $product_image4;
 }
 
 //Header
@@ -40,12 +49,12 @@ include("includes/header.php");
         <strong>Description:</strong> <?php echo $product_description; ?><br /><br />
         <strong>Price: </strong>
         <?php
-            if ($product_specialPrice == null) {
-                echo $product_price; 
-            } else {
-                echo "<span style='color: red;'>\$$product_specialPrice </span>" . " <strike>\$$product_price</strike> ";
-            }
-            
+        if ($product_specialPrice == null) {
+            echo $product_price;
+        } else {
+            echo "<span style='color: red;'>\$$product_specialPrice </span>" . " <strike>\$$product_price</strike> ";
+        }
+
         ?><br /><br />
         <label><strong>Quantity: </strong></label>
         <select name="mask_quantity">
