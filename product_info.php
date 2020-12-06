@@ -7,11 +7,6 @@ $product_name;
 $product_description;
 $product_price;
 $product_specialPrice;
-$product_image1;
-$product_image2;
-$product_image3;
-$product_image4;
-
 
 $sql = "SELECT * FROM products WHERE id = $product_id;";
 $result = mysqli_query($conn, $sql);
@@ -24,10 +19,6 @@ if ($resultCheck > 0) {
     $product_description = $row['description'];
     $product_price = $row['price'];
     $product_specialPrice = $row['specialPrice'];
-    $product_image1;
-    $product_image2;
-    $product_image3;
-    $product_image4;
 }
 
 //Header
@@ -36,46 +27,269 @@ include("includes/header.php");
 ?>
 
 <!-- Content of product page -->
-<link rel="stylesheet" type="text/css" href="css/dummyProduct.css" />
 
-<div class="wrapper-grid" id=scroll-1>
-    <div class="product_image">
-        <h2>Images</h2>
+<link rel="stylesheet" href="css/review.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+    <!----single products-->
+    <div class="indiProduct">
+      <div class="defaultRow">
+        <div class="caption">
 
-    </div>
-    <div class="product_description">
-        <h2><?php echo $product_name; ?></h2>
-        <br /><br />
-        <strong>Description:</strong> <?php echo $product_description; ?><br /><br />
-        <strong>Price: </strong>
-        <?php
-        if ($product_specialPrice == null) {
-            echo $product_price;
-        } else {
-            echo "<span style='color: red;'>\$$product_specialPrice </span>" . " <strike>\$$product_price</strike> ";
-        }
 
-        ?><br /><br />
-        <label><strong>Quantity: </strong></label>
-        <select name="mask_quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
-        <br /><br /><br />
-        <button type="button">Add to Cart</button>
+        <!-- Main Image goes here -->
+          <img ID="p5" src="images/Product Images/product5.jpg">
+          <div class="complementary-images">
+            <div class="sub-image">
+            <!-- SubImages go here -->
+              <img class="comp-image" src="images/Product Images/product5a.png">
+            </div>
+            <div class="sub-image">
+              <img class="comp-image" src="images/Product Images/product5b.png">
+            </div>
+            <div class="sub-image">
+              <img class="comp-image" src="images/Product Images/product5c.png">
+            </div>
+            <div class="sub-image">
+              <img class="comp-image" src="images/Product Images/product5d.png">
+            </div>
+          </div>
+        </div>
+         <!-- SubImages end here -->
 
-    </div>
-    <div class="product_review">
-        <h2>Review</h2>
-        <br />
-    </div>
+        <div class="caption">
+          <p>Protective Wear</p>
+          <h1> <?php echo $product_name; ?> </h1>
+          <h4><?php
+            if ($product_specialPrice == null) {
+                echo $product_price; 
+            } else {
+                echo "<span style='color: red;'>\$$product_specialPrice </span>" . " <strike>\$$product_price</strike> ";
+            }
+            
+        ?></h4>
+          
+            <input type="number" value="1">
+            <a href="" class="button"> Add item to cart</a>
+            <h3>Product Information</h3>
+            <br>
+             <!-- description goes here -->
+            <p><?php echo $product_description; ?>
+            </p>
+       
+        </div>
+        
+        <div class="rating_score" style="margin-left:250px;
+                                        margin-top:-100px;">
+        <span class="rating_heading"><strong>Customer Rating:</strong></span>
 
+<div class="rev_rating">
+    <img src="images/Icons/star-solid.svg">
+    <img src="images/Icons/star-solid.svg">
+    <img src="images/Icons/star-solid.svg">
+    <img src="images/Icons/star-solid.svg">
+    <img src="images/Icons/star-solid.svg">
+  </div>
+</br>
+<p >4.7 rating based on 0 reviews.</p>
 </div>
 
 
-<?php
-//footer
-include("includes/footer.php");
-?>
+      </div>
+    </div>
+    <!-- Review section goes here -->
+    <div class="review_section">
+      <div class="rev">
+        <h1>Reviews</h1>
+        <div class="border"></div>
+
+        <div class="review-horiz">
+          <div class="review-vertical">
+            <div class="review-sec">
+              <img src="images/facepics/p1.jpg" >
+              <div class="name">David</div>
+              <div class="rev_rating">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-regular.svg">
+            <img src="images/Icons/star-regular.svg">
+              </div>
+
+              <p>
+              review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  
+              </p>
+            </div>
+          </div>
+
+          <div class="review-vertical">
+            <div class="review-sec">
+              <img src="images/facepics/p2.jpeg" alt="">
+              <div class="name">John</div>
+              <div class="rev_rating">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+              </div>
+
+              <p>
+              review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  
+              </p>
+            </div>
+          </div>
+
+          <div class="review-vertical">
+            <div class="review-sec">
+              <img src="images/facepics/p3.jpeg" alt="">
+              <div class="name">Emily</div>
+              <div class="rev_rating">
+                <img src="images/Icons/star-solid.svg">
+                <img src="images/Icons/star-solid.svg">
+                <img src="images/Icons/star-solid.svg">
+                <img src="images/Icons/star-regular.svg">
+                <img src="images/Icons/star-regular.svg">
+              </div>
+
+              <p>
+              review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  
+              </p>
+            </div>
+          </div>
+          <div class="review-vertical">
+            <div class="review-sec">
+              <img src="images/facepics/p4.jpg" alt="">
+              <div class="name">Mike</div>
+              <div class="rev_rating">
+                <img src="images/Icons/star-solid.svg">
+                <img src="images/Icons/star-solid.svg">
+                <img src="images/Icons/star-solid.svg">
+                <img src="images/Icons/star-solid.svg">
+                <img src="images/Icons/star-solid.svg">
+              </div>
+
+              <p>
+              review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  review  
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="submenu">
+      <div class="productRow">
+
+
+      <!-- Suggested/Related items begin here -->
+
+
+        <h2>Related Items</h2>
+        <p> Find more </p>
+      </div>
+    </div>
+    <div class= "submenu">
+      <div class="defaultRow">
+        <div class="single-products">
+          <img src="images/Product Images/Product1.jpg">
+          <h4>Hand Sanitizer 500 ml</h4>
+          <div class="rating">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+          </div>
+          <p>$10.50</p>
+        </div>
+        <div class="single-products">
+          <img src="images/Product Images/Product2.jpg">
+          <h4>AiroDoctor Air Purifier</h4>
+          <div class="rating">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-half-alt-solid.svg">
+          </div>
+          <p>$299.00</p>
+        </div>
+        <div class="single-products">
+          <img src="images/Product Images/Product3.jpg">
+          <h4>KIMTECH SCIENCE Precision Wipes</h4>
+          <div class="rating">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-regular.svg">
+            <img src="images/Icons/star-regular.svg">
+          </div>
+          <p>$2.99</p>
+        </div>
+        <div class="single-products">
+          <img src="images/Product Images/Product4.jpg">
+          <h4>Surgical Masks </h4>
+          <div class="rating">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+            <img src="images/Icons/star-solid.svg">
+          </div>
+          <p>$20.00</p>
+        </div>
+      </div>
+    </div>
+    <!-- Suggested/Related items end here -->
+
+    <div class="leave_review">
+      <h2 style="margin:0 0 10px 120px;">Please leave your review below</h2>
+      <input type="text" name="cus_review" placeholder="Please leave your review below"
+      style="Width:800px; Height:100px; margin:0 0 50px 120px;
+      text-align: left;
+      padding-left: 20px;
+      font-size: 15px ;
+
+      border: 2px solid #4c8bf5; 
+      border-radius: 10px; ">
+
+</div>
+
+    <!----footer-->
+    <?php
+    include("includes/footer.php");
+    ?>
+    <script> 
+      var mainImage = document.getElementById("p5") ;
+      var subImage = document.getElementsByClassName("comp-image");
+      
+      
+      subImage[0].onclick =function(){
+        mainImage.src = subImage[0].src;
+        
+      }
+      subImage[1].onclick =function(){
+        mainImage.src = subImage[1].src;
+        
+      }
+      subImage[2].onclick =function(){
+        mainImage.src = subImage[2].src;
+        
+      }
+      subImage[3].onclick =function(){
+        mainImage.src = subImage[3].src;
+        
+      }
+      
+      
+      
+        
+    </script>
+  </body>
+</html>
