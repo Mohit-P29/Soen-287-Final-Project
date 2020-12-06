@@ -80,15 +80,27 @@ $result = $conn->query($sql);
 } */
 
 //2. attempt mohit stack overflow
+?>
 
+<table style="width:40%; border: 1px solid black;">
+
+<?php
 echo "These are the masks in your cart at the moment:"."<br>";
+	
+
+	
 if (!empty($result) && $result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
+	  ?>
+	  <tr>
+    <th>
+	  
+	   <?php
     echo "<br>" ."maskId: " . $row["maskId"].  " Color_Primary: " . $row["primary_color_name"]. " Color_Outline:" . $row["secondary_color_name"]. " Image: " . $row["image_name"]. "<br>";
-	  
-	  
-      
+	?>
+	  </th>
+	  <?php
   }
 } else {
   echo "0 results";
@@ -96,21 +108,12 @@ if (!empty($result) && $result->num_rows > 0) {
 
 
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	
-	
-	
-	
 
-	
-	
+
+?>
+
+</table>
+
 	
 	<br><br><br>
 	
