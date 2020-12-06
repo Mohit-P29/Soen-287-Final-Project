@@ -521,8 +521,6 @@
                 $sql ="DELETE FROM useraddress WHERE user_id='$id'";
                  mysqli_query($conn,$sql);
                  $conn->close();  
-                
-                
             }
             elseif(isset($_POST['logout'])){
                 session_destroy(); ?>
