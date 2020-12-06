@@ -106,7 +106,7 @@ p{
   width: 100%;
 }
 .rating img{
-  width: 15px;
+  width: 10px;
   
 }
 
@@ -251,7 +251,7 @@ select{
 .indiProduct select{
   display: block;
   margin: 20px 0 0;
-  padding: 15px
+  padding: 15px;
   border-radius: 0%;
   
 }
@@ -283,3 +283,5 @@ input:focus{
 .sub-image img{
   width: 100%;
 }
+
+
