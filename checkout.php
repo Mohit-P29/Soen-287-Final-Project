@@ -198,7 +198,7 @@
                     <p class="item">Order Total:</p>
                     <p class="itemPrice" id="finalTotal"></p>
                 </div>
-                <form action="orderPlaced.php">
+                <form action="orderPlaced2.php">
                     <input type="submit" value="Place Order"/>
                 </form>
             </div>
