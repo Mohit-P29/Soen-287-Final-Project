@@ -1,25 +1,114 @@
-<?php
-    include('includes/header.php');
-    include("includes/ConnectDB.php");   
+<?php 
+     session_start();
+     include "includes/address.php";
+     include("includes/header.php");
+     include("includes/ConnectDB.php");   
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error());
    }
+   
+   $sql = "SELECT * FROM user_info";
+   $retval = mysqli_query( $conn,$sql);
+   if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+   }
+   $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No Email Shown';
+    $result=mysqli_num_rows($retval);
+    $last='';
+    $first="";
+    $email1="";
+    $email2="";
+    $phone1="";
+    $phone2="";
+        if($result>0){       
+          while ( $row = mysqli_fetch_assoc($retval)){
+    
+            if ($row['user_id']===$_SESSION['user_id']){
+                  $first=$row['user_first'];
+                 $last=$row['user_last'];
+                 $email1=$row['user_email1'];
+                 $email2=$row['user_email2'];
+                 $phone1=$row['phone1'];
+                  $phone2=$row['phone2'];
+            }
+        }
+      }
+
+    $first2='';
+    $last2='';
+    $comp2='';
+    $a1='';
+    $a2='';
+    $city='';
+    $country='';
+    $province='';
+    $post='';
+    $phone='';
+    $sql = "SELECT * FROM useraddress";
+    $retval = mysqli_query( $conn,$sql);
+    $result=mysqli_num_rows($retval);
+    if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+    }
+
+    if($result>0){
+
+          while ( $row = mysqli_fetch_assoc($retval)){
+            if ($row['user_id']===$_SESSION['user_id']){
+                  $first2=$row['first'];
+                  $last2=$row['last'];
+                  $comp2=$row['company'];
+                  $a1=$row['address'];
+                  $a2=$row['address2'];
+                  $city=$row['city'];
+                  $country=$row['country'];
+                  $province=$row['province'];
+                  $post=$row['post'];
+                  $phone=$row['phone'];
+                  
+            }
+        }
+      }
+     $username='No name yet';
+    $sql = "SELECT * FROM profile";
+    $retval = mysqli_query( $conn,$sql);
+    $result=mysqli_num_rows($retval);
+    if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+    }
+
+    if($result>0){
+
+          while ( $row = mysqli_fetch_assoc($retval)){
+             if($row['user_id']===$_SESSION['user_id']){
+               $username=$row['user_name'];
+             }
+          }
+    }
+    
+    if($comp2==""){
+        alert("One or more info is missing in your address...");
+        header("Location: UserPage.php");
+    }
+    
 ?>
         <h2>Review your order</h2>
         <section id="orderReview">
             <div id="shipAddress">
                 <h3>Shipping Address</h3>
-                <a href="">change</a>
-                <p>John Doe</p>
-                <p>492 Rue main</p>
-                <p>Montreal. Qc</p>
-                <p>J8T 2H5</p>
-                <p>514-123-4567</p>
+                <a href="UserPage.php">change</a>
+                <p><?php echo $first2." ".$last2?></p>
+                <p><?php echo $a1?></p>
+                <p><?php echo $city.", ".$province?></p>
+                <p><?php echo $post?></p>
+                <p><?php echo $phone1?></p>
+                <p><?php echo $email1?></p>
+                
             </div>
            <div id="methods">
                 <div id="payMethod">
                     <h3>Payment Method</h3>
-                    <a href="">change</a>
+                    <a href="UserPage.php">change</a>
                     <img src="" alt="visa">
                     <p>ending in 1337</p>
                 </div>
