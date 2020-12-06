@@ -176,11 +176,11 @@
                     </tr>
                     <tr>
                         <td>
-                            First Name<br /><input type="text" id="SavedFirstName" name="user_first" class="Inputfield" value="<?php echo $first; ?>" placeholder="eg. Kate" />
+                            First Name<br /><input type="text" id="SavedFirstName" name="user_first" class="Inputfield" value="<?php echo $first; ?>" placeholder="eg. Kate" maxlength="10" />
                         </td>
 
 
-                        <td>Last Name<br /><input type="text" id="SavedLastName" name="user_last" class="Inputfield" value="<?php echo $last; ?>" placeholder="eg.Sims" /></td>
+                        <td>Last Name<br /><input type="text" id="SavedLastName" name="user_last" class="Inputfield" value="<?php echo $last; ?>" placeholder="eg.Sims" maxlength="10" /></td>
 
                     </tr>
                     <tr>
@@ -191,7 +191,7 @@
                             </div>
 
                             <br />
-                            <input type="text" id="ContactEmail" class="Inputfield" name="user_email1" value="<?php echo $email1; ?>" placeholder="Katesims@hotmail.com" />
+                            <input type="text" id="ContactEmail" class="Inputfield" name="user_email1" value="<?php echo $email1; ?>" placeholder="Katesims@(hotmail.com/gmail.com/outlook.com)" />
                         </td>
 
                         <td><label for="SavedPhone" id="ChangedLabel1">Phone</label>
@@ -201,7 +201,7 @@
                             </div>
 
                             <br />
-                            <input type="text" id="SavedPhone" name="user_phone1" class="Inputfield" value="<?php echo $phone1; ?>" placeholder="001-234-567-8901" />
+                            <input type="text" id="SavedPhone" name="user_phone1" class="Inputfield" value="<?php echo $phone1; ?>" placeholder="001-234-567-8901" maxlength="16"/>
                         </td>
                     </tr>
                     <tr id="HiddenRow" style="display: none;">
@@ -217,7 +217,7 @@
                             <label id="ChangedLable3">Phone 2</label>
                             <label id="ChangedIcon4" class="plus"></label>
                             <br />
-                            <input type="text" style="width: 545px;" class="Inputfield2" name="user_phone2" id="Phone2" placeholder="+1 415-789-3981" value="<?php echo $phone2; ?>" />
+                            <input type="text" style="width: 545px;" class="Inputfield2" name="user_phone2" id="Phone2" placeholder="001- 415-789-3981" maxlength="16" value="<?php echo $phone2; ?>" />
                         </td>
                     </tr>
 

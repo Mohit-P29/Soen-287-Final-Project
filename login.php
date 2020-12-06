@@ -179,15 +179,26 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                       die('Could not get data: ' . mysqli_error());
                     }
                     $result=mysqli_num_rows($retval);
-                    if($result>0){
+                    if($user==='Admin' && $pass==='123456'){
+                            $check='admin';
+                    
+                    }
+                    else if($result>0){
                 
                       while ( $row = mysqli_fetch_assoc($retval)){
                         if ($row['user_id']===$user && $row['password']===$pass){
                               $check="valid";
-                      }
+                        }
                      }
                   }
-                 if($check=='valid'){ 
+                 if($check==='admin'){
+                     $_SESSION['login']='admin'; ?>
+
+                      <script>alert("Successful Sign In!"); window.location.href='admin.php';</script>
+
+            <?php }
+                 
+                 elseif($check=='valid'){ 
                      $_SESSION['login']='true';
                      $_SESSION['user_id']=$user;  ?>
 
