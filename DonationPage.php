@@ -12,8 +12,7 @@
             $_SESSION["donation_first_name"] = $_POST["donation_firstname"];
             $_SESSION["donation_last_name"] = $_POST["donation_lastname"];
             $form_error = false;
-        }  
-
+            
 //------------------------------Validating first name--------------------------//
 if(empty($_POST["donation_firstname"]))
    {
@@ -24,7 +23,7 @@ if(empty($_POST["donation_firstname"]))
    {
        if(preg_match("/^[a-zA-Z]*$/", $_POST["donation_firstname"]))
        {
-           $_SESSION["error_firstname"] = "Good first name";
+           $_SESSION["error_firstname"] = "";
        }
        else
        {
@@ -43,7 +42,7 @@ if(empty($_POST["donation_lastname"]))
    {
        if(preg_match("/^[a-zA-Z]*$/", $_POST["donation_lastname"]))
        {
-           $_SESSION["error_lastname"] = "Good last name";
+           $_SESSION["error_lastname"] = "";
        }
        else
        {
@@ -56,7 +55,9 @@ if(empty($_POST["donation_lastname"]))
  {
      header("location: index.php");
  }
-
+        
+        
+        }
 ?>
 
 <main>
@@ -75,11 +76,12 @@ if(empty($_POST["donation_lastname"]))
         <a href="index.php"><ion-icon class="donationpage_goback" name="return-up-back-outline"></ion-icon></a>
     </div>
     
-    <form action="" method="post">
+    <form action="Donation_PageConfirmation.php" method="post">
         <fieldset class="donationpage_fieldset">
             <legend> <ion-icon name="wallet-outline"></ion-icon> <strong> Donation Amount </strong> </legend>
             <label> I Want to Donate </label>
             <input type="text" name="donationpage_donationamount" id="donationpage_donationamount" value="" placeholder="Enter an amount">
+            
         </fieldset>
         <br />
         <fieldset class="donationpage_fieldset">
@@ -87,8 +89,8 @@ if(empty($_POST["donation_lastname"]))
             <ion-icon name="lock-closed"></ion-icon>
             <strong> Payment Method </strong> 
             </legend>
-            <label> Cardholder's Name </label>
-            <input type="text" name="donationpage_firstname" id="donationpage_firstname" value="" placeholder="John Doe">
+            <label> Cardholder's Full Name </label>
+            <input type="text" name="donationpage_fullname" id="donationpage_fullname" value="" placeholder="John Doe">
             <br />
             <br />
             <label> Card Number </label>

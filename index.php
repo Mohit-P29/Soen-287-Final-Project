@@ -15,8 +15,8 @@ include('includes/header.php')
 
  if( !isset($_SESSION["error_firstname"]) || !isset($_SESSION["error_lastname"]) )
         {
-            $_SESSION["error_firstname"] ="";
-            $_SESSION["error_lastname"] ="";
+            $_SESSION["error_firstname"] = "";
+            $_SESSION["error_lastname"] = "";
         }
 
 ?>
