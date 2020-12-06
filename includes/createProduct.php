@@ -22,7 +22,7 @@ chdir("..");
 //Make sure a product with a similar name does not exists
 $filename = preg_replace('/[\W]/', '', $productName);
 $i = 1;
-while (file_exists("dummy_product_$filename.php")) {
+while (file_exists("product_$filename.php")) {
         if ($i > 2) {
                 $filename = substr($filename, 0, -1);
         }
@@ -31,7 +31,7 @@ while (file_exists("dummy_product_$filename.php")) {
 }
 
 //Create a new product page
-$myfile = fopen("dummy_product_$filename.php", "w") or die("Unable to open file!");
+$myfile = fopen("product_$filename.php", "w") or die("Unable to open file!");
 $txt = <<<END
 <?php 
     \$product_id = $product_id;
@@ -56,7 +56,7 @@ fclose($myfile);
 
 //Update product information with product page and admin page link
 $sql = "UPDATE products
-            SET webpageLink = '/Soen-287-Final-Project/dummy_product_$filename.php', adminpageLink = '/Soen-287-Final-Project/admin_product_$filename.php'
+            SET webpageLink = '/Soen-287-Final-Project/product_$filename.php', adminpageLink = '/Soen-287-Final-Project/admin_product_$filename.php'
             WHERE id = $product_id;";
 mysqli_query($conn, $sql);
 
