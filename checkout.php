@@ -86,7 +86,9 @@
           }
     }
     
-
+    if($_SESSION["login"]=='false'){
+        header("Location: errorLogin.php");
+    }
     
 ?>
         <h2>Review your order</h2>

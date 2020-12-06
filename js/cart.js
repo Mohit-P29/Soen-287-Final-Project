@@ -286,7 +286,7 @@ function newTotalCost(){
     let cart = localStorage.getItem("totalCost");
     cart=parseInt(cart);
 
-    if(cart==0||isNan(cart)){
+    if(cart==0||isNaN(cart)){
         alert("You must have at least 1 item in your cart");
         window.location.href="index.php";
     }
