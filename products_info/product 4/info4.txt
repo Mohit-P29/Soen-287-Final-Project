@@ -1,0 +1,12 @@
+name: FFP2 Mask without Valve
+
+Price: 6.95$
+
+
+
+
+description: The FFP2 respiratory mask complies with DIN EN149:2001+A1:2009 and offers a filter performance of 94%.
+ The shell-shaped protective mask ensures a comfortable environment beneath the mask and a high 
+level of wearing comfort over longer time periods. In contrast to masks with valve, this FFP2 mask filters
+ both inhaled and exhaled air. As a result, it serves both self-protection,
+ and the protection of others.
