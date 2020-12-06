@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>COVAID | YOUR LIFESAVING SHOP</title>
-   <link rel="stylesheet" href="css/review.css">
+
+  <?php 
+  include("includes/header.php");
+
+
+  ?>
+
+
+  <link rel="stylesheet" href="css/review.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  </head> 
-  <body>
-  <?php 
-  include("includes/header.php");
-  ?>
   
     <!----single products-->
     <div class="indiProduct">
@@ -94,7 +91,7 @@
           <div class="review-vertical">
             <div class="review-sec">
               <img src="images/facepics/p2.jpeg" alt="">
-              <div class="name">Emily</div>
+              <div class="name">John</div>
               <div class="rev_rating">
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-solid.svg">
@@ -112,7 +109,7 @@
           <div class="review-vertical">
             <div class="review-sec">
               <img src="images/facepics/p3.jpeg" alt="">
-              <div class="name">Full name</div>
+              <div class="name">Emily</div>
               <div class="rev_rating">
                 <img src="images/Icons/star-solid.svg">
                 <img src="images/Icons/star-solid.svg">
@@ -129,7 +126,7 @@
           <div class="review-vertical">
             <div class="review-sec">
               <img src="images/facepics/p4.jpg" alt="">
-              <div class="name">Full name</div>
+              <div class="name">Mike</div>
               <div class="rev_rating">
                 <img src="images/Icons/star-solid.svg">
                 <img src="images/Icons/star-solid.svg">
