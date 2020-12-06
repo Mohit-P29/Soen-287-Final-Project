@@ -5,40 +5,23 @@ include('includes/header.php')
  <main> 
  
  <h1> DIY Mask Builder</h1>
+     <div class="DIY_mask_review_stars"> <span>Product Rating </span><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon> </div>
  <form method="post" action="mask_checkout.php">
   
  <div class="whole_container">
  
-
-   
-   
 <!---------- script in order to display image------------>
   
     
-<!---------------- script in order to display image-------------->    
-
- 
-  
-  
-     
-     
-     
-     
- 
- 
- 
-  
-
- 
- 
- 
+<!---------------- script in order to display image-------------->  
  
 <div class="DIYmask_container">
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648 604">
   <defs>
     <style>
-      .cls-1 {
+      .cls-1 
+        {
         fill: #fff;
       }
     </style>
@@ -340,8 +323,8 @@ function dragElement(elmnt) {
     
     
 </select>
-<br> <br>
-
+    <br />
+    <br />
 
  <label class="label_op"><strong>Colors Outline</strong></label> 
 <select class="primary-select" id="selection_box2" name="mask_secondary_color" onchange="getColorSecondary();">
@@ -356,10 +339,11 @@ function dragElement(elmnt) {
     
     
 </select>
-       <br> <br><br><br><br> <br><br><br><br> <br><br><br>
+       <br>
+    <br>
        
        <p>Add an Image to your mask from our selection</p>
-       <br> <br><br><br>
+       <br>
        <label class="label_i"><strong>Images</strong></label>
 <select id="selection_box3" name="images" class="image-select">
     <option value="1" data-picture="animal/elephant.png" >Elephant</option>
@@ -389,7 +373,7 @@ function dragElement(elmnt) {
      
      
   </script>
-  <br><br><br><br><br><br><br><br><br>
+  <br>
 
 <div id="image">
 
@@ -410,6 +394,16 @@ function dragElement(elmnt) {
    
 
 </div>
+     
+     <div class="DIY_mask_product_description">
+         <p class="DIY_mask_product_description_text"> Product Description </p>
+         <br />
+         <p class="DIY_mask_product_description_text1">
+             This is our very Own custom Mask! Choose your custom masks Color, Outline Color and even a special image from our selection.
+             Our Masks are made with 100%  cotton, meaning they are extremly breathable, comfortable for long periods of time and perfect for hot summer days and cold winter days. We've even tested them with profesional atheletes, during practices and workout sessions that require wearing a mask. Needless to say, this is the only mask you'll ever need.
+         </p>
+         
+     </div>
 
     
         

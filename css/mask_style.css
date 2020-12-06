@@ -1,76 +1,80 @@
 
 .whole_container{
-    
-    display: flex;
-    
-    
-    
+    display: flex; 
 }
-
 
 /* -------------Button Table & Button ---------------*/
+
 .options_container{   
-
-  margin: right;
-    margin-top: 100px;
-  width: 30%;
-  height: 1000px;
-  background-color: #b3ffe0;
-  border-radius: 25px;
-  padding-top: 30px;
-  padding-left: 25px;
-
-  
-    
+    padding: 10px;
+    position: relative;
+    right: -100px;
+    height: 600px;
+    width: 500px;
+    background-color: white;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
 }
-
 
 /* -------------Mask---------------*/
 
 .DIYmask_container{
     
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  padding-top: 40px;
-    
-    
+    position: relative;
+    height: 650px;
+    top: 10px;  
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+    width: 50%; 
+}
+
+.DIY_mask_product_description {
+    padding: 10px;
+    position: relative;
+    margin-top: 30px;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.DIY_mask_product_descriptiontext {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.DIY_mask_product_description_text1 {
+    font-size: 15px;
+}
+
+.DIY_mask_review_stars {
     
 }
 
 /* -------------Picture---------------*/
 
-
-.picture_container{
-    
- 
+.picture_container {
   width: 210px;
   height: 210px;
   border: 5px dashed black;
   margin-left: 125px;
   margin-top: 30px;
-  
 }
-
-
-
 
 /* -------------Table ---------------*/
 
 .table_container{
-    
-   
     margin: 0 auto;
     width: 200px; /* Can be in percentage also. */
     height: 200px;
     align-items: center;
-    
-    
-    
 }
 
 /*-----------------Submit-Button-CSS----------------*/
-
 
 .btn{
 	color:#fff;
@@ -106,9 +110,6 @@ padding-left: 20px;
   height: 60px;
   font-size: 20px;
 }
-
-
-
 
 .label_cp{
     font-size: 20px;
