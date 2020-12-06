@@ -254,7 +254,7 @@ function displayItems() {
        itemsPriceTotal.innerHTML += `
             <div class="basketTotalContainer">
                 <p class="item">items (${productNumbers})</p>
-                <p class="itemPrice">$${cart},00</p>
+                <p class="itemPrice">$${cart}</p>
             </div>`
 
     }
@@ -263,12 +263,14 @@ function displayItems() {
 function shipping(){
     if(document.getElementById("hship1").checked){
         document.getElementById("shipMethodSelect").innerHTML="Regular Shipping";
-        document.getElementById("shipMethodSelectPrice").innerHTML="FREE";
+        document.getElementById("shipMethodSelectPrice").innerHTML="$5";
+
     }
 
     else{
         document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
-        document.getElementById("shipMethodSelectPrice").innerHTML="$5";
+        document.getElementById("shipMethodSelectPrice").innerHTML="$10";
+
     }
 
     newTotalCost();
@@ -284,13 +286,132 @@ function newTotalCost(){
     let cart = localStorage.getItem("totalCost");
     cart=parseInt(cart);
 
+    //Get info on current date to display arrival day
+    var today= new Date();
+    var aYear=today.getFullYear();
+    var aMonth=today.getMonth()+1;
+    var aDay=today.getDate();
+
     //Check for shipping method
+    //regular shipping (1 week)
     if(document.getElementById("hship1").checked){
-       shippingCost=0;
+
+        //7 days from now
+        aDay=aDay+7;
+
+        //if we reach the end of February
+        if(aDay>28 && aMonth==2){
+            aDay=aDay-28;
+            aMonth++;
+        }
+
+        //if we reach the end of January, March, May, etc)
+        else if(aDay>31 && (aMonth==1 ||aMonth==3||aMonth==5||aMonth==7||aMonth==8||aMonth==10||aMonth==12)){
+            alert("odd! Day="+ aDay);
+            aDay=aDay-31;
+            aMonth++;
+        }
+
+        //if we reach the end of april, june, september or november)
+       else if(aDay>30 && (aMonth==4 ||aMonth==6||aMonth==9||aMonth==11)){
+        alert("even! Day="+ aDay);
+            aDay=aDay-30;
+            aMonth++;
+        }
+
+        //if we reach the end of the year
+        if(aMonth>12){
+            aYear++;
+            aMonth=1;
+        }
+
+       shippingCost=5;
     }
 
     else if(document.getElementById("hship2").checked){
-        shippingCost=5;
+        
+                //2 days from now
+                aDay=aDay+2;
+
+                //if we reach the end of February
+                if(aDay>28 && aMonth==2){
+                    aDay=aDay-28;
+                    aMonth++;
+                }
+        
+                //if we reach the end of an odd month (January, March, May, etc)
+                else if(aDay>31 && isOdd(aMonth)==1){
+                    aDay=aDay-31;
+                    aMonth++;
+                }
+        
+                //if we reach the end of an even month (april, june, august, etc)
+               else if(aDay>30 && isOdd(aMonth)==0){
+                    aDay=aDay-30;
+                    aMonth++;
+                }
+        
+                //if we reach the end of the year
+                if(aMonth>12){
+                    aYear++;
+                    aMonth=1;
+                }
+
+        shippingCost=10;
+    }
+
+    switch(aMonth){
+        case 1: 
+            aMonth="January";
+            break;
+        case 2: 
+            aMonth="February";
+            break;       
+        case 3: 
+            aMonth="March";
+            break;
+        case 4: 
+            aMonth="April";
+            break;
+        case 5: 
+            aMonth="May";
+            break;
+        case 6: 
+            aMonth="June";
+            break;
+        case 7: 
+            aMonth="July";
+            break;
+        case 8: 
+            aMonth="August";
+            break;
+        case 9: 
+            aMonth="September";
+            break;
+        case 10: 
+            aMonth="October";
+            break;
+        case 11: 
+            aMonth="November";
+            break;
+        case 12: 
+            aMonth="December";
+            break;
+    }
+
+    //display arrival day
+    document.getElementById("aMonth").innerHTML=aMonth;
+    document.getElementById("aDay").innerHTML=aDay;
+    document.getElementById("aYear").innerHTML=aYear;
+
+
+    if(cart>=50){
+        shippingCost=0;
+        document.getElementById("shipMethodSelect").innerHTML="Free shipping Special";
+        document.getElementById("shipMethodSelectPrice").innerHTML="$0";
+
+        document.getElementById("shipMethodSelect").style.color="green";
+        document.getElementById("shipMethodSelectPrice").style.color="green";
     }
 
     //Print pbt1
@@ -398,6 +519,19 @@ function load_P_and_D(){
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
         document.getElementById("donoAmount").value=dono;
     }
+
+    if(localStorage.getItem("shipping")=="regular"){
+        document.getElementById("hship1").checked=true;
+        document.getElementById("shipMethodSelect").innerHTML="Regular Shipping";
+        document.getElementById("shipMethodSelectPrice").innerHTML="$5";
+    }
+
+    if(localStorage.getItem("shipping")=="express"){
+        document.getElementById("hship2").checked=true;
+        document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
+        document.getElementById("shipMethodSelectPrice").innerHTML="$10";
+    }
+
     newTotalCost();
 }
 
@@ -413,3 +547,18 @@ function removeCode(){
 
 onLoadCartNumbers();
 displayCart();
+
+$(document).ready(function(){
+    var radios = document.getElementsByName("shipping");
+    var val = localStorage.getItem('shipping');
+    for(var i=0;i<radios.length;i++){
+      if(radios[i].value == val){
+        radios[i].checked = true;
+        newTotalCost();
+      }
+    }
+    $('input[name="shipping"]').on('change', function(){
+      localStorage.setItem('shipping', $(this).val());
+    
+    });
+  });

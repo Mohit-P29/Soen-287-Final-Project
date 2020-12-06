@@ -1,6 +1,10 @@
 <?php
-include('includes/header.php')
-    ?>
+    include('includes/header.php');
+    include("includes/ConnectDB.php");   
+   if(! $conn ) {
+      die('Could not connect: ' . mysqli_error());
+   }
+?>
         <h2>Review your order</h2>
         <section id="orderReview">
             <div id="shipAddress">
@@ -21,8 +25,8 @@ include('includes/header.php')
                 </div>
                 <div id="shipMethod">
                     <h3>Shipping Method</h3>
-                    <input type="radio" name="shipping" value="Regular" id="hship1" onchange="shipping()" checked> Regular (Free)<br>
-                    <input type="radio" name="shipping" value="Express" id="hship2" onchange="shipping()"> 2-day shipping ($5)
+                    <input type="radio" name="shipping" value="Regular" id="hship1" onchange="shipping()" checked="checked"> Regular ($5)<br>
+                    <input type="radio" name="shipping" value="Express" id="hship2" onchange="shipping()"> 2-day shipping ($10)
                 </div>
             </div>
             <div id="others">
@@ -35,8 +39,7 @@ include('includes/header.php')
                 
                 <div id="arrival">
                     <h3>Arrival day</h3>
-                    <p>December 4, 2020</p>
-                    <p>9pm</p>
+                    <p><span id="aMonth"></span> <span id="aDay"></span>, <span id="aYear"></span></p>
                 </div>
             </div>
         </section>
@@ -54,8 +57,8 @@ include('includes/header.php')
                 <h3>Please consider a kind donation</h3>
                 <p>As you may know, many lives are impacted by the global pandemic... blablabla
                     By donating, you are automatically supporting the people in need and you will be given a free discount code for your next purchase!</p>
-                <img src="" alt="heart">
-                <div> 
+                <img src="images/redCrossLogo.jpg" alt="red cross logo" id="redCrossLogo">
+                <div id="donoNow"> 
                     <h4>Donate now</h4>
                     <input placehold="Enter amount" id="donoAmount">
                     <button onclick="dono()">Add donation</button>

@@ -285,3 +285,21 @@
     cursor: pointer;
 }
 
+#redCrossLogo{
+    width:200px;
+    float:left;
+}
+
+#donoNow{
+    float:left;
+    width:200px;
+    overflow:hidden;
+    margin-top:50px;
+    padding:20px;
+}
+
+#thankyouDono{
+    clear:both;
+    text-align:center;
+
+}
