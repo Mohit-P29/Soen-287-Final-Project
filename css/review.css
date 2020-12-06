@@ -1,0 +1,53 @@
+
+.review_section{
+  padding: 40px 0;
+  color: black;
+  text-align: center;
+}
+.rev{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.border{
+  width: 160px;
+  height: 5px;
+  background: #8db600;
+  margin: 6px auto;
+}
+
+.review-horiz{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.review-vertical{
+  flex: 25%;
+  max-width: 25%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.review-sec{
+  background: #fff;
+  padding: 30px;
+}
+.review-sec img{
+  width: 100px;
+  height: 100px;
+  border-radius: 60%;
+}
+.name{
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+
+.rev_rating img{
+  width: 20px;
+  margin: -20px 0px;
+  
+}
+
+ 
