@@ -4,7 +4,7 @@ function OpenCon()
  $dbhost = "localhost";
  $dbuser = "root";
  $dbpass = "";
- $db = "custom_mask";
+ $db = "covaid_store";
  if ($conn = new mysqli($dbhost, $dbuser, $dbpass,$db)){ 
      
      echo 'connection succesful';
