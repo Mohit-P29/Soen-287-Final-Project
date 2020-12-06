@@ -60,7 +60,6 @@ include("includes/header.php");
          <!-- SubImages end here -->
 
         <div class="caption">
-          <p>Protective Wear</p>
           <h1> <?php echo $product_name; ?> </h1>
           <h4><?php
             if ($product_specialPrice == null) {
@@ -71,7 +70,7 @@ include("includes/header.php");
             
         ?></h4>
           
-            <input type="number" value="1">
+            <input type="number" value="1" style="width:44px;" min="1">
             <a href="" class="button"> Add item to cart</a>
             <h3>Product Information</h3>
             <br>
@@ -108,7 +107,6 @@ include("includes/header.php");
         <div class="review-horiz">
           <div class="review-vertical">
             <div class="review-sec">
-              <img src="images/facepics/p1.jpg" >
               <div class="name">David</div>
               <div class="rev_rating">
             <img src="images/Icons/star-solid.svg">
@@ -126,7 +124,7 @@ include("includes/header.php");
 
           <div class="review-vertical">
             <div class="review-sec">
-              <img src="images/facepics/p2.jpeg" alt="">
+              
               <div class="name">John</div>
               <div class="rev_rating">
             <img src="images/Icons/star-solid.svg">
@@ -144,7 +142,7 @@ include("includes/header.php");
 
           <div class="review-vertical">
             <div class="review-sec">
-              <img src="images/facepics/p3.jpeg" alt="">
+              
               <div class="name">Emily</div>
               <div class="rev_rating">
                 <img src="images/Icons/star-solid.svg">
@@ -161,7 +159,6 @@ include("includes/header.php");
           </div>
           <div class="review-vertical">
             <div class="review-sec">
-              <img src="images/facepics/p4.jpg" alt="">
               <div class="name">Mike</div>
               <div class="rev_rating">
                 <img src="images/Icons/star-solid.svg">
@@ -180,7 +177,22 @@ include("includes/header.php");
       </div>
     </div>
 
+        
+    <div class="leave_review" style="
+margin:80px
+;
+">
+      <h2>Please leave your review below</h2>
+      <input type="text" name="cus_review" placeholder="Please leave your review below"
+      style="Width:800px; Height:100px; 
+      text-align: left;
+      padding-left: 20px;
+      font-size: 15px ;
 
+      border: 2px solid  #8db600; 
+      border-radius: 10px; ">
+
+</div>
 
 
     <div class="submenu">
@@ -191,7 +203,7 @@ include("includes/header.php");
 
 
         <h2>Related Items</h2>
-        <p> Find more </p>
+        <p><a href ="General_Products.php" > Find more </a> </p>
       </div>
     </div>
     <div class= "submenu">
@@ -248,18 +260,6 @@ include("includes/header.php");
     </div>
     <!-- Suggested/Related items end here -->
 
-    <div class="leave_review">
-      <h2 style="margin:0 0 10px 120px;">Please leave your review below</h2>
-      <input type="text" name="cus_review" placeholder="Please leave your review below"
-      style="Width:800px; Height:100px; margin:0 0 50px 120px;
-      text-align: left;
-      padding-left: 20px;
-      font-size: 15px ;
-
-      border: 2px solid #4c8bf5; 
-      border-radius: 10px; ">
-
-</div>
 
     <!----footer-->
     <?php
