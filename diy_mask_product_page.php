@@ -99,7 +99,7 @@ if(selectedValue == 1){
         
         outline.children[j].setAttribute('style', 'fill: pink');
         
-    }
+    }  
   
 }else if (selectedValue == 5) {
     
