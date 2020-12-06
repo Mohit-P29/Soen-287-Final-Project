@@ -209,7 +209,7 @@
                             <label id="ChangedLable2">Contact Email 2</label>
                             <label id="ChangedIcon3" class="plus"></label>
                             <br />
-                            <input type="text" style="width: 545px;" id="ContactEmail2" name="user_email2" class="Inputfield2" placeholder="Katesims@hotmail.com" value="<?php echo $email2; ?>" />
+                            <input type="text" style="width: 545px;" id="ContactEmail2" name="user_email2" class="Inputfield2" placeholder="Katesims@(hotmail.com/gmail.com/outlook.com)" value="<?php echo $email2; ?>" />
                         </td>
                     </tr>
                     <tr>
@@ -381,7 +381,7 @@
             <span class="AddressFormTitle">Add New Address</span>
 
             <!--The form contains the inputfields to add address-->
-            <form class="AddressForm" action="<?PHP echo $_SERVER['PHP.SELF']; ?>" method="post" id="AddressForm">
+            <form class="AddressForm" action="UserPage.php" method="post" id="AddressForm">
                 <table class="AddressFormTable">
                     <!--Name section-->
                     <tr>
@@ -474,7 +474,6 @@
 
 
             if(isset($_POST["submit1"])){
-                echo "yes";
                 $first=isset($_POST['user_first'])?$_POST['user_first']:'';
                 $last=isset($_POST['user_last'])?$_POST['user_last']:'';
                 $contactE1=isset($_POST['user_email1'])?$_POST['user_email1']:'';
@@ -498,27 +497,26 @@
 
 
 <?php }
-            else if(isset($_POST['button_addA'])){
-                 $first=isset($_POST['first2'])?$_POST['first2']:'';
-                 $last=isset($_POST['last2'])?$_POST['last2']:'';
+            elseif(isset($_POST['button_addA'])){
+                $first=isset($_POST['first2'])?$_POST['first2']:'';
+                $last=isset($_POST['last2'])?$_POST['last2']:'';
                 $comp=isset($_POST['company'])?$_POST['company']:'';
                 $a1=isset($_POST['address1'])?$_POST['address1']:'';
-               $a2=isset($_POST['address2'])?$_POST['address2']:'';
-               $city=isset($_POST['city'])?$_POST['city']:'';
-               $country=isset($_POST['country'])?$_POST['country']:'';
-               $province=isset($_POST['province'])?$_POST['province']:'';
-               $post=isset($_POST['post'])?$_POST['post']:'';
-               $phone=isset($_POST['phone'])?$_POST['phone']:'';
-
+                $a2=isset($_POST['address2'])?$_POST['address2']:'';
+                $city=isset($_POST['city'])?$_POST['city']:'';
+                $country=isset($_POST['country'])?$_POST['country']:'';
+                $province=isset($_POST['province'])?$_POST['province']:'';
+                $post=isset($_POST['post'])?$_POST['post']:'';
+                $phone=isset($_POST['phone'])?$_POST['phone']:'';
 
                  $id=$_SESSION['user_id'];
-                 $sql = "UPDATE useraddress SET first='$first',last='$last',company='$comp',address='$a1',address2='$a2',city='$city',country='$country',province='$province',post='$post',phone='$phone' WHERE user_id='$id'";
+                 $sql = "UPDATE useraddress SET first= '$first',last='$last',company='$comp',address='$a1',address2='$a2',city='$city',country='$country',province='$province',post='$post',phone='$phone' WHERE user_id='$id'";
                  mysqli_query($conn,$sql);
                  $conn->close(); 
                  $_SESSION['fixed_AddressPage']="true";
             }
 
-            else if(isset($_POST['delete_address'])){
+            elseif(isset($_POST['delete_address'])){
                 $id=$_SESSION['user_id'];
                 $sql ="DELETE FROM useraddress WHERE user_id='$id'";
                  mysqli_query($conn,$sql);
@@ -526,7 +524,7 @@
                 
                 
             }
-            else if(isset($_POST['logout'])){
+            elseif(isset($_POST['logout'])){
                 session_destroy(); ?>
 <script>
     alert("You have logged out!");
