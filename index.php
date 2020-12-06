@@ -13,6 +13,12 @@ include('includes/header.php')
         $_SESSION["donation_last_name"]= "";
     }
 
+ if( !isset($_SESSION["error_firstname"]) || !isset($_SESSION["error_lastname"]) )
+        {
+            $_SESSION["error_firstname"] ="";
+            $_SESSION["error_lastname"] ="";
+        }
+
 ?>
 
 <div id="discount_popup">
@@ -125,7 +131,11 @@ include('includes/header.php')
         <p class="donation_text3"> Your gift of any amount will save the day when the next emergency strikes. Whether that be help when a house burns down in your community, when someone needs CPR or a lifesaving blood transfusion, or when a family needs to contact a deployed service member in an emergency. Your gift supports the many urgent needs of the American Red Cross. </p>
         <form class="donation_buttons" action="DonationPage.php" method="post">
             <input class="donation_button1" type="text" name="donation_firstname" id="firstname" value="<?php echo $_SESSION["donation_first_name"] ?>" placeholder="First Name" required>
+            <span style="color:red"> <?php echo $_SESSION["error_firstname"] ?></span>
+            <br />
             <input class="donation_button2" type="text" name="donation_lastname" id="lastname" value="<?php echo $_SESSION["donation_last_name"] ?>" placeholder="Last Name" required>
+             <span style="color:red"> <?php echo $_SESSION["error_lastname"] ?> </span>
+            
             <input class="donation_button3" type="submit" name="submit" id="submit" value="Submit">
         </form>
     </div>

@@ -12,7 +12,7 @@ main {
     width: 90vw;
     margin: 0 auto;
     padding: 30px 20px;
-    min-height: calc(100vw - 154px - 58.4px);
+    min-height: calc(60vw - 154px - 58.4px);
 }
 
 
@@ -184,6 +184,7 @@ header {
 }
 
 
+
 /*-------------- Slideshow ---------------*/
 
 .slideshow_container {
@@ -333,7 +334,6 @@ header {
 
 .donation_text3 {
     position: absolute;
-
     margin-top: 150px;
     margin-left: 750px;
 }
@@ -341,7 +341,7 @@ header {
 .donation_buttons {
     position: absolute;
     margin-left: 750px;
-    margin-top: 300px;
+    margin-top: 269px;
 }
 
 input[type=text] {
@@ -356,6 +356,78 @@ input[type=submit] {
     border-radius: 10px;
     padding: 10px 25px;
 }
+
+input[type=email] {
+    padding: 10px 25px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.donationpage_title {
+    position: relative;
+    left: 500px;
+    top: -10px;
+    width: 700px;
+    color: red;
+}
+
+.donationpage_titletext {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.donationpage_fieldset {
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: red;
+    background-color: whitesmoke;
+    padding: 10px;
+    width: 600px;
+    left: 500px;
+    position: relative;
+    right: 0px;
+}
+
+.donationpage_pic {
+    position: absolute; 
+    top: 100px;
+    margin-left: -89px;
+}
+
+.donationpage_picquality {
+   filter:brightness(40%);
+}
+
+.donationpage_expdate {
+    width: 75px;
+}
+
+.donationpage_cvc {
+    width: 84px;
+}
+
+.donationpage_goback {
+    font-size: 40px;
+}
+
+.donationpage_pictext {
+    position: absolute;
+    top: 10%;
+    color: white;
+    margin-left: 10px;
+}
+
+.donationpage_pictext1 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.donationpage_pictext2 {
+    font-size: 18px;
+}
+    
 
 /*-------------Footer---------------*/
 
