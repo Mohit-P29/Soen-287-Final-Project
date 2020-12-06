@@ -20,11 +20,6 @@ include('includes/header.php')
 
         </section>
 
-        <section id="fbt">
-            <hr>
-            <h2>Frequently bought together</h2>
-            <hr>
-        </section>
         <section id="Subtotal">
             <form action="checkout.php">
                 <input type="submit" value="Checkout"/>

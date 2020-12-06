@@ -1,4 +1,7 @@
 <?php
+include('includes/header.php')
+    ?>
+<?php
 
 require_once 'connection/check_connection.php';
 
@@ -115,6 +118,7 @@ if (!empty($result) && $result->num_rows > 0) {
 	
 		<p>If you'd like to delete a mask please enter its mask Id number here and press delete</p>
 	<input type="text" value="" name="maskToDelete" placeholder="MaskId">
+	<input  class="submit" type="submit" name="delete" value="Confirm" />
 	
 
 	<br><br><br>
@@ -183,7 +187,7 @@ $result = $conn->query($sql);
 		
 	$conn->close();
 ?>
-	<input  class="submit" type="submit" name="delete" value="Confirm" />
+	
 
 	<input  class="submit" type="submit" name="delete" value="Delete" />
 	</form>
@@ -191,5 +195,7 @@ $result = $conn->query($sql);
 		
 		<input  class="submit" type="submit" name="submit" value="Goback to mask builder" />
 	</form>
-</body>
-</html>
+
+<?php 
+    include('includes/footer.php')
+    ?>
