@@ -1,6 +1,6 @@
     <?php
     $root = $_SERVER["DOCUMENT_ROOT"];
-    include_once "$root/Soen-287-Final-Project/includes/covaid_database.php";
+    include_once "includes/covaid_database.php";
     $page = "Products";
     include("includes/admin_header.php");
 
