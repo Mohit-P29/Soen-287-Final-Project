@@ -7,14 +7,7 @@ $product_name;
 $product_description;
 $product_price;
 $product_specialPrice;
-<<<<<<< Updated upstream
-=======
-$product_image1;
-$product_image2;
-$product_image3;
-$product_image4;
-$product_id=61;
->>>>>>> Stashed changes
+$product_id=68;
 
 $sql = "SELECT * FROM products WHERE id = $product_id;";
 $result = mysqli_query($conn, $sql);
@@ -103,7 +96,6 @@ include("includes/header.php");
 <p >4.7 rating based on 0 reviews.</p>
 </div>
 
-<<<<<<< Updated upstream
 
       </div>
     </div>
@@ -184,42 +176,6 @@ include("includes/header.php");
           </div>
         </div>
       </div>
-=======
-    </div>
-    <div class="product_description">
-    <form action="" method="POST">
-        <h2><?php echo $product_name; ?></h2>
-        <br /><br />
-        <strong>Description:</strong> <?php echo $product_description; ?><br /><br />
-        <strong>Price: </strong>
-        <?php
-        if ($product_specialPrice == null) {
-            echo $product_price;
-        } else {
-            echo "<span style='color: red;'>\$$product_specialPrice </span>" . " <strike>\$$product_price</strike> ";
-        }
-
-        ?><br /><br />
-        <label><strong>Quantity: </strong></label>
-        <select name="mask_quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
-        <br /><br /><br />
-        <input name="submit" type="submit" value="Add to Cart">
-
-        <!--<input type="hidden" name="price" value="<?php $product_price ?>">
-        <input type="hidden" name="item" value="<?php $product_name ?>">
-        <input type="hidden" name="id" value="<?php $product_id ?>">-->
-        
-    </form>
-    </div>
-    <div class="product_review">
-        <h2>Review</h2>
-        <br/>
->>>>>>> Stashed changes
     </div>
 
         
@@ -240,7 +196,6 @@ margin:80px
 </div>
 
 
-<<<<<<< Updated upstream
     <div class="submenu">
       <div class="productRow">
 
@@ -339,49 +294,3 @@ margin:80px
     </script>
   </body>
 </html>
-=======
-<?php
-//footer
-include("includes/footer.php");
-
-if(isset($_POST["submit"])){
-    
-    $product_Qty=$_POST["mask_quantity"];
-
-
-    $sql="SELECT * FROM cart WHERE id=$product_id";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-
-    if ($product_specialPrice != null) {
-        $product_price=$product_specialPrice;
-    } 
-
-    //Check if this product is already in cart
-    if ($resultCheck > 0) {
-
-        $row = mysqli_fetch_assoc($result);
-
-        //update quantity
-        $oldQty=$row["quantity"];
-        echo"<script>console.log('".$oldQty."');</script>";
-        echo"<script>console.log('".$product_Qty."');</script>";
-        $product_Qty=$oldQty+$product_Qty;
-
-        $sql="UPDATE cart SET quantity='$product_Qty' WHERE id='$product_id'";
-        mysqli_query($conn, $sql);
-
-    }
-
-    //If it's not in the cart
-    else{
-        $sql = "INSERT INTO cart (id, productName, quantity, price, image) 
-            VALUES('$product_id', '$product_name', '$product_Qty', '$product_price','$product_image1');";
-            mysqli_query($conn, $sql);
-    }
-
-}
-
-
-?>
->>>>>>> Stashed changes
