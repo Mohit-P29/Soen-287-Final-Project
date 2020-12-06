@@ -1,4 +1,4 @@
-name: FFP2 Mask without Valve
+name: FFP2 Mask (without Valve)
 
 Price: 6.95$
 

@@ -1,4 +1,4 @@
-name: Purell ES8 disinfectant dispense
+name: Purell ES8 disinfectant dispenser
 
 Price: 38.85$
 
