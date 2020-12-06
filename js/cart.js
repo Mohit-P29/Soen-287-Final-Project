@@ -98,10 +98,8 @@ function totalCost( product, action ) {
 
         localStorage.setItem("totalCost", cart - product.price);
     } else if(cart != null) {
-        
         cart = parseInt(cart);
         localStorage.setItem("totalCost", cart + product.price);
-    
     } else {
         localStorage.setItem("totalCost", product.price);
     }
@@ -117,13 +115,18 @@ function displayCart() {
 
     let productContainer = document.querySelector('.products');
     
-    
+    if(cart==0 || cart==null){
+        var msg="Uh oh... Looks like the cart is empty.. Please add an item to proceed.";
+        productContainer.innerHTML=msg;
+        alert("test");
+    }
+
     if( cartItems && productContainer ) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map( (item, index) => {
             productContainer.innerHTML += 
             `<div class="product">
-                <div class="left">
+            <div class="left">
                     <ion-icon name="close-circle" class="deleteIcon"></ion-icon>
                     <img src="./image/${item.tag}.jpg" />
                 </div>

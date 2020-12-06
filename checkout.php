@@ -65,7 +65,6 @@
                   $province=$row['province'];
                   $post=$row['post'];
                   $phone=$row['phone'];
-                  
             }
         }
       }
@@ -88,6 +87,11 @@
     
     if($_SESSION["login"]=='false'){
         header("Location: errorLogin.php");
+    }
+
+    //add payment info checker after Jia Wei gets it done.
+    if($a1==""){
+        header("Location: errorInfo.php");
     }
     
 ?>
