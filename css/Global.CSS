@@ -103,6 +103,10 @@
     margin-bottom:10px;
 }
 
+#receipt div{
+    overflow:hidden;
+}
+
 .item{
     float:left;
     width:50%;

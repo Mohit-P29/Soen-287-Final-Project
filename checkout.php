@@ -86,10 +86,7 @@
           }
     }
     
-    if($comp2==""){
-        alert("One or more info is missing in your address...");
-        header("Location: UserPage.php");
-    }
+
     
 ?>
         <h2>Review your order</h2>
@@ -159,32 +156,38 @@
                 <div class="itemsPriceTotal">
                 
                 </div>
-                <p class="item" id="shipMethodSelect"></p>
-                <p class="itemPrice" id="shipMethodSelectPrice"></p>
-
+                <div>
+                    <p class="item" id="shipMethodSelect"></p>
+                    <p class="itemPrice" id="shipMethodSelectPrice"></p>
+                </div>
                 <hr>
-
-                <p class="item">Total before tax:</p>
-                <p class="itemPrice" id="pbt1"></p>
-
-                <p class="item" id="enteredCode"></p>
-                <p class="itemPrice" id="enteredCodeDisc"></p>
+                <div>
+                    <p class="item">Total before tax:</p>
+                    <p class="itemPrice" id="pbt1"></p>
+                </div>
+                <div>
+                    <p class="item" id="enteredCode"></p>
+                    <p class="itemPrice" id="enteredCodeDisc"></p>
+                </div>
                 <div id="pbt3">
                     <hr class="pbt2">
                     
                     <p class="item pbt2">Total before tax</p>
                     <p class="itemPrice pbt2" id="pbt2"></p>
                 </div>
-                <p class="item">Taxes (15%)</p>
-                <p class="itemPrice" id="taxes"></p>
-
+                <div>
+                    <p class="item">Taxes (15%)</p>
+                    <p class="itemPrice" id="taxes"></p>
+                </div>
                 <hr>
-
-                <p class="item dono">Total after tax:</p>
-                <p class="itemPrice dono" id="pat"></p>
-                
-                <p class="item dono" id="donoText">Additional Donation</p>
-                <p class="itemPrice dono" id="dono">$0</p>
+                <div>
+                    <p class="item dono">Total after tax:</p>
+                    <p class="itemPrice dono" id="pat"></p>
+                </div>
+                <div>
+                    <p class="item dono" id="donoText">Additional Donation</p>
+                    <p class="itemPrice dono" id="dono">$0</p>
+                </div>
                 <div class="orderTotal">
                     <p class="item">Order Total:</p>
                     <p class="itemPrice" id="finalTotal"></p>
