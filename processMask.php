@@ -78,7 +78,7 @@ switch($colorS){
         break;
 	case 9:
         $colorS="white";
-        break
+        break;
 }
 
 //Assign image
