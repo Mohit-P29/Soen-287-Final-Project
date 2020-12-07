@@ -61,6 +61,7 @@ include_once 'includes/covaid_database.php';
                                     <span id="qty"><?php echo $row["quantity"]; ?></span>
                             </div>
                             <div class="total">$<?php echo ($row["quantity"]*$row["price"]);  ?></div>
+                            <input type="hidden" value="<?php echo ($row["quantity"]*$row["price"]);?>">
                             
                             <?php
                         }
@@ -71,13 +72,6 @@ include_once 'includes/covaid_database.php';
 
                     ?>
 
-                    <section id="changeQty">
-                            <h2>Modify quantity</h2>
-                            <p>Please select which item you would like to modify (circles next to the products)</p>
-                            <p>How many do you want to change it to?</p>
-                                
-                    </section>
-
                 </div>
         
             
@@ -85,8 +79,8 @@ include_once 'includes/covaid_database.php';
 
             <section id="Subtotal">
                 
-                    <p>Total: $<?php echo $total?></p>
-                    <button type="button" onclick="location.href='checkout.php'" id="checkoutBtn">Checkout</button>
+                    <p>Total: $<span id="finalTotal"><?php echo $total?></span></p>
+                    <button type="button" onclick="validCart()" id="checkoutBtn">Checkout</button>
               
             </section>
                 </form><!--End of cart-->
@@ -96,7 +90,20 @@ include_once 'includes/covaid_database.php';
         <script src="js/cart.js"></script>
 
     </body>
-    
+        <script>
+
+            function validCart(){
+                if(document.getElementById("finalTotal").innerHTML=='0'){
+                    alert("You must have at least 1 item in the cart to proceed!");
+                }
+                else{
+                    location.href='checkout.php';
+                }
+            }
+
+        </script>
+
+
     <?php 
     include('includes/footer.php');
 
