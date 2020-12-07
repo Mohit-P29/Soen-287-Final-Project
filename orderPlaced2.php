@@ -1,5 +1,23 @@
 <?php 
 
+    $month="";
+    $year="";
+    $day="";
+    $donation="---";
+    $shipMethod="";
+    $tax="";
+    $pCode="---";
+    $finalTotal="";
+
+    $month=$_POST["aMonth"];
+    $year=$_POST["aYear"];
+    $day=$_POST["aDay"];
+    $donation=$_POST["donoV"];
+    $shipMethod=$_POST["shipV"];
+    $tax=$_POST["taxV"];
+    $pCode=$_POST["codeV"];
+    $finalTotal=$_POST["finalV"];
+
      session_start();
      include "includes/address.php";
      include("includes/header.php");
@@ -102,7 +120,7 @@
     $itemsNum=0;
 
     while($row = $result->fetch_assoc()){
-      $id=$row["id"];
+      
       $prod=$row["productName"];
       $qty=$row["quantity"];
       $price=$row["price"];
@@ -111,10 +129,14 @@
       $c2=$row["MaskSColor"];
       $userID=$_SESSION['user_id'];
 
+      $sql="SELECT * FROM user_order";
+      mysqli_query($conn, $sql);
+      $id= mysqli_insert_id($conn);
+
       $prodName=$prod;
 
       if($prod=="Custom Mask"){
-        $prodName=$prod."Color 1: ".$c1." Color 2: ".$c2;
+        $prodName=$prod."(Primary Color: ".$c1." Secondary Color: ".$c2.")";
       }
 
       $nameList[]=$prodName;
@@ -215,6 +237,18 @@ Thank you for shopping with Covaid.
 
 Here's a summary of your order:
 ".$list."
+
+Shipping Method: ".$shipMethod."
+Expected arrival date: ".$month." ".$day.", ".$year."
+
+Promo Code: ".$pCode."
+
+Additional Donation: $".$donation."
+
+Taxes: $".$tax."
+
+Total: $".$finalTotal."
+
 
 Have a nice day,
 Covaid team

@@ -1,12 +1,16 @@
 function shipping(){
     if(document.getElementById("hship1").checked){
         document.getElementById("shipMethodSelect").innerHTML="Regular Shipping";
+        //set values for form
+        document.getElementById("shipV").value="Regular Shipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$5";
-
-    }
+        
+    }   
 
     else{
         document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
+        //set values for form
+        document.getElementById("shipV").value="Express Shipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$10";
 
     }
@@ -45,14 +49,14 @@ function newTotalCost(){
 
         //if we reach the end of January, March, May, etc)
         else if(aDay>31 && (aMonth==1 ||aMonth==3||aMonth==5||aMonth==7||aMonth==8||aMonth==10||aMonth==12)){
-            alert("odd! Day="+ aDay);
+           
             aDay=aDay-31;
             aMonth++;
         }
 
         //if we reach the end of april, june, september or november)
        else if(aDay>30 && (aMonth==4 ||aMonth==6||aMonth==9||aMonth==11)){
-        alert("even! Day="+ aDay);
+        
             aDay=aDay-30;
             aMonth++;
         }
@@ -67,6 +71,10 @@ function newTotalCost(){
     }
 
     else if(document.getElementById("hship2").checked){
+
+        document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
+        document.getElementById("shipMethodSelectPrice").innerHTML="$10";
+        document.getElementById("shipV").value="Express Shipping";
         
                 //2 days from now
                 aDay=aDay+2;
@@ -142,6 +150,10 @@ function newTotalCost(){
     document.getElementById("aDay").innerHTML=aDay;
     document.getElementById("aYear").innerHTML=aYear;
 
+    //set value for form
+    document.getElementById("aMonthV").value=aMonth;
+    document.getElementById("aDayV").value=aDay;
+    document.getElementById("aYearV").value=aYear;
 
     if(cart>=50){
         shippingCost=0;
@@ -180,6 +192,7 @@ function newTotalCost(){
 
     //Print taxes and price after taxes
     document.getElementById("taxes").innerHTML="$"+taxes.toFixed(2);
+    document.getElementById("taxV").value=taxes.toFixed(2);
     document.getElementById("pat").innerHTML="$"+pat.toFixed(2);
 
     //Calculates donation
@@ -196,7 +209,7 @@ function newTotalCost(){
     }
 
     document.getElementById("finalTotal").innerHTML="$"+total.toFixed(2);
-
+    document.getElementById("finalV").value=total.toFixed(2);
 }
 
 function promo(){
@@ -209,6 +222,7 @@ function promo(){
 
     if(code=="Fall20"){
         document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
+        document.getElementById("codeV").value="Fall20";
         document.getElementById("enteredCodeDisc").innerHTML="-20%";
         document.getElementById("addedCode").innerHTML="<span class='deletePromo' onclick='removeCode()'>X</span> Promo Code <b>Fall20</b> has been added!";
         document.getElementById("addedCode").style.color="green";
@@ -235,6 +249,7 @@ function dono(){
         dono=parseFloat(dono);
         document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
+        document.getElementById("dono").value=dono.toFixed(2);
         localStorage.setItem("dono",dono);
         newTotalCost();
     }
@@ -247,6 +262,7 @@ function load_P_and_D(){
         document.getElementById("addedCode").innerHTML="<span class='deletePromo' onclick='removeCode()'>X</span> Promo Code <b>Fall20</b> has been added!";
         document.getElementById("addedCode").style.color="green";
         document.getElementById("pbt3").style.display="inherit";
+        document.getElementById("codeV").value="Fall20";
         document.getElementById("promoCode").value="Fall20";
     }
 
@@ -256,11 +272,13 @@ function load_P_and_D(){
         document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
         document.getElementById("donoAmount").value=dono;
+        document.getElementById("donoV").value=dono;
     }
 
     if(localStorage.getItem("shipping")=="regular"){
         document.getElementById("hship1").checked=true;
         document.getElementById("shipMethodSelect").innerHTML="Regular Shipping";
+        document.getElementById("shipV").value="RegularShipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$5";
     }
 
@@ -268,6 +286,8 @@ function load_P_and_D(){
         document.getElementById("hship2").checked=true;
         document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$10";
+        //set values for form
+        document.getElementById("shipV").value="Express Shipping";
     }
 
     newTotalCost();
@@ -283,9 +303,6 @@ function removeCode(){
     newTotalCost();
 }
 
-//onLoadCartNumbers();
-//displayCart();
-
 $(document).ready(function(){
     var radios = document.getElementsByName("shipping");
     var val = localStorage.getItem('shipping');
@@ -300,19 +317,6 @@ $(document).ready(function(){
     
     });
   });
-
-  function displayMenu(){
-    document.getElementById("closeMenu").style.display="inherit";   
-    document.getElementById("changeQty").style.display="block";
-    document.getElementById("changeQty-btn").style.display="none";
-  }
-/*
-  function closeMenu(){
-    document.getElementById("closeMenu").style.display="none";   
-    document.getElementById("changeQty").style.display="none";
-    document.getElementById("changeQty-btn").style.display="inherit";
-  }*/
-
 
   function selectItem(){
     const rbs = document.querySelectorAll('input[name="itemsSelect"]');

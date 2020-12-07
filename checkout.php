@@ -165,6 +165,15 @@
                             $total=$total+$row["quantity"]*$row["price"];
                             $totalQty=$totalQty+$row["quantity"];
 
+                            $prodName=$row["productName"];
+                            $c1=$row["maskPColor"];
+                            $c2=$row["MaskSColor"];
+
+                            if($prodName=="Custom Mask"){
+                                $prodName=$prodName."(Primary Color: ".$c1." Secondary Color: ".$c2.")";
+                            }
+
+
                             //END OF PHP TAG
                             ?>
                            <div class="product">
@@ -172,7 +181,7 @@
                              <img src="<?php echo $row['image']?>" alt="img"/>
                             </div>
                             <div class="left nameANDprice">
-                                <span class="sm-hide"><?php echo $row["productName"];  ?></span>
+                                <span class="sm-hide"><?php echo $prodName;  ?></span>
                                 <span class="sm-hide">$<?php echo $row["price"];  ?></span>
                                 
                             </div>
@@ -203,6 +212,7 @@
                 <p id="thankyouDono"></p>
             </div>
             <div id="receipt">
+                
                 <h4>Order summary</h4>
                 <div>
                     <p class="item">Items(<?php echo $totalQty?>)</p>
@@ -245,7 +255,18 @@
                     <p class="item">Order Total:</p>
                     <p class="itemPrice" id="finalTotal"></p>
                 </div>
-                <form action="orderPlaced2.php">
+                
+                <form action="orderPlaced2.php" method="post">
+                    <input type="hidden" name="aMonth" id="aMonthV">
+                    <input type="hidden" name="aDay" id="aDayV">
+                    <input type="hidden" name="aYear" id="aYearV">
+                    <input type="hidden" name="taxV" id="taxV">
+                    <input type="hidden" name="codeV" id="codeV">
+                    <input type="hidden" name="shipV" id="shipV">
+                    <input type="hidden" name="totalV" id="totalV">
+                    <input type="hidden" name="donoV" id="donoV">
+                    <input type="hidden" name="finalV" id="finalV">
+
                     <input type="submit" value="Place Order"/>
                 </form>
             </div>
@@ -254,7 +275,7 @@
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         <script src="js/cart.js"></script>
         <script>
-            //displayItems();
+           
             newTotalCost();
             shipping();
             load_P_and_D();

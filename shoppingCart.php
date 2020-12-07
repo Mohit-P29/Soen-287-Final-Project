@@ -38,6 +38,14 @@ include_once 'includes/covaid_database.php';
 
                             $id=$row["id"];
 
+                                $prodName=$row["productName"];
+                                $c1=$row["maskPColor"];
+                                $c2=$row["MaskSColor"];
+
+                                if($prodName=="Custom Mask"){
+                                    $prodName=$prodName."(Primary Color: ".$c1." Secondary Color: ".$c2.")";
+                                }
+
                             if($row["quantity"]==0){
                                 $sql ="DELETE FROM cart WHERE id='$id' ";
                                 mysqli_query($conn, $sql);
@@ -52,7 +60,7 @@ include_once 'includes/covaid_database.php';
                                 <img src="<?php echo $row['image']?>" alt="img"/>
                             </div>
                             <div class="left nameANDprice">
-                                <span class="sm-hide"><?php echo $row["productName"];  ?></span>
+                                <span class="sm-hide"><?php echo $prodName;  ?></span>
                                 <span class="sm-hide">$<?php echo $row["price"];  ?></span>
                             </div>
                             </div>
