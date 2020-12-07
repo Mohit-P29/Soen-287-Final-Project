@@ -18,10 +18,11 @@
 }
 
 #cart {
-    margin-top:150px;
-    margin-left:50px;
+    margin:0 auto;
+    margin-top:100px;
     margin-bottom:50px;
     overflow:hidden;
+    width:80%;
 }
 
 #fbt h2{
@@ -310,4 +311,41 @@
     clear:both;
     text-align:center;
 
+}
+
+#changeQty{
+    display:none;
+    border:2px solid red;
+    margin-top:20px;
+    padding:20px;
+    text-align:center;
+    overflow:hidden;
+    margin:0 auto;
+    width:500px;
+    overflow:hidden;
+}
+
+#closeMenu{
+    display:none;
+}
+
+#changeQty h2, #changeQty p, #changeQty input{
+    clear:both;
+}
+
+#changeQty-btn, #closeMenu{
+    float:left;
+}
+
+#cart button, #deleteBtn, #checkoutBtn{
+    padding:10px;
+    border:2px solid black;
+    background:lightgrey;
+    margin-top:10px;
+    border-radius:0;
+    margin-right:10px;
+}
+
+#inputNum{
+    padding:5px;
 }

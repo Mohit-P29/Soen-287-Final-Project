@@ -1,5 +1,13 @@
 <!-- FOOTER => Social Media links, Contact Info, Emails, address, etc.  which will be reproduced on all pages on the website-->
-        <footer id="discount_body_opacity3">
+        
+<?php
+if(!isset($_SESSION["emailexclusives_errorfooter"]))
+{
+    $_SESSION["emailexclusives_errorfooter"] = "";
+}
+?>
+
+<footer id="discount_body_opacity3">
             <div class="footers">
                 <div class="about">
                     <h1> About COV-AID </h1>
@@ -32,15 +40,17 @@
 
                 <div class="emailpromos">
                     <h1> Email Exclusives </h1>
-                    <form action="">
-                        <input type="email" id="email" name="email" placeholder="Enter email here">
-                        <input type="submit">
+                    <form action="index.php" method="post">
+                        <input type="email" id="email" name="footer_emailexclusives" placeholder="Enter email here">
+                        <input type="submit" name="submit" value="Submit">
                     </form>
                     <p style="font-weight:200"> Receive notifications on when we restock our products! </p>
+                    <br />
+                    <span> <?php echo  $_SESSION["emailexclusives_errorfooter"] ?> </span>
                 </div>
             </div>
             
-            <a href="#"><img src="images/CompanyLogo.jpg" alt="Company Logo"></a>
+            <a class="footer_logo_position" href="index.php"><img src="images/CompanyLogo.jpg" alt="Company Logo"></a>
             
             <p class="copyright"> © 2020 COV-AID, Inc. All Rights Reserved </p>
         </footer>
