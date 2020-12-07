@@ -1,23 +1,122 @@
 <?php
 // Start the session
 session_start();
-?>
-<?php
+include_once 'includes/covaid_database.php';
 
-$page_title = "DIY MASK CREATOR"
-    
-    ?>
+$product_id = 61;
+ $product_name;
+   $product_description;
+   $product_price;
+   $product_specialPrice;
+  
+   
+   $sql = "SELECT * FROM products WHERE id = $product_id;";
+   $result = mysqli_query($conn, $sql);
+   $resultCheck = mysqli_num_rows($result);
+   
+   //Makes sure that the connection was established
+   if ($resultCheck > 0) {
+       $row = mysqli_fetch_assoc($result);
+       $product_name = $row['name'];
+       $product_description = $row['description'];
+       $product_price = $row['price'];
+       $product_specialPrice = $row['specialPrice'];
+   }
 
-<?php
-include('includes/header.php')
-    ?>
+
+
+
+ if(!isset($_POST['submit'])){
     
+  }else if( $_POST['submit'] == 'submit review' ){
+    $newUser = $_POST['newUser'];
+    $star = $_POST['star'];
+    $userReview = $_POST['cus_review'];
+    if($newUser == ""){
+      $newUser = 'Anonymous';
+    }
+    if($userReview == ""){
+      $userReview = 'NULL';
+    }
+
+
+    date_default_timezone_set('America/Montreal');
+    $created = date("Y/m/d h:i:s");
+
+    $sql = "INSERT INTO reviews (product_id, num_star, username, user_review, review_date) 
+            VALUES('$product_id', '$star', '$newUser', '$userReview', '$created');";
+    mysqli_query($conn, $sql);
+
+    //Cart item
+   }
+
+
+
+
+
+$page_title = "DIY MASK CREATOR";
+ //HEADER	
+include('includes/header.php');
+    ?>
+    <link rel="stylesheet" href="css/review.css">
+<link rel="stylesheet" href="css/product_general.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  <main> 
  
- <h1> DIY Mask Builder 20$</h1>
-     <div class="DIY_mask_review_stars"> <span>Product Rating </span><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon> </div>
+ <h1> DIY Mask Builder <?php
+            if ($product_specialPrice == null) {
+                echo $product_price; 
+            } else {
+                echo "<span style='color: red;'>\$$product_specialPrice </span>" . " <strike>\$$product_price</strike> ";
+            }
+            
+            ?></h1>
+     <div class="DIY_mask_review_stars"> <span>Product Rating</span>
+     
+      
+       <?php 
+            $number_reviews = 0; //Unknown
+            $average_review = 0; //Unknown
+            $sql1 = "SELECT COUNT(num_star) AS num_reviews FROM reviews WHERE product_id = $product_id;";
+            $result1 = mysqli_query($conn, $sql1);
+            $resultCheck1 = mysqli_num_rows($result1);
+            if ($resultCheck1 > 0) {
+               $row1 = mysqli_fetch_assoc($result1);
+               $number_reviews = $row1['num_reviews'];
+            }
+            if ($number_reviews != 0) {
+               $sql2 = "SELECT SUM(num_star) AS star_sum FROM reviews WHERE product_id = $product_id;";
+               $result2 = mysqli_query($conn, $sql2);
+               $resultCheck2 = mysqli_num_rows($result2);
+               if ($resultCheck2 > 0) {
+                  $row2 = mysqli_fetch_assoc($result2);
+                  $sum_reviews = $row2['star_sum'];
+                  $average_review = $sum_reviews / $number_reviews;
+               }
+            }
+            $count = 5;
+            while($count > 0){
+              if($average_review >= 1){
+                echo "<ion-icon name='star'></ion-icon>";
+              }else if($average_review > 0){
+                echo "<ion-icon name='star-half'></ion-icon>";
+              }
+              $average_review -= 1;
+              $count -= 1;
+            }
+
+         ?>
+        
+         
+          
+           
+            
+             
+              
+                 </div>
  <form method="post" action="processMask.php">
   
+  <input type="hidden" name="price" value="" >
  <div class="whole_container">
  
 <!---------- script in order to display image------------>
@@ -413,6 +512,102 @@ if(selectedValue == 1){
         
          
      </form>
+     
+     <!-- Old Review starts here -->
+<div class="review_section">
+      <div class="rev">
+        <h1>Customer Reviews</h1>
+        <div class="border">
+        </div>
+        </div>
+        </div>
+<div class="old-reviews" style="padding: 0 7em;">
+
+<?php
+$sql = "SELECT * FROM reviews WHERE product_id = $product_id;";
+$result = mysqli_query($conn, $sql);
+$resultCheck = mysqli_num_rows($result);
+
+if ($resultCheck > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+    $username = $row['username'];
+    $review_mess = $row['user_review'];
+    $rating = (float) $row['num_star'];
+    $admin_reply = $row['admin_reply'];
+
+    if (isset($review_mess) && $review_mess != "NULL" && $review_mess != "") {
+      echo "<h3>$username</h3>";
+      echo "<div class='rating'>";
+      $count = 5;
+      while($count > 0){
+        if($rating >= 1){
+          echo "<img src='images/Icons/star-solid.svg'>";
+        }else if($rating > 0){
+          echo "<img src='images/Icons/star-half-alt-solid.svg'>";
+        }else{
+          echo "<img src='images/Icons/star-regular.svg'>";
+        }
+        $rating -= 1;
+        $count -= 1;
+      }
+      echo "</div>";
+      echo "<p>$review_mess</p>";
+      if(isset($admin_reply)){
+        $str1 = <<<END
+        <div class="admin-response">
+        <h3>Admin's response</h3>
+        <p >$admin_reply</p>
+        </div>
+        END;
+        print("$str1");
+
+      }
+    } 
+
+
+
+
+  }
+}
+?>
+</div>
+<!-- Old Review end here -->
+
+<!-- Create Reviews start here -->
+<div class="leave-review" style="padding: 0 2em;">
+   <div class="custom-review">
+     <form action="" method="POST">
+       <h2> Write a customer review</h2>
+       </br>
+     
+       <label for="username-part">Name:</label>
+       <br>
+      <input type="text" name="newUser" class="username-part" id="username-part">
+       
+      <label for="star-1" >  Rate this product</label>
+      <div class="star-rating">
+         <input type="radio" name="star" value="5" id="star-1" required/>
+         <label for="star-1" ></label>
+         <input type="radio" name="star" value="4" id="star-2" />
+         <label for="star-2" ></label>
+         <input type="radio" name="star" value="3" id="star-3" />
+         <label for="star-3" ></label>
+         <input type="radio" name="star" value="2" id="star-4" />
+         <label for="star-4" ></label>
+         <input type="radio" name="star" value="1" id="star-5" />
+         <label for="star-5" ></label>
+      </div>
+
+      
+      <h2 style="margin-top:30px;">Please leave your review below</h2>
+      <br>
+      <textarea type="text" name="cus_review" placeholder="Your review " class="review-part"></textarea>
+          </br></br>
+         <input id="submit-review" type="submit" name="submit" value="submit review">
+          </form>
+   </div>
+</div>
+<!-- Create Reviews end here -->
 
 </main> 
 
