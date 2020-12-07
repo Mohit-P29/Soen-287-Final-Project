@@ -6,7 +6,7 @@ include('includes/header.php')
  
  <h1> DIY Mask Builder</h1>
      <div class="DIY_mask_review_stars"> <span>Product Rating </span><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon> </div>
- <form method="post" action="mask_checkout.php">
+ <form method="post" action="processMask.php">
   
  <div class="whole_container">
  

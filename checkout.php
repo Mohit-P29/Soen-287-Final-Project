@@ -169,7 +169,7 @@
                             ?>
                            <div class="product">
                             <div class="left">
-                                <img src="" alt="img"/>
+                             <img src="<?php echo $row['image']?>" alt="img"/>
                             </div>
                             <div class="left nameANDprice">
                                 <span class="sm-hide"><?php echo $row["productName"];  ?></span>
