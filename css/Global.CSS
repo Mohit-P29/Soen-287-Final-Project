@@ -23,6 +23,7 @@
     margin-bottom:50px;
     overflow:hidden;
     width:80%;
+    min-height:500px;
 }
 
 #fbt h2{
@@ -345,6 +346,21 @@
     border-radius:0;
     margin-right:10px;
 }
+
+
+#cart button:hover, #deleteBtn:hover, #checkoutBtn:hover, #changeQtyBtn:hover{
+    background:black;
+    color:white;
+    cursor: pointer;
+}
+
+#orderBtn:hover, #addDonoBtn:hover, #codeBtn:hover{
+    background:black;
+    color:white;
+    cursor: pointer;
+}
+
+
 
 #inputNum{
     padding:5px;

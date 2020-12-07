@@ -9,9 +9,7 @@ include_once 'includes/covaid_database.php';
                 <h2>Shopping Cart</h2>
                 <p>Please select an item before modifying or deleting item</p>
                 <input type="number" name="newQty" value="1" id="inputNum" min="1">
-                <input type="submit" name="submit" value="Change" onclick="return selectItem()"></input>
-                <!--<button type="button" onclick="displayMenu()" id="changeQty-btn">change quantity</button>-->
-                <button type="button" onclick="location.reload()" id="closeMenu">Close</button>
+                <input type="submit" id="changeQtyBtn" name="submit" value="Change" onclick="return selectItem()"></input>
                 <input type="submit" name="deleteItem" value="delete" id="deleteBtn"  onclick="return selectItem()">
             </div>
             <div class="container-products">

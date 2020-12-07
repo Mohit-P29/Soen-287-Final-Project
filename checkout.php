@@ -85,6 +85,7 @@
           }
     }
     
+    //if user does not have an account
     if($_SESSION["login"]=='false'){
         header("Location: errorLogin.php");
     }
@@ -95,7 +96,7 @@
     }
     
 ?>
-        <h2>Review your order</h2>
+ 
         <section id="orderReview">
             <div id="shipAddress">
                 <h3>Shipping Address</h3>
@@ -125,7 +126,7 @@
                 <div id="promo">
                     <h3>Gift cards & promotional codes</h3>
                     <input placeholder="Enter code" id="promoCode">
-                    <button onclick="promo()">Apply</button>
+                    <button onclick="promo()" id="codeBtn">Apply</button>
                     <p id="addedCode"></p>
                 </div>
                 
@@ -201,13 +202,13 @@
         <section id="donationANDreceipt">
             <div id="donation">
                 <h3>Please consider a kind donation</h3>
-                <p>As you may know, many lives are impacted by the global pandemic... blablabla
+                <p>As you may know, many lives are impacted by the global pandemic...
                     By donating, you are automatically supporting the people in need and you will be given a free discount code for your next purchase!</p>
                 <img src="images/redCrossLogo.jpg" alt="red cross logo" id="redCrossLogo">
                 <div id="donoNow"> 
                     <h4>Donate now</h4>
                     <input placehold="Enter amount" id="donoAmount">
-                    <button onclick="dono()">Add donation</button>
+                    <button onclick="dono()" id="addDonoBtn">Add donation</button>
                 </div>
                 <p id="thankyouDono"></p>
             </div>
@@ -256,7 +257,7 @@
                     <p class="itemPrice" id="finalTotal"></p>
                 </div>
 
-                <form action="orderPlaced2.php" method="post">
+                <form action="orderPlaced2.php" method="post" onsubmit="clearStorage()">
 
                     <input type="hidden" name="oMonth" id="oMonthV">
                     <input type="hidden" name="oDay" id="oDayV">
@@ -273,7 +274,7 @@
                     <input type="hidden" name="donoV" id="donoV">
                     <input type="hidden" name="finalV" id="finalV">
 
-                    <input type="submit" value="Place Order"/>
+                    <input type="submit" value="Place Order" id="orderBtn"/>
                 </form>
             </div>
 

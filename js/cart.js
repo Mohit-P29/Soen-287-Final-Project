@@ -270,11 +270,13 @@ function newTotalCost(){
 function promo(){
     var code=document.getElementById("promoCode").value;
 
-    if(localStorage.getItem("promo")!=""){
-        alert("You cannot apply more than 1 promo code!");
-        return;
-    }
-
+    if (localStorage.getItem("promo") !== null) {
+        if(localStorage.getItem("promo")!=""){
+            alert("You can't apply more than 1 promo code!");
+            return;
+        }
+      }
+   
     if(code=="Fall20"){
         document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
         document.getElementById("codeV").value="Fall20";
@@ -311,6 +313,7 @@ function dono(){
 }
 
 function load_P_and_D(){
+
     if(localStorage.getItem("promo")=="Fall20"){
         document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
         document.getElementById("enteredCodeDisc").innerHTML="-20%";
@@ -391,4 +394,50 @@ $(document).ready(function(){
     }
 
     return retVal;
+  }
+
+  
+  function clearStorage(){
+    window.localStorage.clear();
+  }
+
+  function checkForms(){
+
+        alert("cehck");
+        var retval=true;
+
+
+
+
+        var fName="";
+        var lName="";
+        var address="";
+        var city="";
+        var province="";
+        var email="";
+        var pNum="";
+        var card="";
+        var cardName="";
+        var cvcNum="";
+
+        
+      
+        lName=document.getElementById("lName").value;
+        address=document.getElementById("aAddress").value;
+        city=document.getElementById("city").value;
+        province=document.getElementById("province").value;
+        email=document.getElementById("email").value;
+        pNum=document.getElementById("pNum").value;
+        card=document.getElementById("card").value;
+        cardName=document.getElementById("cardName").value;
+        cvcNum=document.getElementById("cvcNum").value;
+
+      if(fName==""){
+            alert("one or more value is missing");
+            retval=false;
+            return retval;
+        }
+
+        return retval;
+
   }
