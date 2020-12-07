@@ -1,4 +1,7 @@
-
+<?php
+// Start the session
+session_start();
+?>
 <?php
 
 $page_title = "DIY MASK CREATOR"
@@ -350,7 +353,7 @@ if(selectedValue == 1){
     
 </select>
        <br>
-    <br>
+    <br><br><br>
        
        <p>Add an Image to your mask that will be displayed on the front of the mask, from our selection.</p>
        <br>
@@ -361,7 +364,7 @@ if(selectedValue == 1){
     <option value="3" data-picture="images/animal/gecko.png">Gecko</option>
     <option value="4" data-picture="images/animal/polarbear.png">Polarbear</option>
     <option value="5" data-picture="images/animal/rabbit.png">Rabbit</option>
-    <option value="6" selected="selected" data-picture="">More to come</option>
+    <option value="6" data-picture="images/animal/no_image_selected.png" selected="selected" data-picture="">No pictures wanted</option>
    
     
     
@@ -370,6 +373,7 @@ if(selectedValue == 1){
    <script>
      
      
+	   
      $('#selection_box3').change(function(){ //if the select value gets changed
    var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
          alert(imageSource);
