@@ -255,11 +255,17 @@
                     <p class="item">Order Total:</p>
                     <p class="itemPrice" id="finalTotal"></p>
                 </div>
-                
+
                 <form action="orderPlaced2.php" method="post">
+
+                    <input type="hidden" name="oMonth" id="oMonthV">
+                    <input type="hidden" name="oDay" id="oDayV">
+                    <input type="hidden" name="oYear" id="oYearV">
+
                     <input type="hidden" name="aMonth" id="aMonthV">
                     <input type="hidden" name="aDay" id="aDayV">
                     <input type="hidden" name="aYear" id="aYearV">
+
                     <input type="hidden" name="taxV" id="taxV">
                     <input type="hidden" name="codeV" id="codeV">
                     <input type="hidden" name="shipV" id="shipV">
@@ -275,7 +281,7 @@
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         <script src="js/cart.js"></script>
         <script>
-           
+            getDay();
             newTotalCost();
             shipping();
             load_P_and_D();

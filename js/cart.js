@@ -1,3 +1,58 @@
+function getDay(){
+    var today= new Date();
+    var oYear=today.getFullYear();
+    var oMonth=today.getMonth()+1;
+    var oDay=today.getDate();
+
+    switch(oMonth){
+        case 1: 
+            oMonth="January";
+            break;
+        case 2: 
+            oMonth="February";
+            break;       
+        case 3: 
+            oMonth="March";
+            break;
+        case 4: 
+            oMonth="April";
+            break;
+        case 5: 
+            oMonth="May";
+            break;
+        case 6: 
+            oMonth="June";
+            break;
+        case 7: 
+            oMonth="July";
+            break;
+        case 8: 
+            oMonth="August";
+            break;
+        case 9: 
+            oMonth="September";
+            break;
+        case 10: 
+            oMonth="October";
+            break;
+        case 11: 
+            oMonth="November";
+            break;
+        case 12: 
+            oMonth="December";
+            break;
+    }
+
+    //set value for form
+    document.getElementById("oMonthV").value=oMonth;
+    document.getElementById("oDayV").value=oDay;
+    document.getElementById("oYearV").value=oYear;
+
+
+}
+
+
+
 function shipping(){
     if(document.getElementById("hship1").checked){
         document.getElementById("shipMethodSelect").innerHTML="Regular Shipping";

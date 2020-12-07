@@ -9,9 +9,15 @@
     $pCode="---";
     $finalTotal="";
 
+
+    $omonth=$_POST["oMonth"];
+    $oyear=$_POST["oYear"];
+    $oday=$_POST["oDay"];
+
     $month=$_POST["aMonth"];
     $year=$_POST["aYear"];
     $day=$_POST["aDay"];
+
     $donation=$_POST["donoV"];
     $shipMethod=$_POST["shipV"];
     $tax=$_POST["taxV"];
@@ -144,8 +150,8 @@
       $qtyList[]=$qty;
       $itemsNum++;
 
-      $sql = "INSERT INTO user_order (id, userID,productName, quantity, price, image, maskPColor, MaskSColor) 
-      VALUES('$id', '$userID','$prod', '$qty', '$price','$img','$c1','$c2');";
+      $sql = "INSERT INTO user_order (id, userID,productName, quantity, price, image, maskPColor, MaskSColor,oDay,oMonth,oYear,aDay,aMonth,aYear) 
+      VALUES('$id', '$userID','$prod', '$qty', '$price','$img','$c1','$c2','$oday','$omonth','$oyear','$day','$month','$year')";
       mysqli_query($conn, $sql);
     }
 
@@ -163,7 +169,7 @@
       $list=$list.
         "==========================".
         "\n Product:".$nameList[$a].
-        "\n Price:".$qtyList[$a].
+        "\n Price: $".$priceList[$a].
         "\n Qty:".$qtyList[$a].
         "\n";
     }
