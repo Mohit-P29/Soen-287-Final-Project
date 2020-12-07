@@ -2,6 +2,7 @@
 // Start the session
 session_start();
 include_once 'includes/covaid_database.php';
+$_SESSION["emailexclusives_errorfooter"] ="";
 
 $product_id = 61;
  $product_name;
