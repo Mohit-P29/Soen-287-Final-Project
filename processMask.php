@@ -84,19 +84,19 @@ switch($colorS){
 //Assign image
 switch($image){
     case 1:
-        $image="animal/elephant.png";
+        $image="images/animal/elephant.png";
         break;
      case 2:
-        $image="animal/fox.png";
+        $image="images/animal/fox.png";
         break;
     case 3:
-        $image="animal/gecko.png";
+        $image="images/animal/gecko.png";
         break;
     case 4:
-        $image="animal/polarbear.png";
+        $image="images/animal/polarbear.png";
         break;
     case 5:
-        $image="animal/rabbit.png";
+        $image="images/animal/rabbit.png";
         break;
 }
 

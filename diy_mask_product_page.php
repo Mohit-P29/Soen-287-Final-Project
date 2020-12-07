@@ -22,9 +22,23 @@ include('includes/header.php')
     
 <!---------------- script in order to display image-------------->  
  
+ 
+ 
 <div class="DIYmask_container">
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648 604">
+
+<div class="over_mask_diy">
+<div id="image">
+
+<div id="image-location" class="picture_container">
+    
+</div>
+</div>
+
+</div>
+
+
+<svg class="svg_diy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648 604">
   <defs>
     <style>
       .cls-1 
@@ -33,6 +47,7 @@ include('includes/header.php')
       }
     </style>
   </defs>
+  
   <g id="Layer_1" data-name="Layer 1">
     <ellipse class="cls-1" cx="324" cy="302" rx="458.2" ry="427.09"/>
     <path d="M466.68,368.19a658.7,658.7,0,0,0,251.67.18C634.45,407.57,550.56,407.23,466.68,368.19Z" transform="translate(-269 -73)"/>
@@ -341,11 +356,11 @@ if(selectedValue == 1){
        <br>
        <label class="label_i"><strong>Images</strong></label>
 <select id="selection_box3" name="images" class="image-select">
-    <option value="1" data-picture="animal/elephant.png" >Elephant</option>
-    <option value="2" data-picture="animal/fox.png">Fox</option>
-    <option value="3" data-picture="animal/gecko.png">Gecko</option>
-    <option value="4" data-picture="animal/polarbear.png">Polarbear</option>
-    <option value="5" data-picture="animal/rabbit.png">Rabbit</option>
+    <option value="1" data-picture="images/animal/elephant.png" >Elephant</option>
+    <option value="2" data-picture="images/animal/fox.png">Fox</option>
+    <option value="3" data-picture="images/animal/gecko.png">Gecko</option>
+    <option value="4" data-picture="images/animal/polarbear.png">Polarbear</option>
+    <option value="5" data-picture="images/animal/rabbit.png">Rabbit</option>
     <option value="6" selected="selected" data-picture="">More to come</option>
    
     
@@ -359,7 +374,7 @@ if(selectedValue == 1){
    var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
          alert(imageSource);
    if(imageSource){ //if it has data
-      $('#image-location').html('<img src="'+imageSource+'" style="width:200px;height:200px;">'); // insert image in div image-location
+      $('#image-location').html('<img src="'+imageSource+'" style="width:150px;height:150px;">'); // insert image in div image-location
    } else {
       $('#image-location').html(''); //remove content from div image-location, thus removing the image
    }
@@ -370,17 +385,7 @@ if(selectedValue == 1){
   </script>
   <br>
 
-<div id="image">
 
-<div id="image-location" class="picture_container">
-    
-    
-    
-    
-   
-    
-</div>
-</div>
 
 <input class='btn' type="submit" value="Add to Cart">
 

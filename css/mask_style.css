@@ -55,12 +55,28 @@
     
 }
 
+
+.over_mask_diy{
+	
+	position: absolute;
+	left: 218px;
+	top: 290px;
+	width: 300px;
+	height: 300px;
+}
+ 
+.svg_diy{
+	
+	
+	
+}
+
 /* -------------Picture---------------*/
 
 .picture_container {
-  width: 210px;
-  height: 210px;
-  border: 5px dashed black;
+  width: 110px;
+  height: 110px;
+ /* border: 5px dashed black; */
   margin-left: 125px;
   margin-top: 30px;
 }
