@@ -18,10 +18,11 @@
 }
 
 #cart {
-    margin-top:150px;
-    margin-left:50px;
+    margin:0 auto;
+    margin-top:100px;
     margin-bottom:50px;
     overflow:hidden;
+    width:80%;
 }
 
 #fbt h2{
@@ -311,3 +312,18 @@
     text-align:center;
 
 }
+
+#changeQty{
+    
+    border:2px solid red;
+    margin-top:20px;
+    padding:20px;
+    text-align:center;
+    overflow:hidden;
+    margin:0 auto;
+    width:80%;
+}
+
+
+
+

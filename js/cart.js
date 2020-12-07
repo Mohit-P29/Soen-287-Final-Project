@@ -571,3 +571,13 @@ $(document).ready(function(){
     
     });
   });
+
+
+
+  function displayMenu(){
+    document.getElementById("closeMenu").style.display="inherit";
+    document.getElementById("changeQty-btn").style.display="none";
+    document.getElementById("qty-modifier").style.display="inherit";
+    //document.getElementsByClassName("radioBtn").style.display="inherit";
+ 
+  }
