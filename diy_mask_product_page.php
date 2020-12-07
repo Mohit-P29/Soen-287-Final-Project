@@ -4,7 +4,7 @@ include('includes/header.php')
     
  <main> 
  
- <h1> DIY Mask Builder</h1>
+ <h1> DIY Mask Builder 20$</h1>
      <div class="DIY_mask_review_stars"> <span>Product Rating </span><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon> </div>
  <form method="post" action="processMask.php">
   
@@ -32,6 +32,8 @@ include('includes/header.php')
     <path d="M495.54,416.88c32.78,10.13,64.1,19.47,97.1,19.5s64.55-9.19,96.5-19.21c-10.7,13.33-49.15,30.43-75.67,33.91C564.13,457.56,518,437.68,495.54,416.88Z" transform="translate(-269 -73)"/>
     <path d="M491.2,333.37a581.5,581.5,0,0,1,202.3,0C663.79,344.14,542.39,344.36,491.2,333.37Z" transform="translate(-269 -73)"/>
   </g>
+  
+  
   <g id="left-hole">
     <path class="cls-1" d="M418,369.38c-19.87-11.44-39.73-20.29-54.28-37-3.71-4.27-8-8.48-10.25-13.5-8.82-19.41,0-32.64,20.58-32.38,15.19.19,30.33,6.24,45.4,10.07,1.2.31,2.42,3.73,2.3,5.62-1.08,16.82-2.55,33.62-3.7,50.43C417.72,357.66,418,362.72,418,369.38Z" transform="translate(-269 -73)"/>
   </g>
@@ -44,6 +46,7 @@ include('includes/header.php')
   <g id="mask-color">
     <path class="cls-1" d="M439.8,293.72c39.66-9.35,78.32-18.34,116.91-27.63a149.59,149.59,0,0,1,70.24-.48c39.56,9.31,79.1,18.69,119.3,28.2,1.68,22.48,3.69,44.79,4.92,67.15.76,13.67-4,25.76-12.84,36.38-27.1,32.73-57.66,61.39-96.92,78.93C605.71,492.21,570.27,490,535.54,472A242,242,0,0,1,470,421.84c-9.14-9.77-18.7-19.26-26.86-29.82-7.13-9.24-8.92-20.91-8.29-32.35C436.05,337.78,438.09,315.93,439.8,293.72Z" transform="translate(-269 -73)"/>
   </g>
+
 </svg>
 
 </div>
@@ -142,6 +145,17 @@ if(selectedValue == 1){
     for(j = 0; j < outline.childElementCount; j++){
         
         outline.children[j].setAttribute('style', 'fill: black');
+        
+    }
+  
+}else if (selectedValue == 9) {
+    
+    
+   let outline = document.getElementById('mask-color');
+    
+    for(j = 0; j < outline.childElementCount; j++){
+        
+        outline.children[j].setAttribute('style', 'fill: white');
         
     }
   
@@ -248,7 +262,20 @@ if(selectedValue == 1){
         
     }
   
+}else if (selectedValue == 9) {
+    
+    
+   let outline = document.getElementById('mask_outline');
+    
+    for(j = 0; j < outline.childElementCount; j++){
+        
+        outline.children[j].setAttribute('style', 'fill: white');
+        
+    }
+  
 }
+
+	
     
     
     
@@ -277,6 +304,8 @@ if(selectedValue == 1){
     <option value="6">purple</option>
     <option value="7">orange</option>
     <option value="8">black</option>
+    <!---newly added value --->
+    <option value="9" selected="selected">white</option>
     
     
 </select>
@@ -292,14 +321,16 @@ if(selectedValue == 1){
     <option value="5">yellow</option>
     <option value="6">purple</option>
     <option value="7">orange</option>
-    <option value="8">black</option>
+    <option value="8" selected="selected">black</option>
+    <!---newly added value --->
+    <option value="9">white</option>
     
     
 </select>
        <br>
     <br>
        
-       <p>Add an Image to your mask from our selection</p>
+       <p>Add an Image to your mask that will be displayed on the front of the mask, from our selection.</p>
        <br>
        <label class="label_i"><strong>Images</strong></label>
 <select id="selection_box3" name="images" class="image-select">
@@ -308,7 +339,7 @@ if(selectedValue == 1){
     <option value="3" data-picture="animal/gecko.png">Gecko</option>
     <option value="4" data-picture="animal/polarbear.png">Polarbear</option>
     <option value="5" data-picture="animal/rabbit.png">Rabbit</option>
-    <option value="6" data-picture="elephant.png">More to come</option>
+    <option value="6" selected="selected" data-picture="">More to come</option>
    
     
     

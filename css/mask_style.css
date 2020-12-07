@@ -99,7 +99,7 @@
 .primary-select {
   position: relative;
   font-family: Arial;
-  width: 85px;
+  width: 120px;
   height: 60px;
   font-size: 20px;
 padding-left: 20px;
@@ -108,7 +108,7 @@ padding-left: 20px;
 .image-select {
   position: relative;
   font-family: Arial;
-  width: 110px;
+  width: 200px;
   height: 60px;
   font-size: 20px;
 }
