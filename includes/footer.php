@@ -32,11 +32,13 @@
 
                 <div class="emailpromos">
                     <h1> Email Exclusives </h1>
-                    <form action="">
-                        <input type="email" id="email" name="email" placeholder="Enter email here">
-                        <input type="submit">
+                    <form action="index.php" method="post">
+                        <input type="email" id="email" name="footer_emailexclusives" placeholder="Enter email here">
+                        <input type="submit" name="submit" value="Submit">
                     </form>
                     <p style="font-weight:200"> Receive notifications on when we restock our products! </p>
+                    <br />
+                    <span> <?php echo  $_SESSION["emailexclusives_errorfooter"] ?> </span>
                 </div>
             </div>
             
