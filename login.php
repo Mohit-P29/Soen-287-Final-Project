@@ -5,6 +5,7 @@ include("includes/header.php");
 include("includes/ConnectDB.php");
 $_SESSION['login']=(isset($_SESSION['login']))?$_SESSION['login']:'false';
 $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No email shown';
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/login.css" />
@@ -142,7 +143,10 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                 
                 
                 
-                <?php }
+                <?php
+                                        
+                                        
+                                        }
                 else{
                     $_SESSION['user_id']=$email;
                     $_SESSION['login']='true';
@@ -150,20 +154,22 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                     mysqli_query($conn,$sql);
                     $sql = "INSERT INTO useraddress (first,last,company,address,address2,city,country,province,post,phone,user_id) VALUES ('', '', '', '', '', '','','','','','$email')";
                     mysqli_query($conn,$sql);
-                     $sql = "INSERT INTO payment (firstname,lastname,cardnumber,cvc,user_id) VALUES ('', '', '', '', '$email')";
+                     $sql = "INSERT INTO payment (user_id) VALUES ('$email')";
                       mysqli_query($conn,$sql);
                      $sql = "INSERT INTO profile (user_name, user_id) VALUES ('No name yet','$email')";
                       mysqli_query($conn,$sql);
                      $conn->close(); 
-
+                     include_once("includes/Mailer_login/mailerTemplate.php");
+                      
                    ?>
-   
+
                    <script> 
                        alert("Successful Registration!");
                        document.getElementById('form').onsubmit=function(){
                              return true;
                     } 
                        window.location.href='UserPage.php';</script>
+   
               <?php
                 }
             }
@@ -179,14 +185,14 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                       die('Could not get data: ' . mysqli_error());
                     }
                     $result=mysqli_num_rows($retval);
-                    if($user==='Admin' && $pass==='123456'){
+                    if($user==='Admin@domain.com' && $pass==='123456'){
                             $check='admin';
                     
                     }
                     else if($result>0){
                 
                       while ( $row = mysqli_fetch_assoc($retval)){
-                        if ($row['user_id']===$user && $row['password']===$pass){
+                        if ($row['user_id']===$user && $row['password']===$pass && $row['user_id']!=='Admin@domain.com'){
                               $check="valid";
                         }
                      }
@@ -194,7 +200,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                  if($check==='admin'){
                      $_SESSION['login']='admin'; ?>
 
-                      <script>alert("Successful Sign In!"); window.location.href='admin.php';</script>
+                      <script>alert("Successful Sign In!"); window.location.href='admin_products.php';</script>
 
             <?php }
                  
