@@ -20,6 +20,7 @@ if ($resultCheck > 0) {
     $product_description = $row['description'];
     $product_price = $row['price'];
     $product_specialPrice = $row['specialPrice'];
+    $product_image1=$row["image1"];
 }
 
 //Header
@@ -70,9 +71,10 @@ include("includes/header.php");
             }
             
         ?></h4>
-          
-            <input type="number" value="1" style="width:44px;" min="1">
-            <a href="" class="button"> Add item to cart</a>
+            <form action="" method="post">
+              <input name="mask_quantity" type="number" value="1" style="width:44px;" min="1">
+              <input type="submit" name="submit" class="button" value="Add item to cart">
+            </form>
             <h3>Product Information</h3>
             <br>
              <!-- description goes here -->
@@ -264,7 +266,45 @@ margin:80px
 
     <!----footer-->
     <?php
+      //footer
     include("includes/footer.php");
+
+    if(isset($_POST["submit"])){
+        
+        $product_Qty=$_POST["mask_quantity"];
+
+        $sql="SELECT * FROM cart WHERE id=$product_id";
+        $result = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($result);
+
+        if ($product_specialPrice != null) {
+            $product_price=$product_specialPrice;
+        } 
+
+        //Check if this product is already in cart
+        if ($resultCheck > 0) {
+
+            $row = mysqli_fetch_assoc($result);
+
+            //update quantity
+            $oldQty=$row["quantity"];
+            echo"<script>console.log('".$oldQty."');</script>";
+            echo"<script>console.log('".$product_Qty."');</script>";
+            $product_Qty=$oldQty+$product_Qty;
+
+            $sql="UPDATE cart SET quantity='$product_Qty' WHERE id='$product_id'";
+            mysqli_query($conn, $sql);
+
+        }
+
+        //If it's not in the cart
+        else{
+            $sql = "INSERT INTO cart (id, productName, quantity, price, image) 
+                VALUES('$product_id', '$product_name', '$product_Qty', '$product_price','$product_image1');";
+                mysqli_query($conn, $sql);
+        }
+
+    }
     ?>
     <script> 
       var mainImage = document.getElementById("p5") ;
@@ -292,5 +332,4 @@ margin:80px
       
         
     </script>
-  </body>
-</html>
+
