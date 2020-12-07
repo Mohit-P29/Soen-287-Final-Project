@@ -1,0 +1,8 @@
+name :  Disposable Polyethylene Gloves
+ 
+price: 4.30$
+
+
+
+description: The Ampri PE gloves are available in various models for men and women.
+ These disposable gloves are non-sterile, transparent and wearable on both hands.
