@@ -1,3 +1,17 @@
+<?php
+    include("includes/ConnectDB.php");  
+    // setting up my select query
+    $sql = "SELECT * FROM cart ";
+
+    $result = $conn->query($sql);
+    $totalQty=0;
+
+    while($row = $result->fetch_assoc()) {
+        $totalQty=$totalQty+$row["quantity"];
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -32,7 +46,7 @@
             </nav>
             <div class="cta cart">
                         <a href="shoppingCart.php"> <img src="images/cart.jpg" alt="cart" height="25px" width="25px"></a>
-                        <span>0</span>
+                        <span><?php echo $totalQty?></span>
             </div>
             <a class="cta" href="#"><img src="images/signin.jpg" alt="Sign In" height="25px" width="25px"></a>
             <p class="menu cta">Menu</p>
