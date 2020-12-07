@@ -1,20 +1,54 @@
 <?php
     include("includes/ConnectDB.php");  
-    $id=$_POST["itemsSelect"];
 
-    if(isset($_POST["submit"])){
-        $newQty=$_POST["newQty"];
+    $sql = "SELECT * FROM cart ";
 
+    $result = $conn->query($sql);
 
-        $sql="UPDATE cart SET quantity='$newQty' WHERE id='$id'";
-        mysqli_query($conn, $sql);
+    //Sort all items of the cart into an array
+
+    while($row = $result->fetch_assoc()) {
+	  
+        //END OF PHP TAG
+        ?>
+        <tr>
+      <th style="border: 1px solid black;">
+        
+         <?php
+      echo "<br>" ."item id  " . $row["id"];  ?>
+        </th>
+         <th style="border: 1px solid black;">
+        <?php
+      echo " Name: " . $row["productName"]; ?>
+          </th>
+           <th style="border: 1px solid black;">
+          <?php
+      echo " Quantity " . $row["quantity"]; ?>
+          </th>
+           <th style="border: 1px solid black;">
+          <?php
+      echo "Price: " . $row["price"]. "<br>"; ?>
+          </th>
+        
+        <?php
     }
+?>
 
-    else if(isset($_POST["deleteItem"])){
-        $sql ="DELETE FROM cart WHERE id='$id' ";
-        mysqli_query($conn, $sql);
-    }
+<div>
+    <h2>Which would you like to add?</h2>
 
-    header("Location: shoppingCart.php");
 
+</div>
+
+<?php
+
+
+
+
+    $sql="UPDATE cart SET quantity='$qty' WHERE id='$id'";
+    mysqli_query($conn, $sql);
+
+
+  
+     
 ?>

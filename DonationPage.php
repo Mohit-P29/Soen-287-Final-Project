@@ -3,10 +3,6 @@
 ?>
 
 <?php
-$page_title = "Donation Process";
-?>
-
-<?php
     include('includes/header.php')
     ?>
 

@@ -571,36 +571,3 @@ $(document).ready(function(){
     
     });
   });
-
-  function displayMenu(){
-    document.getElementById("closeMenu").style.display="inherit";   
-    document.getElementById("changeQty").style.display="block";
-    document.getElementById("changeQty-btn").style.display="none";
-  }
-/*
-  function closeMenu(){
-    document.getElementById("closeMenu").style.display="none";   
-    document.getElementById("changeQty").style.display="none";
-    document.getElementById("changeQty-btn").style.display="inherit";
-  }*/
-
-
-  function selectItem(){
-    const rbs = document.querySelectorAll('input[name="itemsSelect"]');
-    let selectedValue;
-    var retVal=true;
-    for (const rb of rbs) {
-        if (rb.checked) {
-            selectedValue = rb.value;
-            break;
-        }
-    }
-
-    if(selectedValue==null){
-        alert("please pick an item");
-        retVal=false;
-        return retVal;
-    }
-
-    return retVal;
-  }

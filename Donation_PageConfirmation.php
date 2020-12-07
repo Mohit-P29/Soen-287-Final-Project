@@ -2,10 +2,6 @@
 session_start();
 ?>
 
-<?php 
-$page_title = "Thank You!";
-?>
-
 <?php
     include('includes/header.php');
 ?>
@@ -25,7 +21,7 @@ if(empty($_POST["donationpage_donationamount"]))
    }
    else
    {
-       if(preg_match("/[0-9]*/", $_POST["donationpage_donationamount"] ))
+       if(preg_match("/[0-9]/", $_POST["donationpage_donationamount"] ))
        {
            $_SESSION["donationamount_error"]  = "Good amount";
        }
@@ -127,9 +123,8 @@ if(empty($_POST["donationpage_expirationmonth"]) || empty($_POST["donationpage_e
     }
     else
     {
-        //xinyideng10@hotmail.com
         $full_email = explode("@" , $_POST["donationpage_email"]);
-        if(preg_match("/xinyideng10/" , $full_email[0] ) && preg_match("/hotmail.com/" , $full_email[1]))
+        if(preg_match("/arash9_shafei8/" , $full_email[0] ) && preg_match("/outlook.com/" , $full_email[1]))
         {
             $_SESSION["donationemail_error"]= "Good Email";
         }
