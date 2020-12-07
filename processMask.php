@@ -45,9 +45,9 @@ switch($colorP){
     case 8:
         $colorP="black";
         break;
-	case 8:
+	case 9:
         $colorS="white";
-        break
+        break;
 }
 
 //Assign secondary color
