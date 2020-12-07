@@ -98,6 +98,9 @@ switch($image){
     case 5:
         $image="images/animal/rabbit.png";
         break;
+	case 6:
+        $image="images/animal/no_image_selected.png";
+        break;	
 }
 
 $sql="SELECT * FROM cart WHERE id=$product_id";

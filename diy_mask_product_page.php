@@ -364,7 +364,7 @@ if(selectedValue == 1){
     <option value="3" data-picture="images/animal/gecko.png">Gecko</option>
     <option value="4" data-picture="images/animal/polarbear.png">Polarbear</option>
     <option value="5" data-picture="images/animal/rabbit.png">Rabbit</option>
-    <option value="6" data-picture="images/animal/no_image_selected.png" selected="selected" data-picture="">No pictures wanted</option>
+    <option value="6" data-picture="" selected="selected" data-picture="">No pictures wanted</option>
    
     
     
@@ -378,7 +378,7 @@ if(selectedValue == 1){
    var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
          alert(imageSource);
    if(imageSource){ //if it has data
-      $('#image-location').html('<img src="'+imageSource+'" style="width:150px;height:150px;">'); // insert image in div image-location
+      $('#image-location').html('<img src="'+imageSource+'" style="width:170px;height:170px;">'); // insert image in div image-location
    } else {
       $('#image-location').html(''); //remove content from div image-location, thus removing the image
    }
