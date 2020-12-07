@@ -534,3 +534,7 @@ footer {
     color: white;
 }
 
+.footer_logo_position {
+    position: relative;
+    left: 80%;
+}

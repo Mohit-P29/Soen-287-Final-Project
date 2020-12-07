@@ -42,7 +42,7 @@
                 </div>
             </div>
             
-            <a href="#"><img src="images/CompanyLogo.jpg" alt="Company Logo"></a>
+            <a class="footer_logo_position" href="index.php"><img src="images/CompanyLogo.jpg" alt="Company Logo"></a>
             
             <p class="copyright"> © 2020 COV-AID, Inc. All Rights Reserved </p>
         </footer>

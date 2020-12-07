@@ -3,6 +3,13 @@
 ?>
 
 <?php
+
+$page_title = "Welcome to COVAID!"
+    
+    ?>
+
+    
+<?php
 include('includes/header.php')
     ?>
 
