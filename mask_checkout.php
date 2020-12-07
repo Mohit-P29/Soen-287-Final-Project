@@ -5,11 +5,15 @@ include('includes/header.php')
 
 require_once 'connection/check_connection.php';
 
+if(!isset($_SESSION['MaskQuantity'])){
+	
+	
+}
+
 ?>
 
 <h1> Dummy DIY Mask Builder Cart</h1>
 <?php
-
 
 // fetching data from the previous page that the user selects
 if( !isset($_POST["delete"])){
@@ -32,6 +36,7 @@ VALUES ('$colorP', '$colorS', '$imagesF')";
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
 	
+				
 	
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
@@ -75,23 +80,23 @@ $result = $conn->query($sql);
 <table style="width:40%; border: 1px solid black;">
 
  <tr>
-<th style="border: 1px solid black;">
+<th class="masks_table_header" style="border: 1px solid black;">
 Product Id
 </th>
-<th style="border: 1px solid black;">
+<th class="masks_table_header" style="border: 1px solid black;">
 Mask Main Color
 </th>
-<th style="border: 1px solid black;">
+<th class="masks_table_header" style="border: 1px solid black;">
 Mask Outline Color
 </th>
-<th style="border: 1px solid black;">
+<th class="masks_table_header" style="border: 1px solid black;">
 Images
 </th>
 
 <?php // BEGINNING OF PHP TAG
 	
 	
-echo "These are the masks in your cart at the moment:"."<br>";
+
 	
 
 	
@@ -161,6 +166,10 @@ if (!empty($result) && $result->num_rows > 0) {
 				
 				$_POST["maskToDelete"] = "";
 			}
+			if(!isset($deleteMask)){
+				
+				$deleteMask = "";
+			}
 		echo "The mask to delete is: ".$_POST["maskToDelete"]."<br>";
 			$sql = "SELECT maskId, u1.color_name primary_color_name, u2.color_name secondary_color_name, images.image_name 
 FROM masks 
@@ -192,6 +201,8 @@ $result = $conn->query($sql);
 		  if ($conn->query($sql) === TRUE) {
   echo "New Id Loaded successfully, press delete to remove from cart";
 		$deleteMask = true;	  
+			 
+
 	
 	
 } else {
