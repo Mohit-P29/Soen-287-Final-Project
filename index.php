@@ -159,7 +159,7 @@ if(isset($_POST["submit"]))
 
                 $str = <<<END
                 <div class="topsellers_product">
-                <img class="topsellers_pictures" src="$topseller_image" alt="Image not available"></img>
+                <img class="topsellers_pictures" src="$topseller_image" alt="Image not available">
                 <a href="$topseller_webpage"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
                 <br />
                 <p class="topsellers_heading" style="position: relative; top: 15px;"> $topseller_name </p>

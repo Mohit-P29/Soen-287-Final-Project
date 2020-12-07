@@ -200,7 +200,12 @@
          </div>
          </br> 
          <p><?php 
-         $average_review_rounded = number_format($sum_reviews / $number_reviews, 1, '.', '');
+         if($number_reviews == 0){
+            $average_review_rounded = 0;
+         }else{
+            $average_review_rounded = number_format($sum_reviews / $number_reviews, 1, '.', '');
+         }
+         
          echo "$average_review_rounded rating based on $number_reviews reviews.";?>  </p>
       </div>
    </div>
@@ -269,7 +274,7 @@ if ($resultCheck > 0) {
 
 
 <!-- Create Reviews start here -->
-<div class="leave-review" style="padding: 0 2em;">
+<div class="leave-review" >
    <div class="custom-review">
      <form action="" method="POST">
        <h2> Write a customer review</h2>
