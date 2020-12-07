@@ -4,15 +4,15 @@ include_once "covaid_database.php";
 
 $home = null;
 $products = null;
-$stats = null;
+$mail = null;
 $users = null;
 $count = 0;
 if ($page == "Home") {
     $home = "active";
 } elseif ($page == "Products") {
     $products = "active";
-} elseif ($page == "Statistics") {
-    $stats = "active";
+} elseif ($page == "Promotional Email") {
+    $mail = "active";
 } elseif ($page == "Users") {
     $users = "active";
 }
@@ -42,6 +42,12 @@ if ($page == "Home") {
                 </div>
                 <div class="nav-list" id="scroll-3">
                     <ul>
+                        <li>
+                            <a href="admin_promotionalEmail.php" class="nav-list-link <?php echo $mail; ?>">
+                                <ion-icon name="mail-outline" class="nav-list-icon"></ion-icon>
+                                <span class="nav-list-name">Send Email</span>
+                            </a>
+                        </li>
                         <li>
                             <div class="nav-list-link collapse <?php echo $products; ?>">
                                 <a href="admin_products.php">
