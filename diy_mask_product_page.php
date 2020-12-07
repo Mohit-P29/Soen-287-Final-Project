@@ -1,3 +1,10 @@
+
+<?php
+
+$page_title = "DIY MASK CREATOR"
+    
+    ?>
+
 <?php
 include('includes/header.php')
     ?>

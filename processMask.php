@@ -42,9 +42,12 @@ switch($colorP){
     case 7:
         $colorP="orange";
         break;
-    case 7:
+    case 8:
         $colorP="black";
         break;
+	case 8:
+        $colorS="white";
+        break
 }
 
 //Assign secondary color
@@ -70,9 +73,12 @@ switch($colorS){
     case 7:
         $colorS="orange";
         break;
-    case 7:
+    case 8:
         $colorS="black";
         break;
+	case 9:
+        $colorS="white";
+        break
 }
 
 //Assign image
