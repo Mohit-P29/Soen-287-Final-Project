@@ -6,6 +6,25 @@
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error());
    }
+
+   $sql = "SELECT * FROM payment";
+   $retval = mysqli_query( $conn,$sql);
+   if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+   }
+    $result=mysqli_num_rows($retval);
+
+        if($result>0){       
+          while ( $row = mysqli_fetch_assoc($retval)){
+
+            if ($row['user_id']===$_SESSION['user_id']){
+                  $paymentCard=$row['cardnumber'];
+            }
+        }
+      }
+
+    $paymentCard=substr($paymentCard,15);
+
    
    $sql = "SELECT * FROM user_info";
    $retval = mysqli_query( $conn,$sql);
@@ -113,8 +132,8 @@
                 <div id="payMethod">
                     <h3>Payment Method</h3>
                     <a href="UserPage.php">change</a>
-                    <img src="" alt="visa">
-                    <p>ending in 1337</p>
+                    <img id="visa" src="image/visa.png" alt="visa">
+                    <p>ending in <?php echo $paymentCard?></p>
                 </div>
                 <div id="shipMethod">
                     <h3>Shipping Method</h3>
