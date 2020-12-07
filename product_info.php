@@ -109,9 +109,10 @@
    $page_title = $product_name;
    include("includes/header.php");
    ?>
+   <main>
 <!-- Content of product page -->
 <link rel="stylesheet" href="css/review.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/product_general.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -362,6 +363,8 @@ if ($resultCheck > 0) {
       </div>
    </div>
 </div>
+
+</main>
 <!-- Suggested/Related items end here -->
 <!----footer-->
 <?php
