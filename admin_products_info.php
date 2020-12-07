@@ -100,7 +100,7 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM reviews WHERE product_id = $product_id;;";
+                    $sql = "SELECT * FROM reviews WHERE product_id = $product_id;";
                     $result = mysqli_query($conn, $sql);
                     $resultCheck = mysqli_num_rows($result);
 
@@ -115,7 +115,7 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%
 
                             print("<tr> <td>$date</td>");
                             print("<td>$username</td>");
-                            if (isset($review_mess)) {
+                            if (isset($review_mess) && $review_mess != "NULL" && $review_mess != "") {
                                 print("<td>$review_mess</td>");
                             } else {
                                 print("<td>---</td>");
@@ -136,7 +136,7 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%
                                 </form>
                             </td>
                             END;
-                            if (isset($review_mess)) {
+                            if (isset($review_mess)&& $review_mess != "NULL" && $review_mess != "") {
 
                                 print("$str");
                             } else {
