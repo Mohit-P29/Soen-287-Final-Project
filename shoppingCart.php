@@ -1,5 +1,7 @@
 <?php
-include('includes/header.php')
+include('includes/header.php');
+include_once 'includes/covaid_database.php';
+
     ?>
        
         <section id="cart">
@@ -14,17 +16,57 @@ include('includes/header.php')
                     <h5 class="total">TOTAL</h5>
                 </div>
                 <div class="products">
+                    <?php
+                        
+                        // setting up my select query
+                        $sql = "SELECT * FROM cart ";
+
+                        $result = $conn->query($sql);
+
+
+                        if (!empty($result) && $result->num_rows > 0) {
+
+                        // output data from each row of the database into each row of the table
+                        while($row = $result->fetch_assoc()) {
+                            
+                            //END OF PHP TAG
+                            ?>
+                           <div class="product">
+                            <div class="left">
+                                <img src="" alt="img"/>
+                            </div>
+                            <div class="left nameANDprice">
+                                <span class="sm-hide"><?php echo $row["productName"];  ?></span>
+                                <span class="sm-hide">$<?php echo $row["price"];  ?></span>
+                            </div>
+                            </div>
+                            <div class="price sm-hide"></div>
+                            <div class="quantity">
+                                    <span><?php echo $row["quantity"]; ?></span>
+                            </div>
+                            <div class="total">$<?php echo ($row["quantity"]*$row["price"]);  ?></div>
+                            
+                            <?php
+                        }
+                    } else {
+                        echo "You don't have any items in your Cart";
+                    }
+
+
+                    ?>
+
                 </div>
             
             </div><!--End of products-container-->
 
-        </section>
+            <section id="Subtotal">
+                <form action="checkout.php">
+                    <input type="submit" value="Checkout"/>
+                </form>
+            </section>
+        </section><!--End of cart-->
 
-        <section id="Subtotal">
-            <form action="checkout.php">
-                <input type="submit" value="Checkout"/>
-            </form>
-        </section>
+      
         <script src="js/cart.js"></script>
         <script>
             displayItems();

@@ -135,12 +135,57 @@
                 </div>
             </div>
         </section>
-        <div id="yourItemsHeader">
-            <h2 >Your items</h2>
-            <a href="shoppingCart.php">Modify items</a>
-        </div>
+  
        
-        <section id="yourItems" class="yourItems">
+        <section id="cart-checkout">
+            <div>
+                <h2>Your Items</h2>
+                <a href="shoppingCart.php">Modify items</a>
+            </div>
+            <div class="container-products">
+                <div class="product-header">
+                    <h5 class="product-title">PRODUCT</h5>
+                    <h5 class="price sm-hide"></h5>
+                    <h5 class="quantity">QUANTITY</h5>
+                    <h5 class="total">TOTAL</h5>
+                </div>
+                <div class="products">
+                    <?php
+                    // setting up my select query
+                    $sql = "SELECT * FROM cart ";
+
+                    $result = $conn->query($sql);
+                    $total=0;
+                    $totalQty=0;
+
+
+                        // output data from each row of the database into each row of the table
+                        while($row = $result->fetch_assoc()) {
+                            
+                            $total=$total+$row["quantity"]*$row["price"];
+                            $totalQty=$totalQty+$row["quantity"];
+
+                            //END OF PHP TAG
+                            ?>
+                           <div class="product">
+                            <div class="left">
+                                <img src="" alt="img"/>
+                            </div>
+                            <div class="left nameANDprice">
+                                <span class="sm-hide"><?php echo $row["productName"];  ?></span>
+                                <span class="sm-hide">$<?php echo $row["price"];  ?></span>
+                                
+                            </div>
+                            </div>
+                            <div class="price sm-hide"></div>
+                            <div class="quantity">
+                                    <span><?php echo $row["quantity"]; ?></span>
+                            </div>
+                            <div class="total">$<?php echo ($row["quantity"]*$row["price"]);  ?></div>
+                            
+                            <?php
+                        }
+                    ?>
 
         </section>
 
@@ -159,8 +204,10 @@
             </div>
             <div id="receipt">
                 <h4>Order summary</h4>
-                <div class="itemsPriceTotal">
-                
+                <div>
+                    <p class="item">Items(<?php echo $totalQty?>)</p>
+                    <p class="itemPrice">$<?php echo $total?><p>
+                    <input type="hidden" id="totalCost" value="<?php echo $total?>">
                 </div>
                 <div>
                     <p class="item" id="shipMethodSelect"></p>
@@ -207,7 +254,7 @@
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         <script src="js/cart.js"></script>
         <script>
-            displayItems();
+            //displayItems();
             newTotalCost();
             shipping();
             load_P_and_D();
@@ -215,5 +262,5 @@
     </body>
     
     <?php 
-    include('includes/footer.php')
+    include('includes/footer.php');
     ?>

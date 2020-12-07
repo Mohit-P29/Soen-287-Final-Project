@@ -20,6 +20,8 @@
 #cart {
     margin-top:150px;
     margin-left:50px;
+    margin-bottom:50px;
+    overflow:hidden;
 }
 
 #fbt h2{
@@ -68,11 +70,12 @@
 
 /***ADDED CSS BY SAM***/
 
-#yourItems {
+#cart-checkout {
     width:70%;
     margin:auto;
     border:2px solid black;
     overflow:hidden;
+    padding:20px;
 }
 
 #donationANDreceipt{
@@ -147,6 +150,7 @@
     justify-content: space-around;
     margin: 0 auto;
     margin-top: 50px;
+    overflow:hidden;
 }
 
 .container-products ion-icon {
