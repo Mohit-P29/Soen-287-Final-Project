@@ -40,8 +40,8 @@
                 <ul class="nav__links">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="General_Products.php">Shop</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="AboutUs.php">About Us</a></li>
+                    <li><a href="ContactUs.php">Contact Us</a></li>
                 </ul>
             </nav>
             <div class="cta cart">
@@ -59,8 +59,8 @@
             <div class="overlay__content">
                 <a href="index.php">Home</a>
                 <a href="General_Products.php">Shop</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
+                <a href="AboutUs.php">About Us</a>
+                <a href="ContactUs.php">Contact Us</a>
                 <a href="shoppingCart.php"><img src="images/cart.jpg" alt="Cart" height="50px" width="50px"></a>
                 <a href="login.php"><img src="images/signin.jpg" alt="Sign In" height="50px" width="50px"></a>
             </div>
