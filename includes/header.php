@@ -46,7 +46,8 @@
             </nav>
             <div class="cta cart">
                         <a href="shoppingCart.php"> <img src="images/cart.jpg" alt="cart" height="25px" width="25px"></a>
-                        <span><?php echo $totalQty?></span>
+                <span><?php echo $totalQty?></span>
+                        
             </div>
             <a class="cta" href="login.php"><img src="images/signin.jpg" alt="Sign In" height="25px" width="25px"></a>
             <p class="menu cta">Menu</p>
