@@ -1,5 +1,13 @@
 <!-- FOOTER => Social Media links, Contact Info, Emails, address, etc.  which will be reproduced on all pages on the website-->
-        <footer id="discount_body_opacity3">
+        
+<?php
+if(!isset($_SESSION["emailexclusives_errorfooter"]))
+{
+    $_SESSION["emailexclusives_errorfooter"] = "";
+}
+?>
+
+<footer id="discount_body_opacity3">
             <div class="footers">
                 <div class="about">
                     <h1> About COV-AID </h1>
