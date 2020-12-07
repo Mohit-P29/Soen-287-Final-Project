@@ -141,7 +141,13 @@ padding-left: 20px;
     
     
 }
-
+ /*---------------------masks display table ---------------------------*/
+.masks_table_header{
+	
+	font-family:fantasy;
+	border-color: red;
+	
+}
 
 
 
