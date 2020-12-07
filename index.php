@@ -2,12 +2,15 @@
     session_start();
 ?>
 
+
 <?php
     $page_title = "Welcome to COVAID!"
     ?>
 
 <?php
-include('includes/header.php')
+include ('includes/header.php');
+include_once 'includes/ConnectDB.php' ; 
+        
     ?>
 
 <?php 
@@ -77,7 +80,7 @@ if(isset($_POST["submit"]))
             <img src="images/maskSlide.jpg" width="100%" height="500px;">
             <div class="slidetext"> 
                 <p> Get Your Protection Masks Now!</p>
-                <button class="slidebutton">Shop</button>
+                <a href=""><button class="slidebutton">Shop</button></a>
             </div>
         </div>
         
@@ -86,7 +89,7 @@ if(isset($_POST["submit"]))
             <img src="images/DIYmaskSlide.jpg" width="100%" height="500px;">
             <div class="slidetext1"> 
                 <p> Explore with Custom Protection Masks! </p>
-                <button class="slidebutton">Shop</button>
+                <a href="diy_mask_product_page.php"><button class="slidebutton">Shop</button></a>
             </div>
         </div>
         
@@ -95,7 +98,7 @@ if(isset($_POST["submit"]))
         <img src="images/sanitizerSlide.jpg" width="100%" height="500px;">
         <div class="slidetext"> 
             <p> Premium Hand Sanitizer Avaiable Now! </p>
-            <button class="slidebutton"> Shop </button>
+            <a href=""><button class="slidebutton"> Shop </button></a>
             </div>
         </div>
     </div>
@@ -114,11 +117,11 @@ if(isset($_POST["submit"]))
     <h2 class="topsellers_heading0" style="text-decoration:underline"> Top Sellers </h2>
     <br />
     <br />
-    <div class="topsellers_container"> 
-        
+    <div class="topsellers_container">
+    
         <!---- Product 1 ----->
         <div class="topsellers_product">
-            <div class="topsellers_front">
+            
                 <img class="topsellers_pictures" src="images/mask.jpg" alt="Mask">
                 <a href="#"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
                 <br />
@@ -132,7 +135,7 @@ if(isset($_POST["submit"]))
                 <img class="topsellers_stars" src="images/Icons/star-solid.svg">
                 <img class="topsellers_stars" src="images/Icons/star-solid.svg">
                 <p> $3.99 </p>
-            </div>
+           
         </div>
         
         <!---- Product 2 ----->
