@@ -16,4 +16,4 @@
 
 
     //Go back to the page
-    header("Location: $adminLink"."?review_reply=success");
+    header("Location: ../$adminLink"."?review_reply=success");

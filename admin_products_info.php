@@ -50,7 +50,7 @@ if ($number_reviews != 0) {
     if ($resultCheck2 > 0) {
         $row2 = mysqli_fetch_assoc($result2);
         $sum_reviews = $row2['star_sum'];
-        $average_review = $sum_reviews / $number_reviews;
+        $average_review = number_format($sum_reviews / $number_reviews, 1, '.', '');
     }
 }
 ?>
@@ -159,7 +159,7 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%
     <div class="content" id="popup_box">
         <div id="close-btn">&times;</div>
         <h1>Product detail</h1>
-        <form action="includes/updateProduct.php" method="POST">
+        <form action="includes/updateProduct.php" method="POST" enctype="multipart/form-data">
             <div style="text-align: left; padding: 1em; padding-top: 2em; font-size: large;">
                 <label style="font-weight: 700;">Product name: </label>
                 <input type="text" name="productName" id="productName" value="<?php echo $product_name; ?>" style="font-size: large;" />
@@ -175,6 +175,15 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%
                 <br /><br />
                 <label style="font-weight: 700;">Inventory: </label>
                 <input type="text" name="productInventory" id="productInventory" value="<?php echo $product_inventory; ?>" style="font-size: large;" />
+                <br /><br />
+                <label style="font-weight: 700;">Image: </label>
+                <select name = "imageNum" style="font-size: large;">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input type="file" name="file" id="file" style="font-size: large;" />
                 <br /><br />
                 <input type="hidden" name="productId" value="<?php echo $product_id; ?>">
             </div>

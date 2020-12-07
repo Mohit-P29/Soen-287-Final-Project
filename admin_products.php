@@ -1,5 +1,4 @@
     <?php
-    $root = $_SERVER["DOCUMENT_ROOT"];
     include_once "includes/covaid_database.php";
     $page = "Products";
     include("includes/admin_header.php");
@@ -121,7 +120,7 @@
                                     if ($resultCheck2 > 0) {
                                         $row2 = mysqli_fetch_assoc($result2);
                                         $sum_reviews = $row2['star_sum'];
-                                        $average_review = $sum_reviews/$number_reviews;
+                                        $average_review = number_format($sum_reviews / $number_reviews, 1, '.', '');
                                     }
                                 }
 

@@ -506,7 +506,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background: #fff;
-    width: 35em;
+    width: 45em;
     height: 35em;
     z-index: 2;
     text-align: center;
