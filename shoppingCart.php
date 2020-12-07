@@ -15,7 +15,8 @@ include_once 'includes/covaid_database.php';
                     <h5 class="quantity">QUANTITY</h5>
                     <h5 class="total">TOTAL</h5>
                 </div>
-                <div class="products">
+               
+                    <form action="modifyQTY.php" method="post" class="products">
                     <?php
                         
                         // setting up my select query
@@ -43,6 +44,7 @@ include_once 'includes/covaid_database.php';
                             <div class="price sm-hide"></div>
                             <div class="quantity">
                                     <span><?php echo $row["quantity"]; ?></span>
+                                    <input type="submit" name="<?php echo $i?>" value="Modify Qty">
                             </div>
                             <div class="total">$<?php echo ($row["quantity"]*$row["price"]);  ?></div>
                             
@@ -54,8 +56,8 @@ include_once 'includes/covaid_database.php';
 
 
                     ?>
-
-                </div>
+                    </form>
+        
             
             </div><!--End of products-container-->
 
