@@ -28,7 +28,7 @@ if(! $retval ) {
 
 
 
-if($special!=null||$special==15){
+if($special!=null||$special<0){
     $product_price=$special;
 }
 
