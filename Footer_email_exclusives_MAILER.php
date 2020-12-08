@@ -68,7 +68,7 @@ $mail->addAttachment("kobe.jpg", "kobe.jpg");
 
 
 //Set the subject line
-$mail->Subject = 'Donation Confirmation Receipt';
+$mail->Subject = 'Successful Subscription to COVAID!!';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
 $mail->Body = "Thank you for subscribing!" . "<br>" . "Best Regards," . "<br>" . "Covaid,INC.";

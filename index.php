@@ -80,7 +80,7 @@ if(isset($_POST["submit"]))
             <img src="images/maskSlide.jpg" width="100%" height="500px;">
             <div class="slidetext"> 
                 <p> Get Your Protection Masks Now!</p>
-                <a href=""><button class="slidebutton">Shop</button></a>
+                <a href="productpage_Disposablemask.php"><button class="slidebutton">Shop</button></a>
             </div>
         </div>
         
@@ -98,7 +98,7 @@ if(isset($_POST["submit"]))
         <img src="images/sanitizerSlide.jpg" width="100%" height="500px;">
         <div class="slidetext"> 
             <p> Premium Hand Sanitizer Avaiable Now! </p>
-            <a href=""><button class="slidebutton"> Shop </button></a>
+            <a href="productpage_SterilliumHandSanitizer100ml.php"><button class="slidebutton"> Shop </button></a>
             </div>
         </div>
     </div>

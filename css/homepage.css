@@ -236,6 +236,7 @@ header {
     margin-top: 10px;
     border-radius: 10px;
     padding: 0px 5px;
+    font-size: 20px;
 }
 
 /*------------Top Sellers-------------*/
@@ -276,7 +277,7 @@ header {
     border-color: black;
     transition: transform 0.6s;
     box-shadow: 0 0 10px;
-    padding: 1px;
+    padding: 5px;
 }
 
 .topsellers_product:hover {
