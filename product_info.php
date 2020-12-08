@@ -136,7 +136,7 @@ if(!isset($product_image5)){
          display: block;
          margin-left: auto;
          margin-right: auto;
- "> > 
+ ">  
          <div class="complementary-images">
             <div class="sub-image">
                <!-- SubImages go here -->
@@ -158,7 +158,7 @@ if(!isset($product_image5)){
          <h1> <?php echo $product_name; ?> </h1>
          <h4><?php
             if ($product_specialPrice == null) {
-                echo $product_price; 
+                echo '$'.$product_price; 
             } else {
                 echo "<span style='color: red;'>\$$product_specialPrice </span>" . " <strike>\$$product_price</strike> ";
             }
@@ -234,7 +234,7 @@ if(!isset($product_image5)){
         </div>
         </div>
         </div>
-<div class="old-reviews" style="padding: 0 7em;">
+<div class="old-reviews" style="padding: 0 7em; margin-left:-100px" >
 
 <?php
 $sql = "SELECT * FROM reviews WHERE product_id = $product_id;";
@@ -302,7 +302,7 @@ if ($resultCheck > 0) {
       <input type="text" name="newUser" class="username-part" id="username-part">
       <br>
       <label for="star-1" >  Rate this product</label>
-      <div class="star-rating">
+      <div class="star-rating" style="margin-right:700px;">
          <input type="radio" name="star" value="5" id="star-1" required/>
          <label for="star-1" ></label>
          <input type="radio" name="star" value="4" id="star-2" />
@@ -318,7 +318,8 @@ if ($resultCheck > 0) {
       
       <h2 style="margin-top:30px;">Please leave your review below</h2>
       <br>
-      <textarea type="text" name="cus_review" placeholder="Your review " class="review-part" ></textarea>
+      <textarea type="text" name="cus_review" placeholder="Your review " class="review-part" style="max-wdith:1000px;
+      "></textarea>
           </br></br>
          <input id="submit-review" type="submit" name="submit" value="submit review">
           </form>
