@@ -2,7 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 
@@ -269,6 +269,8 @@ input:focus{
 }
 .sub-image img{
   width: 100%;
+  max-height: 90px;
+  
 }
 
 .review-sec p{
