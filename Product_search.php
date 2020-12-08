@@ -9,7 +9,7 @@ include_once 'includes/ConnectDB.php';
 </script>
 <link rel="stylesheet" href="css/UserPage.css" />
 <main>
-<div style="position:absolute;top:150px;left:90px;height:120%;width:120%;padding-left:100px; ">
+<div style="top:150px;left:90px;height:100%;width:100%;padding-left:100px ">
     <form action="" method="post" style="margin-bottom:100px;margin-left:50px;">
         <table style="border-spacing:15px;">
             <tr>
@@ -20,7 +20,7 @@ include_once 'includes/ConnectDB.php';
                     <select id="criteria" name="criteria" style="	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;-moz-box-shadow: 0 7px 4px #777;
-	box-shadow: 0 7px 4px #777;border-radius:8px;border-color:gray;;width:80px;height:70px;border:2px solid gray;border-radius:8px;">
+	box-shadow: 0 7px 4px #777;border-radius:8px;border-color:gray;;width:80px;height:70px;border:2px solid gray;border-radius:8px;font-size:1.2em;">
                         <option value="all" selected>ALL</option>
                         <option value="mask">Mask</option>
                         <option value="other">Other</option>
@@ -29,8 +29,8 @@ include_once 'includes/ConnectDB.php';
                     <select id="sort" name="sort" style="	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;-moz-box-shadow: 0 7px 4px #777;
-	box-shadow: 0 7px 4px #777;border-radius:8px;border-color:gray;;width:80px;height:70px;border:2px solid gray;border-radius:8px;">
-                        <option value="Sort" selected disabled>Sort By</option>
+	box-shadow: 0 7px 4px #777;border-radius:8px;border-color:gray;;width:120px;height:70px;border:2px solid gray;border-radius:8px;font-size:1.2em;">
+                        <option value="Sort" selected disabled hidden>Sort By</option>
                         <option value="htl">From highest price to lowest price</option>
                         <option value="lth">From lowest price to highest price</option>
                         <option value="sales">The most sales</option>
@@ -40,20 +40,21 @@ include_once 'includes/ConnectDB.php';
                 </td>
 
 
-                <td><input type="text" placeholder="Search.." class="Inputfield2" style="padding-left:0px;width:630px;height:80px;-webkit-box-shadow: 0 7px 4px #777;
+                <td><input type="text" placeholder="Search.." class="Inputfield2" style="font-size:1.2em;padding-left:0px;width:630px;height:80px;-webkit-box-shadow: 0 7px 4px #777;
 	-moz-box-shadow: 0 7px 4px #777;
 	box-shadow: 0 7px 4px #777;border-radius:8px;border-color:gray;;" name="search" required></td>
 
 
-                <td> <input type="submit" class="UpdateAccount" style="width:120px;height:70px;border-radius:8px;-webkit-box-shadow: 0 7px 4px #777;
+                <td> <input type="submit" class="UpdateAccount" style="width:150px;height:70px;border-radius:8px;-webkit-box-shadow: 0 7px 4px #777;
 	-moz-box-shadow: 0 7px 4px #777;
-	box-shadow: 0 7px 4px #777;" value="Search" name="submit_search" value="search" /></td>
+	box-shadow: 0 7px 4px #777; font-size:1.2em;" value="Search" name="submit_search" value="search" /></td>
             </tr>
             <tr>
                 <td colspan="4" style="font-size:0.7;">If the sortby option isn't chosen, the system lists products from the lowest price to highest price by default.</td>
             </tr>
         </table>
     </form>
+	<div style="margin-top:10px;margin-left:40px;height:300px;width:70%;overflow:auto;text-align:center;">
     <?php
     if(isset($_POST['submit_search'])){
         $search=(isset($_POST['search']))?$_POST['search']:"";
@@ -71,7 +72,7 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div style='margin-top:30px;height=500px;overflow:auto;'><table style='border-spacing:25px;border:0 nonek;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
+             echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
                 echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
@@ -88,7 +89,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -102,14 +103,14 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+              echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -119,7 +120,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-               echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -134,14 +135,14 @@ include_once 'includes/ConnectDB.php';
          $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+          echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -151,7 +152,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
     //-------------------------------------------Sortby chosen to highest to lowesr------------------------------------------------------------
@@ -168,14 +169,14 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+            echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -185,7 +186,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -199,14 +200,14 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+          echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -216,7 +217,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-               echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -231,14 +232,14 @@ include_once 'includes/ConnectDB.php';
          $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+             echo "<div><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -248,7 +249,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
     //---------------------------------Sortby is chosen to lth--------------------------------------------------------------
@@ -263,14 +264,14 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+          echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -280,7 +281,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -294,14 +295,14 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+           echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -311,7 +312,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-               echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -326,14 +327,14 @@ include_once 'includes/ConnectDB.php';
          $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+           echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -343,7 +344,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -360,14 +361,14 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+          echo "<div><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -377,7 +378,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -391,14 +392,14 @@ include_once 'includes/ConnectDB.php';
                   $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+            echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -408,7 +409,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-               echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
         
@@ -423,14 +424,14 @@ include_once 'includes/ConnectDB.php';
          $result=mysqli_num_rows($retval);
    
          if($result>0){
-             echo "<div><table style='border-spacing:15px;border:thin solid black;text-align:left;position:absolute;top:200px;left:180px;font-size:1.3em;'><tr><th>Name</th><th>Price</th><th>Inventory</th><th>Sales</th><th>Picture</th><th>Created</th></tr>";
+             echo "<div ><table style='border-spacing:25px;border:0 nonek;text-align:left;font-size:1.3em;'><tr><th>Name</th><th>Picture</th><th>Sales</th><th>Price</th><th>Created</th></tr>";
           while ( $row = mysqli_fetch_assoc($retval)){
                 echo "<tr>";
-                echo "<td>".$row['name']."</td>";
-                echo "<td>".$row['price']."</td>";
-                echo "<td>".$row['inventory']."</td>";
+                echo "<td><a style='text-decoration:underline;' href='".$row['webpageLink']."'>".$row['name']."</a></td>";
+                echo "<td><img width='80px' height='60px' src='".$row['image1']."'/></td>";
+               
                 echo "<td>".$row['sales']."</td>";
-                echo "<td><img width='80px' height='60px' src=".$row['sales']."/></td>";
+                echo "<td>".$row['price']."</td>";
                 echo "<td>".$row['created']."</td>";
                 echo  "</td></tr>";
               
@@ -440,7 +441,7 @@ include_once 'includes/ConnectDB.php';
               echo "</table></div>";
              }
             else{
-                echo "<div style='font-size:2.0em;position:absolute;left:400px;top:250px;'>No Results Found</div>";
+                echo "<div style='font-size:2.0em;'>No Results Found</div>";
             }
             }
       
@@ -453,6 +454,12 @@ include_once 'includes/ConnectDB.php';
     }
         
     ?>
+<<<<<<< HEAD
+=======
+	</div>
+
+
+>>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
 </div>
 </main>
 </body>

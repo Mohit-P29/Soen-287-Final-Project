@@ -5,6 +5,10 @@ include("includes/header.php");
 include("includes/ConnectDB.php");
 $_SESSION['login']=(isset($_SESSION['login']))?$_SESSION['login']:'false';
 $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No email shown';
+if(isset($_SESSION['login']) && $_SESSION['login']==='true'){
+	header("Location: UserPage.php");
+	exit();
+}
 
 ?>
 
@@ -37,7 +41,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
             <form onsubmit="return submitSignup(event);" method="post" action="" id='form'>
                 <div class="container_user_credentials_signup">
                     <img src="image/email_icon.JPG" alt="email_icon" width="25px" height="15px" />
-                    <input class="user_credentials_signup" style="padding-left:0px;" type="email" name="email_signup" id="email_signup" placeholder="E-mail" /><br /><br />
+                    <input class="user_credentials_signup" style="padding-left:0px;" type="email" name="email_signup" id="email_signup" placeholder="E-mail(gmail/hotmail/outlook)" /><br /><br />
 
                     <img src="image/password_icon.JPG" alt="password_icon" width="25px" height="15px" />
                     <input class="user_credentials_signup" style="padding-left:0px;" type="password" name="password_signup" id="password_signup" placeholder="Password" /><br />
@@ -80,11 +84,48 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
         <div id="close-btn1">&times;</div>
         <h1>Reset password</h1>
         <p class="popup_resetpw_desc">Please enter your email</p><br />
-        <input type="text" id="popup_email_input" placeholder="Enter your E-mail" />
+        <form action="" method="post">
+        <input type="text" id="popup_email_input" name="popup_email_input"style="padding-left:0px;" placeholder="Enter your E-mail" />
         <br /><br /><br />
-        <button id="popup_button1">Reset Password</button>
+        <input type='submit' id="popup_button1" name='popup_button1' value='Reset Password'/>
+        </form>
     </div>
 </div>
+<?php
+ if(isset($_POST['popup_button1'])){
+	 $email=(isset($_POST['popup_email_input']))?$_POST['popup_email_input']:"";
+	 $password=(isset($password))?$password:"No Password found";
+	 $first=(isset($first))?$first:"First name";
+	 $last=(isset($last))?$last:"Last name";
+	 $sql = "SELECT * FROM user_info";
+	 $check='false';
+    $retval = mysqli_query( $conn,$sql);
+    $result=mysqli_num_rows($retval);
+    if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+    }
+
+    if($result>0){
+
+          while ( $row = mysqli_fetch_assoc($retval)){
+             if(strtolower($row['user_id'])===strtolower($email)){
+                 $password=$row['password'];
+				 $first=$row['user_first'];
+				 $last=$row['user_last'];
+				 $check="true";
+				 
+             }
+          }
+    }
+
+	 if($check){
+	 include_once('reset_email.php');
+	 } 
+	
+ }
+
+?>
+
 
 <!-- Popup window terms and privacy -->
 <div class="popup" id="popup-2">
@@ -149,7 +190,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                                         
                                         }
                 else{
-                    $_SESSION['user_id']=$email;
+                    $_SESSION['user_id']=(isset($email))?$email:"";
                     $_SESSION['login']='true';
                     $sql = "INSERT INTO user_info (user_id,password,user_first,user_last,user_email1,user_email2,phone1,phone2) VALUES ('$email', '$pass', '', '', '$email', '','','')";
                     mysqli_query($conn,$sql);
@@ -165,7 +206,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                    ?>
 
                    <script> 
-                       alert("Successful Registration!");
+                   
                        document.getElementById('form').onsubmit=function(){
                              return true;
                     } 
@@ -176,7 +217,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
             }
 
              elseif(isset($_POST['login'])){
-
+                 $_SESSION['user_id']=(isset($email))?$email:"";
                  $user=(isset($_POST['email']))?$_POST['email']:'';
                  $pass=(isset($_POST['password']))?$_POST['password']:'';
                  $check='invalid';
@@ -201,15 +242,23 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                  if($check==='admin'){
                      $_SESSION['login']='admin'; ?>
 
+<<<<<<< HEAD
                       <script>window.location.href='admin_products.php';</script>
+=======
+                      <script> window.location.href='admin_products.php';</script>
+>>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
 
             <?php }
                  
-                 elseif($check=='valid'){ 
+                 elseif($check==='valid'){ 
                      $_SESSION['login']='true';
                      $_SESSION['user_id']=$user;  ?>
 
+<<<<<<< HEAD
                      <script>window.location.href='UserPage.php';</script>
+=======
+                     <script> window.location.href='UserPage.php';</script>
+>>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
                  
            <?php  
                  } else{ ?>
@@ -232,3 +281,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
 <script src="js/login.js"></script>
 </body>
 </html>
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
