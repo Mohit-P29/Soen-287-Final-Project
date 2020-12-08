@@ -11,6 +11,12 @@
     }
 ?>
 
+ <?php
+
+$_SESSION["emailexclusives_errorfooter"]= "";
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
