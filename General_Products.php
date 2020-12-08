@@ -50,16 +50,66 @@
     <link rel='stylesheet' href='css/product_general.css'>
     <link rel='preconnect' href='https://fonts.gstatic.com'>
     <link href='https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap' rel='stylesheet'>
+    <style>
+             
+
+.btn-drp {
+  width:100px;
+  height: 35px;
+  background-color: #8db600;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  margin-right:80px;
+}
+.btn-drp:hover{
+  background: red;
+}
+
+.sort-drop {
+  
+  display: inline-block;
+}
+
+.drp-cont {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+
+}
+
+.drp-cont a {
+  display: block;
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  
+}
+
+.drp-cont a:hover {background-color: rgb(131, 125, 125);}
+
+.sort-drop:hover .drp-cont {display: block;
+}
+
+.sort-drop:hover .dropbtn {background-color: background: red;}
+      </style>
  
     <!----featured products-->
     <div class= 'submenu'>
        <div class='productRow'>
           <h2>General Products</h2>
+          
+          <div class='sort-drop'>
+          <button class='btn-drp'> Sort Items </button>
+          <div class='drp-cont'>
           <a href ='?order=name&&sort=$sort'>Sort by Name</a>
           <a href ='?order=price&&sort=$sort'>Sort by Price</a>
           <a href ='?order=created&&sort=$sort'>Newest Items</a>
           <a href ='?order=sales&&sort=$sort'>Most Bought Products</a>
-          
+          </div>
+          </div>
        </div>
        <div class='defaultRow'>" ;
        
