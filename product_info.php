@@ -1,5 +1,51 @@
 <?php
   include_once 'includes/covaid_database.php';
+
+//Retrieve product information
+$product_name;
+$product_description;
+$product_price;
+$product_specialPrice;
+$product_image1;
+$product_image2;
+$product_image3;
+$product_image4;
+$product_image5;
+
+$sql = "SELECT * FROM products WHERE id = $product_id;";
+$result = mysqli_query($conn, $sql);
+$resultCheck = mysqli_num_rows($result);
+
+//Makes sure that the connection was established
+if ($resultCheck > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $product_name = $row['name'];
+    $product_description = $row['description'];
+    $product_price = $row['price'];
+    $product_specialPrice = $row['specialPrice'];
+    $product_image1=$row["image1"];
+    $product_image2=$row["image2"];
+    $product_image3=$row["image3"];
+    $product_image4=$row["image4"];
+    $product_image5=$row["image5"];
+}
+
+if(!isset($product_image1)){
+  $product_image1 = "image/products/noimage.jpg";
+}
+if(!isset($product_image2)){
+ $product_image2 = "image/products/noimage.jpg";
+}
+if(!isset($product_image3)){
+ $product_image3 = "image/products/noimage.jpg";
+}
+if(!isset($product_image4)){
+ $product_image4 = "image/products/noimage.jpg";
+}
+if(!isset($product_image5)){
+ $product_image5 = "image/products/noimage.jpg";
+}
+
   if(!isset($_POST['submit'])){
     
   }else if( $_POST['submit'] == 'submit review' ){
@@ -30,9 +76,7 @@
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
   
-    if ($product_specialPrice != null) {
-        $product_price=$product_specialPrice;
-    } 
+  
   
     //Check if this product is already in cart
     if ($resultCheck > 0) {
@@ -52,58 +96,23 @@
   
     //If it's not in the cart
     else{
-        $sql = "INSERT INTO cart (id, productName, quantity, price, image) 
-            VALUES('$product_id', '$product_name', '$product_Qty', '$product_price','$product_image1');";
-            mysqli_query($conn, $sql);
+
+         if ($product_specialPrice != null) {
+
+               $sql = "INSERT INTO cart (id, productName, quantity, price, image) 
+               VALUES('$product_id', '$product_name', '$product_Qty', '$product_specialPrice','$product_image1');";
+               mysqli_query($conn, $sql);
+         } else{
+         $sql = "INSERT INTO cart (id, productName, quantity, price, image) 
+         VALUES('$product_id', '$product_name', '$product_Qty', '$product_price','$product_image1');";
+         mysqli_query($conn, $sql);
+         }
     }
   
   }
 
    
-   //Retrieve product information
-   $product_name;
-   $product_description;
-   $product_price;
-   $product_specialPrice;
-   $product_image1;
-   $product_image2;
-   $product_image3;
-   $product_image4;
-   $product_image5;
    
-   $sql = "SELECT * FROM products WHERE id = $product_id;";
-   $result = mysqli_query($conn, $sql);
-   $resultCheck = mysqli_num_rows($result);
-   
-   //Makes sure that the connection was established
-   if ($resultCheck > 0) {
-       $row = mysqli_fetch_assoc($result);
-       $product_name = $row['name'];
-       $product_description = $row['description'];
-       $product_price = $row['price'];
-       $product_specialPrice = $row['specialPrice'];
-       $product_image1=$row["image1"];
-       $product_image2=$row["image2"];
-       $product_image3=$row["image3"];
-       $product_image4=$row["image4"];
-       $product_image5=$row["image5"];
-   }
-
-   if(!isset($product_image1)){
-     $product_image1 = "image/products/noimage.jpg";
-   }
-   if(!isset($product_image2)){
-    $product_image2 = "image/products/noimage.jpg";
-  }
-  if(!isset($product_image3)){
-    $product_image3 = "image/products/noimage.jpg";
-  }
-  if(!isset($product_image4)){
-    $product_image4 = "image/products/noimage.jpg";
-  }
-  if(!isset($product_image5)){
-    $product_image5 = "image/products/noimage.jpg";
-  }
    
    //Header
    $page_title = $product_name;

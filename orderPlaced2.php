@@ -160,7 +160,7 @@
     }
 
     //reduce quantity function
-    /*
+    
     for($q=0;$q<$itemsNum;$q++){
       $current=$idArray[$q];
        $sql="SELECT * FROM products WHERE id='$current'";
@@ -182,7 +182,7 @@
 
       $sql = "UPDATE products SET inventory='$currentQty' WHERE user_id='$current'";
       mysqli_query($conn, $sql);
-    }*/
+    }
    
 
 
