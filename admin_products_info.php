@@ -113,6 +113,8 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%
                             $review_id = $row['review_id'];
                             $admin_reply = $row['admin_reply'];
 
+                            
+
                             print("<tr> <td>$date</td>");
                             print("<td>$username</td>");
                             if (isset($review_mess) && $review_mess != "NULL" && $review_mess != "") {
@@ -182,6 +184,7 @@ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(126,7,7,1) 100%
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
                 <input type="file" name="file" id="file" style="font-size: large;" />
                 <br /><br />

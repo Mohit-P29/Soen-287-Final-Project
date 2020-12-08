@@ -1,5 +1,5 @@
 <?php 
-    $product_id = 77;
+    $product_id = 85;
     //chdir("..");
     include("admin_products_info.php"); 
 ?>
