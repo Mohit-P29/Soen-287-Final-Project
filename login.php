@@ -242,24 +242,16 @@ if(isset($_SESSION['login']) && $_SESSION['login']==='true'){
                  if($check==='admin'){
                      $_SESSION['login']='admin'; ?>
 
-<<<<<<< HEAD
                       <script>window.location.href='admin_products.php';</script>
-=======
                       <script> window.location.href='admin_products.php';</script>
->>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
 
             <?php }
                  
                  elseif($check==='valid'){ 
                      $_SESSION['login']='true';
                      $_SESSION['user_id']=$user;  ?>
-
-<<<<<<< HEAD
                      <script>window.location.href='UserPage.php';</script>
-=======
-                     <script> window.location.href='UserPage.php';</script>
->>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
-                 
+                     <script> window.location.href='UserPage.php';</script>                 
            <?php  
                  } else{ ?>
                    <script>alert("User email and password don't match!"); </script>
@@ -281,7 +273,3 @@ if(isset($_SESSION['login']) && $_SESSION['login']==='true'){
 <script src="js/login.js"></script>
 </body>
 </html>
-<<<<<<< HEAD
-=======
-
->>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83

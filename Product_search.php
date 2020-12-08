@@ -454,12 +454,9 @@ include_once 'includes/ConnectDB.php';
     }
         
     ?>
-<<<<<<< HEAD
-=======
 	</div>
 
 
->>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
 </div>
 </main>
 </body>
