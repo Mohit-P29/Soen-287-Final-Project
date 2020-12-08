@@ -5,6 +5,10 @@ include("includes/header.php");
 include("includes/ConnectDB.php");
 $_SESSION['login']=(isset($_SESSION['login']))?$_SESSION['login']:'false';
 $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No email shown';
+if(isset($_SESSION['login']) && $_SESSION['login']==='true'){
+	header("Location: UserPage.php");
+	exit();
+}
 
 ?>
 

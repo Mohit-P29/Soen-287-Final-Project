@@ -142,9 +142,13 @@
              }
           }
     }
-
-
-
+if(isset($_SESSION['login']) && $_SESSION['login']==='true'){
+	
+}
+else{
+	header("Location: login.php");
+	exit();
+}
    
     
 ?>
@@ -199,6 +203,7 @@
 				document.getElementById('Ediv').onmouseover = function() {
 					document.getElementById('colorcell').style.display = "table-cell";
 				}
+			
 
 			</script>
 			<!--List of functions div-->
@@ -398,27 +403,7 @@
 				</table>
 
 			</form>
-			<script type="text/javascript">
-			     document.getElementById('oldpassword').onfocus=function(){
-								document.getElementById('oldpassword').type="text";
-                            }
-				 document.getElementById('oldpassword').onblur=function(){
-								document.getElementById('oldpassword').type="password";
-                            }
-				 document.getElementById('newpassword').onfocus=function(){
-								document.getElementById('newpassword').type="text";
-                            }
-				 document.getElementById('newpassword').onblur=function(){
-								document.getElementById('newpassword').type="password";
-                            }
-				 document.getElementById('newpassword2').onfocus=function(){
-								document.getElementById('newpassword2').type="text";
-                            }
-				 document.getElementById('newpassword2').onblur=function(){
-								document.getElementById('newpassword2').type="password";
-                            }
-			
-			</script>
+		
 
 
 		</div>
@@ -578,7 +563,7 @@
             $remove=(isset($_SESSION['CardRemoved']))?$_SESSION['CardRemoved']:'';
             if($remove=='true'){ ?>
 
-				<script>
+				<script type="text/javascript">
 					document.getElementById('div4').style.display = "block";
 					document.getElementById('div3').style.display = "none";
 					document.getElementById('showcard').style.display = "none";
@@ -666,7 +651,7 @@
 
 			</div>
 		</div>
-		<script>
+		<script type="text/javascript">
 			document.getElementById('editCard').onclick = function() {
 				document.getElementById('showcard').style.display = "none";
 				document.getElementById('addcard').style.display = "block";
@@ -1083,7 +1068,7 @@
 
 						<tr>
 							<td><label for="Country">Country<br /><select class="Select" name="country" id="Country">
-										<option value="canada">Canada</option>
+										<option value="Canada">Canada</option>
 										<option value="United">United States</option>
 										<option value="Cuba">Cuba</option>
 										<option value="France">France</option>
@@ -1113,7 +1098,7 @@
 						</tr>
 						<tr>
 							<td><label for="PostalCode">Zip/Postal Code<br /><input type="text" placeholder="A1B2CD" style="padding-left:0px;" id="PostalCode" name="post" class="Inputfield" value="" required /></label></td>
-							<td><label for="Phone">Phone<br /><input type="text" id="Phone" style="padding-left:0px;" name="phone" class="Inputfield" value="" placeholder="1234567890000" required /></label></td>
+							<td><label for="Phone">Phone<br /><input type="text" id="Phone" style="padding-left:0px;" name="phone" class="Inputfield" value="" placeholder="345-123-4573" required /></label></td>
 						</tr>
 
 						<tr>
@@ -1239,21 +1224,32 @@ else if(isset($_POST['upload'])){
 
 <script type="text/javascript" src="js/UserPage.js"></script>
 <script type="text/javascript">
-	document.getElementById("dataedit1").onclick = function() {
-		document.getElementById("div7").style.display = "block";
-		document.getElementById("Province").value = "<?php echo $prov;?>";
-		document.getElementById("City").value = "<?php echo $city;?>";
-		document.getElementById("PostalCode").value = "<?php echo $po;?>";
-		document.getElementById("Phone").value = "<?php echo $p3;?>";
-		firstname.value = "<?php echo $firstname2;?>";
-		lastname.value = "<?php echo $lastname2;?>";
-		document.getElementById("CompanyName").value = "<?php echo $comp;?>";
-		document.getElementById("Address").value = "<?php echo $address1;?>";
-		document.getElementById("Address2").value = "<?php echo $address2;?>";
-		document.getElementById("Country").value = "<?php echo $coun;?>";
-
-
-	}
+   document.getElementById('oldpassword').onfocus=function(){
+	   document.getElementById('oldpassword').type="text";
+	   
+   }
+   document.getElementById('oldpassword').onblur=function(){
+	   document.getElementById('oldpassword').type="password";
+	   
+   }
+    document.getElementById('newpassword').onfocus=function(){
+	   document.getElementById('newpassword').type="text";
+	   
+   }
+   document.getElementById('newpassword').onblur=function(){
+	   document.getElementById('newpassword').type="password";
+	   
+   }
+    document.getElementById('newpassword2').onfocus=function(){
+	   document.getElementById('newpassword2').type="text";
+	   
+   }
+   document.getElementById('newpassword2').onblur=function(){
+	   document.getElementById('newpassword2').type="password";
+	   
+   }
+        
+	
 	//---------------------Update info------------------------------------
 	var v1 = false;
 	var v2 = false;
@@ -1352,6 +1348,7 @@ else if(isset($_POST['upload'])){
 
 
 	}
+	
 
 
 	//--------------------------------------------------------------------
