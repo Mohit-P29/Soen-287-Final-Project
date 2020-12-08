@@ -56,6 +56,7 @@ $_SESSION["emailexclusives_errorfooter"]= "";
                         
             </div>
             <a class="cta" href="login.php"><img src="images/signin.jpg" alt="Sign In" height="25px" width="25px"></a>
+            <a class="cta" href="Product_search.php"><ion-icon name="search-outline"></ion-icon></a>
             <p class="menu cta">Menu</p>
             
             
