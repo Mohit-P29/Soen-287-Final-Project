@@ -163,25 +163,24 @@
     
     for($q=0;$q<$itemsNum;$q++){
       $current=$idArray[$q];
-       $sql="SELECT * FROM products WHERE id='$current'";
-       $retval=mysqli_query($conn, $sql);
 
+      //skips custom masks
       if($current==61){
         continue;
       }
+      else{
+        $sql="SELECT * FROM products WHERE id='$current'";
+        $retval=mysqli_query($conn, $sql);
 
-       if(!$retval ) {
-          continue;
-        }
+        while ($row = mysqli_fetch_assoc($retval)){
+              $currentQty=$row['inventory'];
+          }
 
-       while ($row = mysqli_fetch_assoc($retval)){
-             $currentQty=$row['inventory'];
-        }
+        $currentQty--;
 
-      $currentQty--;
-
-      $sql = "UPDATE products SET inventory='$currentQty' WHERE user_id='$current'";
-      mysqli_query($conn, $sql);
+        $sql = "UPDATE products SET inventory='$currentQty' WHERE user_id='$current'";
+        mysqli_query($conn, $sql);
+      }
     }
    
 
