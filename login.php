@@ -9,7 +9,6 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/login.css" />
-
 <div class="flip-card-3D-wrapper">
     <div id="flip-card">
         <div class="container_signin">
@@ -17,10 +16,10 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
             <form action="" method="post">
             <div class="container_user_credentials">
                 <img src="image/email_icon.JPG" alt="email_icon" width="25px" height="15px" />
-                <input class="user_credentials" type="email" name="email" id="email" placeholder="E-mail" /><br /><br />
+                <input class="user_credentials" style="padding-left:0px;" type="email" name="email" id="email" placeholder="E-mail" /><br /><br />
 
                 <img src="image/password_icon.JPG" alt="password_icon" width="25px" height="15px" />
-                <input class="user_credentials" type="password" name="password" id="password" placeholder="Password" /><br />
+                <input class="user_credentials" style="padding-left:0px;" type="password" name="password" id="password" placeholder="Password" /><br />
 
                 <p id="forgotpw" href="#">Forgot password?</p>
             </div>
@@ -38,13 +37,13 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
             <form onsubmit="return submitSignup(event);" method="post" action="" id='form'>
                 <div class="container_user_credentials_signup">
                     <img src="image/email_icon.JPG" alt="email_icon" width="25px" height="15px" />
-                    <input class="user_credentials_signup" type="email" name="email_signup" id="email_signup" placeholder="E-mail" /><br /><br />
+                    <input class="user_credentials_signup" style="padding-left:0px;" type="email" name="email_signup" id="email_signup" placeholder="E-mail" /><br /><br />
 
                     <img src="image/password_icon.JPG" alt="password_icon" width="25px" height="15px" />
-                    <input class="user_credentials_signup" type="password" name="password_signup" id="password_signup" placeholder="Password" /><br />
+                    <input class="user_credentials_signup" style="padding-left:0px;" type="password" name="password_signup" id="password_signup" placeholder="Password" /><br />
 
                     <img src="image/passcheck_icon.JPG" alt="passcheck_icon" width="25px" height="20px" />
-                    <input class="user_credentials_signup" type="password" name="recheck_password_signup" id="recheck_password_signup" placeholder="Re-enter Password" /><br />
+                    <input class="user_credentials_signup" style="padding-left:0px;" type="password" name="recheck_password_signup" id="recheck_password_signup" placeholder="Re-enter Password" /><br />
 
                     <label id="notification2" style="display: inline-block;">
                         <input type="checkbox" id="termPrivacy" />By check this, you agree to our
@@ -72,6 +71,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
         </div>
     </div>
 </div>
+
 
 <!-- Popup window for reset password -->
 <div class="popup" id="popup-1">
@@ -108,6 +108,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
         <p id="popup_successRest_desc"></p><br /><br /><br /><br />
     </div>
 </div>
+
 
  <?php 
                  
@@ -212,12 +213,11 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                  
            <?php  
                  } else{ ?>
-                   <script>alert("User email and password don't match!"); 
-                      } </script>
+                   <script>alert("User email and password don't match!"); </script>
+                       
                      
-           <?php  }
+           <?php  } }
             
-             }
                 
          ?> 
 
@@ -230,3 +230,4 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
 
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 <script src="js/login.js"></script>
+<?php include "includes/footer.php"; ?>

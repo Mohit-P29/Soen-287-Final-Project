@@ -4,6 +4,7 @@ var walletpage = document.getElementById("div4");
 var addresspage = document.getElementById("div5");
 var accountpage = document.getElementById("div3");
 var AddressForm = document.getElementById("div7");
+var changepassword=document.getElementById('div8');
 var button_closeAddressForm = document.getElementById("close1");
 var button_cancel = document.getElementById("AddressFormCancel");
 var button_confirmAdd = document.getElementById("button_addA");
@@ -38,7 +39,7 @@ editprofile.onclick = function () {
         ediprofiediv.style.display = "block";
         ediprofiediv.onclick = function () {
             Editlock = true;
-            document.getElementById('colorcell').style.display="table-cell";
+    
             document.getElementById("ConfirmSpan").style.display = "table-cell";
             document.getElementById("CancelSpan").style.display = "table-cell";
             document.getElementById("ProNameInput").classList.remove("ProNameInput");
@@ -64,23 +65,7 @@ document.getElementById("CancelSpan").onclick = function () {
     document.getElementById("ProNameInput").classList.add("ProNameInput");
 }
 
-myorder.onclick = function () {
-    clearDivs();
-    orderpage.style.display = "block";
 
-}
-myaccount.onclick = function () {
-    clearDivs();
-    accountpage.style.display = "block";
-}
-myaddress.onclick = function () {
-    clearDivs();
-    addresspage.style.display = "block";
-}
-mywallet.onclick = function () {
-    clearDivs();
-    walletpage.style.display = "block";
-}
 
 button_addNewAddress.onclick = function () {
     openToAddAddress();
@@ -136,7 +121,7 @@ function closeAddressForm() {
 }
 
 function clearDivs() {
-    document.getElementById('div8').style.display="none";
+    changepassword.style.display="none";
     orderpage.style.display = "none";
     addresspage.style.display = "none";
     walletpage.style.display = "none";
@@ -343,10 +328,7 @@ document.getElementById("ChangedIcon2").onmouseout = function () {
         }
         
     
-    document.getElementById('changepwd').onclick=function(){  
-        clearDivs();
-        document.getElementById('div8').style.display="block";
-    }
+    
     
     
            

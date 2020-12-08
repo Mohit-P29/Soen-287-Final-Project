@@ -6,7 +6,7 @@
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error());
    }
-   
+   $id=(isset($_SESSION['user_id']))?$_SESSION['user_id']:"NoID";
    $sql = "SELECT * FROM user_info";
    $retval = mysqli_query( $conn,$sql);
    if(! $retval ) {
@@ -23,7 +23,7 @@
         if($result>0){       
           while ( $row = mysqli_fetch_assoc($retval)){
     
-            if ($row['user_id']===$_SESSION['user_id']){
+            if ($row['user_id']===$id){
                   $first=$row['user_first'];
                  $last=$row['user_last'];
                  $email1=$row['user_email1'];
@@ -55,7 +55,7 @@
     if($result>0){
 
           while ( $row = mysqli_fetch_assoc($retval)){
-            if ($row['user_id']===$_SESSION['user_id']){
+            if ($row['user_id']===$id){
                   $first2=$row['first'];
                   $last2=$row['last'];
                   $comp2=$row['company'];
@@ -81,7 +81,7 @@
     if($result>0){
 
           while ( $row = mysqli_fetch_assoc($retval)){
-             if($row['user_id']===$_SESSION['user_id']){
+             if($row['user_id']===$id){
                $username=$row['user_name'];
              }
           }
@@ -109,7 +109,7 @@
     if($result>0){
 
           while ( $row = mysqli_fetch_assoc($retval)){
-             if($row['user_id']===$_SESSION['user_id']){
+             if($row['user_id']===$id){
                  $card=$row['cardnumber'];
                  $payfirst=$row['pay_first'];
                  $paylast=$row['pay_last'];
@@ -128,7 +128,7 @@
 //----------------------------------------------------------
  //-----------------------Color---------------------------------
     $sql = "SELECT * FROM profile";
-    $color="";
+    $color="#FFFFFF";
     $retval = mysqli_query( $conn,$sql);
     $result=mysqli_num_rows($retval);
     if(! $retval ) {
@@ -138,7 +138,7 @@
     if($result>0){
 
           while ( $row = mysqli_fetch_assoc($retval)){
-             if($row['user_id']===$_SESSION['user_id']){
+             if($row['user_id']===$id){
                 $color=$row['picture'];
              }
           }
@@ -146,6 +146,8 @@
 
 //--------------------------------------------------------
 
+
+   
     
 ?>
 
@@ -154,15 +156,15 @@
 
 </script>
 <link rel="stylesheet" href="css/UserPage.css" />
-
-<div style="margin-left:auto;margin-right:auto;width:100%;height:100%;">
+<main>
+<div style="width:100%;height:100%; position:absolute;top:20px;">
     <div class="div0">
         <!--Profile picture div-->
         <div class="div1" id="div1">
 
             <span id="EditP" class="EditP"></span>
             <div class="EditDiv" id="Ediv">
-                <div class="EditDive-content" style="float:left;font-size:1.3em;margin-left:30px;">
+                <div class="EditDive-content" style="cursor:pointer;float:left;font-size:1.3em;margin-left:30px;">
                     Edit Profile
                 </div>
             </div>
@@ -171,7 +173,7 @@
                     <tr>
                         <td colspan="2">
                         
-                            <div class="ProP" style="background-color:<?php echo (isset($color))?$color:""; ?>;color:white;text-align:center;font-size:3.3em;padding:35px;">
+                            <div class="ProP" style="background-color:<?php echo (isset($color))?$color:""; ?>;color:gray;text-align:center;font-size:3.3em;padding:35px;" id='propic'>
                                 <span><?php echo substr($username,0,1)?></span>
                             </div>
 
@@ -179,7 +181,7 @@
                     </tr>
                     <tr>
                     <td colspan="2" style="padding-left:50px; display:none;" id="colorcell" >
-                        <input type="color" value="<?php echo (isset($color))?$color:"#A52A2A"; ?>"  id="colortag" name="colortag" style="width:85px;height:30px;" />
+                        <input type="color" value="#FFFFFF"  id="colortag" name="colortag" style="width:85px;height:30px;" />
                     </td>
                     
                     
@@ -195,8 +197,10 @@
                 </table>
             </form>
         </div>
-        <script>
-       
+        <script type="text/javascript">
+        document.getElementById('Ediv').onmouseover=function(){
+            document.getElementById('colorcell').style.display="table-cell";
+        }
         
         
         </script>
@@ -220,7 +224,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <form action='' method="post"><input class='list' type="submit" style="color:white;font-weight:900;font-size:1.0em; font-family:sans-serif;border:0 none;background-color:red;width:100px;margin-left:-5px;float:left;height:30px;" id="logout" name="logout" value="Log Out" /></form>
+                        <form action='' method="post"><input class='list' type="submit" style="color:white;font-weight:900;font-size:1.0em; font-family:sans-serif;border:0 none;background-color:red;width:120px;margin-left:-5px;float:left;height:40px;" id="logout" name="logout" value="Log Out" /></form>
                     </td>
                     <script>
                         document.getElementById('logout').onmousemove = function() {
@@ -262,11 +266,11 @@
                     </tr>
                     <tr>
                         <td>
-                            First Name<br /><input type="text" id="SavedFirstName" name="user_first" class="Inputfield" value="<?php echo $first; ?>" placeholder="eg. Kate" maxlength="10" />
+                            First Name<br /><input type="text" id="SavedFirstName" style="padding-left:0px;"  name="user_first" class="Inputfield" value="<?php echo $first; ?>" placeholder="eg. Kate" maxlength="10" />
                         </td>
 
 
-                        <td>Last Name<br /><input type="text" id="SavedLastName" name="user_last" class="Inputfield" value="<?php echo $last; ?>" placeholder="eg.Sims" maxlength="10" /></td>
+                        <td>Last Name<br /><input type="text" id="SavedLastName" style="padding-left:0px;"  name="user_last" class="Inputfield" value="<?php echo $last; ?>" placeholder="eg.Sims" maxlength="10" /></td>
 
                     </tr>
                     <tr>
@@ -277,7 +281,7 @@
                             </div>
 
                             <br />
-                            <input type="text" id="ContactEmail" class="Inputfield" name="user_email1" value="<?php echo $email1; ?>" placeholder="Katesims@(hotmail.com/gmail.com/outlook.com)" />
+                            <input type="text" id="ContactEmail" class="Inputfield" style="padding-left:0px;"  name="user_email1" value="<?php echo $email1; ?>" placeholder="Katesims@(hotmail.com/gmail.com/outlook.com)" />
                         </td>
 
                         <td><label for="SavedPhone" id="ChangedLabel1">Phone1</label>
@@ -287,7 +291,7 @@
                             </div>
 
                             <br />
-                            <input type="text" id="SavedPhone" name="user_phone1" class="Inputfield" value="<?php echo $phone1; ?>" placeholder="001-234-567-8901" maxlength="16" />
+                            <input type="text" id="SavedPhone" name="user_phone1" style="padding-left:0px;"  class="Inputfield" value="<?php echo $phone1; ?>" placeholder="001-234-567-8901" maxlength="16" />
                         </td>
                     </tr>
                     <tr id="HiddenRow" style="display: none;">
@@ -295,7 +299,7 @@
                             <label id="ChangedLable2">Contact Email 2</label>
                             <label id="ChangedIcon3" class="plus"></label>
                             <br />
-                            <input type="text" style="width: 545px;" id="ContactEmail2" name="user_email2" class="Inputfield2" placeholder="Katesims@(hotmail.com/gmail.com/outlook.com)" value="<?php echo $email2; ?>" />
+                            <input type="text" style="width: 545px;padding-left:0px;" id="ContactEmail2" name="user_email2" class="Inputfield2" placeholder="Katesims@(hotmail.com/gmail.com/outlook.com)" value="<?php echo $email2; ?>" />
                         </td>
                     </tr>
                     <tr>
@@ -303,7 +307,7 @@
                             <label id="ChangedLable3">Phone 2</label>
                             <label id="ChangedIcon4" class="plus"></label>
                             <br />
-                            <input type="text" style="width: 545px;" class="Inputfield2" name="user_phone2" id="Phone2" placeholder="001- 415-789-3981" maxlength="16" value="<?php echo $phone2; ?>" />
+                            <input type="text" style="width: 545px;padding-left:0px;" class="Inputfield2" name="user_phone2" id="Phone2" placeholder="001- 415-789-3981" maxlength="16" value="<?php echo $phone2; ?>" />
                         </td>
                     </tr>
 
@@ -325,55 +329,21 @@
         </div>
     </div>
     
+    
     <!--Change Password-->
     <div class="div8" id="div8">
      <span class="listTitle">Change Password</span>
      <form class="MyOtherForm" style="margin-top:40px;padding-top:35px;" id="changeform" action="" method="post" >
         <table style="border-spacing:30px; text-align:left;">
-            <tr><td>Enter Old Password: </td><td><input type="text" class="Inputfield" id="oldpassword" name="oldpassword" placeholder="Old Password" required/></td></tr>
-            <tr><td>Enter New Password:</td><td> <input type="text" class="Inputfield"  id="newpassword" name="newpassword" placeholder="New Password" required/></td></tr>
-            <tr><td>Repeat New Password: </td><td><input type="text" class="Inputfield" id="newpassword2" name="newpassword2" placeholder="Repeat Password" required/></td></tr>
-            <tr><td style="font-size:0.8em;"><br/>Password contains at least 8 characters, 1 lower character, 1 upper character,1 digit,and 1 special character(!@#$%^)</td></tr>
+            <tr><td>Enter Old Password: </td><td><input type="text" style="padding-left:0px;"  class="Inputfield" id="oldpassword" name="oldpassword" placeholder="Old Password" required/></td></tr>
+            <tr><td>Enter New Password:</td><td> <input type="text" style="padding-left:0px;"  class="Inputfield"  id="newpassword" name="newpassword" placeholder="New Password" required/></td></tr>
+            <tr><td>Repeat New Password: </td><td><input type="text" style="padding-left:0px;"  class="Inputfield" id="newpassword2" name="newpassword2" placeholder="Repeat Password" required/></td></tr>
+            <tr><td style="font-size:0.8em;"><br/>Password contains at least 8 characters, 1 lower character, 1 upper character,1 digit</td></tr>
             <tr><td><input type="submit" value="Submit" id="submit_changepwd" name="submit_changepwd" class="UpdateAccount"/></td></tr>
         </table>
 
     </form>
-  <script>
-      document.getElementById('oldpassword').onfocus=function(){
-              document.getElementById('oldpassword').type="text";
-          
-
-      }
-       document.getElementById('oldpassword').onblur=function(){
-              document.getElementById('oldpassword').type="password";
-          
-
-      }
-         document.getElementById('newpassword').onfocus=function(){
-              document.getElementById('newpassword').type="text";
-          
-
-      }
-       document.getElementById('newpassword').onblur=function(){
-              document.getElementById('newpassword').type="password";
-          
-
-      }
-         document.getElementById('newpassword2').onfocus=function(){
-              document.getElementById('newpassword2').type="text";
-          
-
-      }
-       document.getElementById('newpassword2').onblur=function(){
-              document.getElementById('newpassword2').type="password";
-          
-
-      }
-      
-        
-        
-        
- </script>
+ 
     
     
     </div>
@@ -441,15 +411,15 @@
                         <td>Card Number:</td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input id="cardnumber" name="cardnumber" type="text" class="Inputfield2" placeholder="1234 5678 1234 5678" required maxlength="19" /></td>
+                        <td colspan="2"><input id="cardnumber" style="padding-left:0px;"  name="cardnumber" type="text" class="Inputfield2" placeholder="1234 5678 1234 5678" required maxlength="19" /></td>
                     </tr>
                     <tr>
-                        <td>First Name:<br /><input type="text" id="pay_first" name="pay_first" class="Inputfield" placeholder="eg. Kate" required /></td>
-                        <td>Last Name:<br /><input type="text" id="pay_last" name="pay_last" class="Inputfield" placeholder="eg. Sims" required /></td>
+                        <td>First Name:<br /><input type="text" style="padding-left:0px;"  id="pay_first" name="pay_first" class="Inputfield" placeholder="eg. Kate" required /></td>
+                        <td>Last Name:<br /><input type="text" style="padding-left:0px;"  id="pay_last" name="pay_last" class="Inputfield" placeholder="eg. Sims" required /></td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            Address:<br /><input type="text" id="pay_address" class="Inputfield2" name="pay_address" placeholder="1234 Rue Somewhere" required />
+                            Address:<br /><input type="text" style="padding-left:0px;"  id="pay_address" class="Inputfield2" name="pay_address" placeholder="1234 Rue Somewhere" required />
 
                         </td>
                     </tr>
@@ -458,7 +428,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="text" id="pay_city" class="Inputfield2" name="pay_city" placeholder="Montreal" required />
+                            <input type="text" id="pay_city" class="Inputfield2" style="padding-left:0px;" name="pay_city" placeholder="Montreal" required />
 
                         </td>
                     </tr>
@@ -489,11 +459,11 @@
 
                     </tr>
                     <tr>
-                        <td>Zip/Postal Code::<br /><input type="text" id="pay_post" name="pay_post" class="Inputfield" placeholder="A1BC2D" required maxlength="6" /></td>
-                        <td>Phone:<br /><input type="text" id="pay_phone" name="pay_phone" class="Inputfield" placeholder="001-234-567-8901" required /></td>
+                        <td>Zip/Postal Code::<br /><input type="text" id="pay_post" style="padding-left:0px;"  name="pay_post" class="Inputfield" placeholder="A1BC2D" required maxlength="6" /></td>
+                        <td>Phone:<br /><input type="text" id="pay_phone" name="pay_phone" style="padding-left:0px;"  class="Inputfield" placeholder="001-234-567-8901" required /></td>
                     </tr>
                     <tr>
-                        <td>CVC/Security Code:<br /><input type="text" id="pay_cvc" name="pay_cvc" placeholder="3-digit number" required maxlength="3" /></td>
+                        <td>CVC/Security Code:<br /><input type="text" id="pay_cvc" style="padding-left:0px;"  name="pay_cvc" placeholder="3-digit number" required maxlength="3" /></td>
                     </tr>
                     <tr>
                         <td><input type="submit" name="pay_info" id="pay_info" class="UpdateAccount" style="border:0 none;" value="Add card to wallet" /></td>
@@ -825,7 +795,7 @@
 <?php    } ?>
     
 <?php 
-    
+    $_SESSION['cardAdded']=(isset($_SESSION['cardAdded']))?$_SESSION['cardAdded']:"";
     if($_SESSION['cardAdded']==='true'){ 
     
     ?>
@@ -895,18 +865,11 @@
                               echo "<tr><td>";
                              echo "Phone: ".$phone;
                              echo "</td></tr>"; 
-            
-                       ?>
-                <script>
-                    
-                    document.getElementById("AddressT1").style.display = "block";
-                    document.getElementById("addressnotify").innerHTML = "";
-                    document.getElementById("AddAddress").innerHTML = "Add Another Address";
-
-                </script>
+                       
+                      
 
 
-                <?php } ?>
+               } ?>
                 <tr>
                     <td><span id="dataedit1" style="font-weight:bold;color:black;text-decoration:underline; font-size:1.2em;cursor:pointer;">Edit</span></td>
 
@@ -919,36 +882,7 @@
                 </tr>
             </table>
 
-            <table id="AddressT2" style="display: none;border-bottom: thin solid lightgray;">
-                <tr>
-                    <td>
-
-
-
-
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td><span>Edit</span></td>
-                    <td><span>Remove</span></td>
-                </tr>
-            </table>
+          
 
             <table id="AddressT3">
                 <tr>
@@ -959,6 +893,20 @@
             </table>
         </div>
     </div>
+    <?php 
+       
+                         if($first2!='' && $last2!='' && $phone!=''){
+                      echo "<script>
+        
+                    document.getElementById('AddressT1').style.display = 'block';
+                 
+                    document.getElementById('AddAddress').style.display='none';
+
+                      </script>";
+                         }
+    
+    
+    ?>
     <!--My orders-->
     <div class="div6" id="div6">
         <span class="listTitle">My Orders</span>
@@ -969,6 +917,44 @@
                 <label>You haven't placed any orders yet</label><br /><br />
                 <label><span class="UpdateAccount" id="ShopNow">Shop Now</span></label>
             </form>
+        </div>
+        <div id="showOrder" style="margin-top:30px;overflow:auto;height:550px;">
+         <?php
+          
+            $sql = "SELECT * FROM user_order WHERE userID='$id'";
+             $retval = mysqli_query( $conn,$sql);
+             $result=mysqli_num_rows($retval);
+             if(! $retval ) {
+                die('Could not get data: ' . mysqli_error());
+            } 
+           if($result>0){
+
+             echo "<div ><table style='table-layout:fixed;border-spacing:20px;text-align:right;'><tr style='font-size:1.4em;font-weight:bold;text-align:right;'><td>Image</td><td>Name</td><td>Quantity</td><td>Price</td><td colspan='3'>Purchase Time</td>
+             <td colspan='3'>Arrival Time</td>
+             </tr>";
+             while ( $row = mysqli_fetch_assoc($retval)){
+                     echo "<tr>";
+                     echo "<td><image width='80px;' height='60px' src='".$row['image']."'/></td>";
+                     echo "<td>".$row['productName']."</td>";
+                     echo "<td>".$row['quantity']."</td>";
+                    echo "<td>".$row['price']."</td>";
+                    echo "<td colspan='3'>".$row['oDay']."  ".$row['oMonth']."  ".$row['oYear']."</td>";
+                   echo "<td colspan='3'>".$row['aDay']."  ".$row['aMonth']."  ".$row['aYear']."</td>";
+                   
+                    echo "</tr>";
+                  
+                }
+                 
+              echo "</table></div>";
+               echo "<script>document.getElementById('showOrder').style.display='block';document.getElementById('NoOrder').style.display='none';</script>";
+               
+               
+           }
+                    
+            
+           ?>
+        
+        
         </div>
     </div>
     <!--Add addresses form-->
@@ -986,31 +972,31 @@
                     <!--Name section-->
                     <tr>
                         <td>
-                            <label for="FirstName">*First Name<br /><input type="text" id="FirstName" name="first2" class="Inputfield" value="" required /></label>
+                            <label for="FirstName">*First Name<br /><input type="text" style="padding-left:0px;" id="FirstName" name="first2" class="Inputfield" value="" placeholder="First Name" required /></label>
                         </td>
                         <td>
-                            <label for="LastName">*Last Name<br /><input type="text" id="LastName" name="last2" class="Inputfield" value="" required /></label>
+                            <label for="LastName">*Last Name<br /><input type="text" style="padding-left:0px;" id="LastName" name="last2" class="Inputfield" value="" placeholder="Last Name"required /></label>
                         </td>
                     </tr>
                     <!--Comany name section-->
                     <tr>
-                        <td colspan="2"><label for="CompanyName">Company Name<br /><input type="text" id="CompanyName" name="company" class="Inputfield2" value="" /></label></td>
+                        <td colspan="2"><label for="CompanyName">Company Name<br /><input type="text" style="padding-left:0px;" id="CompanyName" name="company" class="Inputfield2" value="" placeholder="Company" /></label></td>
 
                     </tr>
                     <!--Addres section-->
                     <tr>
-                        <td colspan="2"><label for="Address">Address<br /><input type="text" id="Address" name="address1" class="Inputfield2" value="" required /></label></td>
+                        <td colspan="2"><label for="Address">Address<br /><input type="text" id="Address" style="padding-left:0px;" name="address1" class="Inputfield2" value="" placeholder="1234 Rue Somewhere"  required /></label></td>
 
                     </tr>
                     <!--The alternative address section-->
                     <tr>
-                        <td colspan="2"><label for="AddressLine2">Address - Line 2<br /><input type="text" id="AddressLine2" class="Inputfield2" name="address2" value="" /></label>
+                        <td colspan="2"><label for="AddressLine2">Address - Line 2<br /><input type="text" style="padding-left:0px;" id="AddressLine2" class="Inputfield2" name="address2" value="" placeholder="1234 Rue Somewhere" /></label>
 
                         </td>
                     </tr>
                     <!--City-->
                     <tr>
-                        <td colspan="2"><label for="City">City<br /><input type="text" id="City" name="city" class="Inputfield2" placeholder="Apartment, suite, floor" value="" required /></label></td>
+                        <td colspan="2"><label for="City">City<br /><input type="text" id="City" name="city" style="padding-left:0px;" class="Inputfield2" placeholder="City" value="" required /></label></td>
                     </tr>
 
                     <tr>
@@ -1038,8 +1024,8 @@
                                 </select></label></td>
                     </tr>
                     <tr>
-                        <td><label for="PostalCode">Zip/Postal Code<br /><input type="text" id="PostalCode" name="post" class="Inputfield" value="" required /></label></td>
-                        <td><label for="Phone">Phone<br /><input type="text" id="Phone" name="phone" class="Inputfield" value="" required /></label></td>
+                        <td><label for="PostalCode">Zip/Postal Code<br /><input type="text" placeholder="A1B2CD"  style="padding-left:0px;"id="PostalCode" name="post" class="Inputfield" value="" required /></label></td>
+                        <td><label for="Phone">Phone<br /><input type="text" id="Phone" style="padding-left:0px;" name="phone" class="Inputfield" value="" placeholder="1234567890000" required /></label></td>
                     </tr>
 
                     <tr>
@@ -1058,6 +1044,7 @@
 
     </div>
 </div>
+</main>
 <?php 
             $_SESSION['fixed_AddressPage']=(isset($_SESSION['fixed_AddressPage']))?$_SESSION['fixed_AddressPage']:'false';
 
@@ -1160,8 +1147,8 @@ else if(isset($_POST['upload'])){
 ?>
 
 
-<script>
-    document.getElementById("dataedit1").onclick = function() {
+<script type="text/javascript">
+       document.getElementById("dataedit1").onclick = function() {
         document.getElementById("div7").style.display = "block";
         document.getElementById("Province").value = "<?php echo $prov;?>";
         document.getElementById("City").value = "<?php echo $city;?>";
@@ -1273,62 +1260,91 @@ else if(isset($_POST['upload'])){
         }
 
 
-
-
     }
-
-
+    
+    
     //--------------------------------------------------------------------
+  
+     
+    
+     document.getElementById('MyWallet').onmouseover=function(){
+          document.getElementById('div8').style.display="none";
+          document.getElementById("div3").style.display='none';
+          document.getElementById("div4").style.display='block';
+          document.getElementById("div5").style.display='none';
+          document.getElementById("div6").style.display='none';
+       
+     }
+     document.getElementById('MyOrder').onmouseover=function(){
+          document.getElementById('div8').style.display="none";
+          document.getElementById("div3").style.display='none';
+          document.getElementById("div4").style.display='none';
+          document.getElementById("div5").style.display='none';
+          document.getElementById("div6").style.display='block';
+       
+     }
+     document.getElementById('MyAddress').onmouseover=function(){
+          document.getElementById('div8').style.display="none";
+          document.getElementById("div3").style.display='none';
+          document.getElementById("div4").style.display='none';
+          document.getElementById("div5").style.display='block';
+          document.getElementById("div6").style.display='none';
+       
+     }
+     document.getElementById('MyAccount').onmouseover=function(){
+          document.getElementById('div8').style.display="none";
+          document.getElementById("div3").style.display='block';
+          document.getElementById("div4").style.display='none';
+          document.getElementById("div5").style.display='none';
+          document.getElementById("div6").style.display='none';
+       
+     }
+     
+      document.getElementById('changepwd').onmouseover=function(){
+          document.getElementById("div3").style.display='none';
+          document.getElementById("div4").style.display='none';
+          document.getElementById("div5").style.display='none';
+          document.getElementById("div6").style.display='none';
+        document.getElementById('div8').style.display="block";
+     }
+      
+      document.getElementById('oldpassword').onfocus=function(){
+              document.getElementById('oldpassword').type="text";
+          
+
+      }
+       document.getElementById('oldpassword').onblur=function(){
+              document.getElementById('oldpassword').type="password";
+          
+
+      }
+         document.getElementById('newpassword').onfocus=function(){
+              document.getElementById('newpassword').type="text";
+          
+
+      }
+       document.getElementById('newpassword').onblur=function(){
+              document.getElementById('newpassword').type="password";
+          
+
+      }
+         document.getElementById('newpassword2').onfocus=function(){
+              document.getElementById('newpassword2').type="text";
+          
+
+      }
+       document.getElementById('newpassword2').onblur=function(){
+              document.getElementById('newpassword2').type="password";
+          
+
+      }
+      
+    
+    
+
 
 </script>
-<script>
-    if ("<?php echo $email2 ?>" != '') {
-        document.getElementById("ChangedIcon1").style.display = "none";
-        document.getElementById("HiddenRow").style.display = "table-row";
-        document.getElementById("HiddenInfo").style.display = "table-cell";
-        document.getElementById("ChangedIcon3").classList.remove("plus");
-        document.getElementById("ChangedIcon3").classList.add("minus");
-    }
 
-    if ("<?php echo $phone2 ?>" != '') {
-        document.getElementById("ChangedIcon2").style.display = "none";
-        document.getElementById("HiddenInfo2").style.display = "table-cell";
-        document.getElementById("ChangedIcon4").classList.remove("plus");
-        document.getElementById("ChangedIcon4").classList.add("minus");
-    }
-    var Editlock = false;
-document.getElementById('EditP').onclick = function () {
-
-    if (!Editlock) {
-        document.getElementById('Ediv').style.display = "block";
-        document.getElementById('Ediv').onclick = function () {
-            Editlock = true;
-            document.getElementById('colorcell').style.display="table-cell";
-            document.getElementById("ConfirmSpan").style.display = "table-cell";
-            document.getElementById("CancelSpan").style.display = "table-cell";
-            document.getElementById("ProNameInput").classList.remove("ProNameInput");
-            document.getElementById("ProNameInput").classList.add("ProNameInput2");
-            ediprofiediv.style.display = "none";
-        }
-    }
-}
-document.getElementById("ConfirmSpan").onclick = function () {
-    Editlock = false;
-    document.getElementById("ConfirmSpan").style.display = "none";
-    document.getElementById("CancelSpan").style.display = "none";
-    document.getElementById("ProNameInput").classList.remove("ProNameInput2");
-    document.getElementById("ProNameInput").classList.add("ProNameInput");
-    
-}
-document.getElementById("CancelSpan").onclick = function () {
-    Editlock = false;
-    
-    document.getElementById("ConfirmSpan").style.display = "none";
-    document.getElementById("CancelSpan").style.display = "none"
-    document.getElementById("ProNameInput").classList.remove("ProNameInput2");
-    document.getElementById("ProNameInput").classList.add("ProNameInput");
-}
-
-</script>
 <script src="js/UserPage.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?php include "includes/footer.php"; ?>
