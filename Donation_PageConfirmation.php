@@ -14,7 +14,15 @@ $page_title = "Thank You!";
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {      
-$form_error = false;
+    $form_error = false;
+    $_SESSION["donationpage_donationamount"] = $_POST["donationpage_donationamount"];
+    $_SESSION["donationpage_fullname"] = $_POST["donationpage_fullname"];
+    $_SESSION["donationpage_cardnumber"] = $_POST["donationpage_cardnumber"];
+    $_SESSION["donationpage_expirationmonth"] = $_POST["donationpage_expirationmonth"];
+    $_SESSION["donationpage_expirationyear"] = $_POST["donationpage_expirationyear"];
+    $_SESSION["donationpage_CVC"] = $_POST["donationpage_CVC"];
+    $_SESSION["donationpage_email"] = $_POST["donationpage_email"];
+    
 
 
 // Validating donation amount
@@ -25,7 +33,7 @@ if(empty($_POST["donationpage_donationamount"]))
    }
    else
    {
-       if(preg_match("/[0-9]*/", $_POST["donationpage_donationamount"] ))
+       if(preg_match("/^\d+$/", $_POST["donationpage_donationamount"] ))
        {
            $_SESSION["donationamount_error"]  = "Good amount";
        }
@@ -129,7 +137,7 @@ if(empty($_POST["donationpage_expirationmonth"]) || empty($_POST["donationpage_e
     {
         //xinyideng10@hotmail.com
         $full_email = explode("@" , $_POST["donationpage_email"]);
-        if(preg_match("/xinyideng10/" , $full_email[0] ) && preg_match("/hotmail.com/" , $full_email[1]))
+        if(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*/" , $full_email[0] ) && preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*/" , $full_email[1]))
         {
             $_SESSION["donationemail_error"]= "Good Email";
         }
@@ -144,94 +152,15 @@ if(empty($_POST["donationpage_expirationmonth"]) || empty($_POST["donationpage_e
 // Validating if any errors in form
     if($form_error == true)
     {
-        header("location: DonationPage.php");
+         header("location: DonationPage.php");
+    }
+    else
+    {
+        header("location: Donation_Redirect.php");
     }
     
 }
-
-    $firstName =  $_SESSION["donation_first_name"];
- $lastName = $_SESSION["donation_last_name"];
-$amount = $_POST["donationpage_donationamount"];
-
-	  /**
- * PHP Template for using PHPMailer to send emails.
- * Before sending emails using the Gmail's SMTP Server, you must make some of the security and permission level     
- * settings under your Google Account Security Settings. Please create a dummy account as you will have to put in 
- * username and password
- * Make sure that 2-Step-Verification is disabled. Follow the link https://myaccount.google.com/security
- * Turn ON the "Less Secure App" access at https://myaccount.google.com/u/0/lesssecureapps 
- */
-
-//Import the Plike thatHPMailer class into the global namespace
-//You don't have to modify these lines. 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-
-//SMTP needs accurate times, and the PHP time zone MUST be set
-//This should be done in your php.ini, but this is how to do it if you don't have access to that
-date_default_timezone_set('Etc/UTC');
-
-require 'vendor/autoload.php';
-
-//Create a new PHPMailer instance
-$mail = new PHPMailer;
-//Tell PHPMailer to use SMTP
-$mail->isSMTP();
-//Enable SMTP debugging
-// SMTP::DEBUG_OFF = off (for production use)
-// SMTP::DEBUG_CLIENT = client messages
-// SMTP::DEBUG_SERVER = client and server messages
-//$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-//Set the hostname of the mail server (We will be using GMAIL)
-$mail->Host = 'smtp.gmail.com';
-//Set the SMTP port number - likely to be 25, 465 or 587
-$mail->Port = 587;
-//Whether to use SMTP authentication
-$mail->SMTPAuth = true;
-
-//Username to use for SMTP authentication
-$mail->Username = 'info.covaid@gmail.com';
-//Password to use for SMTP authentication
-$mail->Password = '!covaidTEAM123';
-//Set who the message is to be sent from
-$mail->setFrom('info.covaid@gmail.com', 'Covaid Inc.');
-//Set an alternative reply-to address
-//$mail->addReplyTo('replyto@example.com', 'First Last');
-//Set who the message is to be sent to email and name
-$mail->addAddress($_POST["donationpage_email"],  $_SESSION["donation_first_name"]. " " . $_SESSION["donation_last_name"]
-);
-//Name is optional
-//$mail->addAddress('recepientid@domain.com');
-
-//You may add CC and BCC
-//$mail->addCC("recepient2id@domain.com");
-//$mail->addBCC("recepient3id@domain.com");
-
-$mail->isHTML(true);
-
-//You can add attachments. Provide file path and name of the attachments
-$mail->addAttachment("kobe.jpg", "kobe.jpg");        
-//Filename is optional
-//$mail->addAttachment("images/profile.png"); 
-
-
-
-//Set the subject line
-$mail->Subject = 'Donation Confirmation Receipt';
-//Read an HTML message body from an external file, convert referenced images to embedded,
-//convert HTML into a basic plain-text alternative body
-$mail->Body = "Thank you for your " .  $amount . "$" . " donation " . $firstName . " " . $lastName . "From the Covaid Team!";
-//You may add plain text version using AltBody
-//$mail->AltBody = "This is the plain text version of the email content";
-//send the message, check for errors
-if (!$mail->send()) {
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message was sent Successfully!';
-}
-    
-
-
+	  
   ?>  
     
   
@@ -261,11 +190,11 @@ if (!$mail->send()) {
         <br />
         <p> Thank You <?php echo $_SESSION["donation_first_name"] ?> For Your Donation! </p>
         <br />
-        <p> You Have Donated <?php echo $_POST["donationpage_donationamount"] ?>$</p>
+        <p> You Have Donated <?php echo $_SESSION["donationpage_donationamount"] ?>$</p>
         <br />
         <p> Digital Receipt Has Been Sent To The Following E-mail:  </p>
         <br />
-        <p> <?php echo $_POST["donationpage_email"] ?> </p>
+        <p> <?php echo $_SESSION["donationpage_email"] ?> </p>
         <br />
         <div class="donationcomplete_check"><ion-icon name="checkmark-done-sharp"></ion-icon></div>
         

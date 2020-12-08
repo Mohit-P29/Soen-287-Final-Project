@@ -15,7 +15,7 @@
     $imageNewName = "";
 
     
-    if($imageFile != null){
+    if($imageFile['error'] == 0){
         $imageFileName = explode('.', $_FILES['file']['name']);
         $imageFileNameExt = strtolower(end($imageFileName));
         $allowedImageExt = array('jpg', 'jpeg', 'png');
@@ -65,4 +65,4 @@
     }
 
     //Go back to the page
-    //header("Location: ../$admin_link"."?update=success");
+    header("Location: ../$admin_link"."?update=success");

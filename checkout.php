@@ -6,6 +6,25 @@
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error());
    }
+
+   $sql = "SELECT * FROM payment";
+   $retval = mysqli_query( $conn,$sql);
+   if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+   }
+    $result=mysqli_num_rows($retval);
+
+        if($result>0){       
+          while ( $row = mysqli_fetch_assoc($retval)){
+
+            if ($row['user_id']===$_SESSION['user_id']){
+                  $paymentCard=$row['cardnumber'];
+            }
+        }
+      }
+
+    $paymentCard=substr($paymentCard,15);
+
    
    $sql = "SELECT * FROM user_info";
    $retval = mysqli_query( $conn,$sql);
@@ -85,6 +104,7 @@
           }
     }
     
+    //if user does not have an account
     if($_SESSION["login"]=='false'){
         header("Location: errorLogin.php");
     }
@@ -95,7 +115,7 @@
     }
     
 ?>
-        <h2>Review your order</h2>
+ 
         <section id="orderReview">
             <div id="shipAddress">
                 <h3>Shipping Address</h3>
@@ -112,8 +132,8 @@
                 <div id="payMethod">
                     <h3>Payment Method</h3>
                     <a href="UserPage.php">change</a>
-                    <img src="" alt="visa">
-                    <p>ending in 1337</p>
+                    <img id="visa" src="image/visa.png" alt="visa">
+                    <p>ending in <?php echo $paymentCard?></p>
                 </div>
                 <div id="shipMethod">
                     <h3>Shipping Method</h3>
@@ -125,7 +145,7 @@
                 <div id="promo">
                     <h3>Gift cards & promotional codes</h3>
                     <input placeholder="Enter code" id="promoCode">
-                    <button onclick="promo()">Apply</button>
+                    <button onclick="promo()" id="codeBtn">Apply</button>
                     <p id="addedCode"></p>
                 </div>
                 
@@ -165,6 +185,15 @@
                             $total=$total+$row["quantity"]*$row["price"];
                             $totalQty=$totalQty+$row["quantity"];
 
+                            $prodName=$row["productName"];
+                            $c1=$row["maskPColor"];
+                            $c2=$row["MaskSColor"];
+
+                            if($prodName=="Custom Mask"){
+                                $prodName=$prodName."(Primary Color: ".$c1." Secondary Color: ".$c2.")";
+                            }
+
+
                             //END OF PHP TAG
                             ?>
                            <div class="product">
@@ -172,7 +201,7 @@
                              <img src="<?php echo $row['image']?>" alt="img"/>
                             </div>
                             <div class="left nameANDprice">
-                                <span class="sm-hide"><?php echo $row["productName"];  ?></span>
+                                <span class="sm-hide"><?php echo $prodName;  ?></span>
                                 <span class="sm-hide">$<?php echo $row["price"];  ?></span>
                                 
                             </div>
@@ -192,17 +221,18 @@
         <section id="donationANDreceipt">
             <div id="donation">
                 <h3>Please consider a kind donation</h3>
-                <p>As you may know, many lives are impacted by the global pandemic... blablabla
+                <p>As you may know, many lives are impacted by the global pandemic...
                     By donating, you are automatically supporting the people in need and you will be given a free discount code for your next purchase!</p>
                 <img src="images/redCrossLogo.jpg" alt="red cross logo" id="redCrossLogo">
                 <div id="donoNow"> 
                     <h4>Donate now</h4>
                     <input placehold="Enter amount" id="donoAmount">
-                    <button onclick="dono()">Add donation</button>
+                    <button onclick="dono()" id="addDonoBtn">Add donation</button>
                 </div>
                 <p id="thankyouDono"></p>
             </div>
             <div id="receipt">
+                
                 <h4>Order summary</h4>
                 <div>
                     <p class="item">Items(<?php echo $totalQty?>)</p>
@@ -245,8 +275,25 @@
                     <p class="item">Order Total:</p>
                     <p class="itemPrice" id="finalTotal"></p>
                 </div>
-                <form action="orderPlaced2.php">
-                    <input type="submit" value="Place Order"/>
+
+                <form action="orderPlaced2.php" method="post" onsubmit="clearStorage()">
+
+                    <input type="hidden" name="oMonth" id="oMonthV">
+                    <input type="hidden" name="oDay" id="oDayV">
+                    <input type="hidden" name="oYear" id="oYearV">
+
+                    <input type="hidden" name="aMonth" id="aMonthV">
+                    <input type="hidden" name="aDay" id="aDayV">
+                    <input type="hidden" name="aYear" id="aYearV">
+
+                    <input type="hidden" name="taxV" id="taxV">
+                    <input type="hidden" name="codeV" id="codeV">
+                    <input type="hidden" name="shipV" id="shipV">
+                    <input type="hidden" name="totalV" id="totalV">
+                    <input type="hidden" name="donoV" id="donoV">
+                    <input type="hidden" name="finalV" id="finalV">
+
+                    <input type="submit" value="Place Order" id="orderBtn"/>
                 </form>
             </div>
 
@@ -254,7 +301,7 @@
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
         <script src="js/cart.js"></script>
         <script>
-            //displayItems();
+            getDay();
             newTotalCost();
             shipping();
             load_P_and_D();

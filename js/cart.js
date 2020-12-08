@@ -1,277 +1,71 @@
-/*let carts = document.querySelectorAll('.add-cart');
+function getDay(){
+    var today= new Date();
+    var oYear=today.getFullYear();
+    var oMonth=today.getMonth()+1;
+    var oDay=today.getDate();
 
-let products = [ 
-    {
-        name: "item 1",
-        tag: "item1",
-        price: 15,
-        inCart: 0
-    },
-    {
-        name: "item 3",
-        tag: "item3",
-        price: 20,
-        inCart: 0
-    },
-    {
-        name: "item 2",
-        tag: "item2",
-        price: 15,
-        inCart: 0
-    },
-    {
-        name: "item 4",
-        tag: "item4",
-        price: 20,
-        inCart: 0
+    switch(oMonth){
+        case 1: 
+            oMonth="January";
+            break;
+        case 2: 
+            oMonth="February";
+            break;       
+        case 3: 
+            oMonth="March";
+            break;
+        case 4: 
+            oMonth="April";
+            break;
+        case 5: 
+            oMonth="May";
+            break;
+        case 6: 
+            oMonth="June";
+            break;
+        case 7: 
+            oMonth="July";
+            break;
+        case 8: 
+            oMonth="August";
+            break;
+        case 9: 
+            oMonth="September";
+            break;
+        case 10: 
+            oMonth="October";
+            break;
+        case 11: 
+            oMonth="November";
+            break;
+        case 12: 
+            oMonth="December";
+            break;
     }
-];
 
-//Checks for which ".addCart" button got clicked
-for(let i=0; i< carts.length; i++) {
-    carts[i].addEventListener('click', () => {
-        cartNumbers(products[i]);
-        totalCost(products[i]);
-    });
+    //set value for form
+    document.getElementById("oMonthV").value=oMonth;
+    document.getElementById("oDayV").value=oDay;
+    document.getElementById("oYearV").value=oYear;
+
+
 }
 
-function onLoadCartNumbers() {
-    let productNumbers = localStorage.getItem('cartNumbers');
-    if( productNumbers ) {
-        document.querySelector('.cart span').textContent = productNumbers;
-    }
-}
 
-function cartNumbers(product, action) {
-    let productNumbers = localStorage.getItem('cartNumbers');
-    productNumbers = parseInt(productNumbers);
-
-    let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
-
-    if( action ) {
-        localStorage.setItem("cartNumbers", productNumbers - 1);
-        document.querySelector('.cart span').textContent = productNumbers - 1;
-        console.log("action running");
-    } else if( productNumbers ) {
-        localStorage.setItem("cartNumbers", productNumbers + 1);
-        document.querySelector('.cart span').textContent = productNumbers + 1;
-    } else {
-        localStorage.setItem("cartNumbers", 1);
-        document.querySelector('.cart span').textContent = 1;
-    }
-    setItems(product);
-}
-
-function setItems(product) {
-    // let productNumbers = localStorage.getItem('cartNumbers');
-    // productNumbers = parseInt(productNumbers);
-    let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
-
-    if(cartItems != null) {
-        let currentProduct = product.tag;
-    
-        if( cartItems[currentProduct] == undefined ) {
-            cartItems = {
-                ...cartItems,
-                [currentProduct]: product
-            }
-        } 
-        cartItems[currentProduct].inCart += 1;
-
-    } else {
-        product.inCart = 1;
-        cartItems = { 
-            [product.tag]: product
-        };
-    }
-
-    localStorage.setItem('productsInCart', JSON.stringify(cartItems));
-}*/
-
-function totalCost( product, action ) {
-    let cart = localStorage.getItem("totalCost");
-
-    if( action) {
-        cart = parseInt(cart);
-
-        localStorage.setItem("totalCost", cart - product.price);
-    } else if(cart != null) {
-        cart = parseInt(cart);
-        localStorage.setItem("totalCost", cart + product.price);
-    } else {
-        localStorage.setItem("totalCost", product.price);
-    }
-}
-
-//Display the items in the shopping cart
-/*function displayCart() {
-    let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
-
-    let cart = localStorage.getItem("totalCost");
-    cart = parseInt(cart);
-
-    let productContainer = document.querySelector('.products');
-    
-    if(cart==0 || cart==null){
-        var msg="Uh oh... Looks like the cart is empty.. Please add an item to proceed.";
-        productContainer.innerHTML=msg;
-        alert("test");
-    }
-
-    if( cartItems && productContainer ) {
-        productContainer.innerHTML = '';
-        Object.values(cartItems).map( (item, index) => {
-            productContainer.innerHTML += 
-            `<div class="product">
-            <div class="left">
-                    <ion-icon name="close-circle" class="deleteIcon"></ion-icon>
-                    <img src="./image/${item.tag}.jpg" />
-                </div>
-                <div class="left nameANDprice">
-                    <span class="sm-hide">${item.name}</span>
-                    <span class="sm-hide">$${item.price},00</span>
-                </div>
-            </div>
-            <div class="price sm-hide"></div>
-            <div class="quantity">
-                <ion-icon class="decrease" name="caret-back-outline"></ion-icon>
-                    <span>${item.inCart}</span>
-                <ion-icon class="increase" name="caret-forward-outline"></ion-icon>
-            </div>
-            <div class="total">$${item.inCart * item.price},00</div>`;
-        });
-
-        productContainer.innerHTML += `
-            <div class="basketTotalContainer">
-                <h4 class="basketTotalTitle">Basket Total</h4>
-                <h4 class="basketTotal">$${cart},00</h4>
-            </div>`
-
-
-        deleteButtons();
-        manageQuantity();
-    }
-}*/
-
-//Increase the quantity in shopping cart
-function manageQuantity() {
-    let decreaseButtons = document.querySelectorAll('.decrease');
-    let increaseButtons = document.querySelectorAll('.increase');
-    let currentQuantity = 0;
-    let currentProduct = '';
-    let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
-
-    for(let i=0; i < increaseButtons.length; i++) {
-        decreaseButtons[i].addEventListener('click', () => {
-            console.log(cartItems);
-            currentQuantity = decreaseButtons[i].parentElement.querySelector('span').textContent;
-            console.log(currentQuantity);
-            currentProduct = decreaseButtons[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLocaleLowerCase().replace(/ /g,'').trim();
-            console.log(currentProduct);
-
-            if( cartItems[currentProduct].inCart > 1 ) {
-                cartItems[currentProduct].inCart -= 1;
-                cartNumbers(cartItems[currentProduct], "decrease");
-                totalCost(cartItems[currentProduct], "decrease");
-                localStorage.setItem('productsInCart', JSON.stringify(cartItems));
-                //displayCart();
-            }
-        });
-
-        increaseButtons[i].addEventListener('click', () => {
-            console.log(cartItems);
-            currentQuantity = increaseButtons[i].parentElement.querySelector('span').textContent;
-            console.log(currentQuantity);
-            currentProduct = increaseButtons[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLocaleLowerCase().replace(/ /g,'').trim();
-            console.log(currentProduct);
-
-            cartItems[currentProduct].inCart += 1;
-            cartNumbers(cartItems[currentProduct]);
-            totalCost(cartItems[currentProduct]);
-            localStorage.setItem('productsInCart', JSON.stringify(cartItems));
-           // displayCart();
-        });
-    }
-}
-
-//Delete the item in shopping cart
-function deleteButtons() {
-    let deleteButtons = document.querySelectorAll('.product ion-icon');
-    let productNumbers = localStorage.getItem('cartNumbers');
-    let cartCost = localStorage.getItem("totalCost");
-    let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
-    let productName;
-    console.log(cartItems);
-
-    for(let i=0; i < deleteButtons.length; i++) {
-        deleteButtons[i].addEventListener('click', () => {
-            productName = deleteButtons[i].parentElement.textContent.toLocaleLowerCase().replace(/ /g,'').trim();
-           
-            localStorage.setItem('cartNumbers', productNumbers - cartItems[productName].inCart);
-            localStorage.setItem('totalCost', cartCost - ( cartItems[productName].price * cartItems[productName].inCart));
-
-            delete cartItems[productName];
-            localStorage.setItem('productsInCart', JSON.stringify(cartItems));
-
-            //displayCart();
-            //onLoadCartNumbers();
-        })
-    }
-}
-
-//Display the items in the checkout page
-/*function displayItems() {
-    let cartItems = localStorage.getItem('productsInCart');
-    let productNumbers = localStorage.getItem('cartNumbers');
-    cartItems = JSON.parse(cartItems);
-
-    let cart = localStorage.getItem("totalCost");
-    cart = parseInt(cart);
-
-    let productContainer = document.querySelector('.yourItems');
-    let itemsPriceTotal = document.querySelector('.itemsPriceTotal');
-    
-    if( cartItems && productContainer ) {
-        productContainer.innerHTML = '';
-        Object.values(cartItems).map( (item, index) => {
-            productContainer.innerHTML += 
-            `<div class="productItemDisplay">
-            
-            <div class="left">
-                <img src="./image/${item.tag}.jpg" />
-            </div> <!--end of class LEFT-->
-
-            <div class="left nameANDprice">
-                <span class="sm-hide">${item.name}</span>
-                <span>QTY: ${item.inCart}</span>
-                <span class="sm-hide">$${item.price},00</span>
-            </div><!--END OF CLASS RIGHT-->
-            `
-        });
-
-       itemsPriceTotal.innerHTML += `
-            <div class="basketTotalContainer">
-                <p class="item">items (${productNumbers})</p>
-                <p class="itemPrice">$${cart}</p>
-            </div>`
-
-    }
-}*/
 
 function shipping(){
     if(document.getElementById("hship1").checked){
         document.getElementById("shipMethodSelect").innerHTML="Regular Shipping";
+        //set values for form
+        document.getElementById("shipV").value="Regular Shipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$5";
-
-    }
+        
+    }   
 
     else{
         document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
+        //set values for form
+        document.getElementById("shipV").value="Express Shipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$10";
 
     }
@@ -288,12 +82,6 @@ function newTotalCost(){
 
     let cart = document.getElementById("totalCost").value;
     cart=parseInt(cart);
-
-    if(cart==0||isNaN(cart)){
-        alert("You must have at least 1 item in your cart");
-        window.location.href="index.php";
-    }
-
 
     //Get info on current date to display arrival day
     var today= new Date();
@@ -316,14 +104,14 @@ function newTotalCost(){
 
         //if we reach the end of January, March, May, etc)
         else if(aDay>31 && (aMonth==1 ||aMonth==3||aMonth==5||aMonth==7||aMonth==8||aMonth==10||aMonth==12)){
-            alert("odd! Day="+ aDay);
+           
             aDay=aDay-31;
             aMonth++;
         }
 
         //if we reach the end of april, june, september or november)
        else if(aDay>30 && (aMonth==4 ||aMonth==6||aMonth==9||aMonth==11)){
-        alert("even! Day="+ aDay);
+        
             aDay=aDay-30;
             aMonth++;
         }
@@ -338,6 +126,10 @@ function newTotalCost(){
     }
 
     else if(document.getElementById("hship2").checked){
+
+        document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
+        document.getElementById("shipMethodSelectPrice").innerHTML="$10";
+        document.getElementById("shipV").value="Express Shipping";
         
                 //2 days from now
                 aDay=aDay+2;
@@ -413,6 +205,10 @@ function newTotalCost(){
     document.getElementById("aDay").innerHTML=aDay;
     document.getElementById("aYear").innerHTML=aYear;
 
+    //set value for form
+    document.getElementById("aMonthV").value=aMonth;
+    document.getElementById("aDayV").value=aDay;
+    document.getElementById("aYearV").value=aYear;
 
     if(cart>=50){
         shippingCost=0;
@@ -451,6 +247,7 @@ function newTotalCost(){
 
     //Print taxes and price after taxes
     document.getElementById("taxes").innerHTML="$"+taxes.toFixed(2);
+    document.getElementById("taxV").value=taxes.toFixed(2);
     document.getElementById("pat").innerHTML="$"+pat.toFixed(2);
 
     //Calculates donation
@@ -467,19 +264,22 @@ function newTotalCost(){
     }
 
     document.getElementById("finalTotal").innerHTML="$"+total.toFixed(2);
-
+    document.getElementById("finalV").value=total.toFixed(2);
 }
 
 function promo(){
     var code=document.getElementById("promoCode").value;
 
-    if(localStorage.getItem("promo")!=""){
-        alert("You cannot apply more than 1 promo code!");
-        return;
-    }
-
+    if (localStorage.getItem("promo") !== null) {
+        if(localStorage.getItem("promo")!=""){
+            alert("You can't apply more than 1 promo code!");
+            return;
+        }
+      }
+   
     if(code=="Fall20"){
         document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
+        document.getElementById("codeV").value="Fall20";
         document.getElementById("enteredCodeDisc").innerHTML="-20%";
         document.getElementById("addedCode").innerHTML="<span class='deletePromo' onclick='removeCode()'>X</span> Promo Code <b>Fall20</b> has been added!";
         document.getElementById("addedCode").style.color="green";
@@ -506,18 +306,21 @@ function dono(){
         dono=parseFloat(dono);
         document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
+        document.getElementById("dono").value=dono.toFixed(2);
         localStorage.setItem("dono",dono);
         newTotalCost();
     }
 }
 
 function load_P_and_D(){
+
     if(localStorage.getItem("promo")=="Fall20"){
         document.getElementById("enteredCode").innerHTML="Fall20 Promo Code";
         document.getElementById("enteredCodeDisc").innerHTML="-20%";
         document.getElementById("addedCode").innerHTML="<span class='deletePromo' onclick='removeCode()'>X</span> Promo Code <b>Fall20</b> has been added!";
         document.getElementById("addedCode").style.color="green";
         document.getElementById("pbt3").style.display="inherit";
+        document.getElementById("codeV").value="Fall20";
         document.getElementById("promoCode").value="Fall20";
     }
 
@@ -527,11 +330,13 @@ function load_P_and_D(){
         document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
         document.getElementById("donoAmount").value=dono;
+        document.getElementById("donoV").value=dono;
     }
 
     if(localStorage.getItem("shipping")=="regular"){
         document.getElementById("hship1").checked=true;
         document.getElementById("shipMethodSelect").innerHTML="Regular Shipping";
+        document.getElementById("shipV").value="RegularShipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$5";
     }
 
@@ -539,6 +344,8 @@ function load_P_and_D(){
         document.getElementById("hship2").checked=true;
         document.getElementById("shipMethodSelect").innerHTML="2-Day Shipping";
         document.getElementById("shipMethodSelectPrice").innerHTML="$10";
+        //set values for form
+        document.getElementById("shipV").value="Express Shipping";
     }
 
     newTotalCost();
@@ -553,9 +360,6 @@ function removeCode(){
     localStorage.setItem("promo", "");
     newTotalCost();
 }
-
-//onLoadCartNumbers();
-//displayCart();
 
 $(document).ready(function(){
     var radios = document.getElementsByName("shipping");
@@ -572,12 +376,68 @@ $(document).ready(function(){
     });
   });
 
+  function selectItem(){
+    const rbs = document.querySelectorAll('input[name="itemsSelect"]');
+    let selectedValue;
+    var retVal=true;
+    for (const rb of rbs) {
+        if (rb.checked) {
+            selectedValue = rb.value;
+            break;
+        }
+    }
+
+    if(selectedValue==null){
+        alert("please pick an item");
+        retVal=false;
+        return retVal;
+    }
+
+    return retVal;
+  }
+
+  
+  function clearStorage(){
+    window.localStorage.clear();
+  }
+
+  function checkForms(){
+
+        alert("cehck");
+        var retval=true;
 
 
-  function displayMenu(){
-    document.getElementById("closeMenu").style.display="inherit";
-    document.getElementById("changeQty-btn").style.display="none";
-    document.getElementById("qty-modifier").style.display="inherit";
-    //document.getElementsByClassName("radioBtn").style.display="inherit";
- 
+
+
+        var fName="";
+        var lName="";
+        var address="";
+        var city="";
+        var province="";
+        var email="";
+        var pNum="";
+        var card="";
+        var cardName="";
+        var cvcNum="";
+
+        
+      
+        lName=document.getElementById("lName").value;
+        address=document.getElementById("aAddress").value;
+        city=document.getElementById("city").value;
+        province=document.getElementById("province").value;
+        email=document.getElementById("email").value;
+        pNum=document.getElementById("pNum").value;
+        card=document.getElementById("card").value;
+        cardName=document.getElementById("cardName").value;
+        cvcNum=document.getElementById("cvcNum").value;
+
+      if(fName==""){
+            alert("one or more value is missing");
+            retval=false;
+            return retval;
+        }
+
+        return retval;
+
   }

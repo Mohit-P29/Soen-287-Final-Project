@@ -17,6 +17,32 @@ $page_title = "Donation Process";
             $_SESSION["donation_last_name"] = $_POST["donation_lastname"];
             $form_error = false;
             
+            if( !isset($_SESSION["donationpage_donationamount"]) || !isset($_SESSION["donationpage_fullname"]) || !isset($_SESSION["donationpage_cardnumber"]) || !isset($_SESSION["donationpage_expirationmonth"]) || !isset($_SESSION["donationpage_expirationyear"]) || !isset($_SESSION["donationpage_CVC"]) || !isset($_SESSION["donationpage_email"]) ) 
+            {
+                $_SESSION["donationpage_donationamount"]  = "";
+                 $_SESSION["donationpage_fullname"] = "";
+                 $_SESSION["donationpage_cardnumber"] = "";
+                 $_SESSION["donationpage_expirationmonth"]= "";
+                $_SESSION["donationpage_expirationyear"] = ""; 
+                $_SESSION["donationpage_CVC"]= "";
+                $_SESSION["donationpage_email"] = "";
+                
+                
+            }
+            
+            
+            
+            if( !isset($_SESSION["donationamount_error"]) || !isset($_SESSION["donationcardname_error"]) || !isset($_SESSION["donationcardnumber_error"]) || !isset($_SESSION["donationexpdate_error"]) || !isset($_SESSION["donationcvc_error"]) || !isset($_SESSION["donationemail_error"])  ) 
+            {
+                $_SESSION["donationamount_error"]  = "";
+                 $_SESSION["donationcardname_error"] = "";
+                 $_SESSION["donationcardnumber_error"] = "";
+                 $_SESSION["donationexpdate_error"]= "";
+                $_SESSION["donationcvc_error"] = ""; 
+                 $_SESSION["donationemail_error"]= "";
+                
+            }
+            
 //------------------------------Validating first name--------------------------//
 if(empty($_POST["donation_firstname"]))
    {
@@ -84,7 +110,8 @@ if(empty($_POST["donation_lastname"]))
         <fieldset class="donationpage_fieldset">
             <legend> <ion-icon name="wallet-outline"></ion-icon> <strong> Donation Amount </strong> </legend>
             <label> I Want to Donate </label>
-            <input type="text" name="donationpage_donationamount" id="donationpage_donationamount" value="" placeholder="Enter an amount">
+            <input type="text" name="donationpage_donationamount" id="donationpage_donationamount" value="<?php echo $_SESSION["donationpage_donationamount"] ?>" placeholder="Enter an amount">
+            <span> <?php echo $_SESSION["donationamount_error"] ?> </span>
             
         </fieldset>
         <br />
@@ -94,27 +121,32 @@ if(empty($_POST["donation_lastname"]))
             <strong> Payment Method </strong> 
             </legend>
             <label> Cardholder's Full Name </label>
-            <input type="text" name="donationpage_fullname" id="donationpage_fullname" value="" placeholder="John Doe">
+            <input type="text" name="donationpage_fullname" id="donationpage_fullname" value="<?php echo $_SESSION["donationpage_fullname"] ?>" placeholder="John Doe">
+            <span> <?php echo $_SESSION["donationcardname_error"] ?> </span>
             <br />
             <br />
             <label> Card Number </label>
-            <input type="text" name="donationpage_cardnumber" placeholder="Number is 16 digits">
+            <input type="text" name="donationpage_cardnumber" placeholder="Number is 16 digits" value="<?php echo $_SESSION["donationpage_cardnumber"] ?>" maxlength="16">
+            <span> <?php echo $_SESSION["donationcardnumber_error"] ?> </span>
             <br />
             <label> Expiration Date </label>
-            <input class="donationpage_expdate" type="text" name="donationpage_expirationmonth" id="donationpage_expirationmonth" value="" maxlength="2" placeholder="MM">
-            <input class="donationpage_expdate" type="text" name="donationpage_expirationyear" id="donationpage_expirationyear" value="" maxlength="2" placeholder="YY">
+            <input class="donationpage_expdate" type="text" name="donationpage_expirationmonth" id="donationpage_expirationmonth" value="<?php echo $_SESSION["donationpage_expirationmonth"] ?>" maxlength="2" placeholder="MM">
+            <input class="donationpage_expdate" type="text" name="donationpage_expirationyear" id="donationpage_expirationyear" value="<?php echo $_SESSION["donationpage_expirationyear"] ?>" maxlength="2" placeholder="YY">
+            <span> <?php echo $_SESSION["donationexpdate_error"] ?></span>
             <br />
             <br />
             <label> CVC </label>
-            <input class="donationpage_cvc" type="text" name="donationpage_CVC" id="donationpage_CVC" value="" maxlength="3" placeholder="XXX">
+            <input class="donationpage_cvc" type="text" name="donationpage_CVC" id="donationpage_CVC" value="<?php echo $_SESSION["donationpage_CVC"] ?>" maxlength="3" placeholder="XXX">
+            <span> <?php echo $_SESSION["donationcvc_error"] ?> </span>
         </fieldset >
         <br />
         <fieldset class="donationpage_fieldset">
             <legend>
                 <ion-icon name="mail"></ion-icon> <strong> E-mail Receipt </strong>
             </legend>
-            <input type="email" name="donationpage_email" id="donationpage_email" value="" placeholder="client@example.com">
+            <input type="email" name="donationpage_email" id="donationpage_email" value="<?php echo $_SESSION["donationpage_email"] ?>" placeholder="client@example.com">
             <input type="submit" name="donationpage_button" id="donationpage_button" value="Make Donation">
+            <span> <?php echo $_SESSION["donationemail_error"] ?></span>
         </fieldset>
     </form>
 

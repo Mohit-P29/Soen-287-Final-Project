@@ -6,6 +6,8 @@ $productPrice = $_POST['productPrice'];
 $productDesc = $_POST['productDesc'];
 $productInventory = $_POST['productInventory'];
 
+
+
 date_default_timezone_set('America/Montreal');
 $created = date("Y/m/d h:i:s");
 $modified = date("Y/m/d h:i:s");

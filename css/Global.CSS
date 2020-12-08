@@ -23,6 +23,7 @@
     margin-bottom:50px;
     overflow:hidden;
     width:80%;
+    min-height:500px;
 }
 
 #fbt h2{
@@ -314,16 +315,57 @@
 }
 
 #changeQty{
-    
+    display:none;
     border:2px solid red;
     margin-top:20px;
     padding:20px;
     text-align:center;
     overflow:hidden;
     margin:0 auto;
-    width:80%;
+    width:500px;
+    overflow:hidden;
+}
+
+#closeMenu{
+    display:none;
+}
+
+#changeQty h2, #changeQty p, #changeQty input{
+    clear:both;
+}
+
+#changeQty-btn, #closeMenu{
+    float:left;
+}
+
+#cart button, #deleteBtn, #checkoutBtn{
+    padding:10px;
+    border:2px solid black;
+    background:lightgrey;
+    margin-top:10px;
+    border-radius:0;
+    margin-right:10px;
+}
+
+
+#cart button:hover, #deleteBtn:hover, #checkoutBtn:hover, #changeQtyBtn:hover{
+    background:black;
+    color:white;
+    cursor: pointer;
+}
+
+#orderBtn:hover, #addDonoBtn:hover, #codeBtn:hover{
+    background:black;
+    color:white;
+    cursor: pointer;
 }
 
 
 
+#inputNum{
+    padding:5px;
+}
 
+#visa{
+    width:30px;
+}

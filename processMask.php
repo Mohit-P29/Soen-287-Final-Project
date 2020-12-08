@@ -7,7 +7,32 @@ $image = $_POST['images'];
 $product_id=4;
 $product_Qty=1;
 $product_name="Custom Mask";
-$product_price=20;
+
+
+$sql = "SELECT * FROM products";
+$retval = mysqli_query( $conn,$sql);
+if(! $retval ) {
+   die('Could not get data: ' . mysqli_error());
+}
+ $result=mysqli_num_rows($retval);
+
+     if($result>0){       
+       while ( $row = mysqli_fetch_assoc($retval)){
+           if($row["id"]==61){
+                $special=$row['specialPrice'];
+                $product_price=$row['price'];
+            break;
+           }
+     }
+   }
+
+
+
+if($special!=null||$special<0){
+    $product_price=$special;
+}
+
+
 
 //Insert product into products table to get ID
 $sql = "INSERT INTO products (name, price) 
@@ -42,8 +67,11 @@ switch($colorP){
     case 7:
         $colorP="orange";
         break;
-    case 7:
+    case 8:
         $colorP="black";
+        break;
+	case 9:
+        $colorS="white";
         break;
 }
 
@@ -70,28 +98,34 @@ switch($colorS){
     case 7:
         $colorS="orange";
         break;
-    case 7:
+    case 8:
         $colorS="black";
+        break;
+	case 9:
+        $colorS="white";
         break;
 }
 
 //Assign image
 switch($image){
     case 1:
-        $image="animal/elephant.png";
+        $image="images/animal/elephant.png";
         break;
      case 2:
-        $image="animal/fox.png";
+        $image="images/animal/fox.png";
         break;
     case 3:
-        $image="animal/gecko.png";
+        $image="images/animal/gecko.png";
         break;
     case 4:
-        $image="animal/polarbear.png";
+        $image="images/animal/polarbear.png";
         break;
     case 5:
-        $image="animal/rabbit.png";
+        $image="images/animal/rabbit.png";
         break;
+	case 6:
+        $image="images/animal/no_image_selected.png";
+        break;	
 }
 
 $sql="SELECT * FROM cart WHERE id=$product_id";

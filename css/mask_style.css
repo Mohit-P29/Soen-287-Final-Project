@@ -55,12 +55,28 @@
     
 }
 
+
+.over_mask_diy{
+	
+	position: absolute;
+	left: 210px;
+	top: 280px;
+	width: 300px;
+	height: 300px;
+}
+ 
+.svg_diy{
+	
+	
+	
+}
+
 /* -------------Picture---------------*/
 
 .picture_container {
-  width: 210px;
-  height: 210px;
-  border: 5px dashed black;
+  width: 110px;
+  height: 110px;
+ /* border: 5px dashed black; */
   margin-left: 125px;
   margin-top: 30px;
 }
@@ -99,7 +115,7 @@
 .primary-select {
   position: relative;
   font-family: Arial;
-  width: 85px;
+  width: 120px;
   height: 60px;
   font-size: 20px;
 padding-left: 20px;
@@ -108,7 +124,7 @@ padding-left: 20px;
 .image-select {
   position: relative;
   font-family: Arial;
-  width: 110px;
+  width: 200px;
   height: 60px;
   font-size: 20px;
 }

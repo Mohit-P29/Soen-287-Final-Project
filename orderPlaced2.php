@@ -1,4 +1,29 @@
 <?php 
+
+    $month="";
+    $year="";
+    $day="";
+    $donation="---";
+    $shipMethod="";
+    $tax="";
+    $pCode="---";
+    $finalTotal="";
+
+
+    $omonth=$_POST["oMonth"];
+    $oyear=$_POST["oYear"];
+    $oday=$_POST["oDay"];
+
+    $month=$_POST["aMonth"];
+    $year=$_POST["aYear"];
+    $day=$_POST["aDay"];
+
+    $donation=$_POST["donoV"];
+    $shipMethod=$_POST["shipV"];
+    $tax=$_POST["taxV"];
+    $pCode=$_POST["codeV"];
+    $finalTotal=$_POST["finalV"];
+
      session_start();
      include "includes/address.php";
      include("includes/header.php");
@@ -77,14 +102,79 @@
     }
 
     if($result>0){
-
           while ( $row = mysqli_fetch_assoc($retval)){
              if($row['user_id']===$_SESSION['user_id']){
                $username=$row['user_name'];
              }
           }
     }
-    
+
+    //choose to who we want the email to be sent to
+    if($email1!=""){
+      $mailto=$email1;
+    }else{
+      $mailto=$_SESSION['user_id'];
+    }
+
+    //process checkout into order
+    $sql="SELECT * FROM cart";
+    $result = $conn->query($sql);
+
+    $nameList=array();
+    $priceList=array();
+    $qtyList=array();
+    $itemsNum=0;
+
+    while($row = $result->fetch_assoc()){
+      
+      $prod=$row["productName"];
+      $qty=$row["quantity"];
+      $price=$row["price"];
+      $img=$row["image"];
+      $c1=$row["maskPColor"];
+      $c2=$row["MaskSColor"];
+      $userID=$_SESSION['user_id'];
+
+      $sql="SELECT * FROM user_order";
+      mysqli_query($conn, $sql);
+      $id= mysqli_insert_id($conn);
+
+      $prodName=$prod;
+
+      if($prod=="Custom Mask"){
+        $prodName=$prod."(Primary Color: ".$c1." Secondary Color: ".$c2.")";
+      }
+
+      $nameList[]=$prodName;
+      $priceList[]=$price;
+      $qtyList[]=$qty;
+      $itemsNum++;
+
+      $sql = "INSERT INTO user_order (id, userID,productName, quantity, price, image, maskPColor, MaskSColor,oDay,oMonth,oYear,aDay,aMonth,aYear) 
+      VALUES('$id', '$userID','$prod', '$qty', '$price','$img','$c1','$c2','$oday','$omonth','$oyear','$day','$month','$year')";
+      mysqli_query($conn, $sql);
+    }
+
+    $sql="SELECT * FROM cart";
+    $result = $conn->query($sql);
+    while($row = $result->fetch_assoc()){
+      $id=$row["id"];
+      $sql ="DELETE FROM cart WHERE id='$id' ";
+      mysqli_query($conn, $sql);
+    }
+
+    //Prepare list for user
+    $list="";
+    for($a=0;$a<$itemsNum;$a++){
+      $list=$list.
+        "==========================".
+        "\n Product:".$nameList[$a].
+        "\n Price: $".$priceList[$a].
+        "\n Qty:".$qtyList[$a].
+        "\n";
+    }
+
+
 ?>
 
 
@@ -124,7 +214,7 @@ $mail->setFrom('info.covaid@gmail.com', 'Covaid');
 //Set an alternative reply-to address
 //$mail->addReplyTo('replyto@example.com', 'First Last');
 //Set who the message is to be sent to email and name
-$mail->addAddress($email1, $first." ".$last);
+$mail->addAddress($mailto, $first." ".$last);
 //Name is optional
 //$mail->addAddress('recepientid@domain.com');
 
@@ -142,15 +232,51 @@ $mail->addAttachment("file.txt", "File.txt");
 
 
 //Set the subject line
-$mail->Subject = 'PHPMailer SMTP test';
+$mail->Subject = 'Thank you for ordering with Covaid';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->Body = "This is a PHP Test";
+$mail->Body = "<html><body><pre>
+
+Dear ".$first.",
+
+Thank you for shopping with Covaid.
+
+Here's a summary of your order:
+".$list."
+
+Shipping Method: ".$shipMethod."
+Expected arrival date: ".$month." ".$day.", ".$year."
+
+Promo Code: ".$pCode."
+
+Additional Donation: $".$donation."
+
+Taxes: $".$tax."
+
+Total: $".$finalTotal."
+
+
+Have a nice day,
+Covaid team
+
+</pre></body></html>";
 //You may add plain text version using AltBody
 //$mail->AltBody = "This is the plain text version of the email content";
 //send the message, check for errors
 if (!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    echo 'Message was sent Successfully!';
+    echo '<html><body>
+    
+    <section id="orderInfo">
+    <h2>Your Order has been placed!</h2>
+    <p>A confirmation email has been sent to you</p>
+    <h3>Thank you for shopping with us!</h3>
+    <form action="index.php">
+        <input type="submit" value="Continue Shopping"/>
+    </form>
+    </section>
+    
+    
+    </body></html>';
 }

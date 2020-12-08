@@ -2,15 +2,15 @@
     session_start();
 ?>
 
-<?php
 
-$page_title = "Welcome to COVAID!"
-    
+<?php
+    $page_title = "Welcome to COVAID!"
     ?>
 
-    
 <?php
-include('includes/header.php')
+include_once "includes/covaid_database.php";
+include ('includes/header.php');
+        
     ?>
 
 <?php 
@@ -80,7 +80,7 @@ if(isset($_POST["submit"]))
             <img src="images/maskSlide.jpg" width="100%" height="500px;">
             <div class="slidetext"> 
                 <p> Get Your Protection Masks Now!</p>
-                <button class="slidebutton">Shop</button>
+                <a href=""><button class="slidebutton">Shop</button></a>
             </div>
         </div>
         
@@ -89,7 +89,7 @@ if(isset($_POST["submit"]))
             <img src="images/DIYmaskSlide.jpg" width="100%" height="500px;">
             <div class="slidetext1"> 
                 <p> Explore with Custom Protection Masks! </p>
-                <button class="slidebutton">Shop</button>
+                <a href="diy_mask_product_page.php"><button class="slidebutton">Shop</button></a>
             </div>
         </div>
         
@@ -98,7 +98,7 @@ if(isset($_POST["submit"]))
         <img src="images/sanitizerSlide.jpg" width="100%" height="500px;">
         <div class="slidetext"> 
             <p> Premium Hand Sanitizer Avaiable Now! </p>
-            <button class="slidebutton"> Shop </button>
+            <a href=""><button class="slidebutton"> Shop </button></a>
             </div>
         </div>
     </div>
@@ -117,116 +117,77 @@ if(isset($_POST["submit"]))
     <h2 class="topsellers_heading0" style="text-decoration:underline"> Top Sellers </h2>
     <br />
     <br />
-    <div class="topsellers_container"> 
-        
-        <!---- Product 1 ----->
-        <div class="topsellers_product">
-            <div class="topsellers_front">
-                <img class="topsellers_pictures" src="images/mask.jpg" alt="Mask">
-                <a href="#"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
+    <div class="topsellers_container">
+
+    <?php 
+        $sql = "SELECT* FROM products ORDER BY sales DESC limit 6;";
+        $result = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($result);
+
+        //Makes sure that the connection was established
+        if ($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $topseller_name = $row['name'] ;
+                $topseller_image = $row['image1'];
+                $topseller_price = $row['price'];
+                $topseller_webpage = $row['webpageLink'];
+                $topseller_id = $row['id'];
+
+                if(!isset($topseller_image) || $topseller_image == "" || $topseller_image == "NULL"){
+                    $topseller_image = "image/products/noimage.jpg";
+                }
+
+                $number_reviews = 0; //Unknown
+                $average_review = 0; //Unknown
+                $sql1 = "SELECT COUNT(num_star) AS num_reviews FROM reviews WHERE product_id = $topseller_id;";
+                $result1 = mysqli_query($conn, $sql1);
+                $resultCheck1 = mysqli_num_rows($result1);
+                if ($resultCheck1 > 0) {
+                   $row1 = mysqli_fetch_assoc($result1);
+                   $number_reviews = $row1['num_reviews'];
+                }
+                if ($number_reviews != 0) {
+                   $sql2 = "SELECT SUM(num_star) AS star_sum FROM reviews WHERE product_id = $topseller_id;";
+                   $result2 = mysqli_query($conn, $sql2);
+                   $resultCheck2 = mysqli_num_rows($result2);
+                   if ($resultCheck2 > 0) {
+                      $row2 = mysqli_fetch_assoc($result2);
+                      $sum_reviews = $row2['star_sum'];
+                      $average_review = $sum_reviews / $number_reviews;
+                   }
+                }
+
+                $str = <<<END
+                <div class="topsellers_product">
+                <img class="topsellers_pictures" src="$topseller_image" alt="Image not available">
+                <a href="$topseller_webpage"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
                 <br />
+                <p class="topsellers_heading" style="position: relative; top: 15px;"> $topseller_name </p>
                 <br />
-                <br />
-                <p class="topsellers_heading"> Surgical Face Mask </p>
-                <br />
-                <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-                <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-                <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-                <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-                <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-                <p> $3.99 </p>
-            </div>
-        </div>
-        
-        <!---- Product 2 ----->
-        <div class="topsellers_product">
-            <img class="topsellers_pictures" src="images/purell.jpg" alt="Mask">
-            <img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button">
-            <a href="#"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
-            <br />
-            <br />
-            <br />
-            <p class="topsellers_heading"> Purrel Advanced Sanitizier </p>
-            <br />
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <p> $6.99 </p>
-        </div>
-        
-        <!---- Product 3 ----->
-        <div class="topsellers_product">
-            <img class="topsellers_pictures" src="images/faceshield.jpg" alt="Mask">
-            <img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button">
-            <a href="#"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
-            <br />
-            <br />
-            <br />
-            <p class="topsellers_heading"> Face Shield </p>
-            <br />
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <p> $15.99 </p>
-        </div>
-        
-        <!---- Product 4 ----->
-        <div class="topsellers_product">
-            <img class="topsellers_pictures" src="images/handsanitizerMINI.jpg" alt="Mask">
-            <img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button">
-            <a href="#"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
-            <br />
-            <br />
-            <br />
-            <p class="topsellers_heading"> Purrel Mini Hand Sanitizer </p>
-            <br />
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <p> $4.99 </p>
-        </div>
-        
-        <!---- Product 5 ----->
-        <div class="topsellers_product">
-            <img class="topsellers_pictures" src="images/lysol.jpg" alt="Mask">
-            <img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button">
-            <a href="#"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
-            <br />
-            <br />
-            <br />
-            <p class="topsellers_heading"> Lysol Wipes </p>
-            <br />
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-           <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <p> $8.99 </p>
-        </div>
-        
-        <!---- Product 6 ----->
-        <div class="topsellers_product">
-            <img class="topsellers_pictures" src="images/lysolspray.jpg" alt="Mask">
-            <img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button">
-            <a href="#"><img class="topsellers_pictures2" src="images/information_button.jpg" alt="Info Button"></a>
-            <br />
-            <br />
-            <br />
-            <p class="topsellers_heading">  Desinfectant Spray </p>
-            <br />
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-           <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <img class="topsellers_stars" src="images/Icons/star-solid.svg">
-            <p> $10.99 </p>
-        </div>
+                END;
+                print $str;
+
+                $count = 5;
+                while($count > 0){
+                  if($average_review >= 1){
+                    echo "<img class='topsellers_stars' src='images/Icons/star-solid.svg'>";
+                  }else if($average_review > 0){
+                    echo "<img class='topsellers_stars' src='images/Icons/star-half-alt-solid.svg'>";
+                  }else{
+                    echo "<img class='topsellers_stars' src='images/Icons/star-regular.svg'>";
+                  }
+                  $average_review -= 1;
+                  $count -= 1;
+                }
+
+                echo "<p> $topseller_price </p>";
+                echo "</div> ";
+
+            }
+        }
+
+
+        ?>
     </div>
           
     <!------------------ Donate Video Section --------------------->
