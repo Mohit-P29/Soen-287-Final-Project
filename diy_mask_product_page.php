@@ -64,7 +64,8 @@ include('includes/header.php');
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  <main> 
  
- <h1> DIY Mask Builder <?php
+ <h1><?php
+	 		echo $product_name." ";
             if ($product_specialPrice == null) {
                 echo $product_price; 
             } else {
@@ -182,10 +183,10 @@ include('includes/header.php');
 <script>
     
 function getColorPrimary(){
-    alert("Inside primary color function");
+    
   var selectBox = document.getElementById("selection_box");
 var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-alert(selectedValue);
+
 if(selectedValue == 1){
     
       let outline = document.getElementById('mask-color');
@@ -296,10 +297,10 @@ if(selectedValue == 1){
 }
     
 function getColorSecondary(){
-    alert("Inside Secondary color function");
+    
   var selectBox = document.getElementById("selection_box2");
 var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-alert(selectedValue);
+
 if(selectedValue == 1){
     
       let outline = document.getElementById('mask_outline');
@@ -404,10 +405,7 @@ if(selectedValue == 1){
     
     
     
-    else{
-    
-    alert("another color");
-}
+   
     
 }
 	
@@ -476,7 +474,7 @@ if(selectedValue == 1){
 	   
      $('#selection_box3').change(function(){ //if the select value gets changed
    var imageSource = $(this).find(':selected').data('picture'); //get the data from data-picture attribute
-         alert(imageSource);
+        
    if(imageSource){ //if it has data
       $('#image-location').html('<img src="'+imageSource+'" style="width:170px;height:170px;">'); // insert image in div image-location
    } else {
