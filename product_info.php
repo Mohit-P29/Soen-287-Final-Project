@@ -337,8 +337,8 @@ if ($resultCheck > 0) {
 <div class= "submenu">
    <div class="defaultRow">
       <div class="single-products">
-         <img src="images/Product Images/Product1.jpg">
-         <h4>Hand Sanitizer 500 ml</h4>
+         <img src="image/products/p10m.jpg">
+         <a href="productpage_PurellES8disinfectantdispense.php"><h4>Purell ES8 disinfectant dispense</h4></a>
          <div class="rating">
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-solid.svg">
@@ -346,11 +346,11 @@ if ($resultCheck > 0) {
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-solid.svg">
          </div>
-         <p>$10.50</p>
+         <p>$38.85</p>
       </div>
       <div class="single-products">
-         <img src="images/Product Images/Product2.jpg">
-         <h4>AiroDoctor Air Purifier</h4>
+         <img src="image/products/p12m.jpg">
+         <a href="productpage_WellisairAirDisinfectionPurifier.php"><h4>Wellisair Air Disinfection Purifier</h4></a>
          <div class="rating">
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-solid.svg">
@@ -358,11 +358,11 @@ if ($resultCheck > 0) {
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-half-alt-solid.svg">
          </div>
-         <p>$299.00</p>
+         <p>$782</p>
       </div>
       <div class="single-products">
          <img src="images/Product Images/Product3.jpg">
-         <h4>KIMTECH SCIENCE Precision Wipes</h4>
+         <a href="productpage_CloroxDisinfectingWipesProWipes.php"><h4>Clorox Disinfecting Wipes & Pro Wipes</h4></a>
          <div class="rating">
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-solid.svg">
@@ -370,11 +370,11 @@ if ($resultCheck > 0) {
             <img src="images/Icons/star-regular.svg">
             <img src="images/Icons/star-regular.svg">
          </div>
-         <p>$2.99</p>
+         <p>$7.99</p>
       </div>
       <div class="single-products">
-         <img src="images/Product Images/Product4.jpg">
-         <h4>Surgical Masks </h4>
+         <img src="image/products/p5m.jpg">
+         <a href="productpage_TeqlerSurgicalMaskblack.php"><h4>Surgical Masks </h4></a>
          <div class="rating">
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-solid.svg">
@@ -382,7 +382,7 @@ if ($resultCheck > 0) {
             <img src="images/Icons/star-solid.svg">
             <img src="images/Icons/star-solid.svg">
          </div>
-         <p>$20.00</p>
+         <p>$29.99</p>
       </div>
    </div>
 </div>

@@ -48,7 +48,7 @@ include("includes/admin_header.php");
 <main class="main_content">
     <header class="header">
         <ion-icon name="pricetags-outline" class="header-icon"></ion-icon>
-        <span class="header-name">Reply to Reviews</span>
+        <span class="header-name">Promotional Emails</span>
     </header>
 
     <div class="wrapper" style="padding-left:100px;padding-right:120px;">
@@ -98,7 +98,7 @@ include("includes/admin_header.php");
                 <table style="border-spacing=25px;">
 
                     <tr>
-                        <td><textarea name="adminReply" id="adminReply" rows="8" cols="80" style="font-size: large;" maxlength="250">Hello, this is COVAID adimistrator. New Promotions are coming soon. Be prepared for Chrismas discounts!</textarea></td>
+                        <td><textarea name="adminReply" id="adminReply" rows="4" cols="80" style="font-size: large;" maxlength="250">Hello, this is COVAID adimistrator. New Promotions are coming soon. Be prepared for Chrismas discounts!</textarea></td>
                     </tr>
                     <tr>
                         <td>

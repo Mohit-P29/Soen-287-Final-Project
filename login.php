@@ -201,7 +201,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                  if($check==='admin'){
                      $_SESSION['login']='admin'; ?>
 
-                      <script>alert("Successful Sign In!"); window.location.href='admin_products.php';</script>
+                      <script>window.location.href='admin_products.php';</script>
 
             <?php }
                  
@@ -209,7 +209,7 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
                      $_SESSION['login']='true';
                      $_SESSION['user_id']=$user;  ?>
 
-                     <script>alert("Successful Sign In!"); window.location.href='UserPage.php';</script>
+                     <script>window.location.href='UserPage.php';</script>
                  
            <?php  
                  } else{ ?>
@@ -230,4 +230,5 @@ $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No emai
 
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 <script src="js/login.js"></script>
-<?php include "includes/footer.php"; ?>
+</body>
+</html>

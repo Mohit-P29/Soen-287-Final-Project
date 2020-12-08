@@ -84,7 +84,7 @@ button_confirmAdd.onclick = function () {
 }
 var readyToSubmit2 = false;
 function createNewAddress() {
-    if (lastnamevalid & firstnamevalid & phonevalid) {
+    if (lastnamevalid & firstnamevalid) {
        alert("Successfully Add Address!");
        document.getElementById('div7').style.display="none";
         document.getElementById("AddressForm").onsubmit = function () {
@@ -97,7 +97,8 @@ function createNewAddress() {
             return false;
         }
         
-    } else {
+    } 
+    /*else {
         alert("Your phone number is invalid!");
 
         document.getElementById("AddressForm").onsubmit = function () {
@@ -106,7 +107,7 @@ function createNewAddress() {
          firstname.value="";
         lastname.value="";
         phone.value="";
-    }
+    }*/
 
 
 
@@ -144,7 +145,7 @@ firstname.onkeyup = function () {
 }
 
 phone.onkeyup = function () {
-    if (phone.value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/g)) {
+    if (phone.value.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g)) {
         phonevalid = true;
         phone.style.boxShadow = "";
     } else {

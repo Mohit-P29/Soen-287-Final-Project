@@ -453,9 +453,8 @@ include_once 'includes/ConnectDB.php';
     }
         
     ?>
-
-
 </div>
 </main>
-<?php include 'includes/footer.php'; ?>
+</body>
+</html>
 

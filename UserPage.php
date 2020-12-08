@@ -1359,4 +1359,8 @@ else if(isset($_POST['upload'])){
 	//--------------------------------------------------------------------
 
 </script>
-<?php include "includes/footer.php"; ?>
+
+</body>
+</html>
+
+
