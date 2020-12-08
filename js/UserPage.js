@@ -87,7 +87,6 @@ button_confirmAdd.onclick = function () {
 var readyToSubmit2 = false;
 
 function createNewAddress() {
-<<<<<<< HEAD
     if (lastnamevalid & firstnamevalid) {
        alert("Successfully Add Address!");
        document.getElementById('div7').style.display="none";
@@ -112,7 +111,6 @@ function createNewAddress() {
         lastname.value="";
         phone.value="";
     }*/
-=======
 	if (lastnamevalid & firstnamevalid & phonevalid) {
 		alert("Successfully Add Address!");
 		document.getElementById('div7').style.display = "none";
@@ -136,8 +134,6 @@ function createNewAddress() {
 		lastname.value = "";
 		phone.value = "";
 	}
->>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
-
 
 
 }
@@ -174,7 +170,6 @@ firstname.onkeyup = function () {
 }
 
 phone.onkeyup = function () {
-<<<<<<< HEAD
     if (phone.value.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g)) {
         phonevalid = true;
         phone.style.boxShadow = "";
@@ -182,7 +177,6 @@ phone.onkeyup = function () {
         phone.style.boxShadow = "0 0 5px red";
         phonevalid = false;
     }
-=======
 	if (phone.value.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g)) {
 		phonevalid = true;
 		phone.style.boxShadow = "";
@@ -190,7 +184,6 @@ phone.onkeyup = function () {
 		phone.style.boxShadow = "0 0 5px red";
 		phonevalid = false;
 	}
->>>>>>> cb11481f0cbb11654b91797b70bfb28db1d2af83
 }
 
 document.getElementById("ChangedIcon1").onclick = function () {
@@ -302,7 +295,6 @@ document.getElementById('submit_changepwd').onclick = function () {
 			document.getElementById('changeform').onsubmit = function () {
 				return true;
 			}
-
 		} else {
 			alert("please check if the password is valid or the new passwords you entered are not same.");
 			document.getElementById('changeform').onsubmit = function () {
