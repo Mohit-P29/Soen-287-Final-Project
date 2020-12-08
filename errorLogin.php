@@ -1,5 +1,6 @@
 <?php
-include('includes/header.php')
+$page_title="Error";
+include('includes/header.php');
     ?>
 
         <section id="orderInfo">
