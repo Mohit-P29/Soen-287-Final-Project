@@ -115,7 +115,9 @@
     }
 
     //add payment info checker after Jia Wei gets it done.
-    if($a1==""){
+    if($a1==""||$paymentCard==""){
+        
+        echo $_SESSION["login"];
         header("Location: errorInfo.php");
     }
     
