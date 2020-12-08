@@ -3,7 +3,10 @@ include('includes/header.php')
     ?>
 
         <section id="orderInfo">
-        <h2>You must be signed into an account to proceed...</h2>
+        <h2>Problem detected...</h2>
+        </br>
+        <p>Please make sure you're logged in </br> and have filled out your address and payment info,</p>
+        </br>
     
         <form action="login.php">
             <input type="submit" value="Sign in"/>
@@ -12,7 +15,3 @@ include('includes/header.php')
 
 
     </body>
-
-<?php 
-    include('includes/footer.php')
-?>

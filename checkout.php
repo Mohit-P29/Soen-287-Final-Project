@@ -108,17 +108,19 @@
              }
           }
     }
+
+
+    //$tester=(isset($_SESSION['user_id']))?true:false;
     
     //if user does not have an account
-    if($_SESSION["login"]=='false'){
+    /*if(!$tester){
         header("Location: errorLogin.php");
-    }
+    }*/
 
     //add payment info checker after Jia Wei gets it done.
     if($a1==""||$paymentCard==""){
-        
-        echo $_SESSION["login"];
-        header("Location: errorInfo.php");
+       // echo $_SESSION["login"];
+       header("Location: errorLogin.php");
     }
     
 ?>
