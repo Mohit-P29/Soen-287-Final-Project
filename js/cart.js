@@ -260,6 +260,7 @@ function newTotalCost(){
         total=dono+pat;
     }
 
+    
     else{
         total=pat;
     }
