@@ -30,6 +30,8 @@ var checkDefault = document.getElementById("default");
 var lastnamevalid = false;
 var firstnamevalid = false;
 
+
+
 showNow.onclick = function () {
     window.location.href = "index.php";
 }
@@ -144,7 +146,7 @@ firstname.onkeyup = function () {
 }
 
 phone.onkeyup = function () {
-    if (phone.value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/g)) {
+    if (phone.value.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g)) {
         phonevalid = true;
         phone.style.boxShadow = "";
     } else {
@@ -221,46 +223,8 @@ document.getElementById("ChangedIcon2").onmouseout = function () {
 
 
         var pwd1=false;
-        var pwd2=false;
-        var pwd3=false;
-        function validatepwd1(input){
-            var pass = input.value;
-            var number = false;
-            var length = false;
-            var uppercase = false;
-            var lowercase = false;
-            var special = false;
-            var count = 0;
-            for (var j = 0; j < pass.length; j++) {
-                if (pass.charAt(j).match(/[A-Z]/g)) {
-                    count++;
-                }
-            }
-            if (count >= 1) {
-                uppercase = true;
-            }
-
-            if (pass.match(/[a-z]/g)) {
-                lowercase = true;
-            }
-            if (pass.match(/[0-9]/g)) {
-                number = true;
-            }
-            if (pass.match(/[^A-Za-z0-9]/g)) {
-                special = true;
-            }
-            if (pass.match(/[!@#\$%\^&]/g))
-                if (pass.length < 8) {
-                    length = false;
-                } else {
-                    length = true;
-                }
-            if (number && length && uppercase && lowercase && special) {
-                pwd1=true;
-            } else {
-                pwd1=false;
-            }
-        }
+       
+       
         function validatepwd2(input){
             var pass = input.value;
             var number = false;
@@ -269,12 +233,8 @@ document.getElementById("ChangedIcon2").onmouseout = function () {
             var lowercase = false;
             var special = false;
             var count = 0;
-            for (var j = 0; j < pass.length; j++) {
-                if (pass.charAt(j).match(/[A-Z]/g)) {
-                    count++;
-                }
-            }
-            if (count >= 1) {
+        
+            if (pass.match(/[A-Z]/g) {
                 uppercase = true;
             }
 
@@ -287,23 +247,17 @@ document.getElementById("ChangedIcon2").onmouseout = function () {
             if (pass.match(/[^A-Za-z0-9]/g)) {
                 special = true;
             }
-            if (pass.match(/[!@#\$%\^&]/g))
-                if (pass.length < 8) {
-                    length = false;
-                } else {
-                    length = true;
-                }
             if (number && length && uppercase && lowercase && special) {
-                pwd2=true;
+                pwd1=true;
             } else {
-                pwd2=false;
+                pwd1=false;
             }
         }
         document.getElementById('submit_changepwd').onclick=function(){
-            validatepwd2(document.getElementById('oldpassword'));
-            validatepwd1(document.getElementById('newpassword'));
+            validatepwd2(document.getElementById('newpassword'));
+
             if(document.getElementById('newpassword').value==document.getElementById('newpassword2').value){
-                if(pwd2 && pwd1){
+                if( pwd1){
                     document.getElementById('changeform').onsubmit=function(){
                         return true;
                     }
@@ -326,6 +280,8 @@ document.getElementById("ChangedIcon2").onmouseout = function () {
             
             
         }
+        
+        
         
     
     

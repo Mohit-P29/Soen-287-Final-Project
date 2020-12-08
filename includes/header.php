@@ -1,4 +1,15 @@
 <?php
+    $login=(isset($_SESSION['login']))?$_SESSION['login']:"xxx";
+    $position="";
+    if($login==='true'){
+	   $position='UserPage.php';
+   }
+	else{
+		$position='login.php';
+		
+		
+	}
+
     include("includes/ConnectDB.php");  
     // setting up my select query
     $sql = "SELECT * FROM cart ";
@@ -55,7 +66,7 @@ $_SESSION["emailexclusives_errorfooter"]= "";
                 <span><?php echo $totalQty?></span>
                         
             </div>
-            <a class="cta" href="login.php"><img src="images/signin.jpg" alt="Sign In" height="25px" width="25px"></a>
+            <a class="cta" href="<?php echo (isset($position)?$position:"login.php"); ?>"><img src="images/signin.jpg" alt="Sign In" height="25px" width="25px"></a>
             <a class="cta" href="Product_search.php"><ion-icon name="search-outline"></ion-icon></a>
             <p class="menu cta">Menu</p>
             

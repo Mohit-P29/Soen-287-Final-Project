@@ -22,7 +22,7 @@
         if($result>0){       
           while ( $row = mysqli_fetch_assoc($retval)){
     
-            if ($row['user_id']===$id){
+            if ($row['user_id']===	$id){
                   $first=$row['user_first'];
                  $last=$row['user_last'];
                  $email1=$row['user_email1'];
@@ -155,7 +155,7 @@
 </script>
 <link rel="stylesheet" href="css/UserPage.css" />
 <main>
-	<div style="width:100%;height:100%; position:relative;margin-top:-100px;display:block;">
+	<div style="width:100%;height:70%; top:10px;position:relative;to:140px;padding-top:0px;">
 		<div class="div0">
 			<!--Profile picture div-->
 			<div class="div1" id="div1">
@@ -224,13 +224,15 @@
 							<form action='' method="post"><input class='list' type="submit" style="color:white;font-weight:900;font-size:1.0em; font-family:sans-serif;border:0 none;background-color:red;width:120px;margin-left:-5px;float:left;height:40px;" id="logout" name="logout" value="Log Out" /></form>
 						</td>
 						<script>
+							
+   
 							document.getElementById('logout').onmousemove = function() {
 								document.getElementById('logout').style.background = "gray";
 							}
 							document.getElementById('logout').onmouseout = function() {
 								document.getElementById('logout').style.background = "red";
 							}
-							document.getElementById('MyWallet').onmouseover = function() {
+							document.getElementById('MyWallet').onclick = function() {
 								document.getElementById('div8').style.display = "none";
 								document.getElementById("div3").style.display = 'none';
 								document.getElementById("div4").style.display = 'block';
@@ -238,7 +240,7 @@
 								document.getElementById("div6").style.display = 'none';
 
 							}
-							document.getElementById('MyOrder').onmouseover = function() {
+							document.getElementById('MyOrder').onclick = function() {
 								document.getElementById('div8').style.display = "none";
 								document.getElementById("div3").style.display = 'none';
 								document.getElementById("div4").style.display = 'none';
@@ -246,7 +248,7 @@
 								document.getElementById("div6").style.display = 'block';
 
 							}
-							document.getElementById('MyAddress').onmouseover = function() {
+							document.getElementById('MyAddress').onclick = function() {
 								document.getElementById('div8').style.display = "none";
 								document.getElementById("div3").style.display = 'none';
 								document.getElementById("div4").style.display = 'none';
@@ -254,7 +256,7 @@
 								document.getElementById("div6").style.display = 'none';
 
 							}
-							document.getElementById('MyAccount').onmouseover = function() {
+							document.getElementById('MyAccount').onclick= function() {
 								document.getElementById('div8').style.display = "none";
 								document.getElementById("div3").style.display = 'block';
 								document.getElementById("div4").style.display = 'none';
@@ -263,45 +265,17 @@
 
 							}
 
-							document.getElementById('changepwd').onmouseover = function() {
+							document.getElementById('changepwd').onclick= function() {
 								document.getElementById("div3").style.display = 'none';
 								document.getElementById("div4").style.display = 'none';
 								document.getElementById("div5").style.display = 'none';
 								document.getElementById("div6").style.display = 'none';
 								document.getElementById('div8').style.display = "block";
 							}
+							
+						
 
-							document.getElementById('oldpassword').onfocus = function() {
-								document.getElementById('oldpassword').type = "text";
-
-
-							}
-							document.getElementById('oldpassword').onblur = function() {
-								document.getElementById('oldpassword').type = "password";
-
-
-							}
-							document.getElementById('newpassword').onfocus = function() {
-								document.getElementById('newpassword').type = "text";
-
-
-							}
-							document.getElementById('newpassword').onblur = function() {
-								document.getElementById('newpassword').type = "password";
-
-
-							}
-							document.getElementById('newpassword2').onfocus = function() {
-								document.getElementById('newpassword2').type = "text";
-
-
-							}
-							document.getElementById('newpassword2').onblur = function() {
-								document.getElementById('newpassword2').type = "password";
-
-
-							}
-
+							
 						</script>
 
 
@@ -405,18 +379,18 @@
 				<table style="border-spacing:30px; text-align:left;">
 					<tr>
 						<td>Enter Old Password: </td>
-						<td><input type="text" style="padding-left:0px;" class="Inputfield" id="oldpassword" name="oldpassword" placeholder="Old Password" required /></td>
+						<td><input type="password" style="padding-left:0px;" class="Inputfield" id="oldpassword" name="oldpassword" placeholder="Old Password" required /></td>
 					</tr>
 					<tr>
 						<td>Enter New Password:</td>
-						<td> <input type="text" style="padding-left:0px;" class="Inputfield" id="newpassword" name="newpassword" placeholder="New Password" required /></td>
+						<td> <input type="password" style="padding-left:0px;" class="Inputfield" id="newpassword" name="newpassword" placeholder="New Password" required /></td>
 					</tr>
 					<tr>
 						<td>Repeat New Password: </td>
-						<td><input type="text" style="padding-left:0px;" class="Inputfield" id="newpassword2" name="newpassword2" placeholder="Repeat Password" required /></td>
+						<td><input type="password" style="padding-left:0px;" class="Inputfield" id="newpassword2" name="newpassword2" placeholder="Repeat Password" required /></td>
 					</tr>
 					<tr>
-						<td style="font-size:0.8em;"><br />Password contains at least 8 characters, 1 lower character, 1 upper character,1 digit</td>
+						<td style="font-size:1.0em;font-weight:bold;color:gray;"><br />Password contains at least 8 characters, 1 lower character, 1 upper character,1 digit</td>
 					</tr>
 					<tr>
 						<td><input type="submit" value="Submit" id="submit_changepwd" name="submit_changepwd" class="UpdateAccount" /></td>
@@ -424,7 +398,27 @@
 				</table>
 
 			</form>
-
+			<script type="text/javascript">
+			     document.getElementById('oldpassword').onfocus=function(){
+								document.getElementById('oldpassword').type="text";
+                            }
+				 document.getElementById('oldpassword').onblur=function(){
+								document.getElementById('oldpassword').type="password";
+                            }
+				 document.getElementById('newpassword').onfocus=function(){
+								document.getElementById('newpassword').type="text";
+                            }
+				 document.getElementById('newpassword').onblur=function(){
+								document.getElementById('newpassword').type="password";
+                            }
+				 document.getElementById('newpassword2').onfocus=function(){
+								document.getElementById('newpassword2').type="text";
+                            }
+				 document.getElementById('newpassword2').onblur=function(){
+								document.getElementById('newpassword2').type="password";
+                            }
+			
+			</script>
 
 
 		</div>
@@ -551,7 +545,7 @@
 							<td>Phone:<br /><input type="text" id="pay_phone" name="pay_phone" style="padding-left:0px;" class="Inputfield" placeholder="001-234-567-8901" value="<?php echo (isset($payphone)?$payphone:''); ?>" required /></td>
 						</tr>
 						<tr>
-							<td>CVC/Security Code:<br /><input type="text" id="pay_cvc" style="padding-left:0px;" name="pay_cvc" placeholder="3-digit number" value="<?php echo (isset($paycvc)?$paycvc:''); ?>" required maxlength="3" /></td>
+							<td>CVC/Security Code:<br /><input type="password" id="pay_cvc" style="padding-left:0px;" name="pay_cvc"  value="" placeholder="3 digit number" required maxlength="3" /></td>
 						</tr>
 						<tr>
 							<td><input type="submit" name="pay_info" id="pay_info" class="UpdateAccount" style="border:0 none;" value="Add card to wallet" /></td>
@@ -603,10 +597,18 @@
 
 			<div id="showcard" style="display:none;">
 				<form class="MyOtherForm" style="padding-top:40px;" method="post" action="">
-					<span style="font-size:1.4em;font-weight:bold;">Bank Card One<br /></span>
+					
 					<table style="border-spacing:15px; text-align:left;float:left;">
+						<tr>
+						<td><span style="font-size:1.4em;font-weight:bold;">Bank Card Info<br /></span></td>
+						
+						<td style="float:right;" rowspan="5"><img alt="card" width="400px" height="200px" src="images/card.png"/></td>
+						</tr>
 						<?php
                       if($card!==''){
+						     echo "<tr><td>";
+                             echo "First Name: ".$card;
+                             echo "</td></tr>";
                              echo "<tr><td>";
                              echo "First Name: ".$payfirst;
                              echo "</td></tr>";
@@ -636,8 +638,9 @@
                              echo "</td></tr>";             
                              
                     ?>
+						
 
-						<script>
+						<script type="text/javascript">
 							document.getElementById('showcard').style.display = "block";
 							document.getElementById('NoWallet').style.display = "none";
 
@@ -686,11 +689,6 @@
 
 
 
-			document.getElementById('pay_cvc').onfocus = function() {
-				if (document.getElementById('pay_cvc').type == "text") {
-					document.getElementById('pay_cvc').type = "password";
-				}
-			}
 			//----------------------------------------------------------------------------------------------
 			var pay1 = false;
 			var pay2 = false;
@@ -888,7 +886,7 @@
     if($_SESSION['cardAdded']==='true'){ 
     
     ?>
-		<script>
+		<script type="text/javascript">
 			document.getElementById('div4').style.display = "block";
 			document.getElementById('div3').style.display = "none";
 			document.getElementById('showcard').style.display = "block";
@@ -921,7 +919,7 @@
 					<?php 
                          if($first2!='' && $last2!='' && $phone!=''){
                              echo "<tr><td><span style=\"font-weight:bold;color:black; font-size:1.4em;\">";
-                             echo "Address One";
+                             echo "Shipping Address";
                              echo "</span></td></tr>";
                              echo "<tr><td>";
                              echo "First Name: ".$first2;
@@ -1359,4 +1357,5 @@ else if(isset($_POST['upload'])){
 	//--------------------------------------------------------------------
 
 </script>
-<?php include "includes/footer.php"; ?>
+</body>
+</html>
