@@ -121,7 +121,13 @@
    <div class="defaultRow">
       <div class="caption">
          <!-- Main Image goes here -->
-         <img ID="p5" src="<?php echo $product_image1?>">
+         <img ID="p5" src="<?php echo $product_image1?>" style="
+         max-width:250px; 
+         max-height:380px;
+         display: block;
+         margin-left: auto;
+         margin-right: auto;
+ "> > 
          <div class="complementary-images">
             <div class="sub-image">
                <!-- SubImages go here -->
@@ -151,7 +157,7 @@
             ?></h4>
          <form action="" method="post">
             <input name="mask_quantity" type="number" value="1" style="width:44px;" min="1">
-            <input type="submit" name="submit" class="button" value="Add items to cart" style="width: 130px">
+            <input type="submit" name="submit" class="button" value="Add items to cart" style="width: 150px !important;">
          </form>
          <h3>Product Information</h3>
          <br>
@@ -160,7 +166,7 @@
          </p>
       </div>
       <div class="rating_score" style="margin-left:250px;
-         margin-top:-200px;">
+         margin-top:00px;">
          <span class="rating_heading"><strong>Customer Rating:</strong></span>
          <div class="rev_rating">
          <?php 
@@ -275,7 +281,9 @@ if ($resultCheck > 0) {
 
 <!-- Create Reviews start here -->
 <div class="leave-review" >
-   <div class="custom-review">
+   
+   <div class="custom-review" style="margin-right:100px">
+   <!--you can adjust margin of "create review section ^^ here-->
      <form action="" method="POST">
        <h2> Write a customer review</h2>
        </br>
@@ -283,7 +291,7 @@ if ($resultCheck > 0) {
        <label for="username-part">Name:</label>
        <br>
       <input type="text" name="newUser" class="username-part" id="username-part">
-       
+      <br>
       <label for="star-1" >  Rate this product</label>
       <div class="star-rating">
          <input type="radio" name="star" value="5" id="star-1" required/>
@@ -301,7 +309,7 @@ if ($resultCheck > 0) {
       
       <h2 style="margin-top:30px;">Please leave your review below</h2>
       <br>
-      <textarea type="text" name="cus_review" placeholder="Your review " class="review-part"></textarea>
+      <textarea type="text" name="cus_review" placeholder="Your review " class="review-part" ></textarea>
           </br></br>
          <input id="submit-review" type="submit" name="submit" value="submit review">
           </form>
