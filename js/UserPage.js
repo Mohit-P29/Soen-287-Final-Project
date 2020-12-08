@@ -23,12 +23,12 @@ var addressL1 = document.getElementById("Address");
 var addressL2 = document.getElementById("AddressLine2");
 var phone = document.getElementById("Phone");
 var editprofile = document.getElementById("EditP");
-var phonevalid = false;
+var phonevalid = true;
 var ediprofiediv = document.getElementById("Ediv");
 var showNow = document.getElementById("ShopNow");
 var checkDefault = document.getElementById("default");
-var lastnamevalid = false;
-var firstnamevalid = false;
+var lastnamevalid = true;
+var firstnamevalid = true;
 
 
 
@@ -111,7 +111,7 @@ function createNewAddress() {
         lastname.value="";
         phone.value="";
     }*/
-	if (lastnamevalid & firstnamevalid & phonevalid) {
+	if (true) {
 		alert("Successfully Add Address!");
 		document.getElementById('div7').style.display = "none";
 		document.getElementById("AddressForm").onsubmit = function () {
@@ -124,7 +124,9 @@ function createNewAddress() {
 			return false;
 		}
 
-	} else {
+	}
+	/* 
+	else {
 		alert("Phone number is invalid!");
 
 		document.getElementById("AddressForm").onsubmit = function () {
@@ -134,6 +136,7 @@ function createNewAddress() {
 		lastname.value = "";
 		phone.value = "";
 	}
+	*/
 
 
 }
@@ -170,19 +173,12 @@ firstname.onkeyup = function () {
 }
 
 phone.onkeyup = function () {
-    if (phone.value.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g)) {
-        phonevalid = true;
-        phone.style.boxShadow = "";
-    } else {
-        phone.style.boxShadow = "0 0 5px red";
-        phonevalid = false;
-    }
 	if (phone.value.match(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}/g)) {
 		phonevalid = true;
 		phone.style.boxShadow = "";
 	} else {
 		phone.style.boxShadow = "0 0 5px red";
-		phonevalid = false;
+		phonevalid = true;
 	}
 }
 

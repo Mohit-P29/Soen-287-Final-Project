@@ -108,8 +108,6 @@ include_once 'includes/covaid_database.php';
             }
 
         </script>
-
-
     <?php 
     include('includes/footer.php');
 
