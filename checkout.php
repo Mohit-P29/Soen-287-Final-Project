@@ -1,8 +1,13 @@
 <?php 
      session_start();
+     $page_title="Checkout";
      include("includes/address.php");
      include("includes/header.php");
      include("includes/ConnectDB.php");   
+
+  
+
+
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error());
    }

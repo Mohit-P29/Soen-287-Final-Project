@@ -1,4 +1,5 @@
 <?php 
+   $page_title="Order Placed";
 
     $month="";
     $year="";
@@ -125,8 +126,11 @@
     $qtyList=array();
     $itemsNum=0;
 
+    $idArray=array();
+
     while($row = $result->fetch_assoc()){
       
+      $idArray[]=$row['id'];
       $prod=$row["productName"];
       $qty=$row["quantity"];
       $price=$row["price"];
@@ -154,6 +158,34 @@
       VALUES('$id', '$userID','$prod', '$qty', '$price','$img','$c1','$c2','$oday','$omonth','$oyear','$day','$month','$year')";
       mysqli_query($conn, $sql);
     }
+
+    //reduce quantity function
+    /*
+    for($q=0;$q<$itemsNum;$q++){
+      $current=$idArray[$q];
+       $sql="SELECT * FROM products WHERE id='$current'";
+       $retval=mysqli_query($conn, $sql);
+
+      if($current==61){
+        continue;
+      }
+
+       if(!$retval ) {
+          continue;
+        }
+
+       while ($row = mysqli_fetch_assoc($retval)){
+             $currentQty=$row['inventory'];
+        }
+
+      $currentQty--;
+
+      $sql = "UPDATE products SET inventory='$currentQty' WHERE user_id='$current'";
+      mysqli_query($conn, $sql);
+    }*/
+   
+
+
 
     $sql="SELECT * FROM cart";
     $result = $conn->query($sql);

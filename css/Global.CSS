@@ -360,12 +360,24 @@
     cursor: pointer;
 }
 
-
-
 #inputNum{
     padding:5px;
 }
 
 #visa{
     width:30px;
+}
+
+#orderReview a, #cart-checkout a{
+    color:blue;
+    text-decoration: none;
+}
+
+#orderReview a:hover,#cart-checkout a:hover{
+    text-decoration: underline;
+}
+
+#arrival p{
+    color:green;
+    font-size:20px;
 }
