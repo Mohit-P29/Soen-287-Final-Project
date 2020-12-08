@@ -7,7 +7,32 @@ $image = $_POST['images'];
 $product_id=4;
 $product_Qty=1;
 $product_name="Custom Mask";
-$product_price=20;
+
+
+$sql = "SELECT * FROM products";
+$retval = mysqli_query( $conn,$sql);
+if(! $retval ) {
+   die('Could not get data: ' . mysqli_error());
+}
+ $result=mysqli_num_rows($retval);
+
+     if($result>0){       
+       while ( $row = mysqli_fetch_assoc($retval)){
+           if($row["id"]==61){
+                $special=$row['specialPrice'];
+                $product_price=$row['price'];
+            break;
+           }
+     }
+   }
+
+
+
+if($special!=null||$special==15){
+    $product_price=$special;
+}
+
+
 
 //Insert product into products table to get ID
 $sql = "INSERT INTO products (name, price) 
