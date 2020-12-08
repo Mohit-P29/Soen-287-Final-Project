@@ -253,6 +253,7 @@ function newTotalCost(){
     //Calculates donation
     var dono=document.getElementById("donoAmount").value;
     dono=parseFloat(dono);
+    document.getElementById("donoV").value=dono.toFixed(2);
     var total;
 
     if(dono>0){
@@ -306,7 +307,7 @@ function dono(){
         dono=parseFloat(dono);
         document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
-        document.getElementById("dono").value=dono.toFixed(2);
+        document.getElementById("donoV").value=dono.toFixed(2);
         localStorage.setItem("dono",dono);
         newTotalCost();
     }
@@ -330,7 +331,7 @@ function load_P_and_D(){
         document.getElementById("thankyouDono").innerHTML="Thank you for your $"+dono.toFixed(2)+" donation";
         document.getElementById("dono").innerHTML="$"+dono.toFixed(2);
         document.getElementById("donoAmount").value=dono;
-        document.getElementById("donoV").value=dono;
+        document.getElementById("donoV").value=dono.toFixed(2);
     }
 
     if(localStorage.getItem("shipping")=="regular"){

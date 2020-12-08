@@ -36,7 +36,8 @@
    if(! $retval ) {
       die('Could not get data: ' . mysqli_error());
    }
-   $_SESSION['user_id']=(isset($_SESSION['user_id']))?$_SESSION['user_id']:'No Email Shown';
+
+
     $result=mysqli_num_rows($retval);
     $last='';
     $first="";
@@ -110,18 +111,16 @@
     }
 
 
-    //$tester=(isset($_SESSION['user_id']))?true:false;
-    
-    //if user does not have an account
-    /*if(!$tester){
-        header("Location: errorLogin.php");
-    }*/
-
-    //add payment info checker after Jia Wei gets it done.
-    if($a1==""||$paymentCard==""){
-       // echo $_SESSION["login"];
-       header("Location: errorLogin.php");
+    if(isset($_SESSION['login']) && $_SESSION['login']==='true'){
+        if($a1==""||$paymentCard==""){
+            header("Location: errorInfo.php"); 
+         }
     }
+    else{
+        header("Location: errorLogin.php");
+        exit();
+    }
+  
     
 ?>
  

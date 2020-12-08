@@ -160,7 +160,7 @@
     }
 
     //reduce quantity function
-    
+    /*
     for($q=0;$q<$itemsNum;$q++){
       $current=$idArray[$q];
 
@@ -182,7 +182,7 @@
         mysqli_query($conn, $sql);
       }
     }
-   
+   */
 
 
 
@@ -301,8 +301,11 @@ if (!$mail->send()) {
     
     <section id="orderInfo">
     <h2>Your Order has been placed!</h2>
+    </br>
     <p>A confirmation email has been sent to you</p>
+    </br>
     <h3>Thank you for shopping with us!</h3>
+    </br>
     <form action="index.php">
         <input type="submit" value="Continue Shopping"/>
     </form>
