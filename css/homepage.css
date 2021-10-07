@@ -1,0 +1,579 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+body { 
+    font-family: "Montserrat", sans-serif;   
+}
+ 
+main { 
+    width: 90vw;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: calc(60vw - 154px - 58.4px);
+}
+
+
+/*-------------- Header ------------------*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: black;
+    height: 100px;
+}
+
+.logo {
+    cursor: pointer;
+    margin-left: -80px;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+}
+
+.nav__links li {
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: color 0.9s ease 0s;
+}
+
+.nav__links li:hover {
+    background-color: white;
+    border-radius: 15px;
+}
+
+.nav__links li a:hover {
+    color: black;
+}
+
+.cta {
+    padding: 9px 25px;
+    cursor: pointer;
+    margin-left: -400px;
+}
+
+/*------------------ Mobile Nav -------------------------*/
+
+.menu {
+    display: none;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: width 0.5s ease 0s;
+}
+
+.overlay--active {
+    width: 100%;
+}
+
+.overlay__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: color 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #0088a9;
+}
+.overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: white;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px;
+    }
+    .overlay .close {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .nav__links,
+    .cta {
+        display: none;
+    }
+    .menu {
+        display: initial;
+    }
+}
+
+/*--------------Discount Code--------------*/
+
+.discount_container {
+    background-color: black;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+}
+
+.discount_text {
+    color: white;
+    cursor: pointer;
+}
+
+.discount_text:hover {
+    font-weight: 900;
+}
+
+#discount_popup {
+    position: absolute;
+    background-color: white;
+    height: 400px;
+    width: 800px;
+    top: 25%;
+    left: 25%;
+    z-index:1000;
+    border-style: solid;
+    border-color: black;
+    border-radius: 20px;
+    box-shadow: 0 0 20px;
+    display: none;
+}
+
+#discount_popup_close {   
+    position: absolute;
+    left: 95%;
+    top: 5px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.discount_insidetext {
+    padding: 10px; 
+    position: relative;
+    top: 30px;
+}
+
+
+/*-------------- Slideshow ---------------*/
+
+.slideshow_container {
+    position: relative;
+    margin-top: -11px;
+    margin-left: -89px;
+    margin-right: -88px;
+}
+
+.mySlides {
+    display:none;
+}
+
+.fade  {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade  {
+    from {opacity: .4}
+     to {opacity: 1}
+}
+
+.slidetext {
+    position: absolute;
+    top: 400px;
+    right: 200px;
+}
+
+.slidetext1 {
+    position: absolute;
+    top: 400px;
+    left: 400px;
+}
+
+.slidebutton {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 0px 5px;
+    font-size: 20px;
+}
+
+/*------------Top Sellers-------------*/
+
+.topsellers_stars {  
+     width: 10px;
+    margin-left: 0px;
+}
+ 
+.topsellers_heading0 {
+    text-align: center;
+}
+
+.topsellers_heading {
+    font-size: 13px;
+}
+
+.topsellers_container {
+    position: absolute;
+    left: 2%;
+    width: 96%;
+    height: 300px;
+    background-color: white;
+    display: inline-flex;
+    justify-content: space-between;
+    /* border-style: solid;
+    border-width: 2px;      
+    border-radius: 20px;
+    border-color: black; */
+}
+
+.topsellers_product { 
+    position: relative;
+    width: 190px;
+    height: 300px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: black;
+    transition: transform 0.6s;
+    box-shadow: 0 0 10px;
+    padding: 5px;
+}
+
+.topsellers_product:hover {
+ transform: translateY(10px);
+  /*transform: scale(1.2); */
+}
+
+.topsellers_pictures {
+    position: relative;
+    left: 20px;
+    top: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+}
+
+.topsellers_pictures2 {
+    position: absolute;
+    top: 5px;
+    left: 155px;
+    height: 25px;
+    width: 25px;
+    border-radius: 20px;
+}
+
+.topsellers_text {
+    position: relative;
+    top: 10px;
+    font-size: 13px;
+    padding: 5px;
+}
+
+/*------------Video Donation------------*/
+
+.donation_container {
+    position: relative;
+    border-style: solid;
+    border-width: 2px;      
+    border-radius: 20px;
+    border-color: black; 
+    box-shadow: 0 0 10px;
+    margin-top: 400px;
+    height: 400px;
+}
+
+.donation_pic {
+    position: absolute;
+    width: 700px;
+    height: 350px;
+    margin-left: 30px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.donation_text1 {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 750px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.donation_text2 {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 750px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.donation_text3 {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 750px;
+}
+
+.donation_buttons {
+    position: absolute;
+    margin-left: 750px;
+    margin-top: 269px;
+}
+
+input[type=text] {
+    padding: 10px 25px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+input[type=submit] {
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px 25px;
+}
+
+input[type=email] {
+    padding: 10px 25px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.donationpage_title {
+    position: relative;
+    left: 500px;
+    top: -10px;
+    width: 700px;
+    color: red;
+}
+
+.donationpage_titletext {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.donationpage_fieldset {
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: red;
+    background-color: whitesmoke;
+    padding: 10px;
+    width: 600px;
+    left: 500px;
+    position: relative;
+    right: 0px;
+}
+
+.donationpage_pic {
+    position: absolute; 
+    top: 100px;
+    margin-left: -89px;
+}
+
+.donationpage_picquality {
+   filter:brightness(40%);
+}
+
+.donationpage_expdate {
+    width: 75px;
+}
+
+.donationpage_cvc {
+    width: 84px;
+}
+
+.donationpage_goback {
+    font-size: 40px;
+}
+
+.donationpage_pictext {
+    position: absolute;
+    top: 10%;
+    color: white;
+    margin-left: 10px;
+}
+
+.donationpage_pictext1 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.donationpage_pictext2 {
+    font-size: 18px;
+}
+
+.donationcomplete_container {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    left: 500px;
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+.donationcomplete_header {
+    position: relative;
+    left: 10%
+}
+
+.donationcomplete_check { 
+    position: relative;
+    top: 40px;
+    left: 190px;
+    font-size: 70px;
+}
+    
+
+/*-------------Footer---------------*/
+
+footer {
+   
+    background-color: black;
+    color: white;
+    padding: 20px;
+    
+} 
+
+.foot {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+}
+
+.about {
+    text-align: center;
+    width: 300px;
+}
+
+.custService {
+    text-align: center;
+    width: 300px;
+}
+
+.foot li {
+    margin-top: 10px;
+    color: white;
+}
+
+.foot li a {
+    color:white;
+    text-decoration: none;
+}
+
+.social {
+    width: 300px;
+}
+
+.emailpromos {
+    width: 300px;
+    margin-right:
+}
+
+.footers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footers ul li a {
+    transition: color 0.9s ease 0s;
+}
+
+.footers ul li a:hover {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.footer_socials {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+}
+
+.footer_logo_position {
+    position: relative;
+    left: 80%;
+}
+
+/*---------------- About Us----------------*/
+
+.AboutUs_header {
+    position: relative;
+    width: 530px;
+    font-size: 40px;
+    left: 30%;
+} 
+
+.AboutUs_statement { 
+    position: relative;  
+    width: 500px;
+    height: 500px;
+     border-style: solid; 
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+    padding: 20px;
+    left: 30%;
+    top: 30px;
+    background-color: whitesmoke;
+    
+}
+
+.ContactUs_emailus {
+    position: relative;
+    width: 120px;
+    height: 50px;
+    background-color: red;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: black;
+    padding: 6px;
+    left: 35%;
+    top: -5px;
+}

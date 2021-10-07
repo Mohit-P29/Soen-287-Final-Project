@@ -1,0 +1,171 @@
+
+.whole_container{
+    display: flex; 
+}
+
+/* -------------Button Table & Button ---------------*/
+
+.options_container{   
+    padding: 10px;
+    position: relative;
+    right: -100px;
+    height: 600px;
+    width: 500px;
+    background-color: white;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+}
+
+/* -------------Mask---------------*/
+      
+.DIYmask_container{
+    
+    position: relative;
+    height: 650px;
+    top: 10px;  
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+    width: 50%; 
+}
+
+.DIY_mask_product_description {
+    padding: 10px;
+    position: relative;
+    margin-top: 30px;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.DIY_mask_product_descriptiontext {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.DIY_mask_product_description_text1 {
+    font-size: 15px;
+}
+
+.DIY_mask_review_stars {
+    
+}
+
+
+.over_mask_diy{
+	
+	position: absolute;
+	left: 150px;
+	top: 180px;
+	width: 300px;
+	height: 300px;
+}
+ 
+.svg_diy{
+	
+	
+	
+}
+
+/* -------------Picture---------------*/
+
+.picture_container {
+  width: 110px;
+  height: 110px;
+ /* border: 5px dashed black; */
+  margin-left: 125px;
+  margin-top: 30px;
+}
+
+
+
+/* -------------Table ---------------*/
+
+.table_container{
+    margin: 0 auto;
+    width: 200px; /* Can be in percentage also. */
+    height: 200px;
+    align-items: center;
+}
+
+/*-----------------Submit-Button-CSS----------------*/
+
+.btn{
+	color:#fff;
+	background-color:cadetblue;
+	outline: none;
+    border: 0;
+    color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-top:40px;
+    margin-bottom: 40px;
+    margin-left: 155px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+}
+
+/*-----------------selection_box----------------*/
+
+.primary-select {
+  position: relative;
+  font-family: Arial;
+  width: 120px;
+  height: 60px;
+  font-size: 20px;
+padding-left: 20px;
+}
+
+.image-select {
+  position: relative;
+  font-family: Arial;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+}
+
+.label_cp{
+    font-size: 20px;
+    background-color: cadetblue;
+    border-radius: 25px;
+    padding: 10px; 
+    margin: left;
+    
+    
+}
+
+
+.label_op{
+    font-size: 20px;
+    background-color: cadetblue;
+    border-radius: 25px;
+    padding: 10px; 
+    margin: left;
+    
+    
+}
+
+.label_i{
+    font-size: 20px;
+    background-color: cadetblue;
+    border-radius: 25px;
+    padding: 10px; 
+    margin: left;
+    
+    
+}
+ /*---------------------masks display table ---------------------------*/
+.masks_table_header{
+	
+	font-family:fantasy;
+	border-color: red;
+	
+}
+
+
+

@@ -1,0 +1,642 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    overflow: scroll;
+}
+
+.div0 {
+    margin-left: 120px;
+    margin-top: 200px;
+    width: 300px;;
+    float: left;
+    position: relative;
+    direction: ltr;
+
+}
+
+.div1 {
+     position: relative;
+    border: thin solid gray;
+    position: relative;
+
+}
+
+.div1_table {
+      position: relative;
+    border-spacing: 20px;
+    margin-left: 30px;
+}
+
+.EditP {
+    font-size: 30px;
+    float: right;
+    position: relative;
+}
+
+.EditP:after {
+    content: "\2807";
+    cursor: pointer;
+}
+
+.EditDiv {
+    display: none;
+    position: relative;
+    margin-top: 25px;
+    margin-left: 240px;
+    z-index=1;
+    width: 180px;
+    height: 50px;
+    border: thin solid lightgray;
+    background-color: lavender;
+    padding: 5px;
+
+}
+
+.EditDiv-content {
+    display: inline-block;
+     position: relative;
+    font-size: 0.5em;
+    color: black;
+}
+
+.EdivDiv-content:hover {
+    cursor: pointer;
+}
+
+.ProP {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    border: thin solid lightgray;
+    position: relative;
+    left: 20px;
+}
+
+.ProName {}
+
+.ProNameInput {
+    border: 0 none;
+    width: 180px;
+    height: 30px;
+    text-align: center;
+    font-size: 1.1em;
+    pointer-events: none;
+}
+
+.ProNameInput2 {
+    border: 0 none;
+    width: 180px;
+    height: 30px;
+    text-align: center;
+    font-size: 1.1em;
+    border-bottom: 2px solid black;
+    outline: 0;
+}
+
+.div2 {
+    position: relative;
+    margin-top: 25px;
+    border: thin solid gray;
+
+}
+
+.div2_table {
+     position: relative;
+    border-spacing: 20px;
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.list {
+    font-size=1.2em;
+    color: dimgray;
+    font-weight: 900;
+    
+}
+
+.list:hover {
+    cursor: pointer;
+}
+
+.div3 {
+
+    display: block;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 120px;
+    width: 50%;
+    height: 700px;
+    float: right;
+}
+
+.listTitle {
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+}
+
+.MyAccountForm {
+    border-top: thin solid black;
+    font-size: 1.2em;
+    padding-top: 50px;
+}
+
+.MyOtherForm {
+    border-top: thin solid black;
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 150px;
+}
+
+.MyAccountTable {
+    border-spacing: 40px;
+}
+
+.UserEmail {
+    color: black;
+    font-size: 1em;
+}
+
+
+.UpdateAccount {
+    font-family: "Times New Roman", Times, serif;
+    display: inline-block;
+    width: 260px;
+    height: 43px;
+    padding-top: 4px;
+    text-align: center;
+    background-color: dodgerblue;
+    border: thin solid dodgerblue;
+    color: white;
+    font-size: 1.2em;
+}
+
+.UpdateAccount:hover {
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+.AddSecondInfo:after {
+    display: none;
+    content: "\002B";
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+    float: right;
+}
+
+.AddSecondInfo:hover {
+    cursor: pointer;
+}
+
+
+
+
+.div4 {
+    display: none;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 120px;
+    width: 50%;
+    height: 700px;
+    margin-bottom: 400px;
+    float: right;
+}
+
+.div5 {
+  
+    display: none;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 120px;
+    width: 50%;
+    height: 700px;
+    float: right;
+}
+
+.div6 {
+    
+   display: none;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 120px;
+    width: 50%;
+    height: 700px;
+    float: right;
+}
+.div8 {
+    
+   display: none;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 120px;
+    width: 50%;
+    height: 700px;
+    float: right;
+}
+
+.div7 {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 60px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: black;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.div7-content {
+    background-color: white;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 40%;
+    height: 600px;
+    overflow: auto;
+}
+
+.DivForUpdate {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 60px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: black;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.DivForUpdate-content {
+    background-color: white;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 40%;
+    height: 300px;
+    overflow: auto;
+}
+
+.close {
+    color: grey;
+    float: right;
+    font-size: 20px;
+    font-weight: thin;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.AddressFormTitle {
+    position: relative;
+    font-size: 1.8em;
+    margin-left: 15px;
+}
+
+.AddressForm {
+    border-top: thin solid black;
+    border-bottom: thin solid lightgray;
+    font-size: 1.1em;
+    padding-top: 15px;
+    overflow: auto;
+}
+
+.AddressFormTable {
+    border-spacing: 15px;
+}
+
+.Inputfield {
+    width: 240px;
+    height: 30px;
+    border: thin solid lightgray;
+    background-color: white;
+    color: black;
+
+}
+
+.Inputfield:focus {
+    box-shadow: 0 0 3px dodgerblue;
+    border-color: dodgerblue;
+    outline: 0;
+}
+
+.Inputfield2 {
+    width: 500px;
+    height: 30px;
+    border: thin solid lightgray;
+}
+
+.Inputfield2:focus {
+    box-shadow: 0 0 3px dodgerblue;
+    outline: 0;
+    border-color: dodgerblue;
+}
+
+.Select {
+    width: 220px;
+    height: 30px;
+}
+
+.Select:hover {
+    background-color: skyblue;
+
+}
+
+.Select:focus {
+    background-color: white;
+}
+
+.button_addA {
+    margin-left: 20px;
+    display: inline-block;
+    width: 260px;
+    height: 35px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: dodgerblue;
+    color: white;
+    font-size: 1.2em
+}
+
+.button_addA:hover {
+    cursor: pointer;
+}
+
+.AddressFormCancel {
+    text-decoration: underline;
+    font-size: 1.1em;
+    color: black;
+    margin-left: 10px;
+}
+
+.AddressFormCancel:hover {
+    cursor: pointer;
+}
+
+.ExtraPhone {
+    display: none;
+}
+
+.ExtraEmail {
+    display: none;
+}
+
+.AddSecondPhone:after {
+    display: none;
+    position: relative;
+    content: "\002B";
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+    text-align: center;
+}
+
+.AddSecondEmail:after {
+    display: none;
+    position: relative;
+    content: "\002B";
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+    text-align: center;
+    color: gr
+}
+
+.remove {
+    content: "\2716";
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+    text-align: center;
+    position: relative;
+}
+
+.plus {
+    float: right;
+}
+
+.plus:after {
+    position: relative;
+    content: "\002B";
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+}
+
+.plus:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.minus {
+    float: right;
+
+}
+
+.minus:after {
+    position: relative;
+    content: "\2715";
+    font-size: 16px;
+    font-weight: bold;
+    color: dimgray;
+}
+
+.minus:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.ConfirmSpan {
+    display: none;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+.ConfirmSpan:hover {
+    cursor: pointer;
+}
+
+.CancelSpan {
+    display: none;
+
+    color: darkslategray;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+
+}
+
+.CancelSpan:hover {
+    cursor: pointer;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+   
+}
+
+.popup:after {
+    content: "  \0021";
+     font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+    cursor: pointer;
+}
+
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}

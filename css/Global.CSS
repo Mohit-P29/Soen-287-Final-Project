@@ -1,98 +1,3 @@
-body
-{
-    font-family: 'Playfair Display', serif;
-    max-width:1500px;
-    margin:0 auto;
-}
-
-nav
-{
-    overflow:hidden;
-    width:700px;
-    margin:auto;
-    margin-top: 20px;
-}
-
-header
-{
-    margin-top: 35px;
-    background-color: white;
-    position:absolute;
-    height: 100px;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    box-shadow: 5px 10px 20px #888888;
-}
-
-.logo
-{
-    margin-top: 10px;
-    float: left;
-    margin-left:50px;
-    width:150px;
-    object-fit:contain;
-}
-
-.logo img {
-    width:150px;
-}
-
-ul
-{
-    padding: 0px;
-    list-style-type: none;
-    overflow:hidden;
-
-}
-
-ul li
-{
-    float:left;
-    width: 20%;
-    height: 40px;
-    font-size: 20px;
-    text-align: center;
-    line-height: 40px;
-}
-
-ul li a
-{
-    text-decoration: none;
-    color:black;
-    display: block;
-    font-weight: 700;
-    font-size: 17px;
-}
-
-ul li a:hover
-{
-    background-color: none;
-    text-decoration: underline;
-}
-
-ul li ul li
-{
-    display: none;
-}
-
-ul li:hover ul li
-{
-    display: block;
-}
-
-.symbols
-{
-    float: right;
-    margin-top:30px;
-    margin-right:50px;
-}
-
-.symbols a
-{
-    margin-right: 10px;
-}
-
 .shipping
 {
     background-color: lightgrey;
@@ -112,115 +17,13 @@ ul li:hover ul li
     cursor: pointer;
 }
 
-.slideshow_container
-{
-    position: relative;
-    height: 450px;
-    width: 1000px;
-    margin-top: 325px;
-    margin-left: 225px;
-}
-
-.mySlides
-{
-    display: none;
-}
-
-.prev, .next
-{
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: 700;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-.next
-{
-    right:0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover
-{
-    background-color: grey;
-    opacity: 0.7;
-}
-
-.text 
-{
-  color: red;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-
-.numbertext 
-{
-  color: red;
-  font-size: 12px;
-  padding: 8px 12px;
-  position:absolute;
-  top: 0;
-}
-
-.fade 
-{
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade 
-{
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade 
-{
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-.size
-{
-    width: 100%;
-    height: 450px;
-}
-
-.myButton
-{
-    position: absolute;
-    right: 100px;
-    top: 250px;
-}
-
-.slideshow1
-{
-    position: absolute;
-    color: black;
-    top: 80px;
-    left: 100px;
-    width: 400px;
-    font-size: 40px;
-}
-
 #cart {
-    margin-top:150px;
-    margin-left:50px;
+    margin:0 auto;
+    margin-top:100px;
+    margin-bottom:50px;
+    overflow:hidden;
+    width:80%;
+    min-height:500px;
 }
 
 #fbt h2{
@@ -242,6 +45,12 @@ ul li:hover ul li
     border:2px solid black;
     margin-top:150px;
     overflow:hidden;
+    padding-top:20px;
+    margin-bottom:30px;
+}
+
+#orderReview div{
+    margin-bottom:15px;
 }
 
 #shipAddress{
@@ -260,13 +69,15 @@ ul li:hover ul li
     float:left;
 }
 
+
 /***ADDED CSS BY SAM***/
 
-#yourItems {
+#cart-checkout {
     width:70%;
     margin:auto;
     border:2px solid black;
     overflow:hidden;
+    padding:20px;
 }
 
 #donationANDreceipt{
@@ -290,6 +101,15 @@ ul li:hover ul li
     border:2px solid black;
     overflow:hidden;
     padding:10px;
+    margin-bottom:50px;
+}
+
+#receipt p{
+    margin-bottom:10px;
+}
+
+#receipt div{
+    overflow:hidden;
 }
 
 .item{
@@ -332,6 +152,7 @@ ul li:hover ul li
     justify-content: space-around;
     margin: 0 auto;
     margin-top: 50px;
+    overflow:hidden;
 }
 
 .container-products ion-icon {
@@ -458,4 +279,105 @@ ul li:hover ul li
     margin:0 auto;
     margin-top:200px;
     text-align:center;
+}
+
+#addedCode{
+    overflow:hidden;
+}
+
+.deletePromo{
+    color:black;
+    font-weight:bold;
+}
+
+.deletePromo:hover{
+    color:red;
+    cursor: pointer;
+}
+
+#redCrossLogo{
+    width:200px;
+    float:left;
+}
+
+#donoNow{
+    float:left;
+    width:200px;
+    overflow:hidden;
+    margin-top:50px;
+    padding:20px;
+}
+
+#thankyouDono{
+    clear:both;
+    text-align:center;
+
+}
+
+#changeQty{
+    display:none;
+    border:2px solid red;
+    margin-top:20px;
+    padding:20px;
+    text-align:center;
+    overflow:hidden;
+    margin:0 auto;
+    width:500px;
+    overflow:hidden;
+}
+
+#closeMenu{
+    display:none;
+}
+
+#changeQty h2, #changeQty p, #changeQty input{
+    clear:both;
+}
+
+#changeQty-btn, #closeMenu{
+    float:left;
+}
+
+#cart button, #deleteBtn, #checkoutBtn{
+    padding:10px;
+    border:2px solid black;
+    background:lightgrey;
+    margin-top:10px;
+    border-radius:0;
+    margin-right:10px;
+}
+
+
+#cart button:hover, #deleteBtn:hover, #checkoutBtn:hover, #changeQtyBtn:hover{
+    background:black;
+    color:white;
+    cursor: pointer;
+}
+
+#orderBtn:hover, #addDonoBtn:hover, #codeBtn:hover{
+    background:black;
+    color:white;
+    cursor: pointer;
+}
+
+#inputNum{
+    padding:5px;
+}
+
+#visa{
+    width:30px;
+}
+
+#orderReview a, #cart-checkout a{
+    color:blue;
+    text-decoration: none;
+}
+
+#orderReview a:hover,#cart-checkout a:hover{
+    text-decoration: underline;
+}
+
+#arrival p{
+    color:green;
+    font-size:20px;
 }

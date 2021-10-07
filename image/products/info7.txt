@@ -1,0 +1,14 @@
+Name:Disposable Overall
+
+
+price: 18.99$
+
+
+The Lioncare® disposable overall is suitable for all areas where extensive protective clothing is required,
+ such as in decontamination or when handling hazardous chemicals, particular matter or infectious agents.
+
+
+description: The protective overall is equipped with tight fitting elastic cuffs on the arms and legs, a hood with elastic
+ band and spray-resistant seams. With a density of 55g/m2, the material offers reliable protection against liquid
+ chemicals, infectious agents and electrostatic discharge.
+

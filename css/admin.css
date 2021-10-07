@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: 'mabry-regular', arial, Sans-Serif;
+    font-family: "Montserrat", Sans-Serif;
     font-size: 1rem;
     margin: 0;
     padding: 0 0 0 var(--nav-width);
@@ -90,7 +90,7 @@ a {
 .company-name {
     color: rgb(233, 233, 233);
     font-weight: 800;
-    font-family: 'mabry-regular', arial, Sans-Serif;
+    font-family: "Montserrat", Sans-Serif;
     font-size: 1.6rem;
     position: relative;
     top: 2px
@@ -167,7 +167,7 @@ a {
 
 .sublist {
     display: none;
-    padding-left: 3.25rem;
+    padding-left: 1rem;
 }
 
 .sublink {
@@ -201,7 +201,7 @@ a {
     box-shadow: 0 0 10px rgb(192, 192, 192);
     font-size: x-large;
     font-weight: 900;
-    font-family: 'mabry-regular', arial, Sans-Serif;
+    font-family: "Montserrat", Sans-Serif;
 }
 
 .header-icon {
@@ -210,7 +210,7 @@ a {
 }
 
 .header-name {
-    font-family: 'mabry-regular', arial, Sans-Serif;
+    font-family: "Montserrat", Sans-Serif;
     position: relative;
     top: 0.5rem;
 }
@@ -254,6 +254,8 @@ a {
     */
 }
 
+
+
 .layout1 {
     grid-template-areas: "quarter1 quarter2 quarter3 quarter4" "full full full full";
 }
@@ -280,7 +282,7 @@ a {
 
 .quarter-page1 span {
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
 }
 
@@ -291,7 +293,7 @@ a {
 
 .quarter-page2 span {
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
 }
 
@@ -302,7 +304,7 @@ a {
 
 .quarter-page3 span {
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
 }
 
@@ -312,11 +314,17 @@ a {
     text-align: center;
 }
 
-.quarter-page4 a {
+.quarter-page4 button {
     position: relative;
-    top: 15%;
     text-align: center;
     color: white;
+    font-size: 1.3em;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
 
 .quarter-page4 ion-icon {
@@ -333,12 +341,39 @@ a {
     background-color: white;
     grid-area: half1;
     text-align: left;
+    font-size: medium;
 }
 
 .half-page2 {
     background-color: white;
     grid-area: half2;
     text-align: center;
+}
+
+.half-page2 img {
+    width: 30em;
+    height: 15em;
+    object-fit: contain;
+}
+
+/*Reply table*/
+.wrapper {
+    overflow-y: auto;
+    height: 90%;
+    padding: 2em 2em 2em 2em;
+
+}
+
+.wrapper .replycss{
+    background-color: white;
+    padding: 2em 2em 2em 4em;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    font-size: large;
+    border-radius: 3em;
+    border: 0.5em solid rgba(126,7,7,1);
+
 }
 
 
@@ -388,6 +423,13 @@ a {
     width: auto;
     padding: 0.5em 0 0.5em 0.5em;
     overflow: hidden;
+}
+
+.table-sortable td a {
+    color: rgb(7, 96, 126);
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: larger;
 }
 
 .product-table thead tr {
@@ -464,16 +506,32 @@ a {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background: #fff;
-    width: 40%;
-    height: 60%;
+    width: 45em;
+    height: 35em;
     z-index: 2;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Montserrat", Sans-Serif;
 }
 
 .popup #close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popup #close-btn2 {
     cursor: pointer;
     position: absolute;
     right: 20px;
@@ -508,9 +566,23 @@ a {
     border-color: transparent;
     box-shadow: 0 0 5px rgb(37, 37, 37);
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 1.2em;
     position: relative;
     top: 0.5em;
+}
+
+.edit_product {
+    color: white;
+    text-align: center;
+    background-color: rgba(126, 7, 7, 1);
+    border-radius: 5px;
+    width: 5em;
+    height: 2em;
+    border-color: transparent;
+    box-shadow: 0 0 5px rgb(37, 37, 37);
+    cursor: pointer;
+    font-size: 1em;
+    position: relative;
 }
 
 
@@ -538,7 +610,7 @@ a {
 
 /*What happens when the screen is half the size*/
 
-@media only screen and (max-width:650px) {
+@media only screen and (max-width:800px) {
     .wrapper-grid {
         overflow-y: auto;
         /*Defines width and number of rows and columns*/
@@ -550,6 +622,6 @@ a {
         grid-template-areas: "quarter1 quarter2" "quarter3 quarter4" "full full";
     }
     .layout2 {
-        grid-template-areas: "half1 half1" "half2 half2" "full full full full";
+        grid-template-areas: "half1 half1" "half2 half2" "full full";
     }
 }

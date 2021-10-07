@@ -1,0 +1,9 @@
+name: Sterillium Hand Sanitizer  (100ml)
+
+price: 2.89$
+
+description: Sterillium from Bode is the classic amongst all hand sanitizers.
+ Sterillium hand sanitizer has a very high skin tolerance, a wide spectrum of efficacy and,
+ thanks to its moisturising and hydrating ingredients, is ideal for long-term use in users with dry skin.
+ Its excellent immediate action and short activation time make
+ Sterillium the ideal choice for hygienic and surgical hand disinfection.
